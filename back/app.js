@@ -36,28 +36,28 @@ app.post("/api/projects", (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 });
 
-app.get("/api/data", (req, res, next) => {
-  const stuff = [
-    {
-      _id: "oeihfzeoi",
-      title: "Mon premier objet",
-      description: "Les infos de mon premier objet",
-      imageUrl:
-        "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
-      price: 4900,
-      userId: "qsomihvqios",
-    },
-    {
-      _id: "oeihfzeomoihi",
-      title: "Mon deuxième objet",
-      description: "Les infos de mon deuxième objet",
-      imageUrl:
-        "https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg",
-      price: 2900,
-      userId: "qsomihvqios",
-    },
-  ];
-  res.status(200).json(stuff);
+app.get("/api/projects/:id", (req, res, next) => {
+  Projects.findOne({ _id: req.params.id })
+    .then((project) => res.status(200).json(project))
+    .catch((error) => res.status(404).json({ error }));
+});
+
+app.put("/api/projects/:id", (req, res, next) => {
+  Projects.updateOne({ _id: req.params.id }, { ...req.body })
+    .then(() => res.status(200).json({ message: "projet modifié !" }))
+    .catch((error) => res.status(400).json({ error }));
+});
+
+app.delete("/api/projects/:id", (req, res, next) => {
+  Projects.deleteOne({ _id: req.params.id })
+    .then(() => res.status(200).json({ message: "projet supprimé !" }))
+    .catch((error) => res.status(400).json({ error }));
+});
+
+app.get("/api/projects", (req, res, next) => {
+  Projects.find()
+    .then((projects) => res.status(200).json(projects))
+    .catch((error) => res.status(400).json({ error }));
 });
 
 module.exports = app;

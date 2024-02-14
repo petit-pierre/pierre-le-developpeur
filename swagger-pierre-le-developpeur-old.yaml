@@ -176,7 +176,7 @@ paths:
           description: Validation exception
       security:
         - Bearer: []
-  /slider/{id}:
+  /slider/{alt}:
     delete:
       tags:
         - slider
@@ -185,11 +185,11 @@ paths:
       operationId: remove Slide
       parameters:
           - in: path
-            name: id
+            name: alt
             schema:
               type: string
             required: true
-            description: Numeric ID of the slide
+            description: Numeric ID of the user to get
       responses:
         '200':
           description: Successful operation
@@ -230,7 +230,7 @@ paths:
           description: Validation exception
       security:
         - Bearer: []
-  /projects/{id}:
+  /projects/{title}:
     delete:
       tags:
         - projects
@@ -239,44 +239,11 @@ paths:
       operationId: remove project
       parameters:
           - in: path
-            name: id
+            name: title
             schema:
               type: string
             required: true
-            description: id of the project
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Projects'
-        '400':
-          description: Invalid input
-        '422':
-          description: Validation exception
-      security:
-        - Bearer: []
-    put:
-      tags:
-        - projects
-      summary: update project
-      description: update project
-      operationId: update project
-      requestBody:
-        description: add project
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProjectBody'
-        required: true
-      parameters:
-          - in: path
-            name: id
-            schema:
-              type: string
-            required: true
-            description: id of the project
+            description: title of the project
       responses:
         '200':
           description: Successful operation
@@ -317,7 +284,7 @@ paths:
           description: Validation exception
       security:
         - Bearer: []
-  /skills/{id}:
+  /skills/{title}:
       delete:
         security:
           - Bearer: []
@@ -328,11 +295,11 @@ paths:
         operationId: remove Skill
         parameters:
           - in: path
-            name: id
+            name: title
             schema:
               type: string
             required: true
-            description: Numeric ID of the skill
+            description: Numeric ID of the user to get
         responses:
           '200':
             description: Successful operation
@@ -356,7 +323,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ToolsBody'
+              $ref: '#/components/schemas/SkillBody'
         required: true
       responses:
         '200':
@@ -371,7 +338,7 @@ paths:
           description: Validation exception
       security:
         - Bearer: []
-  /tools/{id}:
+  /tools/{title}:
       delete:
         security:
           - Bearer: []
@@ -382,11 +349,11 @@ paths:
         operationId: remove Tool
         parameters:
           - in: path
-            name: id
+            name: title
             schema:
               type: string
             required: true
-            description: Numeric ID of the tool
+            description: Numeric ID of the user to get
         responses:
           '200':
             description: Successful operation
@@ -432,7 +399,7 @@ components:
             type: array
             items: 
               properties:
-                id:
+                title:
                   type: string
           description:
             type: object
@@ -480,7 +447,7 @@ components:
             type: array
             items:
               properties:
-                id:
+                title:
                   type: string
     ProjectBody:
       type: object
@@ -500,7 +467,7 @@ components:
             type: array
             items: 
               properties:
-                id:
+                title:
                   type: string
           description:
             type: object
@@ -548,7 +515,7 @@ components:
             type: array
             items:
               properties:
-                id:
+                title:
                   type: string
     Skills:  
       type: array
@@ -559,6 +526,8 @@ components:
           alt:
             type: string
           title:
+            type: string
+          diplayTitle:
             type: object
             properties:
               french:
@@ -576,6 +545,8 @@ components:
           alt:
             type: string
           title:
+            type: string
+          diplayTitle:
             type: object
             properties:
               french:
@@ -596,16 +567,6 @@ components:
           likes:
             type: integer
             format: int64
-    ToolsBody:
-      type: array
-      items:
-        properties:
-          picture:
-            type: string
-          alt:
-            type: string
-          title:
-            type: string
     Slider:
       type: array
       items:

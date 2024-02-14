@@ -9,7 +9,7 @@ const projectsSchema = mongoose.Schema({
   date: { type: String, required: true },
   tools: [
     {
-      title: { type: String, required: true },
+      id: { type: String, required: true },
     },
   ],
   description: {
@@ -40,7 +40,7 @@ const projectsSchema = mongoose.Schema({
   },
   skills: [
     {
-      title: { type: String, required: true },
+      id: { type: String, required: true },
     },
   ],
 });
