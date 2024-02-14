@@ -21,7 +21,7 @@ tags:
     description: add likes
   - name: data
     description: all needed data
-  - name: log_in
+  - name: user
     description: Back office log in
   - name: contact
     description: modifi contact
@@ -36,10 +36,10 @@ tags:
   - name: tools
     description: modifi tools
 paths:
-  /log_in:
+  /user/log_in:
     post:
       tags:
-        - log_in
+        - user
       summary: log_in
       description: log_in
       operationId: log_in
@@ -48,7 +48,30 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Dashboard"
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Login"
+        '404':
+          description: Data not found
+  /user/sign_up:
+    post:
+      tags:
+        - user
+      summary: sign_up
+      description: sign_up
+      operationId: sign_up
+      requestBody:
+        description: sign_up
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
         required: true
       responses:
         '200':
@@ -689,7 +712,7 @@ components:
           type: string
         english:
           type: string
-    Dashboard:
+    User:
       type: object
       properties:
         username:
