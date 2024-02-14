@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Projects = require("./models/projects");
 const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://aubree-pierre:<jqdsm67hcdfsjmiU7>@cluster0.6mhsrgi.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://aubree-pierre:jqdsm67hcdfsjmiU7@cluster0.6mhsrgi.mongodb.net/?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
@@ -25,11 +26,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/log_in", (req, res, next) => {
-  console.log(req.body);
-  res.status(201).json({
-    message: "Objet créé !",
+app.post("/api/projects", (req, res, next) => {
+  const project = new Projects({
+    ...req.body,
   });
+  project
+    .save()
+    .then(() => res.status(201).json({ message: "projet enregistré !" }))
+    .catch((error) => res.status(400).json({ error }));
 });
 
 app.get("/api/data", (req, res, next) => {
