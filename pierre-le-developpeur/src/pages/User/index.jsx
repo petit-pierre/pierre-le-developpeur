@@ -4,17 +4,23 @@ import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import "./user.css";
 import { setProfilThunk, setUsernameThunk } from "../../thunkActionsCreator";
-import Account from "../../components/Account";
-import dataAccounts from "../../data/userAccounts.json";
+import { userSlice } from "../../Slices/userSlice";
 
 function User() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const user = useSelector((state) => state.user.user);
-  const firstName = useSelector((state) => state.user.firstName);
-  const lastName = useSelector((state) => state.user.lastName);
   const [edit, setEdit] = useState(false);
   const userName = useRef();
+  const signOut = () => {
+    localStorage.clear();
+    dispatch(userSlice.actions.setToken(null));
+    dispatch(userSlice.actions.setUser(null));
+    dispatch(userSlice.actions.setId(null));
+    dispatch(userSlice.actions.setEmail(null));
+    dispatch(userSlice.actions.setFirstName(null));
+    dispatch(userSlice.actions.setLastName(null));
+  };
 
   const setProfilResult = dispatch(setProfilThunk(token));
 
@@ -73,24 +79,10 @@ function User() {
               <br></br>
               <div className="edit">
                 <p className="text">First name : </p>
-                <input
-                  className="inputBox"
-                  disabled
-                  value={firstName}
-                  type="text"
-                  id="username"
-                />
               </div>
               <br></br>
               <div className="edit">
                 <p className="text">Last name : </p>
-                <input
-                  className="inputBox"
-                  disabled
-                  value={lastName}
-                  type="text"
-                  id="username"
-                />
               </div>
               <br></br>
               <button
@@ -109,9 +101,6 @@ function User() {
         )}
       </div>
       <h2 className="sr-only">Accounts</h2>
-      {dataAccounts.map((account) => (
-        <Account accountInfo={account} />
-      ))}
     </main>
   );
 }

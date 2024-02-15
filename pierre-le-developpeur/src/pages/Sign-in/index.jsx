@@ -55,12 +55,11 @@ function SignIn() {
   };
 
   return (
-    <main className="main bg-dark">
-      <section className="sign-in-content">
-        <i className="fa fa-user-circle sign-in-icon"></i>
+    <main>
+      <section>
         <h1>Sign In</h1>
         <form onSubmit={(e) => submit(e)}>
-          <div className="input-wrapper">
+          <div>
             <label htmlFor="username">E-mail</label>
             <input
               ref={name}
@@ -69,7 +68,7 @@ function SignIn() {
               onChange={formNameError}
             />
           </div>
-          <div className="input-wrapper">
+          <div>
             <label htmlFor="password">Password</label>
             <input
               ref={pass}
@@ -78,11 +77,11 @@ function SignIn() {
               onChange={formPassError}
             />
           </div>
-          <div className="input-remember">
+          <div>
             <input type="checkbox" id="remember-me" ref={remember} />
             <label htmlFor="remember-me">Remember me</label>
           </div>
-          <button className="sign-in-button">Sign In</button>
+          <button>Sign In</button>
           {error && (
             <p className="error">Invalid email format or empty password</p>
           )}
