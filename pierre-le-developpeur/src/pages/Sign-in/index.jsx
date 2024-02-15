@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setTokenThunk } from "../../thunkActionsCreator";
+import Header from "../../components/Header";
 
 function SignIn() {
   const name = useRef();
@@ -56,6 +57,7 @@ function SignIn() {
 
   return (
     <main>
+      <Header />
       <section>
         <h1>Sign In</h1>
         <form onSubmit={(e) => submit(e)}>

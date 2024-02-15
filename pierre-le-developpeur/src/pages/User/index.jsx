@@ -5,13 +5,30 @@ import { useDispatch } from "react-redux";
 import "./user.css";
 import { setProfilThunk, setUsernameThunk } from "../../thunkActionsCreator";
 import { userSlice } from "../../Slices/userSlice";
+import Header from "../../components/Header";
 
 function User() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
-  const user = useSelector((state) => state.user.user);
   const [edit, setEdit] = useState(false);
-  const userName = useRef();
+  const frenchProjectTitle = useRef();
+  const englishProjectTitle = useRef();
+  const category = useRef();
+  const date = useRef();
+  const projectTools = useRef();
+  const frenchDescription = useRef();
+  const englishDescription = useRef();
+  const linkTitle = useRef();
+  const linkUrl = useRef();
+  const linkPicture = useRef();
+  const linkAlt = useRef();
+  const sliderPicture = useRef();
+  const sliderAlt = useRef();
+  const frenchSliderContent = useRef();
+  const englishSliderContent = useRef();
+  const frenchResum = useRef();
+  const englishResum = useRef();
+  const projectSkills = useRef();
   const signOut = () => {
     localStorage.clear();
     dispatch(userSlice.actions.setToken(null));
@@ -44,63 +61,110 @@ function User() {
   }
 
   return (
-    <main className="main bg-dark">
-      <div className="header">
+    <main>
+      <Header />
+      <h1>Dashboard</h1>
+      <div>
         {edit === true ? (
           <p></p>
         ) : (
           <div>
-            <h1>
-              Welcome back
-              <br />
-              {user} !
-            </h1>
             <button className="edit-button" onClick={userChange}>
-              Edit Name
+              Post new project
             </button>
-            <br></br>
-            <br></br>
           </div>
         )}
 
         {edit === true ? (
           <div>
             <form>
-              <h1>Edit user info</h1>
-              <div className="edit">
-                <p className="text">User name : </p>
-                <input
-                  className="inputBox"
-                  ref={userName}
-                  type="text"
-                  id="username"
-                />
+              <h1>Post new project</h1>
+              <div>
+                <p>title in french : </p>
+                <input ref={frenchProjectTitle} type="text" />
               </div>
-              <br></br>
-              <div className="edit">
-                <p className="text">First name : </p>
+              <div>
+                <p>title in english : </p>
+                <input ref={englishProjectTitle} type="text" />
               </div>
-              <br></br>
-              <div className="edit">
-                <p className="text">Last name : </p>
+              <div>
+                <p>category : </p>
+                <input ref={category} type="radio" />
               </div>
-              <br></br>
-              <button
-                className="edit-button nameButton"
-                onClick={(evt) => saveName(evt)}
-              >
-                Save
-              </button>
-              <button className="edit-button nameButton" onClick={userChange}>
-                Cancel
-              </button>
+              <div>
+                <p>date : </p>
+                <input ref={date} type="date" />
+              </div>
+              <div>
+                <p>tools : </p>
+                <input ref={projectTools} type="checkbox" />
+              </div>
+              <div>
+                <p>description in french : </p>
+                <input ref={frenchDescription} type="textarea" />
+              </div>
+              <div>
+                <p>description in english : </p>
+                <input ref={englishDescription} type="textarea" />
+              </div>
+              <div>
+                <p>link title : </p>
+                <input ref={linkTitle} type="text" />
+              </div>
+              <div>
+                <p>link url : </p>
+                <input ref={linkUrl} type="text" />
+              </div>
+              <div>
+                <p>link picture : </p>
+                <input ref={linkPicture} type="file" />
+              </div>
+              <div>
+                <p>link alt : </p>
+                <input ref={linkAlt} type="text" />
+              </div>
+              <div>
+                <button> add another link : </button>
+              </div>
+              <div>
+                <p>slider picture : </p>
+                <input ref={sliderPicture} type="file" />
+              </div>
+              <div>
+                <p>slider alt : </p>
+                <input ref={sliderAlt} type="text" />
+              </div>
+              <div>
+                <p>slider content in french : </p>
+                <input ref={frenchSliderContent} type="text" />
+              </div>
+              <div>
+                <p>slider content in english : </p>
+                <input ref={englishSliderContent} type="text" />
+              </div>
+              <div>
+                <button> add another slide : </button>
+              </div>
+              <div>
+                <p>resum in french : </p>
+                <input ref={frenchResum} type="textarea" />
+              </div>
+              <div>
+                <p>resum in english : </p>
+                <input ref={englishResum} type="textarea" />
+              </div>
+              <div>
+                <p>skills : </p>
+                <input ref={projectSkills} type="checkbox" id="username" />
+              </div>
+              <button onClick={(evt) => saveName(evt)}>Save</button>
+              <button onClick={userChange}>Cancel</button>
             </form>
           </div>
         ) : (
           <p></p>
         )}
       </div>
-      <h2 className="sr-only">Accounts</h2>
     </main>
   );
 }

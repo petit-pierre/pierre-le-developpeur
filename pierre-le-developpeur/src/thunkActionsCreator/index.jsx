@@ -3,7 +3,7 @@ import { setStorage } from "../utils/localStorage";
 
 export const setTokenThunk =
   (email, password, rememberChecked) => async (dispatch, getState) => {
-    const response = await fetch("http://localhost:3001/api/V1/user/login", {
+    const response = await fetch("http://localhost:3000/api/user/log_in", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -11,11 +11,12 @@ export const setTokenThunk =
       },
       body: JSON.stringify({ email, password }),
     });
+
     if (response.ok) {
       const result = await response.json();
-      dispatch(userSlice.actions.setToken(result.body.token));
+      dispatch(userSlice.actions.setToken(result.token));
       if (rememberChecked === true) {
-        setStorage(result.body.token);
+        setStorage(result.token);
       }
       return true;
     }
