@@ -1,14 +1,26 @@
 const projects = require("../models/projects");
 const Projects = require("../models/projects");
+const fs = require("fs");
 
 exports.createProject = (req, res, next) => {
-  const project = new Projects({
-    ...req.body,
+  const projectObject = JSON.parse(req.body.thing);
+  delete projectObject._id;
+  delete projectObject._userId;
+  const thing = new Projects({
+    ...projectObject,
+    userId: req.auth.userId,
+    imageUrl: `${req.protocol}://${req.get("host")}/images/${
+      req.file.filename
+    }`,
   });
-  project
-    .save()
-    .then(() => res.status(201).json({ message: "projet enregistré !" }))
-    .catch((error) => res.status(400).json({ error }));
+
+  Projects.save()
+    .then(() => {
+      res.status(201).json({ message: "Objet enregistré !" });
+    })
+    .catch((error) => {
+      res.status(400).json({ error });
+    });
 };
 
 exports.getProject = (req, res, next) => {
@@ -18,15 +30,53 @@ exports.getProject = (req, res, next) => {
 };
 
 exports.putProject = (req, res, next) => {
-  Projects.updateOne({ _id: req.params.id }, { ...req.body })
-    .then(() => res.status(200).json({ message: "projet modifié !" }))
-    .catch((error) => res.status(400).json({ error }));
+  const projectObject = req.file
+    ? {
+        ...JSON.parse(req.body.thing),
+        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+          req.file.filename
+        }`,
+      }
+    : { ...req.body };
+
+  delete projectObject._userId;
+  Projects.findOne({ _id: req.params.id })
+    .then((project) => {
+      if (project.userId != req.auth.userId) {
+        res.status(401).json({ message: "Not authorized" });
+      } else {
+        Projects.updateOne(
+          { _id: req.params.id },
+          { ...projectObject, _id: req.params.id }
+        )
+          .then(() => res.status(200).json({ message: "Objet modifié!" }))
+          .catch((error) => res.status(401).json({ error }));
+      }
+    })
+    .catch((error) => {
+      res.status(400).json({ error });
+    });
 };
 
 exports.deleteProject = (req, res, next) => {
-  Projects.deleteOne({ _id: req.params.id })
-    .then(() => res.status(200).json({ message: "projet supprimé !" }))
-    .catch((error) => res.status(400).json({ error }));
+  Projects.findOne({ _id: req.params.id })
+    .then((project) => {
+      if (project.userId != req.auth.userId) {
+        res.status(401).json({ message: "Not authorized" });
+      } else {
+        const filename = project.imageUrl.split("/images/")[1];
+        fs.unlink(`images/${filename}`, () => {
+          Projects.deleteOne({ _id: req.params.id })
+            .then(() => {
+              res.status(200).json({ message: "Objet supprimé !" });
+            })
+            .catch((error) => res.status(401).json({ error }));
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 };
 
 exports.getProjects = (req, res, next) => {

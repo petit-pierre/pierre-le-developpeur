@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const projectsRoutes = require("./routes/projects");
 const userRoutes = require("./routes/user");
 const app = express();
+const path = require("path");
 
 mongoose
   .connect(
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/projects", projectsRoutes);
 app.use("/api/user", userRoutes);
 
