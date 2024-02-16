@@ -8,6 +8,23 @@ import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
 
 function User() {
+  const Category = [
+    { id: 1, name: "React" },
+    { id: 2, name: "wordpress" },
+    { id: 3, name: "Logo/flyers" },
+  ];
+  const Tools = [
+    { id: 1, name: "React" },
+    { id: 2, name: "Redux" },
+    { id: 3, name: "HTML 5" },
+  ];
+
+  const Skills = [
+    { id: 1, name: "Ponctualité" },
+    { id: 2, name: "Travail d'équipe" },
+    { id: 3, name: "Créativité" },
+  ];
+
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const [edit, setEdit] = useState(false);
@@ -15,7 +32,6 @@ function User() {
   const englishProjectTitle = useRef();
   const category = useRef();
   const date = useRef();
-  const projectTools = useRef();
   const frenchDescription = useRef();
   const englishDescription = useRef();
   const linkTitle = useRef();
@@ -28,7 +44,7 @@ function User() {
   const englishSliderContent = useRef();
   const frenchResum = useRef();
   const englishResum = useRef();
-  const projectSkills = useRef();
+
   const signOut = () => {
     localStorage.clear();
     dispatch(userSlice.actions.setToken(null));
@@ -51,11 +67,68 @@ function User() {
 
   function saveName(evt) {
     evt.preventDefault();
-    const finalUserName = userName.current.value;
-    if (userName.current.value !== "") {
-      const setUsernameResult = dispatch(
-        setUsernameThunk(finalUserName, token)
-      );
+    if (frenchProjectTitle.current.value !== "") {
+      const projectTool = document.querySelectorAll(".Tools");
+      const projectTools = [];
+      for (let tool of projectTool) {
+        if (tool.checked === true) {
+          projectTools.push({ id: tool.id, name: tool.name });
+        }
+      }
+      const projectSkill = document.querySelectorAll(".Skills");
+      const projectSkills = [];
+      for (let skill of projectSkill) {
+        if (skill.checked === true) {
+          projectSkills.push({ id: skill.id, name: skill.name });
+        }
+      }
+      const projectCategories = document.querySelectorAll(".Categories");
+      let category = "";
+      for (let projectCategory of projectCategories) {
+        if (projectCategory.checked === true) {
+          category = projectCategory.value;
+        }
+      }
+
+      const newProject = {
+        title: {
+          french: frenchProjectTitle.current.value,
+          english: englishProjectTitle.current.value,
+        },
+        category: category,
+        date: date.current.value,
+        tools: projectTools,
+        description: {
+          french: frenchDescription.current.value,
+          english: englishDescription.current.value,
+        },
+        links: [
+          {
+            title: linkTitle.current.value,
+            url: linkUrl.current.value,
+            picture: linkPicture.current.value,
+            alt: linkAlt.current.value,
+          },
+        ],
+        slider: [
+          {
+            picture: sliderPicture.current.value,
+            alt: sliderAlt.current.value,
+            content: {
+              french: frenchSliderContent.current.value,
+              english: englishSliderContent.current.value,
+            },
+          },
+        ],
+        resum: {
+          french: frenchResum.current.value,
+          english: englishResum.current.value,
+        },
+        skills: projectSkills,
+      };
+      console.log(newProject);
+      //const setUsernameResult = dispatch(setUsernameThunk(newProject, token));
+
       userChange();
     }
   }
@@ -88,17 +161,10 @@ function User() {
                 <input ref={englishProjectTitle} type="text" />
               </div>
               <div>
-                <p>category : </p>
-                <input ref={category} type="radio" />
-              </div>
-              <div>
                 <p>date : </p>
                 <input ref={date} type="date" />
               </div>
-              <div>
-                <p>tools : </p>
-                <input ref={projectTools} type="checkbox" />
-              </div>
+
               <div>
                 <p>description in french : </p>
                 <input ref={frenchDescription} type="textarea" />
@@ -108,44 +174,6 @@ function User() {
                 <input ref={englishDescription} type="textarea" />
               </div>
               <div>
-                <p>link title : </p>
-                <input ref={linkTitle} type="text" />
-              </div>
-              <div>
-                <p>link url : </p>
-                <input ref={linkUrl} type="text" />
-              </div>
-              <div>
-                <p>link picture : </p>
-                <input ref={linkPicture} type="file" />
-              </div>
-              <div>
-                <p>link alt : </p>
-                <input ref={linkAlt} type="text" />
-              </div>
-              <div>
-                <button> add another link : </button>
-              </div>
-              <div>
-                <p>slider picture : </p>
-                <input ref={sliderPicture} type="file" />
-              </div>
-              <div>
-                <p>slider alt : </p>
-                <input ref={sliderAlt} type="text" />
-              </div>
-              <div>
-                <p>slider content in french : </p>
-                <input ref={frenchSliderContent} type="text" />
-              </div>
-              <div>
-                <p>slider content in english : </p>
-                <input ref={englishSliderContent} type="text" />
-              </div>
-              <div>
-                <button> add another slide : </button>
-              </div>
-              <div>
                 <p>resum in french : </p>
                 <input ref={frenchResum} type="textarea" />
               </div>
@@ -153,9 +181,102 @@ function User() {
                 <p>resum in english : </p>
                 <input ref={englishResum} type="textarea" />
               </div>
+              <fieldset>
+                <legend>Links :</legend>
+                <div>
+                  <p>link title : </p>
+                  <input ref={linkTitle} type="text" />
+                </div>
+                <div>
+                  <p>link url : </p>
+                  <input ref={linkUrl} type="text" />
+                </div>
+                <div>
+                  <p>link picture : </p>
+                  <input ref={linkPicture} type="file" />
+                </div>
+                <div>
+                  <p>link alt : </p>
+                  <input ref={linkAlt} type="text" />
+                </div>
+                <div>
+                  <button> add another link : </button>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Slider :</legend>
+                <div>
+                  <p>slider picture : </p>
+                  <input ref={sliderPicture} type="file" />
+                </div>
+                <div>
+                  <p>slider alt : </p>
+                  <input ref={sliderAlt} type="text" />
+                </div>
+                <div>
+                  <p>slider content in french : </p>
+                  <input ref={frenchSliderContent} type="text" />
+                </div>
+                <div>
+                  <p>slider content in english : </p>
+                  <input ref={englishSliderContent} type="text" />
+                </div>
+                <div>
+                  <button> add another slide : </button>
+                </div>
+              </fieldset>
+
               <div>
-                <p>skills : </p>
-                <input ref={projectSkills} type="checkbox" id="username" />
+                <fieldset>
+                  <legend>skills :</legend>
+                  {Skills.map((skill) => (
+                    <div>
+                      <input
+                        className="Skills"
+                        type="checkbox"
+                        name={skill.name}
+                        id={skill.id}
+                        value={skill.name}
+                      />
+                      <label for="React">{skill.name}</label>
+                    </div>
+                  ))}
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <legend>category :</legend>
+                  {Category.map((categorie) => (
+                    <div>
+                      <input
+                        className="Categories"
+                        type="radio"
+                        name="category"
+                        id={categorie.id}
+                        value={categorie.name}
+                      />
+                      <label for="React">{categorie.name}</label>
+                    </div>
+                  ))}
+                </fieldset>
+              </div>
+
+              <div>
+                <fieldset>
+                  <legend>tools :</legend>
+                  {Tools.map((tool) => (
+                    <div>
+                      <input
+                        className="Tools"
+                        type="checkbox"
+                        name={tool.name}
+                        id={tool.id}
+                        value={tool.name}
+                      />
+                      <label for="React">{tool.name}</label>
+                    </div>
+                  ))}
+                </fieldset>
               </div>
               <button onClick={(evt) => saveName(evt)}>Save</button>
               <button onClick={userChange}>Cancel</button>
