@@ -18,7 +18,7 @@ function App() {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState !== null) {
       await dispatch(userSlice.actions.setToken(serialisedState));
-      const setProfilResult = dispatch(setProfilThunk(token));
+      //const setProfilResult = dispatch(setProfilThunk(token));
     }
   };
   lookAtLocalStorage();

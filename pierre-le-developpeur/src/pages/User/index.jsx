@@ -3,7 +3,11 @@ import { Navigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import "./user.css";
-import { setProfilThunk, setUsernameThunk } from "../../thunkActionsCreator";
+import {
+  setProfilThunk,
+  setProjectPictureThunk,
+  setUsernameThunk,
+} from "../../thunkActionsCreator";
 import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
 
@@ -30,7 +34,6 @@ function User() {
   const [edit, setEdit] = useState(false);
   const frenchProjectTitle = useRef();
   const englishProjectTitle = useRef();
-  const category = useRef();
   const date = useRef();
   const frenchDescription = useRef();
   const englishDescription = useRef();
@@ -38,7 +41,6 @@ function User() {
   const linkUrl = useRef();
   const linkPicture = useRef();
   const linkAlt = useRef();
-  const sliderPicture = useRef();
   const sliderAlt = useRef();
   const frenchSliderContent = useRef();
   const englishSliderContent = useRef();
@@ -112,7 +114,7 @@ function User() {
         ],
         slider: [
           {
-            picture: sliderPicture.current.value,
+            picture: "",
             alt: sliderAlt.current.value,
             content: {
               french: frenchSliderContent.current.value,
@@ -126,8 +128,15 @@ function User() {
         },
         skills: projectSkills,
       };
-      console.log(newProject);
-      //const setUsernameResult = dispatch(setUsernameThunk(newProject, token));
+
+      const sliderPicture = new FormData();
+      let photo = document.querySelector(".picture");
+      console.log(photo.value);
+      sliderPicture.append("sliderPicture", photo.files[0]);
+      console.log(sliderPicture);
+      const setProjectPictureResult = dispatch(
+        setProjectPictureThunk(sliderPicture, token)
+      );
 
       userChange();
     }
@@ -207,7 +216,7 @@ function User() {
                 <legend>Slider :</legend>
                 <div>
                   <p>slider picture : </p>
-                  <input ref={sliderPicture} type="file" />
+                  <input type="file" className="picture" name="sliderPicture" />
                 </div>
                 <div>
                   <p>slider alt : </p>
@@ -225,6 +234,23 @@ function User() {
                   <button> add another slide : </button>
                 </div>
               </fieldset>
+              <div>
+                <fieldset>
+                  <legend>category :</legend>
+                  {Category.map((categorie) => (
+                    <div>
+                      <input
+                        className="Categories"
+                        type="radio"
+                        name="category"
+                        id={categorie.id}
+                        value={categorie.name}
+                      />
+                      <label for="React">{categorie.name}</label>
+                    </div>
+                  ))}
+                </fieldset>
+              </div>
 
               <div>
                 <fieldset>
@@ -239,23 +265,6 @@ function User() {
                         value={skill.name}
                       />
                       <label for="React">{skill.name}</label>
-                    </div>
-                  ))}
-                </fieldset>
-              </div>
-              <div>
-                <fieldset>
-                  <legend>category :</legend>
-                  {Category.map((categorie) => (
-                    <div>
-                      <input
-                        className="Categories"
-                        type="radio"
-                        name="category"
-                        id={categorie.id}
-                        value={categorie.name}
-                      />
-                      <label for="React">{categorie.name}</label>
                     </div>
                   ))}
                 </fieldset>

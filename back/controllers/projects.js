@@ -1,9 +1,8 @@
-const projects = require("../models/projects");
 const Projects = require("../models/projects");
 const fs = require("fs");
 
 exports.createProject = (req, res, next) => {
-  const projectObject = JSON.parse(req.body.thing);
+  const projectObject = JSON.parse(req.body.project);
   delete projectObject._id;
   delete projectObject._userId;
   const thing = new Projects({

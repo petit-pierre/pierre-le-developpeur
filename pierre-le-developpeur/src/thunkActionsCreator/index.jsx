@@ -61,3 +61,23 @@ export const setUsernameThunk =
     }
     return false;
   };
+
+export const setProjectPictureThunk =
+  (formData, token) => async (dispatch, getstate) => {
+    const response = await fetch("http://localhost:3000/api/pictures", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: formData,
+    });
+    let result = await response.json();
+    console.log(result);
+    if (response.ok) {
+      const result = await response.json();
+      //dispatch(userSlice.actions.setToken(result.token));
+      return true;
+    }
+    return false;
+  };
