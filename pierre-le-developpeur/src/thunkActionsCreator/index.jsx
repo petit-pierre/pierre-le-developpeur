@@ -67,17 +67,18 @@ export const setProjectPictureThunk =
     const response = await fetch("http://localhost:3000/api/pictures", {
       method: "POST",
       headers: {
-        Accept: "application/json",
         Authorization: "Bearer " + token,
+        //"Content-Type": "multipart/form-data",
       },
       body: formData,
+      //redirect: "follow",
     });
     let result = await response.json();
-    console.log(result);
+    //console.log(result);
     if (response.ok) {
-      const result = await response.json();
+      //const result = await response.json();
       //dispatch(userSlice.actions.setToken(result.token));
-      return true;
+      return result;
     }
     return false;
   };

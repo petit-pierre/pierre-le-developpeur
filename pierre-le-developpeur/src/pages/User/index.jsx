@@ -57,7 +57,7 @@ function User() {
     dispatch(userSlice.actions.setLastName(null));
   };
 
-  const setProfilResult = dispatch(setProfilThunk(token));
+  //const setProfilResult = dispatch(setProfilThunk(token));
 
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
@@ -128,15 +128,19 @@ function User() {
         },
         skills: projectSkills,
       };
-
-      const sliderPicture = new FormData();
+      const formData = new FormData();
       let photo = document.querySelector(".picture");
-      console.log(photo.value);
-      sliderPicture.append("sliderPicture", photo.files[0]);
-      console.log(sliderPicture);
-      const setProjectPictureResult = dispatch(
-        setProjectPictureThunk(sliderPicture, token)
-      );
+      formData.append("imageUrl", "");
+      formData.append("image", photo.files[0]);
+
+      const submit = async (e) => {
+        const setProjectPictureResult = await dispatch(
+          setProjectPictureThunk(formData, token)
+        );
+        console.log(setProjectPictureResult.imageUrl);
+      };
+
+      submit();
 
       userChange();
     }
