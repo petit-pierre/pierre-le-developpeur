@@ -10,8 +10,12 @@ import {
 } from "../../thunkActionsCreator";
 import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
+import ProjectSliderInfo from "../../components/ProjectSliderInfo";
 
 function User() {
+  let sliders = [];
+  let links = [];
+
   const Category = [
     { id: 1, name: "React" },
     { id: 2, name: "wordpress" },
@@ -32,6 +36,7 @@ function User() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const [edit, setEdit] = useState(false);
+
   const frenchProjectTitle = useRef();
   const englishProjectTitle = useRef();
   const date = useRef();
@@ -39,7 +44,6 @@ function User() {
   const englishDescription = useRef();
   const linkTitle = useRef();
   const linkUrl = useRef();
-  const linkPicture = useRef();
   const linkAlt = useRef();
   const sliderAlt = useRef();
   const frenchSliderContent = useRef();
@@ -50,24 +54,17 @@ function User() {
   const signOut = () => {
     localStorage.clear();
     dispatch(userSlice.actions.setToken(null));
-    dispatch(userSlice.actions.setUser(null));
-    dispatch(userSlice.actions.setId(null));
-    dispatch(userSlice.actions.setEmail(null));
-    dispatch(userSlice.actions.setFirstName(null));
-    dispatch(userSlice.actions.setLastName(null));
   };
-
-  //const setProfilResult = dispatch(setProfilThunk(token));
 
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
   }
 
-  function userChange() {
+  function projectChange() {
     setEdit(!edit);
   }
 
-  function saveName(evt) {
+  function saveProject(evt) {
     evt.preventDefault();
     if (frenchProjectTitle.current.value !== "") {
       const projectTool = document.querySelectorAll(".Tools");
@@ -104,45 +101,106 @@ function User() {
           french: frenchDescription.current.value,
           english: englishDescription.current.value,
         },
-        links: [
-          {
-            title: linkTitle.current.value,
-            url: linkUrl.current.value,
-            picture: linkPicture.current.value,
-            alt: linkAlt.current.value,
-          },
-        ],
-        slider: [
-          {
-            picture: "",
-            alt: sliderAlt.current.value,
-            content: {
-              french: frenchSliderContent.current.value,
-              english: englishSliderContent.current.value,
-            },
-          },
-        ],
+        links: links,
+        sliders: sliders,
         resum: {
           french: frenchResum.current.value,
           english: englishResum.current.value,
         },
         skills: projectSkills,
       };
-      const formData = new FormData();
-      let photo = document.querySelector(".picture");
-      formData.append("imageUrl", "");
-      formData.append("image", photo.files[0]);
+      for (let i = 0; i < sliders.length; i++) {
+        const formData = new FormData();
+        //let photo = document.querySelector(".picture");
+        formData.append("imageUrl", "");
+        formData.append("image", sliders[i].picture);
 
-      const submit = async (e) => {
-        const setProjectPictureResult = await dispatch(
-          setProjectPictureThunk(formData, token)
-        );
-        console.log(setProjectPictureResult.imageUrl);
+        const submit = async () => {
+          const setProjectPictureResult = await dispatch(
+            setProjectPictureThunk(formData, token)
+          );
+          newProject.sliders[i].picture = setProjectPictureResult.imageUrl;
+        };
+
+        submit();
+      }
+      for (let i = 0; i < links.length; i++) {
+        const formData = new FormData();
+        //let photo = document.querySelector(".picture");
+        formData.append("imageUrl", "");
+        formData.append("image", links[i].picture);
+
+        const submit = async () => {
+          const setProjectPictureResult = await dispatch(
+            setProjectPictureThunk(formData, token)
+          );
+          newProject.links[i].picture = setProjectPictureResult.imageUrl;
+        };
+
+        submit();
+      }
+
+      console.log(newProject);
+
+      projectChange();
+    }
+  }
+  function ProjectSliderUpdate(evt) {
+    evt.preventDefault();
+    let photo = document.querySelector(".sliderPicture");
+    if (
+      photo.files[0] &&
+      frenchSliderContent.current.value &&
+      englishSliderContent.current.value &&
+      sliderAlt.current.value != ""
+    ) {
+      let slider = {
+        picture: photo.files[0],
+        alt: sliderAlt.current.value,
+        content: {
+          french: frenchSliderContent.current.value,
+          english: englishSliderContent.current.value,
+        },
       };
 
-      submit();
+      sliders.push(slider);
+      alert("slide ajouté : " + photo.files[0].name);
 
-      userChange();
+      sliderAlt.current.value = "";
+      frenchSliderContent.current.value = "";
+      englishSliderContent.current.value = "";
+      photo.value = "";
+    } else {
+      alert("champs incomplets");
+    }
+  }
+  function ProjectLinksUpdate(evt) {
+    evt.preventDefault();
+    let photo = document.querySelector(".linkPicture");
+    if (
+      photo.files[0] &&
+      linkTitle.current.value &&
+      linkUrl.current.value &&
+      linkAlt.current.value !== ""
+    ) {
+      let link = {
+        picture: photo.files[0],
+        alt: linkAlt.current.value,
+        title: linkTitle.current.value,
+        url: linkUrl.current.value,
+      };
+
+      links.push(link);
+      console.log(links);
+      alert("slide ajouté : " + photo.files[0].name);
+
+      linkAlt.current.value = "";
+      linkTitle.current.value = "";
+      englishSliderContent.current.value = "";
+      linkUrl.current.value = "";
+      photo.value = "";
+    } else {
+      alert("champs incomplets");
     }
   }
 
@@ -155,7 +213,7 @@ function User() {
           <p></p>
         ) : (
           <div>
-            <button className="edit-button" onClick={userChange}>
+            <button className="edit-button" onClick={projectChange}>
               Post new project
             </button>
           </div>
@@ -206,21 +264,31 @@ function User() {
                 </div>
                 <div>
                   <p>link picture : </p>
-                  <input ref={linkPicture} type="file" />
+                  <input
+                    className="linkPicture"
+                    name="linkPicture"
+                    type="file"
+                  />
                 </div>
                 <div>
                   <p>link alt : </p>
                   <input ref={linkAlt} type="text" />
                 </div>
-                <div>
-                  <button> add another link : </button>
-                </div>
+                <div></div>
               </fieldset>
+              <button onClick={(evt) => ProjectLinksUpdate(evt)}>
+                {" "}
+                add this link :{" "}
+              </button>
               <fieldset>
                 <legend>Slider :</legend>
                 <div>
                   <p>slider picture : </p>
-                  <input type="file" className="picture" name="sliderPicture" />
+                  <input
+                    type="file"
+                    className="sliderPicture"
+                    name="sliderPicture"
+                  />
                 </div>
                 <div>
                   <p>slider alt : </p>
@@ -234,10 +302,13 @@ function User() {
                   <p>slider content in english : </p>
                   <input ref={englishSliderContent} type="text" />
                 </div>
-                <div>
-                  <button> add another slide : </button>
-                </div>
               </fieldset>
+              <div>
+                <button onClick={(evt) => ProjectSliderUpdate(evt)}>
+                  {" "}
+                  add this slide :{" "}
+                </button>
+              </div>
               <div>
                 <fieldset>
                   <legend>category :</legend>
@@ -291,8 +362,8 @@ function User() {
                   ))}
                 </fieldset>
               </div>
-              <button onClick={(evt) => saveName(evt)}>Save</button>
-              <button onClick={userChange}>Cancel</button>
+              <button onClick={(evt) => saveProject(evt)}>Save</button>
+              <button onClick={projectChange}>Cancel</button>
             </form>
           </div>
         ) : (
