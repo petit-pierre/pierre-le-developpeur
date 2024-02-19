@@ -6,6 +6,7 @@ import "./user.css";
 import {
   setProfilThunk,
   setProjectPictureThunk,
+  setProjectThunk,
   setUsernameThunk,
 } from "../../thunkActionsCreator";
 import { userSlice } from "../../Slices/userSlice";
@@ -111,36 +112,39 @@ function User() {
       };
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();
-        //let photo = document.querySelector(".picture");
         formData.append("imageUrl", "");
         formData.append("image", sliders[i].picture);
 
-        const submit = async () => {
+        const sliderSubmit = async () => {
           const setProjectPictureResult = await dispatch(
             setProjectPictureThunk(formData, token)
           );
           newProject.sliders[i].picture = setProjectPictureResult.imageUrl;
         };
 
-        submit();
+        sliderSubmit();
       }
       for (let i = 0; i < links.length; i++) {
         const formData = new FormData();
-        //let photo = document.querySelector(".picture");
         formData.append("imageUrl", "");
         formData.append("image", links[i].picture);
 
-        const submit = async () => {
+        const linkSubmit = async () => {
           const setProjectPictureResult = await dispatch(
             setProjectPictureThunk(formData, token)
           );
           newProject.links[i].picture = setProjectPictureResult.imageUrl;
+          const finalSubmit = async () => {
+            const setProjectResult = await dispatch(
+              setProjectThunk(newProject, token)
+            );
+            console.log(setProjectResult);
+          };
+          await finalSubmit();
         };
 
-        submit();
+        linkSubmit();
       }
-
-      console.log(newProject);
 
       projectChange();
     }
@@ -184,14 +188,13 @@ function User() {
       linkAlt.current.value !== ""
     ) {
       let link = {
-        picture: photo.files[0],
-        alt: linkAlt.current.value,
         title: linkTitle.current.value,
         url: linkUrl.current.value,
+        picture: photo.files[0],
+        alt: linkAlt.current.value,
       };
 
       links.push(link);
-      console.log(links);
       alert("slide ajouté : " + photo.files[0].name);
 
       linkAlt.current.value = "";

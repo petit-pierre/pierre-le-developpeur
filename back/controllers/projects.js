@@ -2,24 +2,13 @@ const Projects = require("../models/projects");
 const fs = require("fs");
 
 exports.createProject = (req, res, next) => {
-  const projectObject = JSON.parse(req.body.project);
-  delete projectObject._id;
-  delete projectObject._userId;
-  const thing = new Projects({
-    ...projectObject,
-    userId: req.auth.userId,
-    imageUrl: `${req.protocol}://${req.get("host")}/images/${
-      req.file.filename
-    }`,
+  const project = new Projects({
+    ...req.body,
   });
-
-  Projects.save()
-    .then(() => {
-      res.status(201).json({ message: "Objet enregistré !" });
-    })
-    .catch((error) => {
-      res.status(400).json({ error });
-    });
+  project
+    .save()
+    .then(() => res.status(201).json({ message: "projet enregistré !" }))
+    .catch((error) => res.status(400).json({ error }));
 };
 
 exports.getProject = (req, res, next) => {

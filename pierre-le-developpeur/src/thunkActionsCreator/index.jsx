@@ -82,3 +82,23 @@ export const setProjectPictureThunk =
     }
     return false;
   };
+
+export const setProjectThunk =
+  (newProject, token) => async (dispatch, getstate) => {
+    const response = await fetch("http://localhost:3000/api/projects", {
+      method: "POST",
+
+      headers: {
+        Authorization: "Bearer " + token,
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(newProject),
+    });
+    console.log(newProject);
+    let result = await response.json();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
