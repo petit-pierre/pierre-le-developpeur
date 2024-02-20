@@ -2,47 +2,47 @@ const mongoose = require("mongoose");
 
 const projectsSchema = mongoose.Schema({
   title: {
-    french: { type: String, required: false },
-    english: { type: String, required: false },
+    french: { type: String, required: true },
+    english: { type: String, required: true },
   },
-  category: { type: String, required: false },
-  date: { type: String, required: false },
+  category: { type: String, required: true },
+  date: { type: String, required: true },
   tools: [
     {
-      id: { type: String, required: false },
-      name: { type: String, required: false },
+      id: { type: String, required: true },
+      name: { type: String, required: true },
     },
   ],
   description: {
-    french: { type: String, required: false },
-    english: { type: String, required: false },
+    french: { type: String, required: true },
+    english: { type: String, required: true },
   },
   links: [
     {
-      title: { type: String, required: false },
-      url: { type: String, required: false },
-      picture: { type: String, required: false },
-      alt: { type: String, required: false },
+      title: { type: String, required: true },
+      url: { type: String, required: true },
+      picture: { type: String, required: true },
+      alt: { type: String, required: true },
     },
   ],
   sliders: [
     {
-      picture: { type: String, required: false },
-      alt: { type: String, required: false },
+      picture: { type: String, required: true },
+      alt: { type: String, required: true },
       content: {
-        french: { type: String, required: false },
-        english: { type: String, required: false },
+        french: { type: String, required: true },
+        english: { type: String, required: true },
       },
     },
   ],
   resum: {
-    french: { type: String, required: false },
-    english: { type: String, required: false },
+    french: { type: String, required: true },
+    english: { type: String, required: true },
   },
   skills: [
     {
-      id: { type: String, required: false },
-      name: { type: String, required: false },
+      id: { type: String, required: true },
+      name: { type: String, required: true },
     },
   ],
 });

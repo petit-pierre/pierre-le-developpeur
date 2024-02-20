@@ -10,7 +10,7 @@ router.post("/", auth, multer, picturesCtrl.createPicture);
 
 //router.put("/:id", auth, multer, picturesCtrl.putPicture);
 
-//router.delete("/:id", auth, picturesCtrl.deletePicture);
+router.delete("/:id", auth, picturesCtrl.deletePicture);
 
 //router.get("/", picturesCtrl.getPricture);
 

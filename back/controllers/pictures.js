@@ -23,3 +23,20 @@ exports.createPicture = async (req, res, next) => {
       res.status(400).json({ error });
     });
 };
+
+exports.deletePicture = (req, res, next) => {
+  Picture.findOne({ _id: req.params.id })
+    .then((picture) => {
+      const filename = picture.imageUrl.split("/images/")[1];
+      fs.unlink(`images/${filename}`, () => {
+        Picture.deleteOne({ _id: req.params.id })
+          .then(() => {
+            res.status(200).json({ message: "Objet supprimé !" });
+          })
+          .catch((error) => res.status(401).json({ error }));
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+};

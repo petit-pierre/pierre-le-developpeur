@@ -17,7 +17,7 @@ exports.getProject = (req, res, next) => {
     .catch((error) => res.status(404).json({ error }));
 };
 
-exports.putProject = (req, res, next) => {
+/*exports.putProject = (req, res, next) => {
   const projectObject = req.file
     ? {
         ...JSON.parse(req.body.thing),
@@ -44,7 +44,7 @@ exports.putProject = (req, res, next) => {
     .catch((error) => {
       res.status(400).json({ error });
     });
-};
+};*/
 
 exports.deleteProject = (req, res, next) => {
   Projects.findOne({ _id: req.params.id })

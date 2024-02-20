@@ -16,27 +16,9 @@ export const userSlice = createSlice({
       return token;
     },
 
-    setUser: (currentState, action) => {
-      const user = { ...currentState, user: action.payload };
-      return user;
-    },
-
-    setEmail: (currentState, action) => {
-      const email = { ...currentState, email: action.payload };
-      return email;
-    },
-
-    setId: (currentState, action) => {
-      const id = { ...currentState, id: action.payload };
-      return id;
-    },
-    setFirstName: (currentState, action) => {
-      const firstName = { ...currentState, firstName: action.payload };
-      return firstName;
-    },
-    setLastName: (currentState, action) => {
-      const lastName = { ...currentState, lastName: action.payload };
-      return lastName;
+    setProjects: (currentState, action) => {
+      const projects = { ...currentState, projects: action.payload };
+      return projects;
     },
   },
 });
