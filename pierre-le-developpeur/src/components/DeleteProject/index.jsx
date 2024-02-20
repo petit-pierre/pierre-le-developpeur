@@ -22,7 +22,7 @@ function DeleteProject({ token }) {
   }, []);
 
   return (
-    <div>
+    <fieldset>
       {edit === true ? (
         <p></p>
       ) : (
@@ -48,7 +48,7 @@ function DeleteProject({ token }) {
       ) : (
         <div></div>
       )}
-    </div>
+    </fieldset>
   );
 }
 export default DeleteProject;

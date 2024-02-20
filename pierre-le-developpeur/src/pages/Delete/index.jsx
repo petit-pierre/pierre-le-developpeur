@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,7 +6,7 @@ import {
   deleteProjectThunk,
 } from "../../thunkActionsCreator";
 
-function Error404() {
+function DeleteProject() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { projectId } = useParams();
@@ -14,6 +14,10 @@ function Error404() {
   const project = projects.find((projects) => projects.id === projectId);
   const token = useSelector((state) => state.user.token);
   console.log(projects);
+
+  if (token === null) {
+    return <Navigate to="../404/" replace={true} />;
+  }
 
   function goBack() {
     navigate("/User");
@@ -47,7 +51,7 @@ function Error404() {
     };
     deleteProject();
 
-    //navigate("/User");
+    navigate("/User");
   }
   return (
     <div>
@@ -62,4 +66,4 @@ function Error404() {
   );
 }
 
-export default Error404;
+export default DeleteProject;

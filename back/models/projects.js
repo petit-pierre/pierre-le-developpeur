@@ -19,11 +19,8 @@ const projectsSchema = mongoose.Schema({
   },
   links: [
     {
-      title: { type: String, required: true },
-      picture_id: { type: String, required: true },
       url: { type: String, required: true },
-      picture: { type: String, required: true },
-      alt: { type: String, required: true },
+      category: { type: String, required: true },
     },
   ],
   sliders: [

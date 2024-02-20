@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const projectsRoutes = require("./routes/projects");
+const projectTranslationsRoutes = require("./routes/projectTranslations");
 const userRoutes = require("./routes/user");
 const pictureRoutes = require("./routes/pictures");
 const app = express();
 const path = require("path");
-//var multer = require("multer");
-//var fs = require("fs");
 
 mongoose
   .connect(
@@ -33,6 +32,7 @@ app.use((req, res, next) => {
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/projects", projectsRoutes);
+app.use("/api/projectTranslations", projectTranslationsRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/pictures", pictureRoutes);
 //app.post("/api/pictures", upload.single("sliderPicture"), (req, res) => {});

@@ -1,5 +1,4 @@
 const Projects = require("../models/projects");
-const fs = require("fs");
 
 exports.createProject = (req, res, next) => {
   const project = new Projects({

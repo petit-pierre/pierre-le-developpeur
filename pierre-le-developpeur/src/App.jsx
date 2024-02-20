@@ -9,6 +9,7 @@ import Error404 from "./pages/404";
 import Footer from "./components/Footer";
 import Project from "./pages/Project";
 import Delete from "./pages/Delete";
+import PostProject from "./pages/PostProject";
 import { useDispatch, useSelector } from "react-redux";
 import { setProfilThunk } from "./thunkActionsCreator";
 
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Project/:project" element={<Project />} />
+        <Route path="/PostProject" element={<PostProject />} />
         <Route path="/User" element={<User />} />
         <Route path="/User/:id" element={<Delete />} />
         <Route path="/Sign-in" element={<SignIn />} />
