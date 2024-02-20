@@ -79,3 +79,37 @@ export const getProjectsThunk =
     }
     return false;
   };
+
+export const deletePictureThunk = (id, token) => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/pictures/" + id, {
+    method: "DELETE",
+
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+  let result = await response.json();
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const deleteProjectThunk =
+  (projectId, token) => async (dispatch, getstate) => {
+    const response = await fetch(
+      "http://localhost:3000/api/projects/" + projectId,
+      {
+        method: "DELETE",
+
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    let result = await response.json();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };

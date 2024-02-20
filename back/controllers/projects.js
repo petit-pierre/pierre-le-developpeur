@@ -47,24 +47,9 @@ exports.getProject = (req, res, next) => {
 };*/
 
 exports.deleteProject = (req, res, next) => {
-  Projects.findOne({ _id: req.params.id })
-    .then((project) => {
-      if (project.userId != req.auth.userId) {
-        res.status(401).json({ message: "Not authorized" });
-      } else {
-        const filename = project.imageUrl.split("/images/")[1];
-        fs.unlink(`images/${filename}`, () => {
-          Projects.deleteOne({ _id: req.params.id })
-            .then(() => {
-              res.status(200).json({ message: "Objet supprimé !" });
-            })
-            .catch((error) => res.status(401).json({ error }));
-        });
-      }
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
-    });
+  Projects.deleteOne({ _id: req.params.id })
+    .then(() => res.status(200).json({ message: "projet supprimé !" }))
+    .catch((error) => res.status(400).json({ error }));
 };
 
 exports.getProjects = (req, res, next) => {

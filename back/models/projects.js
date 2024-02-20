@@ -20,6 +20,7 @@ const projectsSchema = mongoose.Schema({
   links: [
     {
       title: { type: String, required: true },
+      picture_id: { type: String, required: true },
       url: { type: String, required: true },
       picture: { type: String, required: true },
       alt: { type: String, required: true },
@@ -28,6 +29,7 @@ const projectsSchema = mongoose.Schema({
   sliders: [
     {
       picture: { type: String, required: true },
+      picture_id: { type: String, required: true },
       alt: { type: String, required: true },
       content: {
         french: { type: String, required: true },

@@ -102,6 +102,7 @@ function PostProject({ token }) {
             setProjectPictureThunk(formData, token)
           );
           newProject.sliders[i].picture = setProjectPictureResult.imageUrl;
+          newProject.sliders[i].picture_id = setProjectPictureResult._id;
         };
 
         sliderSubmit();
@@ -116,6 +117,7 @@ function PostProject({ token }) {
             setProjectPictureThunk(formData, token)
           );
           newProject.links[i].picture = setProjectPictureResult.imageUrl;
+          newProject.links[i].picture_id = setProjectPictureResult._id;
           const finalSubmit = async () => {
             const setProjectResult = await dispatch(
               setProjectThunk(newProject, token)

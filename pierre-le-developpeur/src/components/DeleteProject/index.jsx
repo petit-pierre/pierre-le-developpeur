@@ -15,7 +15,7 @@ function DeleteProject({ token }) {
   useEffect(() => {
     const getProjects = async () => {
       const getProjectResult = await dispatch(getProjectsThunk());
-      //dispatch(userSlice.actions.setProjects(await getProjectResult));
+      dispatch(userSlice.actions.setProjects(await getProjectResult));
       setProjects(getProjectResult);
     };
     getProjects();
