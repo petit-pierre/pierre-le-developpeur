@@ -4,9 +4,10 @@ exports.createProject = (req, res, next) => {
   const project = new Projects({
     ...req.body,
   });
+
   project
     .save()
-    .then(() => res.status(201).json({ message: "projet enregistré !" }))
+    .then(() => res.status(201).json(project))
     .catch((error) => res.status(400).json({ error }));
 };
 

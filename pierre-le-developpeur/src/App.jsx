@@ -11,11 +11,14 @@ import Project from "./pages/Project";
 import Delete from "./pages/Delete";
 import PostProject from "./pages/PostProject";
 import { useDispatch, useSelector } from "react-redux";
-import { setProfilThunk } from "./thunkActionsCreator";
+import {
+  getProjectTranslationsThunk,
+  getProjectsThunk,
+} from "./thunkActionsCreator";
 
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.user.token);
+  const token = useSelector((state) => state.data.token);
   const lookAtLocalStorage = async () => {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState !== null) {
@@ -24,6 +27,23 @@ function App() {
     }
   };
   lookAtLocalStorage();
+
+  //const [projects, setProjects] = useState("");
+  const getProjects = async () => {
+    const getProjectResult = await dispatch(getProjectsThunk());
+    dispatch(userSlice.actions.setProjects(await getProjectResult));
+  };
+  getProjects();
+
+  const getProjectTranslations = async () => {
+    const getProjectTranslationsResult = await dispatch(
+      getProjectTranslationsThunk()
+    );
+    dispatch(
+      userSlice.actions.setTranslations(await getProjectTranslationsResult)
+    );
+  };
+  getProjectTranslations();
   return (
     <Router>
       <Routes>

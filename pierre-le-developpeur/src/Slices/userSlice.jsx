@@ -4,11 +4,8 @@ export const userSlice = createSlice({
   name: "Token",
   initialState: {
     token: null,
-    user: null,
-    email: null,
-    id: null,
-    firstName: null,
-    lastName: null,
+    projects: null,
+    translations: null,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -19,6 +16,11 @@ export const userSlice = createSlice({
     setProjects: (currentState, action) => {
       const projects = { ...currentState, projects: action.payload };
       return projects;
+    },
+
+    setTranslations: (currentState, action) => {
+      const translations = { ...currentState, translations: action.payload };
+      return translations;
     },
   },
 });

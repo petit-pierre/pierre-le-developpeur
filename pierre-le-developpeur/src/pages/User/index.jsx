@@ -9,7 +9,7 @@ import DeleteProject from "../../components/DeleteProject";
 import { getProjectsThunk } from "../../thunkActionsCreator";
 
 function User() {
-  const token = useSelector((state) => state.user.token);
+  const token = useSelector((state) => state.data.token);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();

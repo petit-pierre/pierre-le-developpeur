@@ -11,7 +11,7 @@ import { thunk } from "redux-thunk";
 
 const store = configureStore({
   reducer: combineReducers({
-    user: userSlice.reducer,
+    data: userSlice.reducer,
   }),
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
   devTools: true,

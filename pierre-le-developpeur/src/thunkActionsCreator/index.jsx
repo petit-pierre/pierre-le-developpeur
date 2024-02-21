@@ -57,6 +57,12 @@ export const setProjectThunk =
       body: JSON.stringify(newProject),
     });
     let result = await response.json();
+    const getProjects = async () => {
+      const getProjectResult = await dispatch(getProjectsThunk());
+      dispatch(userSlice.actions.setProjects(await getProjectResult));
+    };
+    getProjects();
+    //dispatch(userSlice.actions.setProjects(result));
     if (response.ok) {
       return result;
     }
@@ -65,37 +71,82 @@ export const setProjectThunk =
 
 export const setProjectTranslationThunk =
   (projectTranslation, token) => async (dispatch, getstate) => {
-    const response = await fetch(
-      "http://localhost:3000/api/projectTranslations",
-      {
-        method: "POST",
+    const response = await fetch("http://localhost:3000/api/translations", {
+      method: "POST",
 
-        headers: {
-          Authorization: "Bearer " + token,
-          Accept: "application/json",
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(projectTranslation),
-      }
-    );
+      headers: {
+        Authorization: "Bearer " + token,
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(projectTranslation),
+    });
 
     let result = await response.json();
+    //dispatch(userSlice.actions.setTranslations(result));
+    const setTranslationsProjects = async () => {
+      const getProjectsTranslationResult = await dispatch(
+        getProjectTranslationsThunk()
+      );
+      dispatch(
+        userSlice.actions.setProjects(await getProjectsTranslationResult)
+      );
+    };
+    setTranslationsProjects();
     if (response.ok) {
       return result;
     }
     return false;
   };
 
+export const deleteProjectTranslationThunk =
+  (translationId, token) => async (dispatch, getstate) => {
+    const response = await fetch(
+      "http://localhost:3000/api/translations/" + translationId,
+      {
+        method: "DELETE",
+
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    let result = await response.json();
+    const setTranslationsProjects = async () => {
+      const getProjectsTranslationResult = await dispatch(
+        getProjectTranslationsThunk()
+      );
+      dispatch(
+        userSlice.actions.setProjects(await getProjectsTranslationResult)
+      );
+    };
+    setTranslationsProjects();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
+export const getProjectTranslationsThunk = () => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/translations", {
+    method: "GET",
+  });
+
+  let result = await response.json();
+  dispatch(userSlice.actions.setTranslations(result));
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
 export const getProjectsThunk =
   (newProject, token) => async (dispatch, getstate) => {
     const response = await fetch("http://localhost:3000/api/projects", {
       method: "GET",
-
-      headers: {
-        Authorization: "Bearer " + token,
-      },
     });
     let result = await response.json();
+    dispatch(userSlice.actions.setProjects(result));
     if (response.ok) {
       return result;
     }
@@ -130,6 +181,11 @@ export const deleteProjectThunk =
       }
     );
     let result = await response.json();
+    const getProjects = async () => {
+      const getProjectResult = await dispatch(getProjectsThunk());
+      dispatch(userSlice.actions.setProjects(await getProjectResult));
+    };
+    getProjects();
     if (response.ok) {
       return result;
     }

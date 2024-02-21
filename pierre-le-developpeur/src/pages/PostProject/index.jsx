@@ -52,7 +52,7 @@ function PostProject() {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const token = useSelector((state) => state.user.token);
+  const token = useSelector((state) => state.data.token);
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
   }
@@ -83,51 +83,43 @@ function PostProject() {
       }
 
       const projectTranslation = {
-        englishProject: [
-          {
-            title: englishProjectTitle.current.value,
-            description: englishDescription.current.value,
-            resum: englishResum.current.value,
-            slider: englishSliders,
-          },
-        ],
-
-        frenchProject: [
-          {
-            title: frenchProjectTitle.current.value,
-            description: frenchDescription.current.value,
-            resum: frenchResum.current.value,
-            slider: frenchSliders,
-          },
-        ],
+        english: {
+          title: englishProjectTitle.current.value,
+          description: englishDescription.current.value,
+          resum: englishResum.current.value,
+          slider: englishSliders,
+        },
+        french: {
+          title: frenchProjectTitle.current.value,
+          description: frenchDescription.current.value,
+          resum: frenchResum.current.value,
+          slider: frenchSliders,
+        },
       };
 
       const newProject = {
-        title: {
-          french: frenchProjectTitle.current.value,
-          english: englishProjectTitle.current.value,
-        },
+        title: frenchProjectTitle.current.value,
         category: category,
         date: date.current.value,
         tools: projectTools,
-        description: {
-          french: frenchDescription.current.value,
-          english: englishDescription.current.value,
-        },
+
         links: links,
         sliders: sliders,
-        resum: {
-          french: frenchResum.current.value,
-          english: englishResum.current.value,
-        },
+
         skills: projectSkills,
       };
-      console.log(projectTranslation);
       const projectTranslationSubmit = async () => {
         const setProjectTranslationResult = await dispatch(
           setProjectTranslationThunk(projectTranslation, token)
         );
-        console.log(setProjectTranslationResult);
+        newProject.translation = setProjectTranslationResult._id;
+        console.log(newProject);
+        //console.log(setProjectTranslationResult._id);
+
+        //console.log(setProjectTranslationResult.english);
+        //console.log(setProjectTranslationResult.french);
+        //console.log(setProjectTranslationResult.translation[0].slider[0]._id);
+        //console.log(setProjectTranslationResult.translation[1].slider[0]._id);
       };
 
       projectTranslationSubmit();
@@ -149,7 +141,6 @@ function PostProject() {
               const setProjectResult = dispatch(
                 setProjectThunk(newProject, token)
               );
-              console.log(setProjectResult);
             }, 500);
           };
           if (i === links.length - 1) {
@@ -174,10 +165,6 @@ function PostProject() {
       let slider = {
         picture: photo.files[0],
         alt: sliderAlt.current.value,
-        content: {
-          french: frenchSliderContent.current.value,
-          english: englishSliderContent.current.value,
-        },
       };
 
       let frenchSlider = { content: frenchSliderContent.current.value };
@@ -214,7 +201,6 @@ function PostProject() {
       alert("lien ajouté : " + linkContent.url);
 
       linkUrl.current.value = "";
-      console.log(links);
     } else {
       alert("champs incomplets");
     }
