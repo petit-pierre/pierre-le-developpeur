@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 
 import { userSlice } from "./Slices/userSlice";
 
@@ -47,17 +52,17 @@ function App() {
     );
   };
   getProjectTranslations();
+
   return (
     <Router>
       <div className="prout"></div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Project/:project" element={<Project />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/User" element={<User />} />
-        <Route path="/User/Delete/:id" element={<Delete />} />
-        <Route path="/User/Skills/:id" element={<DeleteSkill />} />
+        <Route path="/User/Project/:id" element={<Delete />} />
+        <Route path="/User/Skills/:skillId" element={<DeleteSkill />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

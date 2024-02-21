@@ -11,9 +11,11 @@ import {
 function DeleteSkill() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { skillId } = useParams();
+  let { skillId } = useParams();
+
+  console.log(skillId);
   const skills = useSelector((state) => state.data.skills);
-  const skill = skills.find((skills) => skills.id === skillId);
+  const skill = skills.find((skill) => skill._id === skillId);
   const token = useSelector((state) => state.data.token);
 
   //const translationId = project.translation;

@@ -29,12 +29,12 @@ function PostProject() {
     { id: 2, name: "Redux" },
     { id: 3, name: "HTML 5" },
   ];
-
-  const Skills = [
+  const Skills = useSelector((state) => state.data.skills);
+  /*const Skills = [
     { id: 1, name: "Ponctualité" },
     { id: 2, name: "Travail d'équipe" },
     { id: 3, name: "Créativité" },
-  ];
+  ];*/
 
   const frenchProjectTitle = useRef();
   const englishProjectTitle = useRef();
@@ -270,6 +270,7 @@ function PostProject() {
                 type="file"
                 className="sliderPicture"
                 name="sliderPicture"
+                accept="image/png, image/jpeg,image/webp"
               />
             </div>
             <div>
@@ -317,11 +318,11 @@ function PostProject() {
                   <input
                     className="Skills"
                     type="checkbox"
-                    name={skill.name}
-                    id={skill.id}
-                    value={skill.name}
+                    name={skill.french_title}
+                    id={skill._id}
+                    value={skill.french_title}
                   />
-                  <label for="React">{skill.name}</label>
+                  <label for="React">{skill.french_title}</label>
                 </div>
               ))}
             </fieldset>
