@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-function DeleteProject() {
-  const projects = useSelector((state) => state.data.projects);
-  const translations = useSelector((state) => state.data.translations);
+function DeleteSkill() {
+  const skills = useSelector((state) => state.data.skills);
+  //const translations = useSelector((state) => state.data.translations);
   const [edit, setEdit] = useState(false);
   function projectChange() {
     setEdit(!edit);
@@ -17,17 +17,17 @@ function DeleteProject() {
       ) : (
         <div>
           <button className="edit-button" onClick={projectChange}>
-            Delete project
+            Delete skill
           </button>
         </div>
       )}
 
       {edit === true ? (
         <div className="projects">
-          {projects.map((project) => (
+          {skills.map((skill) => (
             <div>
-              <Link to={"./Delete/" + project._id} key={`${project.id}`}>
-                "Supprimez moi : {project.title}
+              <Link to={"./Skills/" + skill._id} key={`${skill.id}`}>
+                "Supprimez moi : {skill.french_title}
               </Link>
               <p> </p>
             </div>
@@ -40,4 +40,4 @@ function DeleteProject() {
     </div>
   );
 }
-export default DeleteProject;
+export default DeleteSkill;

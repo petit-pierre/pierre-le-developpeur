@@ -5,6 +5,7 @@ import "./user.css";
 import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
+import DeleteSkill from "../../components/DeleteSkill";
 
 function User() {
   const token = useSelector((state) => state.data.token);
@@ -33,10 +34,13 @@ function User() {
         <Link to="/PostProject">Post new project</Link>
       </fieldset>
       <fieldset>
-        <DeleteProject token={token} />
+        <DeleteProject />
       </fieldset>
       <fieldset>
         <Link to="/PostSkills">Post new skill</Link>
+      </fieldset>
+      <fieldset>
+        <DeleteSkill />
       </fieldset>
     </main>
   );

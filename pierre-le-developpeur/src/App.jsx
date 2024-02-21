@@ -17,6 +17,7 @@ import {
   getProjectsThunk,
   getSkillsThunk,
 } from "./thunkActionsCreator";
+import DeleteSkill from "./pages/DeleteSkill";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,7 +56,8 @@ function App() {
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/User" element={<User />} />
-        <Route path="/User/:id" element={<Delete />} />
+        <Route path="/User/Delete/:id" element={<Delete />} />
+        <Route path="/User/Skills/:id" element={<DeleteSkill />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
