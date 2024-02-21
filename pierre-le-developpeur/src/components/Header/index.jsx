@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import "./header.css";
 
 function Header() {
   return (
-    <nav>
-      <NavLink to="./">
+    <nav className="header">
+      <NavLink to="/">
         <h1>Pierre le developpeur</h1>
       </NavLink>
-      <div></div>
     </nav>
   );
 }

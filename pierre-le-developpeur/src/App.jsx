@@ -10,10 +10,12 @@ import Footer from "./components/Footer";
 import Project from "./pages/Project";
 import Delete from "./pages/Delete";
 import PostProject from "./pages/PostProject";
+import PostSkills from "./pages/PostSkills";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getProjectTranslationsThunk,
   getProjectsThunk,
+  getSkillsThunk,
 } from "./thunkActionsCreator";
 
 function App() {
@@ -28,10 +30,13 @@ function App() {
   };
   lookAtLocalStorage();
 
-  //const [projects, setProjects] = useState("");
+  const getSkills = async () => {
+    const getSkillsResult = await dispatch(getSkillsThunk());
+  };
+  getSkills();
+
   const getProjects = async () => {
     const getProjectResult = await dispatch(getProjectsThunk());
-    dispatch(userSlice.actions.setProjects(await getProjectResult));
   };
   getProjects();
 
@@ -39,17 +44,16 @@ function App() {
     const getProjectTranslationsResult = await dispatch(
       getProjectTranslationsThunk()
     );
-    dispatch(
-      userSlice.actions.setTranslations(await getProjectTranslationsResult)
-    );
   };
   getProjectTranslations();
   return (
     <Router>
+      <div className="prout"></div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Project/:project" element={<Project />} />
         <Route path="/PostProject" element={<PostProject />} />
+        <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/User" element={<User />} />
         <Route path="/User/:id" element={<Delete />} />
         <Route path="/Sign-in" element={<SignIn />} />

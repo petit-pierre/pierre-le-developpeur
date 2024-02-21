@@ -1,13 +1,12 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getProjectsThunk,
   setProjectPictureThunk,
   setProjectThunk,
   setProjectTranslationThunk,
 } from "../../thunkActionsCreator";
-import { userSlice } from "../../Slices/userSlice";
 import { Navigate, useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
 
 function PostProject() {
   let sliders = [];
@@ -114,12 +113,6 @@ function PostProject() {
         );
         newProject.translation = setProjectTranslationResult._id;
         console.log(newProject);
-        //console.log(setProjectTranslationResult._id);
-
-        //console.log(setProjectTranslationResult.english);
-        //console.log(setProjectTranslationResult.french);
-        //console.log(setProjectTranslationResult.translation[0].slider[0]._id);
-        //console.log(setProjectTranslationResult.translation[1].slider[0]._id);
       };
 
       projectTranslationSubmit();
@@ -211,144 +204,151 @@ function PostProject() {
   }
 
   return (
-    <fieldset>
-      <form>
-        <h1>Post new project</h1>
-        <div>
-          <p>title in french : </p>
-          <input ref={frenchProjectTitle} type="text" />
-        </div>
-        <div>
-          <p>title in english : </p>
-          <input ref={englishProjectTitle} type="text" />
-        </div>
-        <div>
-          <p>date : </p>
-          <input ref={date} type="date" />
-        </div>
-
-        <div>
-          <p>description in french : </p>
-          <input ref={frenchDescription} type="textarea" />
-        </div>
-        <div>
-          <p>description in english : </p>
-          <input ref={englishDescription} type="textarea" />
-        </div>
-        <div>
-          <p>resum in french : </p>
-          <input ref={frenchResum} type="textarea" />
-        </div>
-        <div>
-          <p>resum in english : </p>
-          <input ref={englishResum} type="textarea" />
-        </div>
-        <fieldset>
-          <legend>Links :</legend>
+    <div>
+      <Header />
+      <fieldset>
+        <form>
+          <h1>Post new project</h1>
           <div>
-            <p>link url : </p>
-            <input ref={linkUrl} type="text" />
+            <p>title in french : </p>
+            <input ref={frenchProjectTitle} type="text" />
           </div>
-          <legend>category :</legend>
-          {linkList.map((link) => (
+          <div>
+            <p>title in english : </p>
+            <input ref={englishProjectTitle} type="text" />
+          </div>
+          <div>
+            <p>date : </p>
+            <input ref={date} type="date" />
+          </div>
+
+          <div>
+            <p>description in french : </p>
+            <input ref={frenchDescription} type="textarea" />
+          </div>
+          <div>
+            <p>description in english : </p>
+            <input ref={englishDescription} type="textarea" />
+          </div>
+          <div>
+            <p>resum in french : </p>
+            <input ref={frenchResum} type="textarea" />
+          </div>
+          <div>
+            <p>resum in english : </p>
+            <input ref={englishResum} type="textarea" />
+          </div>
+          <fieldset>
+            <legend>Links :</legend>
             <div>
-              <input
-                className="Link"
-                type="radio"
-                name="Link"
-                id={link.id}
-                value={link.name}
-              />
-              <label for="React">{link.name}</label>
+              <p>link url : </p>
+              <input ref={linkUrl} type="text" />
             </div>
-          ))}
-        </fieldset>
-        <button onClick={(evt) => ProjectLinksUpdate(evt)}>
-          {" "}
-          add this link :{" "}
-        </button>
-        <fieldset>
-          <legend>Slider :</legend>
-          <div>
-            <p>slider picture : </p>
-            <input type="file" className="sliderPicture" name="sliderPicture" />
-          </div>
-          <div>
-            <p>slider alt : </p>
-            <input ref={sliderAlt} type="text" />
-          </div>
-          <div>
-            <p>slider content in french : </p>
-            <input ref={frenchSliderContent} type="text" />
-          </div>
-          <div>
-            <p>slider content in english : </p>
-            <input ref={englishSliderContent} type="text" />
-          </div>
-        </fieldset>
-        <div>
-          <button onClick={(evt) => ProjectSliderUpdate(evt)}>
-            {" "}
-            add this slide :{" "}
-          </button>
-        </div>
-        <div>
-          <fieldset>
             <legend>category :</legend>
-            {Category.map((categorie) => (
+            {linkList.map((link) => (
               <div>
                 <input
-                  className="Categories"
+                  className="Link"
                   type="radio"
-                  name="category"
-                  id={categorie.id}
-                  value={categorie.name}
+                  name="Link"
+                  id={link.id}
+                  value={link.name}
                 />
-                <label for="React">{categorie.name}</label>
+                <label for="React">{link.name}</label>
               </div>
             ))}
           </fieldset>
-        </div>
-
-        <div>
+          <button onClick={(evt) => ProjectLinksUpdate(evt)}>
+            {" "}
+            add this link :{" "}
+          </button>
           <fieldset>
-            <legend>skills :</legend>
-            {Skills.map((skill) => (
-              <div>
-                <input
-                  className="Skills"
-                  type="checkbox"
-                  name={skill.name}
-                  id={skill.id}
-                  value={skill.name}
-                />
-                <label for="React">{skill.name}</label>
-              </div>
-            ))}
+            <legend>Slider :</legend>
+            <div>
+              <p>slider picture : </p>
+              <input
+                type="file"
+                className="sliderPicture"
+                name="sliderPicture"
+              />
+            </div>
+            <div>
+              <p>slider alt : </p>
+              <input ref={sliderAlt} type="text" />
+            </div>
+            <div>
+              <p>slider content in french : </p>
+              <input ref={frenchSliderContent} type="text" />
+            </div>
+            <div>
+              <p>slider content in english : </p>
+              <input ref={englishSliderContent} type="text" />
+            </div>
           </fieldset>
-        </div>
+          <div>
+            <button onClick={(evt) => ProjectSliderUpdate(evt)}>
+              {" "}
+              add this slide :{" "}
+            </button>
+          </div>
+          <div>
+            <fieldset>
+              <legend>category :</legend>
+              {Category.map((categorie) => (
+                <div>
+                  <input
+                    className="Categories"
+                    type="radio"
+                    name="category"
+                    id={categorie.id}
+                    value={categorie.name}
+                  />
+                  <label for="React">{categorie.name}</label>
+                </div>
+              ))}
+            </fieldset>
+          </div>
 
-        <div>
-          <fieldset>
-            <legend>tools :</legend>
-            {Tools.map((tool) => (
-              <div>
-                <input
-                  className="Tools"
-                  type="checkbox"
-                  name={tool.name}
-                  id={tool.id}
-                  value={tool.name}
-                />
-                <label for="React">{tool.name}</label>
-              </div>
-            ))}
-          </fieldset>
-        </div>
-        <button onClick={(evt) => saveProject(evt)}>Save</button>
-        <button onClick={(evt) => cancelProject(evt)}>Cancel</button>
-      </form>
-    </fieldset>
+          <div>
+            <fieldset>
+              <legend>skills :</legend>
+              {Skills.map((skill) => (
+                <div>
+                  <input
+                    className="Skills"
+                    type="checkbox"
+                    name={skill.name}
+                    id={skill.id}
+                    value={skill.name}
+                  />
+                  <label for="React">{skill.name}</label>
+                </div>
+              ))}
+            </fieldset>
+          </div>
+
+          <div>
+            <fieldset>
+              <legend>tools :</legend>
+              {Tools.map((tool) => (
+                <div>
+                  <input
+                    className="Tools"
+                    type="checkbox"
+                    name={tool.name}
+                    id={tool.id}
+                    value={tool.name}
+                  />
+                  <label for="React">{tool.name}</label>
+                </div>
+              ))}
+            </fieldset>
+          </div>
+          <button onClick={(evt) => saveProject(evt)}>Save</button>
+          <button onClick={(evt) => cancelProject(evt)}>Cancel</button>
+        </form>
+      </fieldset>
+    </div>
   );
 }
 

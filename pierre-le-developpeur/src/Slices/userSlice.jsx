@@ -6,6 +6,7 @@ export const userSlice = createSlice({
     token: null,
     projects: null,
     translations: null,
+    skills: null,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -21,6 +22,11 @@ export const userSlice = createSlice({
     setTranslations: (currentState, action) => {
       const translations = { ...currentState, translations: action.payload };
       return translations;
+    },
+
+    setSkills: (currentState, action) => {
+      const skills = { ...currentState, skills: action.payload };
+      return skills;
     },
   },
 });

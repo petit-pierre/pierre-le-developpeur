@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.prout {
+  height: 100px;
+
+  z-index: 1;
+  opacity: 0;
+}

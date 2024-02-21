@@ -1,31 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getProjectsThunk } from "../../thunkActionsCreator";
-import { userSlice } from "../../Slices/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function DeleteProject({ token }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const projects = useSelector((state) => state.data.projects);
   const translations = useSelector((state) => state.data.translations);
   const [edit, setEdit] = useState(false);
   function projectChange() {
     setEdit(!edit);
   }
-  /*const [projects, setProjects] = useState("");
-  useEffect(() => {
-    const getProjects = async () => {
-      const getProjectResult = await dispatch(getProjectsThunk());
-      dispatch(userSlice.actions.setProjects(await getProjectResult));
-      //setProjects(getProjectResult);
-    };
-    getProjects();
-  }, []);*/
-  let title = "";
 
   return (
-    <fieldset>
+    <div>
       {edit === true ? (
         <p></p>
       ) : (
@@ -40,14 +26,7 @@ function DeleteProject({ token }) {
         <div className="projects">
           {projects.map((project) => (
             <div>
-              <Link to={project._id}>
-                "Supprimez moi : {project.title}
-                {/*translations.map((translation) =>
-                  translation._id === project.translation
-                    ? (title = translation.french.title)
-                    : (title = "titre manquant")
-          )*/}
-              </Link>
+              <Link to={project._id}>"Supprimez moi : {project.title}</Link>
               <p> </p>
             </div>
           ))}
@@ -56,7 +35,7 @@ function DeleteProject({ token }) {
       ) : (
         <div></div>
       )}
-    </fieldset>
+    </div>
   );
 }
 export default DeleteProject;
