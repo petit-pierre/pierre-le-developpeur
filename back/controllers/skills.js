@@ -10,12 +10,6 @@ exports.createSkill = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-/*exports.getProjectTranslation = (req, res, next) => {
-  ProjectTranslation.findOne({ _id: req.params.id })
-    .then((projectTranslation) => res.status(200).json(projectTranslation))
-    .catch((error) => res.status(404).json({ error }));
-};*/
-
 exports.deleteSkill = (req, res, next) => {
   Skills.deleteOne({ _id: req.params.id })
     .then(() => res.status(200).json({ message: "skill supprimé !" }))

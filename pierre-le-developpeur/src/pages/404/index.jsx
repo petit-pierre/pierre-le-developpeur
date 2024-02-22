@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import "./user.css";
+//import "./user.css";
 
 function Error404() {
   return (

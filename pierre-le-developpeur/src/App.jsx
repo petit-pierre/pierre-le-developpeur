@@ -1,11 +1,13 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { userSlice } from "./Slices/userSlice";
+import {
+  getProjectTranslationsThunk,
+  getProjectsThunk,
+  getSkillsThunk,
+  getToolsThunk,
+} from "./thunkActionsCreator";
 
 import Home from "./pages/Home";
 import SignIn from "./pages/Sign-in";
@@ -16,13 +18,9 @@ import Project from "./pages/Project";
 import Delete from "./pages/Delete";
 import PostProject from "./pages/PostProject";
 import PostSkills from "./pages/PostSkills";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getProjectTranslationsThunk,
-  getProjectsThunk,
-  getSkillsThunk,
-} from "./thunkActionsCreator";
 import DeleteSkill from "./pages/DeleteSkill";
+import PostTools from "./pages/PostTools";
+import DeleteTool from "./pages/DeleteTool";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +38,11 @@ function App() {
     const getSkillsResult = await dispatch(getSkillsThunk());
   };
   getSkills();
+
+  const getSTools = async () => {
+    const getToolsResult = await dispatch(getToolsThunk());
+  };
+  getSTools();
 
   const getProjects = async () => {
     const getProjectResult = await dispatch(getProjectsThunk());
@@ -60,9 +63,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
+        <Route path="/PostTools" element={<PostTools />} />
         <Route path="/User" element={<User />} />
         <Route path="/User/Project/:id" element={<Delete />} />
         <Route path="/User/Skills/:skillId" element={<DeleteSkill />} />
+        <Route path="/User/Tools/:toolId" element={<DeleteTool />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

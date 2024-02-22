@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import "./user.css";
+//import "./user.css";
 import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
 import DeleteSkill from "../../components/DeleteSkill";
+import DeleteTool from "../../components/DeleteTool";
 
 function User() {
   const token = useSelector((state) => state.data.token);
@@ -41,6 +42,12 @@ function User() {
       </fieldset>
       <fieldset>
         <DeleteSkill />
+      </fieldset>
+      <fieldset>
+        <Link to="/PostTools">Post new tool</Link>
+      </fieldset>
+      <fieldset>
+        <DeleteTool />
       </fieldset>
     </main>
   );

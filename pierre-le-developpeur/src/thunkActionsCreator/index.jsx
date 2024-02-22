@@ -235,3 +235,59 @@ export const getSkillsThunk = () => async (dispatch, getstate) => {
   }
   return false;
 };
+
+export const setToolThunk = (tool, token) => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/tools", {
+    method: "POST",
+
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(tool),
+  });
+
+  let result = await response.json();
+  const setTools = async () => {
+    const getToolsResult = await dispatch(getToolsThunk());
+  };
+  setTools();
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const deleteToolThunk =
+  (toolId, token) => async (dispatch, getstate) => {
+    const response = await fetch("http://localhost:3000/api/tools/" + toolId, {
+      method: "DELETE",
+
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    let result = await response.json();
+    const setTools = async () => {
+      const getToolsResult = await dispatch(getToolsThunk());
+    };
+    setTools();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
+export const getToolsThunk = () => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/tools", {
+    method: "GET",
+  });
+
+  let result = await response.json();
+  dispatch(userSlice.actions.setTools(result));
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};

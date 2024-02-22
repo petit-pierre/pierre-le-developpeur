@@ -3,8 +3,6 @@ import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deletePictureThunk,
-  deleteProjectThunk,
-  deleteProjectTranslationThunk,
   deleteSkillThunk,
 } from "../../thunkActionsCreator";
 
