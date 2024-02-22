@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  putTranslationThunk,
   setProjectPictureThunk,
   setSkillThunk,
 } from "../../thunkActionsCreator";
@@ -17,22 +18,45 @@ function PostSkills() {
   const navigate = useNavigate();
 
   const token = useSelector((state) => state.data.token);
+  let translations = useSelector((state) => state.data.translations);
+  let translation = structuredClone(translations);
+
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
   }
 
   function saveSkill(evt) {
     evt.preventDefault();
-    const skill = {
-      english_title: englishTitle.current.value,
-      french_title: frenchTitle.current.value,
-    };
     let photo = document.querySelector(".Picture");
     if (
       frenchTitle.current.value &&
       englishTitle.current.value &&
       photo.files[0] !== ""
     ) {
+      const frenchTranslation = {
+        id: frenchTitle.current.value,
+        title: frenchTitle.current.value,
+      };
+      const englishTranslation = {
+        id: frenchTitle.current.value,
+        title: englishTitle.current.value,
+      };
+
+      translation.english.skills.push(englishTranslation);
+      translation.french.skills.push(frenchTranslation);
+
+      const translationSubmit = async () => {
+        const putTranslationResult = dispatch(
+          putTranslationThunk(translation, token)
+        );
+      };
+
+      translationSubmit();
+
+      const skill = {
+        id: frenchTitle.current.value,
+      };
+
       const formData = new FormData();
       formData.append("imageUrl", "");
       formData.append("image", photo.files[0]);

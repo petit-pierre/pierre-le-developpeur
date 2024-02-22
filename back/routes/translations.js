@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.post("/", auth, translationsCtrl.createTranslation);
 
-//router.get("/:id", projectTranslationsCtrl.getProjectTranslation);
+router.get("/:id", translationsCtrl.getTranslation);
 
-//router.put("/:id", auth, projectTranslationCtrl.putProjectTranslation);
+router.put("/:id", auth, translationsCtrl.putTranslation);
 
 router.delete("/:id", auth, translationsCtrl.deleteTranslation);
 

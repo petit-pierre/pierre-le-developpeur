@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { userSlice } from "./Slices/userSlice";
 import {
-  getProjectTranslationsThunk,
   getProjectsThunk,
   getSkillsThunk,
   getToolsThunk,
+  getTranslationThunk,
 } from "./thunkActionsCreator";
 
 import Home from "./pages/Home";
@@ -29,7 +29,6 @@ function App() {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState !== null) {
       await dispatch(userSlice.actions.setToken(serialisedState));
-      //const setProfilResult = dispatch(setProfilThunk(token));
     }
   };
   lookAtLocalStorage();
@@ -49,12 +48,10 @@ function App() {
   };
   getProjects();
 
-  const getProjectTranslations = async () => {
-    const getProjectTranslationsResult = await dispatch(
-      getProjectTranslationsThunk()
-    );
+  const getTranslation = async () => {
+    const getTranslationsResult = await dispatch(getTranslationThunk());
   };
-  getProjectTranslations();
+  getTranslation();
 
   return (
     <Router>

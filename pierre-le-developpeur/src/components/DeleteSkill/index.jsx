@@ -27,7 +27,7 @@ function DeleteSkill() {
           {skills.map((skill) => (
             <div>
               <Link to={"Skills/" + skill._id} key={`${skill.id}`}>
-                "Supprimez moi : {skill.french_title}
+                "Supprimez moi : {skill.id}
               </Link>
               <p> </p>
             </div>

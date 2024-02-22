@@ -10,11 +10,17 @@ exports.createTranslation = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-/*exports.getProjectTranslation = (req, res, next) => {
-  ProjectTranslation.findOne({ _id: req.params.id })
-    .then((projectTranslation) => res.status(200).json(projectTranslation))
+exports.getTranslation = (req, res, next) => {
+  Translations.findOne({ _id: req.params.id })
+    .then((translation) => res.status(200).json(translation))
     .catch((error) => res.status(404).json({ error }));
-};*/
+};
+
+exports.putTranslation = (req, res, next) => {
+  Translations.updateOne({ _id: req.params.id }, { ...req.body })
+    .then(() => res.status(200).json(req.body))
+    .catch((error) => res.status(400).json({ error }));
+};
 
 exports.deleteTranslation = (req, res, next) => {
   Translations.deleteOne({ _id: req.params.id })

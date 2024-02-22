@@ -24,11 +24,6 @@ function PostProject() {
     { id: 2, name: "wordpress" },
     { id: 3, name: "Logo/flyers" },
   ];
-  /*const Tools = [
-    { id: 1, name: "React" },
-    { id: 2, name: "Redux" },
-    { id: 3, name: "HTML 5" },
-  ];*/
   const Skills = useSelector((state) => state.data.skills);
   const Tools = useSelector((state) => state.data.tools);
   let designTools = [];
@@ -140,8 +135,9 @@ function PostProject() {
           const setProjectPictureResult = await dispatch(
             setProjectPictureThunk(formData, token)
           );
-          newProject.sliders[i].picture = setProjectPictureResult.imageUrl;
-          newProject.sliders[i].picture_id = setProjectPictureResult._id;
+          newProject.sliders[i].picture =
+            await setProjectPictureResult.imageUrl;
+          newProject.sliders[i].picture_id = await setProjectPictureResult._id;
 
           const finalSubmit = async () => {
             await setTimeout(() => {
@@ -155,7 +151,9 @@ function PostProject() {
           }
         };
 
-        sliderSubmit();
+        setTimeout(() => {
+          sliderSubmit();
+        }, 500);
         navigate("/User");
       }
     }

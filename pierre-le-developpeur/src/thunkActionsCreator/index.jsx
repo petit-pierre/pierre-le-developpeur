@@ -177,6 +177,48 @@ export const getProjectTranslationsThunk = () => async (dispatch, getstate) => {
   return false;
 };
 
+export const getTranslationThunk = () => async (dispatch, getstate) => {
+  const response = await fetch(
+    "http://localhost:3000/api/translations/65d740360e76aef74b084e09",
+    {
+      method: "GET",
+    }
+  );
+
+  let result = await response.json();
+  dispatch(userSlice.actions.setTranslations(result));
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const putTranslationThunk =
+  (translation, token) => async (dispatch, getstate) => {
+    const response = await fetch(
+      "http://localhost:3000/api/translations/65d740360e76aef74b084e09",
+      {
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + token,
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(translation),
+      }
+    );
+
+    let result = await response.json();
+    const setTranslations = async () => {
+      const getTranslationResult = await dispatch(getTranslationThunk());
+    };
+    setTranslations();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
 export const setSkillThunk = (skill, token) => async (dispatch, getstate) => {
   const response = await fetch("http://localhost:3000/api/skills", {
     method: "POST",
