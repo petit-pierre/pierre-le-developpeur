@@ -24,17 +24,31 @@ function PostProject() {
     { id: 2, name: "wordpress" },
     { id: 3, name: "Logo/flyers" },
   ];
-  const Tools = [
+  /*const Tools = [
     { id: 1, name: "React" },
     { id: 2, name: "Redux" },
     { id: 3, name: "HTML 5" },
-  ];
-  const Skills = useSelector((state) => state.data.skills);
-  /*const Skills = [
-    { id: 1, name: "Ponctualité" },
-    { id: 2, name: "Travail d'équipe" },
-    { id: 3, name: "Créativité" },
   ];*/
+  const Skills = useSelector((state) => state.data.skills);
+  const Tools = useSelector((state) => state.data.tools);
+  let designTools = [];
+  let frontTools = [];
+  let backTools = [];
+  for (let tool of Tools) {
+    if (tool.categorie === "Design") {
+      designTools.push({ title: tool.title, id: tool._id });
+    }
+  }
+  for (let tool of Tools) {
+    if (tool.categorie === "Front-end") {
+      frontTools.push({ title: tool.title, id: tool._id });
+    }
+  }
+  for (let tool of Tools) {
+    if (tool.categorie === "Back-end") {
+      backTools.push({ title: tool.title, id: tool._id });
+    }
+  }
 
   const frenchProjectTitle = useRef();
   const englishProjectTitle = useRef();
@@ -63,14 +77,14 @@ function PostProject() {
       const projectTools = [];
       for (let tool of projectTool) {
         if (tool.checked === true) {
-          projectTools.push({ id: tool.id, name: tool.name });
+          projectTools.push({ id: tool.value, name: tool.name });
         }
       }
       const projectSkill = document.querySelectorAll(".Skills");
       const projectSkills = [];
       for (let skill of projectSkill) {
         if (skill.checked === true) {
-          projectSkills.push({ id: skill.id, name: skill.name });
+          projectSkills.push({ id: skill.value, name: skill.name });
         }
       }
       const projectCategories = document.querySelectorAll(".Categories");
@@ -304,7 +318,7 @@ function PostProject() {
                     id={categorie.id}
                     value={categorie.name}
                   />
-                  <label for="React">{categorie.name}</label>
+                  <label for="category">{categorie.name}</label>
                 </div>
               ))}
             </fieldset>
@@ -320,9 +334,9 @@ function PostProject() {
                     type="checkbox"
                     name={skill.french_title}
                     id={skill._id}
-                    value={skill.french_title}
+                    value={skill._id}
                   />
-                  <label for="React">{skill.french_title}</label>
+                  <label for={skill.french_title}>{skill.french_title}</label>
                 </div>
               ))}
             </fieldset>
@@ -330,17 +344,47 @@ function PostProject() {
 
           <div>
             <fieldset>
-              <legend>tools :</legend>
-              {Tools.map((tool) => (
+              <legend>Design tools :</legend>
+              {designTools.map((tool) => (
                 <div>
                   <input
                     className="Tools"
                     type="checkbox"
-                    name={tool.name}
-                    id={tool.id}
-                    value={tool.name}
+                    name={tool.title}
+                    id={tool._id}
+                    value={tool.id}
                   />
-                  <label for="React">{tool.name}</label>
+                  <label for={tool.title}>{tool.title}</label>
+                </div>
+              ))}
+            </fieldset>
+            <fieldset>
+              <legend>Front-end tools :</legend>
+              {frontTools.map((tool) => (
+                <div>
+                  <input
+                    className="Tools"
+                    type="checkbox"
+                    name={tool.title}
+                    id={tool._id}
+                    value={tool.id}
+                  />
+                  <label for={tool.title}>{tool.title}</label>
+                </div>
+              ))}
+            </fieldset>
+            <fieldset>
+              <legend>Back-end tools :</legend>
+              {backTools.map((tool) => (
+                <div>
+                  <input
+                    className="Tools"
+                    type="checkbox"
+                    name={tool.title}
+                    id={tool._id}
+                    value={tool.id}
+                  />
+                  <label for={tool.title}>{tool.title}</label>
                 </div>
               ))}
             </fieldset>

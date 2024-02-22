@@ -72,7 +72,12 @@ function PostSkills() {
       <p>title in english :</p>
       <input type="text" ref={englishTitle}></input>
       <p>picture :</p>
-      <input type="file" className="Picture" name="Picture"></input>
+      <input
+        type="file"
+        className="Picture"
+        name="Picture"
+        accept="image/png"
+      ></input>
       <p></p>
       <div>
         <button onClick={(evt) => saveSkill(evt)}>Save</button>
