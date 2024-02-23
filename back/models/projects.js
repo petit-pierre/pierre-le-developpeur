@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const projectsSchema = mongoose.Schema({
-  title: { type: String, required: true },
+  french_title: { type: String, required: true },
+  english_title: { type: String, required: true },
   category: { type: String, required: true },
   date: { type: String, required: true },
   tools: [
@@ -10,6 +11,10 @@ const projectsSchema = mongoose.Schema({
       name: { type: String, required: true },
     },
   ],
+  english_description: { type: String, required: true },
+  french_description: { type: String, required: true },
+  french_resum: { type: String, required: true },
+  english_resum: { type: String, required: true },
 
   links: [
     {
@@ -22,6 +27,8 @@ const projectsSchema = mongoose.Schema({
       picture: { type: String, required: true },
       picture_id: { type: String, required: true },
       alt: { type: String, required: true },
+      french_content: { type: String, required: true },
+      english_content: { type: String, required: true },
     },
   ],
   skills: [
@@ -30,7 +37,6 @@ const projectsSchema = mongoose.Schema({
       name: { type: String, required: true },
     },
   ],
-  translation: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Projects", projectsSchema);

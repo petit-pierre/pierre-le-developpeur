@@ -9,6 +9,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { userSlice } from "./Slices/userSlice";
 import { thunk } from "redux-thunk";
 
+import "./i18n/i18n";
+
 const store = configureStore({
   reducer: combineReducers({
     data: userSlice.reducer,

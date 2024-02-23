@@ -11,8 +11,7 @@ import Header from "../../components/Header";
 function PostProject() {
   let sliders = [];
   let links = [];
-  let frenchSliders = [];
-  let englishSliders = [];
+  let Sliders = [];
 
   const linkList = [
     { id: 1, name: "web" },
@@ -90,41 +89,21 @@ function PostProject() {
         }
       }
 
-      const projectTranslation = {
-        english: {
-          title: englishProjectTitle.current.value,
-          description: englishDescription.current.value,
-          resum: englishResum.current.value,
-          slider: englishSliders,
-        },
-        french: {
-          title: frenchProjectTitle.current.value,
-          description: frenchDescription.current.value,
-          resum: frenchResum.current.value,
-          slider: frenchSliders,
-        },
-      };
-
       const newProject = {
-        title: frenchProjectTitle.current.value,
+        french_title: frenchProjectTitle.current.value,
+        english_title: englishProjectTitle.current.value,
         category: category,
         date: date.current.value,
         tools: projectTools,
-
+        english_description: englishDescription.current.value,
+        french_description: frenchDescription.current.value,
+        french_resum: frenchResum.current.value,
+        english_resum: englishResum.current.value,
         links: links,
         sliders: sliders,
 
         skills: projectSkills,
       };
-      const projectTranslationSubmit = async () => {
-        const setProjectTranslationResult = await dispatch(
-          setProjectTranslationThunk(projectTranslation, token)
-        );
-        newProject.translation = setProjectTranslationResult._id;
-        console.log(newProject);
-      };
-
-      projectTranslationSubmit();
 
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();
@@ -170,12 +149,10 @@ function PostProject() {
       let slider = {
         picture: photo.files[0],
         alt: sliderAlt.current.value,
+        french_content: frenchSliderContent.current.value,
+        english_content: englishSliderContent.current.value,
       };
 
-      let frenchSlider = { content: frenchSliderContent.current.value };
-      let englishSlider = { content: englishSliderContent.current.value };
-      frenchSliders.push(frenchSlider);
-      englishSliders.push(englishSlider);
       sliders.push(slider);
       alert("slide ajouté : " + photo.files[0].name);
 

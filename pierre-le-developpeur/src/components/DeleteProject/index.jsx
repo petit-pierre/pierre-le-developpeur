@@ -27,7 +27,7 @@ function DeleteProject() {
           {projects.map((project) => (
             <div>
               <Link to={"Project/" + project._id} key={`${project.id}`}>
-                "Supprimez moi : {project.title}
+                "Supprimez moi : {project.french_title}
               </Link>
               <p> </p>
             </div>

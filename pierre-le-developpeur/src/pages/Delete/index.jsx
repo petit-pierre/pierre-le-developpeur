@@ -47,12 +47,7 @@ function DeleteProject() {
       };
       deletePicture();
     }
-    const deleteTranslation = async () => {
-      const deleteProjectTranslationResult = await dispatch(
-        deleteProjectTranslationThunk(translationId, token)
-      );
-    };
-    deleteTranslation();
+
     const projectId = project._id;
     const deleteProject = async () => {
       const deleteProjectResult = await dispatch(

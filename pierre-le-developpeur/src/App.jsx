@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import React, { Component, Suspense } from "react";
+import { useTranslation, withTranslation, Trans } from "react-i18next";
+
 import { userSlice } from "./Slices/userSlice";
 import {
   getProjectsThunk,
@@ -21,6 +24,7 @@ import PostSkills from "./pages/PostSkills";
 import DeleteSkill from "./pages/DeleteSkill";
 import PostTools from "./pages/PostTools";
 import DeleteTool from "./pages/DeleteTool";
+import Loading from "./pages/Loading";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,12 +56,12 @@ function App() {
     const getTranslationsResult = await dispatch(getTranslationThunk());
   };
   getTranslation();
-
   return (
     <Router>
       <div className="prout"></div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Loading />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/PostTools" element={<PostTools />} />

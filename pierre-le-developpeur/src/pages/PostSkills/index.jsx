@@ -18,8 +18,8 @@ function PostSkills() {
   const navigate = useNavigate();
 
   const token = useSelector((state) => state.data.token);
-  let translations = useSelector((state) => state.data.translations);
-  let translation = structuredClone(translations);
+  //let translations = useSelector((state) => state.data.translations);
+  //let translation = structuredClone(translations);
 
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
@@ -33,28 +33,9 @@ function PostSkills() {
       englishTitle.current.value &&
       photo.files[0] !== ""
     ) {
-      const frenchTranslation = {
-        id: frenchTitle.current.value,
-        title: frenchTitle.current.value,
-      };
-      const englishTranslation = {
-        id: frenchTitle.current.value,
-        title: englishTitle.current.value,
-      };
-
-      translation.english.skills.push(englishTranslation);
-      translation.french.skills.push(frenchTranslation);
-
-      const translationSubmit = async () => {
-        const putTranslationResult = dispatch(
-          putTranslationThunk(translation, token)
-        );
-      };
-
-      translationSubmit();
-
       const skill = {
-        id: frenchTitle.current.value,
+        french_title: frenchTitle.current.value,
+        english_title: englishTitle.current.value,
       };
 
       const formData = new FormData();
