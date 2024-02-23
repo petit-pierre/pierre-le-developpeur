@@ -27,7 +27,7 @@ function Home() {
         parallax avant le header
         <Header />
         la page
-        <p>{t(`didi`)}</p>
+        <p>{t(`welcome`)}</p>
         {lang === "en" ? (
           <p>{skills[0].english_title}</p>
         ) : (

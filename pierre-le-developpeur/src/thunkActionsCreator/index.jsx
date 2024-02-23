@@ -1,5 +1,5 @@
 import { userSlice } from "../Slices/userSlice";
-import { setStorage } from "../utils/localStorage";
+import { setStorage, setStorageTranslation } from "../utils/localStorage";
 
 export const setTokenThunk =
   (email, password, rememberChecked) => async (dispatch, getState) => {
@@ -113,7 +113,7 @@ export const deleteProjectThunk =
     return false;
   };
 
-export const setProjectTranslationThunk =
+export const setTranslationThunk =
   (projectTranslation, token) => async (dispatch, getstate) => {
     const response = await fetch("http://localhost:3000/api/translations", {
       method: "POST",
@@ -129,7 +129,7 @@ export const setProjectTranslationThunk =
     let result = await response.json();
     const setTranslationsProjects = async () => {
       const getProjectsTranslationResult = await dispatch(
-        getProjectTranslationsThunk()
+        getTranslationsThunk()
       );
     };
     setTranslationsProjects();
@@ -139,7 +139,7 @@ export const setProjectTranslationThunk =
     return false;
   };
 
-export const deleteProjectTranslationThunk =
+export const deleteTranslationThunk =
   (translationId, token) => async (dispatch, getstate) => {
     const response = await fetch(
       "http://localhost:3000/api/translations/" + translationId,
@@ -154,7 +154,7 @@ export const deleteProjectTranslationThunk =
     let result = await response.json();
     const setTranslationsProjects = async () => {
       const getProjectsTranslationResult = await dispatch(
-        getProjectTranslationsThunk()
+        getTranslationsThunk()
       );
     };
     setTranslationsProjects();
@@ -164,7 +164,7 @@ export const deleteProjectTranslationThunk =
     return false;
   };
 
-export const getProjectTranslationsThunk = () => async (dispatch, getstate) => {
+export const getTranslationsThunk = () => async (dispatch, getstate) => {
   const response = await fetch("http://localhost:3000/api/translations", {
     method: "GET",
   });
@@ -188,6 +188,7 @@ export const getTranslationThunk = () => async (dispatch, getstate) => {
   let result = await response.json();
   dispatch(userSlice.actions.setTranslations(result));
   if (response.ok) {
+    setStorageTranslation(result);
     return result;
   }
   return false;

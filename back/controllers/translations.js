@@ -18,7 +18,7 @@ exports.getTranslation = (req, res, next) => {
 
 exports.putTranslation = (req, res, next) => {
   Translations.updateOne({ _id: req.params.id }, { ...req.body })
-    .then(() => res.status(200).json(req.body))
+    .then(() => res.status(200).json({ message: "translation modifié !" }))
     .catch((error) => res.status(400).json({ error }));
 };
 

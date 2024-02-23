@@ -1,15 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import React, { Component, Suspense } from "react";
-import { useTranslation, withTranslation, Trans } from "react-i18next";
-
 import { userSlice } from "./Slices/userSlice";
 import {
   getProjectsThunk,
   getSkillsThunk,
   getToolsThunk,
   getTranslationThunk,
+  getTranslationsThunk,
 } from "./thunkActionsCreator";
 
 import Home from "./pages/Home";
@@ -28,7 +26,10 @@ import Loading from "./pages/Loading";
 
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.data.token);
+
+  const mavar = localStorage.getItem("translation");
+  console.log(mavar);
+
   const lookAtLocalStorage = async () => {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState !== null) {
