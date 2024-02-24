@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
 import DeleteSkill from "../../components/DeleteSkill";
 import DeleteTool from "../../components/DeleteTool";
-import UpdateInfo from "../../components/UpdateTranslation";
+//import UpdateInfo from "../UpdateTranslation";
 
 function User() {
   const token = useSelector((state) => state.data.token);
@@ -51,7 +51,7 @@ function User() {
         <DeleteTool />
       </fieldset>
       <fieldset>
-        <UpdateInfo />
+        <Link to="/UpdateInfo">Update info</Link>
       </fieldset>
     </main>
   );

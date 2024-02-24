@@ -188,7 +188,6 @@ export const getTranslationThunk = () => async (dispatch, getstate) => {
   let result = await response.json();
   dispatch(userSlice.actions.setTranslations(result));
   if (response.ok) {
-    setStorageTranslation(result);
     return result;
   }
   return false;

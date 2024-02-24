@@ -23,6 +23,7 @@ import DeleteSkill from "./pages/DeleteSkill";
 import PostTools from "./pages/PostTools";
 import DeleteTool from "./pages/DeleteTool";
 import Loading from "./pages/Loading";
+import UpdateInfo from "./pages/UpdateTranslation";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
       <div className="prout"></div>
       <Routes>
         <Route path="/" element={<Loading />} />
+        <Route path="/UpdateInfo" element={<UpdateInfo />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />

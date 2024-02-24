@@ -1,9 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setProjectPictureThunk,
   setProjectThunk,
-  setProjectTranslationThunk,
 } from "../../thunkActionsCreator";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
