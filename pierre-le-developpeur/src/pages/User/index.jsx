@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
 import DeleteSkill from "../../components/DeleteSkill";
 import DeleteTool from "../../components/DeleteTool";
+import DeleteSlide from "../../components/DeleteSlide";
 //import UpdateInfo from "../UpdateTranslation";
 
 function User() {
@@ -52,6 +53,12 @@ function User() {
       </fieldset>
       <fieldset>
         <Link to="/UpdateInfo">Update info</Link>
+      </fieldset>
+      <fieldset>
+        <Link to="/PostSliders">Post new slide</Link>
+      </fieldset>
+      <fieldset>
+        <DeleteSlide />
       </fieldset>
     </main>
   );

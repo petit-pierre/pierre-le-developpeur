@@ -24,6 +24,8 @@ import PostTools from "./pages/PostTools";
 import DeleteTool from "./pages/DeleteTool";
 import Loading from "./pages/Loading";
 import UpdateInfo from "./pages/UpdateTranslation";
+import PostSliders from "./pages/PostSliders";
+import DeleteSlide from "./pages/DeleteSlide";
 
 function App() {
   const dispatch = useDispatch();
@@ -67,11 +69,13 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
+        <Route path="/PostSliders" element={<PostSliders />} />
         <Route path="/PostTools" element={<PostTools />} />
         <Route path="/User" element={<User />} />
         <Route path="/User/Project/:id" element={<Delete />} />
         <Route path="/User/Skills/:skillId" element={<DeleteSkill />} />
         <Route path="/User/Tools/:toolId" element={<DeleteTool />} />
+        <Route path="/User/Slide/:slideId" element={<DeleteSlide />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

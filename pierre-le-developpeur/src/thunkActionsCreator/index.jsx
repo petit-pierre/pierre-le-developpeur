@@ -333,3 +333,62 @@ export const getToolsThunk = () => async (dispatch, getstate) => {
   }
   return false;
 };
+
+export const setSlideThunk = (slide, token) => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/sliders", {
+    method: "POST",
+
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(slide),
+  });
+
+  let result = await response.json();
+  const getSliders = async () => {
+    const getSlidersResult = await dispatch(getSlidersThunk());
+  };
+  getSliders();
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const deleteSlideThunk =
+  (slideId, token) => async (dispatch, getstate) => {
+    const response = await fetch(
+      "http://localhost:3000/api/sliders/" + slideId,
+      {
+        method: "DELETE",
+
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    let result = await response.json();
+    const getSliders = async () => {
+      const getSlidersResult = await dispatch(getSlidersThunk());
+    };
+    getSliders();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
+export const getSlidersThunk = () => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/sliders", {
+    method: "GET",
+  });
+
+  let result = await response.json();
+  dispatch(userSlice.actions.setSliders(result));
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};

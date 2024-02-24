@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const projectsRoutes = require("./routes/projects");
+const slidersRoutes = require("./routes/sliders");
 const translationsRoutes = require("./routes/translations");
 const userRoutes = require("./routes/user");
 const skillsRoutes = require("./routes/skills");
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/projects", projectsRoutes);
+app.use("/api/sliders", slidersRoutes);
 app.use("/api/translations", translationsRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/skills", skillsRoutes);

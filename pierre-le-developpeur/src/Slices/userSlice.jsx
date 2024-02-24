@@ -8,6 +8,7 @@ export const userSlice = createSlice({
     translations: null,
     skills: null,
     tools: null,
+    sliders: null,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -33,6 +34,11 @@ export const userSlice = createSlice({
     setTools: (currentState, action) => {
       const tools = { ...currentState, tools: action.payload };
       return tools;
+    },
+
+    setSliders: (currentState, action) => {
+      const sliders = { ...currentState, sliders: action.payload };
+      return sliders;
     },
   },
 });

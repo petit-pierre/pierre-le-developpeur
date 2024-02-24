@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-function DeleteProject() {
-  const projects = useSelector((state) => state.data.projects);
+function DeleteSlide() {
+  const sliders = useSelector((state) => state.data.sliders);
   const [edit, setEdit] = useState(false);
   function projectChange() {
     setEdit(!edit);
@@ -16,17 +16,17 @@ function DeleteProject() {
       ) : (
         <div>
           <button className="edit-button" onClick={projectChange}>
-            Delete project
+            Delete slide
           </button>
         </div>
       )}
 
       {edit === true ? (
-        <div className="projects">
-          {projects.map((project) => (
+        <div>
+          {sliders.map((slide) => (
             <div>
-              <Link to={"Project/" + project._id} key={`${project.id}`}>
-                "Supprimez moi : {project.french_title}
+              <Link to={"Slide/" + slide._id} key={`${slide.id}`}>
+                "Supprimez moi : {slide.french_content}
               </Link>
               <p> </p>
             </div>
@@ -39,4 +39,4 @@ function DeleteProject() {
     </div>
   );
 }
-export default DeleteProject;
+export default DeleteSlide;
