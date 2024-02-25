@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import { putTranslationThunk } from "../../thunkActionsCreator";
+import {
+  deletePictureThunk,
+  putTranslationThunk,
+  setProjectPictureThunk,
+} from "../../thunkActionsCreator";
 import Header from "../../components/Header";
 
 function UpdateInfo() {
@@ -41,6 +45,7 @@ function UpdateInfo() {
 
   function saveInfo(evt) {
     evt.preventDefault();
+
     const Submit = async () => {
       const putTranslationResult = dispatch(
         putTranslationThunk(translation, token)
@@ -70,7 +75,55 @@ function UpdateInfo() {
       },
     };
 
-    Submit();
+    let englishCv = document.querySelector(".englishCv");
+    let frenchCv = document.querySelector(".frenchCv");
+
+    if (frenchCv.files[0] != null) {
+      const deletePicture = async () => {
+        const id = translations.french.cv_id;
+        const deletePictureResult = await dispatch(
+          deletePictureThunk(id, token)
+        );
+      };
+      deletePicture();
+    }
+    if (englishCv.files[0] != null) {
+      const deletePicture = async () => {
+        const id = translations.english.cv_id;
+        const deletePictureResult = await dispatch(
+          deletePictureThunk(id, token)
+        );
+      };
+      deletePicture();
+    }
+
+    const englishCvSubmit = async () => {
+      const formData = new FormData();
+      formData.append("imageUrl", "");
+      formData.append("image", englishCv.files[0]);
+      const setProjectPictureResult = await dispatch(
+        setProjectPictureThunk(formData, token)
+      );
+      translation.english.cv = await setProjectPictureResult.imageUrl;
+      translation.english.cv_id = await setProjectPictureResult._id;
+    };
+
+    const frenchCvSubmit = async () => {
+      const formData = new FormData();
+      formData.append("imageUrl", "");
+      formData.append("image", frenchCv.files[0]);
+      const setProjectPictureResult = await dispatch(
+        setProjectPictureThunk(formData, token)
+      );
+      translation.french.cv = await setProjectPictureResult.imageUrl;
+      translation.french.cv_id = await setProjectPictureResult._id;
+
+      await Submit();
+    };
+
+    englishCvSubmit();
+    frenchCvSubmit();
+
     navigate("/User");
   }
 
@@ -80,103 +133,130 @@ function UpdateInfo() {
       <div>
         <h1>Info</h1>
         <fieldset>
+          <p>CV in french :</p>
+          <embed
+            src={translations.french.cv}
+            width="30%"
+            height="550"
+            type="application/pdf"
+          />
+          <input
+            type="file"
+            accept="application/pdf"
+            className="frenchCv"
+          ></input>
+
+          <p>CV in english :</p>
+          <embed
+            src={translations.english.cv}
+            width="30%"
+            height="550"
+            type="application/pdf"
+          />
+          <input
+            type="file"
+            accept="application/pdf"
+            className="englishCv"
+          ></input>
+        </fieldset>
+        <fieldset>
           <p>Placeholder for mail in french :</p>
           <textarea
             ref={french_placeholder_mail}
             defaultValue={translations.french.placeholder_mail}
           ></textarea>
           <p>Placeholder for mail in english :</p>
-          <input
+          <textarea
             ref={english_placeholder_mail}
             defaultValue={translations.english.placeholder_mail}
             type="text"
-          ></input>
+          ></textarea>
           <p>Placeholder for message in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.placeholder_content}
             ref={french_placeholder_content}
-          ></input>
+          ></textarea>
           <p>Placeholder for message in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.placeholder_content}
             ref={english_placeholder_content}
-          ></input>
+          ></textarea>
           <p>Content in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.content}
             ref={french_content}
-          ></input>
+          ></textarea>
           <p>Content in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.content}
             ref={english_content}
-          ></input>
+          ></textarea>
           <p>Button in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.button}
             ref={french_button}
-          ></input>
+          ></textarea>
           <p>Button in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.button}
             ref={english_button}
-          ></input>
+          ></textarea>
           <p>Mail error in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.error_mail}
             ref={french_error_mail}
-          ></input>
+          ></textarea>
           <p>Mail error in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.error_mail}
             ref={english_error_mail}
-          ></input>
+          ></textarea>
           <p>Content error in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.error_content}
             ref={french_error_content}
-          ></input>
+          ></textarea>
           <p>Content error in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.error_content}
             ref={english_error_content}
-          ></input>
+          ></textarea>
           <p>Succes in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.succes}
             ref={french_succes}
-          ></input>
+          ></textarea>
           <p>Succes in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.succes}
             ref={english_succes}
-          ></input>
+          ></textarea>
         </fieldset>
         <fieldset>
           <p>Recommendation in french :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.french.recommendation}
             ref={french_recommendation}
-          ></input>
+          ></textarea>
           <p>Recommendation in english :</p>
-          <input
+          <textarea
             type="text"
             defaultValue={translations.english.recommendation}
             ref={english_recommendation}
-          ></input>
+          ></textarea>
         </fieldset>
         <p></p>
         <button onClick={(evt) => projectChange(evt)}>Cancel</button>

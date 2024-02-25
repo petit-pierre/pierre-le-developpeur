@@ -11,6 +11,8 @@ const translationsSchema = mongoose.Schema({
     error_content: { type: String, required: true },
     succes: { type: String, required: true },
     recommendation: { type: String, required: true },
+    cv: { type: String, required: true },
+    cv_id: { type: String, required: true },
   },
   french: {
     placeholder_mail: { type: String, required: true },
@@ -21,6 +23,8 @@ const translationsSchema = mongoose.Schema({
     error_content: { type: String, required: true },
     succes: { type: String, required: true },
     recommendation: { type: String, required: true },
+    cv: { type: String, required: true },
+    cv_id: { type: String, required: true },
   },
 });
 
