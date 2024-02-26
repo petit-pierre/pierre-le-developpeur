@@ -52,6 +52,10 @@ function UpdateInfo() {
       );
     };
 
+    let englishCv = document.querySelector(".englishCv");
+    let frenchCv = document.querySelector(".frenchCv");
+    console.log(frenchCv.files[0]);
+
     const translation = {
       english: {
         placeholder_mail: english_placeholder_mail.current.value,
@@ -62,6 +66,8 @@ function UpdateInfo() {
         error_content: english_error_content.current.value,
         succes: english_succes.current.value,
         recommendation: english_recommendation.current.value,
+        cv: translations.english.cv,
+        cv_id: translations.english.cv_id,
       },
       french: {
         placeholder_mail: french_placeholder_mail.current.value,
@@ -72,30 +78,10 @@ function UpdateInfo() {
         error_content: french_error_content.current.value,
         succes: french_succes.current.value,
         recommendation: french_recommendation.current.value,
+        cv: translations.french.cv,
+        cv_id: translations.french.cv_id,
       },
     };
-
-    let englishCv = document.querySelector(".englishCv");
-    let frenchCv = document.querySelector(".frenchCv");
-
-    if (frenchCv.files[0] != null) {
-      const deletePicture = async () => {
-        const id = translations.french.cv_id;
-        const deletePictureResult = await dispatch(
-          deletePictureThunk(id, token)
-        );
-      };
-      deletePicture();
-    }
-    if (englishCv.files[0] != null) {
-      const deletePicture = async () => {
-        const id = translations.english.cv_id;
-        const deletePictureResult = await dispatch(
-          deletePictureThunk(id, token)
-        );
-      };
-      deletePicture();
-    }
 
     const englishCvSubmit = async () => {
       const formData = new FormData();
@@ -106,6 +92,7 @@ function UpdateInfo() {
       );
       translation.english.cv = await setProjectPictureResult.imageUrl;
       translation.english.cv_id = await setProjectPictureResult._id;
+      await Submit();
     };
 
     const frenchCvSubmit = async () => {
@@ -117,12 +104,36 @@ function UpdateInfo() {
       );
       translation.french.cv = await setProjectPictureResult.imageUrl;
       translation.french.cv_id = await setProjectPictureResult._id;
-
       await Submit();
     };
-
-    englishCvSubmit();
-    frenchCvSubmit();
+    if (frenchCv.files[0] != null) {
+      const deletePicture = async () => {
+        const id = translations.french.cv_id;
+        const deletePictureResult = await dispatch(
+          deletePictureThunk(id, token)
+        );
+      };
+      frenchCvSubmit();
+      deletePicture();
+    } else {
+      if (englishCv.files[0] != null) {
+        Submit();
+      }
+    }
+    if (englishCv.files[0] != null) {
+      const deletePicture = async () => {
+        const id = translations.english.cv_id;
+        const deletePictureResult = await dispatch(
+          deletePictureThunk(id, token)
+        );
+      };
+      englishCvSubmit();
+      deletePicture();
+    } else {
+      if (frenchCv.files[0] != null) {
+        Submit();
+      }
+    }
 
     navigate("/User");
   }
