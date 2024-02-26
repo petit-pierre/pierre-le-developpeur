@@ -2,6 +2,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteLikesThunk,
   deletePictureThunk,
   deleteSkillThunk,
   putTranslationThunk,
@@ -32,6 +33,12 @@ function DeleteSkill() {
       const deletePictureResult = await dispatch(deletePictureThunk(id, token));
     };
     deletePicture();
+
+    const deleteLike = async () => {
+      const likeId = skill.likes_id;
+      const deleteLikeResult = await dispatch(deleteLikesThunk(likeId, token));
+    };
+    deleteLike();
 
     /*const deleteTranslation = async () => {
       const deleteProjectTranslationResult = await dispatch(

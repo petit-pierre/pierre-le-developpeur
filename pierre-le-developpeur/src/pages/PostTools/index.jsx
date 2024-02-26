@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setLikeThunk,
   setProjectPictureThunk,
   setToolThunk,
 } from "../../thunkActionsCreator";
@@ -50,7 +51,16 @@ function PostTools() {
         );
         tool.picture_url = setPictureResult.imageUrl;
         tool.picture_id = setPictureResult._id;
-        console.log(tool);
+
+        const likeSubmit = async () => {
+          const likes = {
+            title: tool.title,
+            likes: 0,
+          };
+          const setLikesResult = await dispatch(setLikeThunk(likes, token));
+          tool.likes_id = setLikesResult._id;
+        };
+        likeSubmit();
 
         const finalSubmit = async () => {
           await setTimeout(() => {

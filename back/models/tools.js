@@ -6,6 +6,7 @@ const toolsSchema = mongoose.Schema({
   categorie: { type: String, required: true },
   picture_url: { type: String, required: true },
   picture_id: { type: String, required: true },
+  likes_id: { type: String, required: true },
 });
 
 toolsSchema.plugin(uniqueValidator);

@@ -2,6 +2,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteLikesThunk,
   deletePictureThunk,
   deleteProjectThunk,
   deleteProjectTranslationThunk,
@@ -38,6 +39,22 @@ function DeleteProject() {
       };
       deletePicture();
     }*/
+    const deleteLike = async () => {
+      const likeId = project.likes_id;
+      const deleteLikeResult = await dispatch(deleteLikesThunk(likeId, token));
+    };
+    deleteLike();
+    const deleteSliderLike = async () => {
+      const likeId = project.slider_likes_id;
+      const deleteLikeResult = await dispatch(deleteLikesThunk(likeId, token));
+    };
+    deleteSliderLike();
+    const deleteContentLike = async () => {
+      const likeId = project.content_likes_id;
+      const deleteLikeResult = await dispatch(deleteLikesThunk(likeId, token));
+    };
+    deleteContentLike();
+
     for (let i = 0; i < project.sliders.length; i++) {
       const id = project.sliders[i].picture_id;
       const deletePicture = async () => {

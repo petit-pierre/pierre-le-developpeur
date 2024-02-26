@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  putTranslationThunk,
+  setLikeThunk,
   setProjectPictureThunk,
   setSkillThunk,
 } from "../../thunkActionsCreator";
@@ -48,7 +48,16 @@ function PostSkills() {
         );
         skill.picture_url = setPictureResult.imageUrl;
         skill.picture_id = setPictureResult._id;
-        console.log(skill);
+
+        const likeSubmit = async () => {
+          const likes = {
+            title: skill.french_title,
+            likes: 0,
+          };
+          const setLikesResult = await dispatch(setLikeThunk(likes, token));
+          skill.likes_id = setLikesResult._id;
+        };
+        likeSubmit();
 
         const finalSubmit = async () => {
           await setTimeout(() => {

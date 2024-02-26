@@ -392,3 +392,81 @@ export const getSlidersThunk = () => async (dispatch, getstate) => {
   }
   return false;
 };
+
+export const setLikeThunk = (likes, token) => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/likes", {
+    method: "POST",
+
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(likes),
+  });
+
+  let result = await response.json();
+  const getLikes = async () => {
+    const getLikesResult = await dispatch(getLikesThunk());
+  };
+  getLikes();
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const deleteLikesThunk =
+  (likeId, token) => async (dispatch, getstate) => {
+    const response = await fetch("http://localhost:3000/api/likes/" + likeId, {
+      method: "DELETE",
+
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    let result = await response.json();
+    const getLikes = async () => {
+      const getLikesResult = await dispatch(getLikesThunk());
+    };
+    getLikes();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
+export const getLikesThunk = () => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/likes", {
+    method: "GET",
+  });
+
+  let result = await response.json();
+  dispatch(userSlice.actions.setLikes(result));
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};
+
+export const putSlidesThunk = (like, token) => async (dispatch, getstate) => {
+  const response = await fetch("http://localhost:3000/api/likes/" + like._id, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(like),
+  });
+
+  let result = await response.json();
+  const getLikes = async () => {
+    const getLikesResult = await dispatch(getLikesThunk());
+  };
+  getLikes();
+  if (response.ok) {
+    return result;
+  }
+  return false;
+};

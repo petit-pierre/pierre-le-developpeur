@@ -1,7 +1,11 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePictureThunk, deleteToolThunk } from "../../thunkActionsCreator";
+import {
+  deleteLikesThunk,
+  deletePictureThunk,
+  deleteToolThunk,
+} from "../../thunkActionsCreator";
 
 function DeleteTool() {
   const navigate = useNavigate();
@@ -27,6 +31,11 @@ function DeleteTool() {
       const deletePictureResult = await dispatch(deletePictureThunk(id, token));
     };
     deletePicture();
+    const deleteLike = async () => {
+      const likeId = tool.likes_id;
+      const deleteLikeResult = await dispatch(deleteLikesThunk(likeId, token));
+    };
+    deleteLike();
 
     const toolId = tool._id;
     const deleteTool = async () => {

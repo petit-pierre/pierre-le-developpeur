@@ -7,6 +7,7 @@ const userRoutes = require("./routes/user");
 const skillsRoutes = require("./routes/skills");
 const toolsRoutes = require("./routes/tools");
 const pictureRoutes = require("./routes/pictures");
+const likesRoutes = require("./routes/likes");
 const app = express();
 const path = require("path");
 
@@ -41,5 +42,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/skills", skillsRoutes);
 app.use("/api/tools", toolsRoutes);
 app.use("/api/pictures", pictureRoutes);
+app.use("/api/likes", likesRoutes);
 //app.post("/api/pictures", upload.single("sliderPicture"), (req, res) => {});
 module.exports = app;

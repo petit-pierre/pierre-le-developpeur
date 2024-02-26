@@ -9,6 +9,7 @@ export const userSlice = createSlice({
     skills: null,
     tools: null,
     sliders: null,
+    likes: null,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -39,6 +40,11 @@ export const userSlice = createSlice({
     setSliders: (currentState, action) => {
       const sliders = { ...currentState, sliders: action.payload };
       return sliders;
+    },
+
+    setLikes: (currentState, action) => {
+      const likes = { ...currentState, likes: action.payload };
+      return likes;
     },
   },
 });

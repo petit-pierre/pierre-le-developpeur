@@ -9,6 +9,7 @@ function Home() {
   const socket = io.connect("http://localhost:3000");
 
   const skills = useSelector((state) => state.data.skills);
+  const likes = useSelector((state) => state.data.likes);
   const navigate = useNavigate();
   const [lang, setLang] = useState("en");
 
@@ -16,6 +17,12 @@ function Home() {
   const [messageReceived, setMessageReceived] = useState("");
 
   const sendMessage = () => {
+    socket.emit("send_message", { message });
+  };
+
+  const sendLike = (evt) => {
+    evt.preventDefault();
+    setMessage("Cta");
     socket.emit("send_message", { message });
   };
 
@@ -53,7 +60,10 @@ function Home() {
         <button onClick={() => english()}>English</button>
         <button onClick={() => francais()}>fr</button>
         <div>
-          {" "}
+          <fieldset>
+            likes CTA : {likes[0].likes}{" "}
+            <button onClick={(evt) => sendLike(evt)}>+</button>
+          </fieldset>{" "}
           <input
             placeholder="Message..."
             onChange={(event) => {

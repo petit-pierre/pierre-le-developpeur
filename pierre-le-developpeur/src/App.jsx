@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { userSlice } from "./Slices/userSlice";
 import {
+  getLikesThunk,
   getProjectsThunk,
   getSkillsThunk,
   getToolsThunk,
@@ -60,6 +61,11 @@ function App() {
     const getTranslationsResult = await dispatch(getTranslationThunk());
   };
   getTranslation();
+
+  const getLikes = async () => {
+    const getLikesResult = await dispatch(getLikesThunk());
+  };
+  getLikes();
   return (
     <Router>
       <div className="prout"></div>

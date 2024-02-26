@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setLikeThunk,
   setProjectPictureThunk,
   setProjectThunk,
 } from "../../thunkActionsCreator";
@@ -103,6 +104,34 @@ function PostProject() {
 
         skills: projectSkills,
       };
+
+      const likeSubmit = async () => {
+        const likes = {
+          title: newProject.french_title,
+          likes: 0,
+        };
+        const setLikesResult = await dispatch(setLikeThunk(likes, token));
+        newProject.likes_id = setLikesResult._id;
+      };
+      likeSubmit();
+      const likeSliderSubmit = async () => {
+        const likes = {
+          title: "slider" + newProject.french_title,
+          likes: 0,
+        };
+        const setLikesResult = await dispatch(setLikeThunk(likes, token));
+        newProject.slider_likes_id = setLikesResult._id;
+      };
+      likeSliderSubmit();
+      const likeContentSubmit = async () => {
+        const likes = {
+          title: "content" + newProject.french_title,
+          likes: 0,
+        };
+        const setLikesResult = await dispatch(setLikeThunk(likes, token));
+        newProject.content_likes_id = setLikesResult._id;
+      };
+      likeContentSubmit();
 
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();

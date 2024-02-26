@@ -37,6 +37,9 @@ const projectsSchema = mongoose.Schema({
       name: { type: String, required: true },
     },
   ],
+  likes_id: { type: String, required: true },
+  slider_likes_id: { type: String, required: true },
+  content_likes_id: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Projects", projectsSchema);
