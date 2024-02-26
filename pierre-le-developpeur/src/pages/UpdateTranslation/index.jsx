@@ -54,7 +54,6 @@ function UpdateInfo() {
 
     let englishCv = document.querySelector(".englishCv");
     let frenchCv = document.querySelector(".frenchCv");
-    console.log(frenchCv.files[0]);
 
     const translation = {
       english: {
@@ -116,9 +115,7 @@ function UpdateInfo() {
       frenchCvSubmit();
       deletePicture();
     } else {
-      if (englishCv.files[0] != null) {
-        Submit();
-      }
+      Submit();
     }
     if (englishCv.files[0] != null) {
       const deletePicture = async () => {
@@ -130,11 +127,13 @@ function UpdateInfo() {
       englishCvSubmit();
       deletePicture();
     } else {
-      if (frenchCv.files[0] != null) {
-        Submit();
-      }
+      Submit();
     }
 
+    /*if (englishCv.files[0] && frenchCv.files[0] === undefined) {
+      console.log(frenchCv.files[0]);
+      Submit();
+    }*/
     navigate("/User");
   }
 
