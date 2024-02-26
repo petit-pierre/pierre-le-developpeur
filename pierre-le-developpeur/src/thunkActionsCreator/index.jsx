@@ -449,7 +449,7 @@ export const getLikesThunk = () => async (dispatch, getstate) => {
   return false;
 };
 
-export const putSlidesThunk = (like, token) => async (dispatch, getstate) => {
+export const putLikeThunk = (like, token) => async (dispatch, getstate) => {
   const response = await fetch("http://localhost:3000/api/likes/" + like._id, {
     method: "PUT",
     headers: {
@@ -461,10 +461,10 @@ export const putSlidesThunk = (like, token) => async (dispatch, getstate) => {
   });
 
   let result = await response.json();
-  const getLikes = async () => {
+  /*const getLikes = async () => {
     const getLikesResult = await dispatch(getLikesThunk());
   };
-  getLikes();
+  getLikes();*/
   if (response.ok) {
     return result;
   }

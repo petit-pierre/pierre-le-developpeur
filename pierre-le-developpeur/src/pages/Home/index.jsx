@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
+import { getLikesThunk, putLikeThunk } from "../../thunkActionsCreator";
 
 function Home() {
   const socket = io.connect("http://localhost:3000");
+  const dispatch = useDispatch();
 
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
@@ -22,14 +24,29 @@ function Home() {
 
   const sendLike = (evt) => {
     evt.preventDefault();
-    setMessage("Cta");
+    setMessage(evt.target.name);
     socket.emit("send_message", { message });
+    const putlike = async () => {
+      const found = likes.find((like) => like._id === evt.target.name);
+      const newValue = found.likes + 1;
+      const like = {
+        likes: newValue,
+        _id: evt.target.name,
+      };
+      const setLikesResult = await dispatch(putLikeThunk(like));
+    };
+    putlike();
   };
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageReceived(data.message);
     });
+    const getLikes = async () => {
+      const setLikesResult = dispatch(getLikesThunk());
+    };
+
+    getLikes();
   }, [socket]);
 
   const { t, i18n } = useTranslation();
@@ -62,7 +79,9 @@ function Home() {
         <div>
           <fieldset>
             likes CTA : {likes[0].likes}{" "}
-            <button onClick={(evt) => sendLike(evt)}>+</button>
+            <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
+              +
+            </button>
           </fieldset>{" "}
           <input
             placeholder="Message..."
