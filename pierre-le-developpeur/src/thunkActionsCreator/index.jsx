@@ -1,5 +1,5 @@
 import { userSlice } from "../Slices/userSlice";
-import { setStorage, setStorageTranslation } from "../utils/localStorage";
+import { setStorage } from "../utils/localStorage";
 
 export const setTokenThunk =
   (email, password, rememberChecked) => async (dispatch, getState) => {
@@ -461,6 +461,7 @@ export const putLikeThunk = (like, token) => async (dispatch, getstate) => {
   });
 
   let result = await response.json();
+  //dispatch(userSlice.actions.setLikes(result));
   /*const getLikes = async () => {
     const getLikesResult = await dispatch(getLikesThunk());
   };

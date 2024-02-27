@@ -1,10 +1,13 @@
-const express = require("express");
+//const express = require("express");
+//const { createServer } = require("node:http");
+//const { join } = require("node:path");
 const http = require("http");
 const app = require("./app");
-const { Server } = require(`socket.io`);
-const cors = require("cors");
+//const server = createServer(app);
+//const { Server } = require(`socket.io`);
+//const cors = require("cors");
 
-app.use(cors());
+//app.use(cors());
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -50,9 +53,34 @@ server.on("listening", () => {
   console.log("Listening on " + bind);
 });
 
+//const io = new Server(server);
+
+/*const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT"],
+  },
+});
+
+app.get("/", (req, res) => {
+  res.send("<h1>Hello world</h1>");
+});
+
+server.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("send_message", (message) => {
+    //console.log("message: " + message);
+    console.log("coucou ");
+  });
+});*/
+//server.listen(3002);
 server.listen(port);
 
-const io = new Server(server, {
+/*server.listen(3001, () => {
+  console.log("server running at http://localhost:3000");
+});*/
+
+/*const io = new Server(server, {
   cors: {
     origin: "http://localhost:3001",
     methods: ["GET", "POST", "PUT"],
@@ -64,10 +92,11 @@ io.on("connection", (socket) => {
 
   /*socket.on("join_room", (data) => {
     socket.join(data);
-  });*/
+  });
 
   socket.on("send_message", (data) => {
     //socket.to(data.room).emit("receive_message", data);
     socket.broadcast.emit("receive_message", data);
   });
 });
+*/
