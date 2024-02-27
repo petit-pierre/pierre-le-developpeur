@@ -68,7 +68,6 @@ function App() {
   getLikes();
   return (
     <Router>
-      <div className="prout"></div>
       <Routes>
         <Route path="/" element={<Loading />} />
         <Route path="/UpdateInfo" element={<UpdateInfo />} />

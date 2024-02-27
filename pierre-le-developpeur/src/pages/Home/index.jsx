@@ -1,21 +1,19 @@
 import { useState } from "react";
 import Header from "../../components/Header";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-import { getLikesThunk, putLikeThunk } from "../../thunkActionsCreator";
+import Parralax from "../../components/Parralax";
 
 function Home() {
   const socket = io.connect("http://localhost:3002");
-  const dispatch = useDispatch();
 
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
+  const tools = useSelector((state) => state.data.tools);
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
   const [lang, setLang] = useState("en");
-  const { t, i18n } = useTranslation();
 
   async function getOldLikes(response) {
     const get = await fetch("http://localhost:3000/api/likes", {
@@ -29,7 +27,6 @@ function Home() {
     };
     document.getElementById(response.message).innerText = found.likes;
     const id = response.message;
-    //console.log(id);
     async function putOldLikes(id, like) {
       const put = await fetch("http://localhost:3000/api/likes/" + id, {
         method: "PUT",
@@ -42,51 +39,31 @@ function Home() {
     }
     putOldLikes(id, like);
   }
-
   const sendLike = (evt) => {
     evt.preventDefault();
 
     let message = evt.target.name;
     socket.emit("send_message", { message });
-    /*const putlike = async () => {
-      const found = likes.find((like) => like._id === evt.target.name);
-      const newValue = found.likes + 1;
-      const like = {
-        likes: newValue,
-        _id: evt.target.name,
-      };
-      const setLikesResult = await dispatch(putLikeThunk(like));
-    };
-    putlike();*/
-    //getLikes();
-  };
-  const getLikes = async () => {
-    const setLikesResult = dispatch(getLikesThunk());
   };
 
   socket.on("receive_message", (response) => {
+    console.log("ici");
     getOldLikes(response);
   });
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
   if (skills != null) {
     function francais() {
       setLang("fr");
-      changeLanguage("fr");
     }
     function english() {
       setLang("en");
-      changeLanguage("en");
     }
 
     return (
       <main>
-        parallax avant le header
+        <Parralax />
         <Header />
         la page
-        <p>{t(`welcome`)}</p>
         {lang === "en" ? (
           <p>{skills[0].english_title}</p>
         ) : (
@@ -96,11 +73,30 @@ function Home() {
         <button onClick={() => francais()}>fr</button>
         <div>
           <fieldset>
-            likes CTA :<p id={likes[0]._id}> {likes[0].likes}</p>
+            likes CTA :<p id={likes[0]._id}> {likes[0].likes - 1}</p>
             <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
               +
             </button>
-          </fieldset>{" "}
+            likes slider :<p id={likes[1]._id}> {likes[1].likes - 1}</p>
+            <button name={likes[1]._id} onClick={(evt) => sendLike(evt)}>
+              +
+            </button>
+          </fieldset>
+          <fieldset>
+            likes Tools :
+            {tools.map((tool) => (
+              <div>
+                {" "}
+                {tool.title}{" "}
+                <p id={tool.likes_id}>
+                  {likes.find((like) => like._id === tool.likes_id).likes - 1}
+                </p>
+                <button name={tool.likes_id} onClick={(evt) => sendLike(evt)}>
+                  +
+                </button>
+              </div>
+            ))}
+          </fieldset>
         </div>
       </main>
     );
