@@ -1,10 +1,13 @@
 .header {
-  display: flex;
   position: sticky;
   top: 0px;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: #99477a;
   width: 100%;
-  height: 120px;
+  height: 21dvh;
+  z-index: 11;
 }
 .header a {
   text-decoration: none;

@@ -1,0 +1,57 @@
+.pouet {
+  height: 100px;
+}
+
+.title {
+  color: #99477a;
+  padding-top: -50px;
+  text-align: left;
+  font-family: "hayanbaram", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.parralaxField {
+  width: 100%;
+  background-color: #99477a;
+}
+.parralaxField body {
+  background-color: #99477a;
+}
+.parralaxField .animation, .parralaxField .animation_layer {
+  height: 90dvh;
+}
+.parralaxField .purple {
+  background-color: #99477a;
+  height: 100dvh;
+}
+.parralaxField .sticky {
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+.parralaxField .animation {
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+.parralaxField .withe {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow: inherit;
+}
+.parralaxField .animation_layer {
+  width: 100%;
+  position: absolute;
+}
+.parralaxField .animation_layer.parallax {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  height: 180vh;
+}/*# sourceMappingURL=parralax.css.map */
