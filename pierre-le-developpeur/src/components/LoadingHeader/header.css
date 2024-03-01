@@ -1,0 +1,18 @@
+.header2 {
+  position: sticky;
+  width: 100%;
+  height: 21dvh;
+  z-index: 18;
+}
+.header2 a {
+  text-decoration: none;
+}
+.header2 h1 {
+  margin-left: 50px;
+  text-decoration: none;
+  font-family: "hayanbaram", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  z-index: 2;
+}/*# sourceMappingURL=header.css.map */

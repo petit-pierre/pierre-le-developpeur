@@ -3,14 +3,12 @@ import Header from "../../components/Header";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-import "./home.css";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Footer from "../../components/Footer";
-import Header2 from "../../components/Header2";
 import "./parralax.css";
 
 function Home() {
-  const socket = io.connect("http://localhost:3002");
+  const socket = io.connect("http://localhost:3000");
 
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
@@ -64,87 +62,44 @@ function Home() {
     }
 
     return (
-      <main className="parralaxField">
-        <Header2 />
-        <Parallax pages={2} style={{ top: "0", left: "0" }} class="animation">
-          <ParallaxLayer offset={0} speed={0.1}>
-            <div class="animation_layer parallax" id="artback">
-              <img src="./assets/fond.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={0.2}>
-            <div class="animation_layer parallax" id="mountain">
-              <img src="./assets/layer1.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={0.3}>
-            <div class="animation_layer parallax" id="jungle1">
-              <img src="./assets/layer2.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={0.4}>
-            <div class="animation_layer parallax" id="jungle2">
-              <img src="./assets/layer3.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={0.5}>
-            <div class="animation_layer parallax" id="jungle3">
-              <img src="./assets/layer4.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={0.6}>
-            <div class="animation_layer parallax" id="jungle4">
-              <img src="./assets/layer5.png" className="image"></img>
-            </div>
-          </ParallaxLayer>
-
-          <ParallaxLayer offset={1} speed={0} factor={0}>
-            <div className="purple"></div>
-            <div className="withe">
-              <div>blablabla</div>
-              la page
-              {lang === "en" ? (
-                <p>{skills[0].english_title}</p>
-              ) : (
-                <p>{skills[0].french_title}</p>
-              )}
-              <button onClick={() => english()}>English</button>
-              <button onClick={() => francais()}>fr</button>
+      <div className="withe">
+        <div>blablabla</div>
+        la page
+        {lang === "en" ? (
+          <p>{skills[0].english_title}</p>
+        ) : (
+          <p>{skills[0].french_title}</p>
+        )}
+        <button onClick={() => english()}>English</button>
+        <button onClick={() => francais()}>fr</button>
+        <div>
+          <fieldset>
+            likes CTA :<p id={likes[0]._id}> {likes[0].likes - 1}</p>
+            <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
+              +
+            </button>
+            likes slider :<p id={likes[1]._id}> {likes[1].likes - 1}</p>
+            <button name={likes[1]._id} onClick={(evt) => sendLike(evt)}>
+              +
+            </button>
+          </fieldset>
+          <fieldset>
+            likes Tools :
+            {tools.map((tool) => (
               <div>
-                <fieldset>
-                  likes CTA :<p id={likes[0]._id}> {likes[0].likes - 1}</p>
-                  <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
-                    +
-                  </button>
-                  likes slider :<p id={likes[1]._id}> {likes[1].likes - 1}</p>
-                  <button name={likes[1]._id} onClick={(evt) => sendLike(evt)}>
-                    +
-                  </button>
-                </fieldset>
-                <fieldset>
-                  likes Tools :
-                  {tools.map((tool) => (
-                    <div>
-                      {" "}
-                      {tool.title}{" "}
-                      <p id={tool.likes_id}>
-                        {likes.find((like) => like._id === tool.likes_id)
-                          .likes - 1}
-                      </p>
-                      <button
-                        name={tool.likes_id}
-                        onClick={(evt) => sendLike(evt)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  ))}
-                </fieldset>
+                {" "}
+                {tool.title}{" "}
+                <p id={tool.likes_id}>
+                  {likes.find((like) => like._id === tool.likes_id).likes - 1}
+                </p>
+                <button name={tool.likes_id} onClick={(evt) => sendLike(evt)}>
+                  +
+                </button>
               </div>
-            </div>
-          </ParallaxLayer>
-        </Parallax>
-      </main>
+            ))}
+          </fieldset>
+        </div>
+      </div>
     );
   } else {
     navigate("/");

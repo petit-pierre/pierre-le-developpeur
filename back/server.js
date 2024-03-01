@@ -1,13 +1,15 @@
-//const express = require("express");
-//const { createServer } = require("node:http");
-//const { join } = require("node:path");
-const http = require("http");
 const app = require("./app");
-//const server = createServer(app);
-//const { Server } = require(`socket.io`);
-//const cors = require("cors");
-
-//app.use(cors());
+const server = require("http").createServer(app);
+const { Server } = require(`socket.io`);
+const cors = require("cors");
+//const io = new Server(app);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    //methods: ["GET", "POST", "PUT"],
+  },
+});
+app.use(cors());
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -44,8 +46,6 @@ const errorHandler = (error) => {
   }
 };
 
-const server = http.createServer(app);
-
 server.on("error", errorHandler);
 server.on("listening", () => {
   const address = server.address();
@@ -53,50 +53,16 @@ server.on("listening", () => {
   console.log("Listening on " + bind);
 });
 
-//const io = new Server(server);
-
-/*const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT"],
-  },
-});
-
-app.get("/", (req, res) => {
-  res.send("<h1>Hello world</h1>");
-});
-
-server.on("connection", (socket) => {
-  console.log("a user connected");
+io.on("connection", (socket) => {
+  console.log(`User Connected: ${socket.id}`);
   socket.on("send_message", (message) => {
-    //console.log("message: " + message);
-    console.log("coucou ");
+    //socket.to(data.room).emit("receive_message", data);
+    socket.broadcast.emit("receive_message", message);
   });
-});*/
-//server.listen(3002);
-server.listen(port);
+});
 
 /*server.listen(3001, () => {
   console.log("server running at http://localhost:3000");
 });*/
 
-/*const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3001",
-    methods: ["GET", "POST", "PUT"],
-  },
-});
-
-io.on("connection", (socket) => {
-  //console.log(`User Connected: ${socket.id}`);
-
-  /*socket.on("join_room", (data) => {
-    socket.join(data);
-  });
-
-  socket.on("send_message", (data) => {
-    //socket.to(data.room).emit("receive_message", data);
-    socket.broadcast.emit("receive_message", data);
-  });
-});
-*/
+server.listen(port);
