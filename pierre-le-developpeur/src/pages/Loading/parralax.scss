@@ -1,0 +1,41 @@
+.parralaxField {
+    width: 100%;
+    background-color: #99477a;
+    .animation, .animation_layer {
+        height: 90dvh;
+    }
+    .purple {
+      background-color: #99477a;
+      height: 110dvh;
+      .welcome{
+        display: flex;
+        justify-content: center;
+        padding-top: 75dvh;
+        .enter{
+          font-size: 5dvh;
+          z-index: 19;
+          &:hover{
+            color: white;
+          }
+        }
+      }
+    }
+    .animation {
+      display: block;
+      position: relative;
+      z-index: 10;
+    }
+    .animation_layer {
+      width: 100%;
+      position: absolute;
+    }
+    .animation_layer.parallax {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    } 
+    .image {
+      height: 180vh;
+    }
+  }

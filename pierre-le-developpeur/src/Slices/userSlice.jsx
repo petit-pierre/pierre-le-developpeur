@@ -10,6 +10,8 @@ export const userSlice = createSlice({
     tools: null,
     sliders: null,
     likes: null,
+    language: "FR",
+    thanks: false,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -45,6 +47,16 @@ export const userSlice = createSlice({
     setLikes: (currentState, action) => {
       const likes = { ...currentState, likes: action.payload };
       return likes;
+    },
+
+    setLanguage: (currentState, action) => {
+      const language = { ...currentState, language: action.payload };
+      return language;
+    },
+
+    setTanks: (currentState, action) => {
+      const thanks = { ...currentState, thanks: action.payload };
+      return thanks;
     },
   },
 });

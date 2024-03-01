@@ -3,11 +3,14 @@ import "./header.css";
 
 function LoadingHeader() {
   return (
-    <nav className="header2">
-      <NavLink to="/" className="link">
-        <h1>Pierre le developpeur</h1>
-      </NavLink>
-    </nav>
+    <div>
+      <div></div>
+      <nav className="Loadingheader">
+        <NavLink to="/Home" className="link">
+          <h1>Pierre le developpeur</h1>
+        </NavLink>
+      </nav>
+    </div>
   );
 }
 

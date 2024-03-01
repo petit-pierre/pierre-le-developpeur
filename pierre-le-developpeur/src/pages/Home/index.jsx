@@ -1,21 +1,22 @@
 import { useState } from "react";
 import Header from "../../components/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Footer from "../../components/Footer";
-import "./parralax.css";
+import "./home.css";
+import { userSlice } from "../../Slices/userSlice";
 
 function Home() {
   const socket = io.connect("http://localhost:3000");
-
+  const language = useSelector((state) => state.data.language);
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
+  const thanks = useSelector((state) => state.data.thanks);
+  const dispatch = useDispatch();
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
-  const [lang, setLang] = useState("en");
 
   async function getOldLikes(response) {
     const get = await fetch("http://localhost:3000/api/likes", {
@@ -43,6 +44,10 @@ function Home() {
   }
   const sendLike = (evt) => {
     evt.preventDefault();
+    dispatch(userSlice.actions.setTanks(true));
+    setTimeout(() => {
+      dispatch(userSlice.actions.setTanks(false));
+    }, 1000);
 
     let message = evt.target.name;
     socket.emit("send_message", { message });
@@ -54,50 +59,42 @@ function Home() {
   });
 
   if (skills != null) {
-    function francais() {
-      setLang("fr");
-    }
-    function english() {
-      setLang("en");
-    }
-
     return (
-      <div className="withe">
-        <div>blablabla</div>
-        la page
-        {lang === "en" ? (
-          <p>{skills[0].english_title}</p>
-        ) : (
-          <p>{skills[0].french_title}</p>
-        )}
-        <button onClick={() => english()}>English</button>
-        <button onClick={() => francais()}>fr</button>
-        <div>
-          <fieldset>
-            likes CTA :<p id={likes[0]._id}> {likes[0].likes - 1}</p>
-            <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
-              +
-            </button>
-            likes slider :<p id={likes[1]._id}> {likes[1].likes - 1}</p>
-            <button name={likes[1]._id} onClick={(evt) => sendLike(evt)}>
-              +
-            </button>
-          </fieldset>
-          <fieldset>
-            likes Tools :
-            {tools.map((tool) => (
-              <div>
-                {" "}
-                {tool.title}{" "}
-                <p id={tool.likes_id}>
-                  {likes.find((like) => like._id === tool.likes_id).likes - 1}
-                </p>
-                <button name={tool.likes_id} onClick={(evt) => sendLike(evt)}>
-                  +
-                </button>
-              </div>
-            ))}
-          </fieldset>
+      <div>
+        <Header></Header>
+        <div className="withe">
+          {language === "FR" ? (
+            <p>{skills[0].french_title}</p>
+          ) : (
+            <p>{skills[0].english_title}</p>
+          )}
+          <div>
+            <fieldset>
+              likes CTA :<p id={likes[0]._id}> {likes[0].likes - 1}</p>
+              <button name={likes[0]._id} onClick={(evt) => sendLike(evt)}>
+                +
+              </button>
+              likes slider :<p id={likes[1]._id}> {likes[1].likes - 1}</p>
+              <button name={likes[1]._id} onClick={(evt) => sendLike(evt)}>
+                +
+              </button>
+            </fieldset>
+            <fieldset>
+              likes Tools :
+              {tools.map((tool) => (
+                <div>
+                  {" "}
+                  {tool.title}{" "}
+                  <p id={tool.likes_id}>
+                    {likes.find((like) => like._id === tool.likes_id).likes - 1}
+                  </p>
+                  <button name={tool.likes_id} onClick={(evt) => sendLike(evt)}>
+                    +
+                  </button>
+                </div>
+              ))}
+            </fieldset>
+          </div>
         </div>
       </div>
     );

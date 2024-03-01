@@ -1,17 +1,13 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LoadingHeader from "../../components/LoadingHeader";
+import "./parralax.css";
 
 function Loading() {
-  const navigate = useNavigate();
-  setTimeout(() => {
-    navigate("/Home");
-  }, 1500);
-
   return (
     <main className="parralaxField">
       <LoadingHeader />
-      <Parallax pages={2} style={{ top: "0", left: "0" }} class="animation">
+      <Parallax pages={2.3} style={{ top: "0", left: "0" }} class="animation">
         <ParallaxLayer offset={0} speed={0.1}>
           <div class="animation_layer parallax" id="artback">
             <img src="./assets/fond.png" className="image"></img>
@@ -41,6 +37,18 @@ function Loading() {
           <div class="animation_layer parallax" id="jungle4">
             <img src="./assets/layer5.png" className="image"></img>
           </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={1} speed={0}>
+          <div className="purple">
+            <div className="welcome">
+              <NavLink to="/Home">
+                <h2 className="enter">Enter</h2>
+              </NavLink>
+            </div>
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={2} speed={0}>
+          <div className="purple"></div>
         </ParallaxLayer>
       </Parallax>
     </main>

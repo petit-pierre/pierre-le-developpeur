@@ -1,30 +1,172 @@
+.headerfield{
+    height: 30dvh;
+    background-color: white;
+}
+
 .header {
     position: sticky;
-    //display: flex;
-top: 0px;
-left: 0;
-bottom: 0;
-right: 0;
-//top:50dvh;
     background-color: #99477a;
     width: 100%;
     height: 21dvh;
     z-index:11;
-a{
-    text-decoration: none;
-}
+    min-height: 90px;
+    .maGanache{
+        //width: 12dvw;
+        width: 150px;
+        transform-origin: center;
+        position: absolute;
+        left: 20px;
+        //top: 10dvh;
+        top: 3dvh;
+    }
+    .topHeader{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        z-index: 20;
+    }
+    .language{
+        display: flex;
+        flex-direction: row;
+        color: white;
 
+        a{
+            cursor: default;
+        }
+        a:hover {
+            color: white;
+        }
+    }
+    input[type="checkbox"].demo5 {
+        display: none;
+    }
+    input[type="checkbox"].demo5 + label {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 3rem;
+        height: 1.5rem;
+        border-radius: 1.5rem;
+        padding:2px;
+        background-color: #6d477a ;
+        transition: all 0.5s ;
+        cursor: pointer;
+        margin-top: -3px;
+    }
+    input[type="checkbox"].demo5 + label::before {
+        box-sizing: border-box;
+        display: block;
+        content: "";
+        height: calc(1.5rem - 4px);
+        width: calc(1.5rem - 4px);
+        border-radius: 50%;
+        background-color: white;
+        transition: all 0.5s ;
+    }
+    input[type="checkbox"].demo5:checked + label {
+        background-color: #b674cc ;
+    }
+    input[type="checkbox"].demo5:checked + label::before {
+        margin-left: 1.5rem ;
+    }
+    img {
+        width: 5dvh;
+        color: white;
+    }
     h1 {
-
-        text-decoration: none;
-        font-family: "hayanbaram", sans-serif;
-        font-weight: 400;
-        font-style: normal;
         color:white;
         z-index: 2;
-
-
     }
+    .li {
+        list-style: none;
+      }
+      a,
+      a:visited {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      a:hover {
+        color: #b674cc;
+        transition: 1s;
+      }
+      /**** NAVBAR ****/
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+      }
+      nav .ul {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        padding-top: 2dvh;
+      }
+      #icons {
+        cursor: pointer;
+        display: none;
+      }
+      @media (max-width: 650px) {
+        .maGanache{
+            width: 18dvh;
+            top: 12dvh;
+            left: 2dvw;
+        }
+        .title{
+            padding-left: 2dvw;
+        }
+        .language{
+            justify-content: center;
+
+        }
+        input[type="checkbox"].demo5 + label {
+            background-color: #99477a;
+        }
+        input[type="checkbox"].demo5:checked + label{
+            background-color: #492f52;
+        }
+        #icons {
+          display: block;
+          margin-top: 15px;
+          padding-right: 2dvw;
+          //transform-origin: center;
+        }
+        .headerSpaced {
+            position: fixed;
+            width: 100%;
+            background-color: #99477a;
+            height: 20dvh;
+            z-index: -1;
+            top: 0;
+        }
+
+        nav .ul {
+          position: fixed;
+          left: -550dvh;
+          top: 20dvh;
+          z-index: -1;
+          height: 80dvh;
+          flex-direction: column;
+          background:#b674cc ;
+          width: 100%;
+          text-align: center;
+          transition: 0.25s ease;
+        }
+        nav .li {
+          padding: 3px 0;
+          height: 16dvh ;
+        }
+        nav .li:hover {
+          background: #6d477a;
+        }
+        nav.active .ul {
+          left: 0;
+        }
+        h1 {
+            font-size: 1.4rem;
+            //padding-top: 2.5dvh;
+        }
+      }
 }
 
 

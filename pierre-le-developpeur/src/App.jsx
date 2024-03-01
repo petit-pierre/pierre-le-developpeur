@@ -15,7 +15,6 @@ import Home from "./pages/Home";
 import SignIn from "./pages/Sign-in";
 import User from "./pages/User";
 import Error404 from "./pages/404";
-import Footer from "./components/Footer";
 import Project from "./pages/Project";
 import Delete from "./pages/Delete";
 import PostProject from "./pages/PostProject";
@@ -84,7 +83,6 @@ function App() {
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

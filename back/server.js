@@ -2,7 +2,6 @@ const app = require("./app");
 const server = require("http").createServer(app);
 const { Server } = require(`socket.io`);
 const cors = require("cors");
-//const io = new Server(app);
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -60,9 +59,5 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("receive_message", message);
   });
 });
-
-/*server.listen(3001, () => {
-  console.log("server running at http://localhost:3000");
-});*/
 
 server.listen(port);

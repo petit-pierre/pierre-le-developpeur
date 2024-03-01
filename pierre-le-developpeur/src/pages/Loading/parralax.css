@@ -2,26 +2,29 @@
   width: 100%;
   background-color: #99477a;
 }
-.parralaxField body {
-  background-color: #99477a;
-}
 .parralaxField .animation, .parralaxField .animation_layer {
   height: 90dvh;
 }
 .parralaxField .purple {
   background-color: #99477a;
-  height: 100dvh;
+  height: 110dvh;
+}
+.parralaxField .purple .welcome {
+  display: flex;
+  justify-content: center;
+  padding-top: 75dvh;
+}
+.parralaxField .purple .welcome .enter {
+  font-size: 5dvh;
+  z-index: 19;
+}
+.parralaxField .purple .welcome .enter:hover {
+  color: white;
 }
 .parralaxField .animation {
   display: block;
   position: relative;
   z-index: 10;
-}
-.parralaxField .withe {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  overflow: inherit;
 }
 .parralaxField .animation_layer {
   width: 100%;
@@ -33,7 +36,6 @@
   display: flex;
   justify-content: center;
 }
-
-.image {
+.parralaxField .image {
   height: 180vh;
 }/*# sourceMappingURL=parralax.css.map */

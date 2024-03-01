@@ -33,23 +33,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-//socket io
-//const io = new Server(server);
-
-/*io.on("connection", (socket) => {
-  console.log("a user connected");
-});
-
-app.get("/io", (req, res) => {
-  res.send("<h1>Hello world</h1>");
-});*/
-
-/*
-server.listen(port, () => {
-  console.log("server running at http://localhost:3000");
-});*/
-
-//end of socket io
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/projects", projectsRoutes);
@@ -60,5 +43,4 @@ app.use("/api/skills", skillsRoutes);
 app.use("/api/tools", toolsRoutes);
 app.use("/api/pictures", pictureRoutes);
 app.use("/api/likes", likesRoutes);
-//app.post("/api/pictures", upload.single("sliderPicture"), (req, res) => {});
 module.exports = app;
