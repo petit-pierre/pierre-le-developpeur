@@ -1,15 +1,18 @@
 import { NavLink } from "react-router-dom";
 import "./header.css";
+import burgerIcon from "../../assets/burger.svg";
 
 function LoadingHeader() {
   return (
-    <div>
-      <div></div>
-      <nav className="Loadingheader">
-        <NavLink to="/Home" className="link">
-          <h1>Pierre le developpeur</h1>
+    <div className="loadingHeaderTitle ">
+      <div className="topHeader">
+        <NavLink to="/Home" className="title">
+          <h1 className="purpleTitle">Pierre le developpeur</h1>
         </NavLink>
-      </nav>
+        <div id="icons">
+          <img src={burgerIcon} alt="burger menu"></img>
+        </div>
+      </div>
     </div>
   );
 }

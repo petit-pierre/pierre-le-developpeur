@@ -29,9 +29,6 @@ function Header() {
           <NavLink to="/Home" className="title">
             <h1>Pierre le developpeur</h1>
           </NavLink>
-          <div id="icons" onClick={changeBurger}>
-            <img src={burgerIcon} alt="burger menu"></img>
-          </div>
         </div>
         <nav id="nav" className={burger === true ? "active" : ""}>
           <div className="headerSpaced"></div>
@@ -66,6 +63,9 @@ function Header() {
               />
               <label for="demo5"></label>
             </div>
+          </div>
+          <div id="icons" onClick={changeBurger}>
+            <img src={burgerIcon} alt="burger menu" className="icons"></img>
           </div>
         </nav>
         {thanks === true ? (
