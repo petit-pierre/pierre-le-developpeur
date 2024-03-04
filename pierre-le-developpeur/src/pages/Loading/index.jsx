@@ -7,11 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { userSlice } from "../../Slices/userSlice";
 import burgerIcon from "../../assets/burger.svg";
+import Footer from "../../components/Footer";
 
 function Loading() {
   const language = useSelector((state) => state.data.language);
   const [burger, setBurger] = useState(false);
   const dispatch = useDispatch();
+  const begin =
+    "Je suis un développeur Web spécialisé front-end mais pas seulement . Mon parcours de DJ/Liveur et VJ m'a apporté de solides compétences en M.A.O et vidéo . Les arts plastiques sont aussi une corde a mon arc qui me permet d’être a l'aise avec la conception visuel (P.A.O, communication visuel) . Ma curiosité et ma passion me poussent a m’intéresser sérieusement a d'autres aspects de mon métier tels que le développement back-end .";
+  const end =
+    "Finalement, mon expérience de vieux baroudeur de l'informatique me permet une vision profonde de la programmation et quelques compétences exotiques comme le langage BASIC . Je fait des algorithmes artistiques mais ne me croyez pas sur parole, venez donc jeter un œil a mes travaux pour peut que ces quelques lignes atypiques piquent votre curiosité .";
+  const [text, setText] = useState(begin);
+
+  setInterval(() => {
+    text === begin ? setText(end) : setText(begin);
+  }, 15000);
+
   function burgerOff() {
     setBurger(false);
   }
@@ -62,7 +73,7 @@ function Loading() {
           <div className="purple">
             <div className="loadingHeader ">
               <div className="topHeader">
-                <NavLink to="/Home" className="title">
+                <NavLink className="title">
                   <h1 className="purpleTitle">Pierre le developpeur</h1>
                 </NavLink>
                 <div id="icons" onClick={changeBurger}>
@@ -112,10 +123,29 @@ function Loading() {
               ></img>
             </div>
             <div className="welcome">
-              <NavLink to="/Home">
-                <h2 className="enter">Enter</h2>
-              </NavLink>
+              <img
+                src="./assets/particules.gif"
+                className="particules"
+                alt="particules"
+              ></img>
+              <div className="welcomeText">
+                <p> {text} </p>
+                <p className="end"> </p>
+              </div>
+              <div className="cofeeContainer">
+                <img
+                  src="./assets/cofee.png"
+                  className="cofee"
+                  alt="cofee"
+                ></img>
+                <div className="smoke">
+                  <div className="cofeeSmoke"></div>
+                  <div className="cofeeSmoke secondSmoke"></div>
+                  <div className="cofeeSmoke"></div>
+                </div>
+              </div>
             </div>
+            <Footer></Footer>
           </div>
         </ParallaxLayer>
       </Parallax>

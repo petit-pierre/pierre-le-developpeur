@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { userSlice } from "./Slices/userSlice";
 import {
@@ -8,7 +8,6 @@ import {
   getSkillsThunk,
   getToolsThunk,
   getTranslationThunk,
-  getTranslationsThunk,
 } from "./thunkActionsCreator";
 
 import Home from "./pages/Home";

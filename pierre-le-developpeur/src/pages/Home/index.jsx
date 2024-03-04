@@ -96,6 +96,7 @@ function Home() {
             </fieldset>
           </div>
         </div>
+        <Footer></Footer>
       </div>
     );
   } else {

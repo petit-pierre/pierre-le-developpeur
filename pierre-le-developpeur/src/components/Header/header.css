@@ -9,7 +9,7 @@
   width: 100%;
   height: 21dvh;
   z-index: 11;
-  min-height: 90px;
+  min-height: 110px;
   top: 0;
   /**** NAVBAR ****/
 }
@@ -51,6 +51,7 @@
   transition: all 0.5s;
   cursor: pointer;
   margin-top: -3px;
+  margin-left: 8px;
 }
 .header input[type=checkbox].demo5 + label::before {
   box-sizing: border-box;
@@ -106,16 +107,16 @@
   display: none;
 }
 @media (max-width: 650px) {
-  .header .icons {
-    margin-top: -10dvh;
-  }
   .header .maGanache {
     width: 18dvh;
     top: 12dvh;
     left: 2dvw;
   }
   .header .title {
-    padding-left: 2dvw;
+    position: fixed;
+    left: 2dvw;
+    top: -10px;
+    max-width: 60dvw;
   }
   .header .language {
     justify-content: center;
@@ -128,8 +129,12 @@
   }
   .header #icons {
     display: block;
-    margin-top: 15px;
-    padding-right: 2dvw;
+    position: fixed;
+    right: 5dvw;
+    top: 0;
+  }
+  .header #icons .icons {
+    width: 9dvh;
   }
   .header .headerSpaced {
     position: fixed;

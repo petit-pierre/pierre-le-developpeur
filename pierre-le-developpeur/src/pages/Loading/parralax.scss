@@ -8,16 +8,106 @@
       background-color: #99477a;
       height: 110dvh;
       .welcome{
+        position: relative;
         display: flex;
         justify-content: center;
-        padding-top: 75dvh;
+        //padding-top: 75dvh;
+        width: 98%;
+        margin: 1%;
+        height: 68dvh;
+        overflow: hidden;
+        border-radius: 20px;
+
+
+        .particules {
+          position: absolute;
+          left: 0;
+          min-width: 100%;
+          opacity: 0.1;
+
+
+        }
+        .welcomeText{
+          color: white;
+          padding: 25px;
+          text-align: center;
+          font-size: 1.5rem;
+          padding-right: 12dvw;
+          padding-left: 12dvw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+        }
         .enter{
+          position: absolute;
           font-size: 5dvh;
           z-index: 19;
+
           &:hover{
             color: white;
+            transition: 1s;
           }
+          @media (max-width: 650px) {
+            display: none;
+          }
+
         }
+        .cofee{
+          width: 50px;
+          height: 50px;
+
+          filter: invert(1);
+        }
+        .cofeeContainer {
+          position: absolute;
+          bottom: 0;
+          right: 10px;
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .smoke{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin-left: 3px;
+        }
+        .cofeeSmoke{
+          width: 4px;
+          height: 15px;
+          border-radius: 4px;
+          background-color: white;
+          margin-left: 3px;
+          margin-right: 3px;
+          margin-bottom: -8px;
+          animation-name: smoking;
+          animation-duration: 6000ms;
+          animation-iteration-count: infinite;
+        }
+        .secondSmoke{
+          animation-delay: 500ms;
+        }
+
+        @keyframes smoking{
+          0% {
+            //height: 4px;
+              opacity: 1;
+          }
+
+          40% {
+            //height: 15px;
+              opacity: 0;
+              transform:  translate(0,-10px) ;
+              //margin-bottom: 0;
+          }
+
+          100% {
+            opacity: 0 ;
+            transform:  translate(0,0px)
+          }
+          
+      }
+
       }
     }
     .animation {

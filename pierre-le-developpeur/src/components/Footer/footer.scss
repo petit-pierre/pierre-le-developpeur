@@ -1,0 +1,33 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    height: 8dvh;
+    min-height: 40px;
+    color: white;
+    background-color: #99477a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2%;
+    p{
+        cursor: default;
+    }
+    .logos{
+        display: flex;
+        flex-direction: row;
+        margin-right: 2dvw;
+        justify-content: flex-end;
+        .logoLink{
+        width: 6dvh;
+        min-width: 28px;
+        }
+        .logo{
+            height: 60%;
+            margin-top: 10px;
+            margin-left: 1dvw;
+            filter: invert(1);
+            //cursor: pointer;
+        }
+    }
+}

@@ -9,7 +9,7 @@
     width: 100%;
     height: 21dvh;
     z-index:11;
-    min-height: 90px;
+    min-height: 110px;
     top: 0;
     .maGanache{
         //width: 12dvw;
@@ -52,6 +52,7 @@
         transition: all 0.5s ;
         cursor: pointer;
         margin-top: -3px;
+        margin-left: 8px;
     }
     input[type="checkbox"].demo5 + label::before {
         box-sizing: border-box;
@@ -108,16 +109,18 @@
         display: none;
       }
       @media (max-width: 650px) {
-        .icons{
-          margin-top: -10dvh;
-        }
+
         .maGanache{
             width: 18dvh;
             top: 12dvh;
             left: 2dvw;
         }
         .title{
-            padding-left: 2dvw;
+position: fixed;
+left: 2dvw;
+            //padding-left: 2dvw;
+            top: -10px;
+            max-width: 60dvw ;
         }
         .language{
             justify-content: center;
@@ -131,9 +134,14 @@
         }
         #icons {
           display: block;
-          margin-top: 15px;
-          padding-right: 2dvw;
-          //transform-origin: center;
+
+          position: fixed;
+          right: 5dvw;
+          top: 0;
+          .icons{
+            width: 9dvh;
+
+          }
         }
         .headerSpaced {
             position: fixed;

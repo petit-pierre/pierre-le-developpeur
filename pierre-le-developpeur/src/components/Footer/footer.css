@@ -1,0 +1,32 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+  height: 8dvh;
+  min-height: 40px;
+  color: white;
+  background-color: #99477a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2%;
+}
+.footer p {
+  cursor: default;
+}
+.footer .logos {
+  display: flex;
+  flex-direction: row;
+  margin-right: 2dvw;
+  justify-content: flex-end;
+}
+.footer .logos .logoLink {
+  width: 6dvh;
+  min-width: 28px;
+}
+.footer .logos .logo {
+  height: 60%;
+  margin-top: 10px;
+  margin-left: 1dvw;
+  filter: invert(1);
+}/*# sourceMappingURL=footer.css.map */

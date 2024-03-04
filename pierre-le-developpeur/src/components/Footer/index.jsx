@@ -1,7 +1,33 @@
+import "./footer.css";
+
 function Footer() {
   return (
-    <footer>
-      <p>Copyright 2024 Pierre le developpeur</p>
+    <footer className="footer">
+      <p></p>
+      <div className="logos">
+        <a
+          href="https://github.com/petit-pierre"
+          target="_blank"
+          className="logoLink"
+        >
+          <img
+            src="./assets/logo github.png"
+            alt="logo github"
+            className="logo"
+          ></img>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/pierre-aubrée/"
+          target="_blank"
+          className="logoLink"
+        >
+          <img
+            src="./assets/logo linkedin.png"
+            alt="logo linkedin"
+            className="logo"
+          ></img>
+        </a>
+      </div>
     </footer>
   );
 }
