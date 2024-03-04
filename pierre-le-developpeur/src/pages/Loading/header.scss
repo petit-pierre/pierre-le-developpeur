@@ -1,150 +1,42 @@
-.loadingHeader {
-    position: sticky;
-
-    width: 100%;
-    height: 21dvh;
-    z-index:18;
-    min-height: 90px;
-    .purpleTitle{
-      color: #99477a;
-    }
-    .maGanache{
-        //width: 12dvw;
-        width: 150px;
-        transform-origin: center;
-        position: absolute;
-        left: 20px;
-        //top: 10dvh;
-        top: 3dvh;
-    }
-    .topHeader{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        z-index: 20;
-    }
-    .language{
-        display: flex;
-        flex-direction: row;
-        color: white;
-
-        a{
-            cursor: default;
-        }
-        a:hover {
-            color: white;
+.loadingHeader{
+    .title {
+        pointer-events: none;
+        h1{
+            color: #99477a;;
         }
     }
-    input[type="checkbox"].demo5 {
-        display: none;
+    .headerfield{
+        height: 21dvh;
     }
-    input[type="checkbox"].demo5 + label {
-        box-sizing: border-box;
-        display: inline-block;
-        width: 3rem;
-        height: 1.5rem;
-        border-radius: 1.5rem;
-        padding:2px;
-        background-color: #6d477a ;
-        transition: all 0.5s ;
-        cursor: pointer;
-        margin-top: -3px;
-        margin-left: 8px;
-    }
-    input[type="checkbox"].demo5 + label::before {
-        box-sizing: border-box;
-        display: block;
-        content: "";
-        height: calc(1.5rem - 4px);
-        width: calc(1.5rem - 4px);
-        border-radius: 50%;
-        background-color: white;
-        transition: all 0.5s ;
-    }
-    input[type="checkbox"].demo5:checked + label {
-        background-color: #b674cc ;
-    }
-    input[type="checkbox"].demo5:checked + label::before {
-        margin-left: 1.5rem ;
-    }
-    img {
-        width: 5dvh;
-        color: white;
-    }
-    h1 {
-        color:white;
-        z-index: 2;
-    }
-    .li {
-        list-style: none;
-      }
-      a,
-      a:visited {
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-      a:hover {
-        color: #b674cc;
-        transition: 1s;
-      }
-      /**** NAVBAR ****/
-      nav {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px;
-      }
-      nav .ul {
-        display: flex;
-        justify-content: space-between;
-        width: 60%;
-        padding-top: 2dvh;
-      }
-      #icons {
-        cursor: pointer;
-        display: none;
-      }
-      @media (max-width: 650px) {
-        .maGanache{
-            width: 18dvh;
-            top: 12dvh;
-            left: 2dvw;
-        }
-
-        .language{
-            justify-content: center;
-
-        }
-        .ul {
-
-          display: flex;
-                    top: 20dvh;
-          
-                    height: 80dvh;
-                    flex-direction: column;
-                    width: 100%;
-                    text-align: center;
-          
-                  }
-
-        .headerSpaced {
-            position: fixed;
-            width: 100%;
-            //background-color: #99477a;
-            height: 20dvh;
-            z-index: -1;
-            top: 0;
-        }
-
-
-        h1 {
-            font-size: 1.4rem;
-            //padding-top: 2.5dvh;
-        }
-      }
 }
+.loadingTopHeader{
 
-
-
-
+    .header {
+        position: sticky;
+        background-color: rgba(0, 0, 255, 0.0);
+        pointer-events: none;
+        width: 100%;
+        height: 21dvh;
+        z-index:11;
+        min-height: 110px;
+        top: 0;
+        .topHeader{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            z-index: 20;
+        }
+        h1 {
+            color:white;
+            z-index: 2;
+            pointer-events: all;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+    }
+}
+@media (max-width: 650px) {}

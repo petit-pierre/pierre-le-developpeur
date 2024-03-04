@@ -37,7 +37,16 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-
+          @media (max-width: 650px) {
+            p{
+              font-size: 1rem;
+            }
+          }
+          @media (max-height: 450px) {
+            p{
+              font-size: 1rem;
+            }
+          }
         }
         .enter{
           position: absolute;
@@ -90,24 +99,93 @@
 
         @keyframes smoking{
           0% {
-            //height: 4px;
               opacity: 1;
           }
-
           40% {
-            //height: 15px;
               opacity: 0;
               transform:  translate(0,-10px) ;
-              //margin-bottom: 0;
           }
-
           100% {
             opacity: 0 ;
             transform:  translate(0,0px)
+          }  
+        }
+        .loading{
+          display: flex;
+          justify-content: center;
+          .dot1{
+            width: 6px;
+            height: 6px;
+            border-radius: 4px;
+            background-color: white;
+            margin: 4px;
+            animation-name: dot;
+            animation-duration: 3000ms;
+            animation-iteration-count: infinite;
           }
-          
-      }
-
+          .dot2{
+            width: 6px;
+            height: 6px;
+            border-radius: 4px;
+            background-color: white;
+            margin: 4px;
+            animation-name: dot2;
+            animation-duration: 3000ms;
+            animation-iteration-count: infinite;
+          }
+          .dot3{
+            width: 6px;
+            height: 6px;
+            border-radius: 4px;
+            background-color: white;
+            margin: 4px;
+            animation-name: dot3;
+            animation-duration: 3000ms;
+            animation-iteration-count: infinite;
+          }
+          @keyframes dot{
+            0% {
+                opacity: 0;
+            }
+            33% {
+                opacity: 1 ;
+            } 
+            66% {
+              opacity: 1 ;
+          } 
+            100% {
+              opacity: 1 ;
+          } 
+          }
+          @keyframes dot2{
+            0% {
+                opacity: 0;
+            }
+            33% {
+                opacity: 0 ;
+            } 
+            66% {
+              opacity: 1 ;
+          } 
+            100% {
+              opacity: 1 ;
+          } 
+          }
+          @keyframes dot3{
+            0% {
+                opacity: 0;
+            }
+            33% {
+              opacity: 0 ;
+          } 
+          66% {
+            opacity: 0 ;
+        } 
+            100% {
+                opacity: 1 ;
+            } 
+          }
+        }
       }
     }
     .animation {
@@ -128,4 +206,5 @@
     .image {
       height: 180vh;
     }
+
   }

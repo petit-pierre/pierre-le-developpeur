@@ -36,6 +36,16 @@
   flex-direction: column;
   justify-content: center;
 }
+@media (max-width: 650px) {
+  .parralaxField .purple .welcome .welcomeText p {
+    font-size: 1rem;
+  }
+}
+@media (max-height: 450px) {
+  .parralaxField .purple .welcome .welcomeText p {
+    font-size: 1rem;
+  }
+}
 .parralaxField .purple .welcome .enter {
   position: absolute;
   font-size: 5dvh;
@@ -94,6 +104,82 @@
   100% {
     opacity: 0;
     transform: translate(0, 0px);
+  }
+}
+.parralaxField .purple .welcome .loading {
+  display: flex;
+  justify-content: center;
+}
+.parralaxField .purple .welcome .loading .dot1 {
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
+  background-color: white;
+  margin: 4px;
+  animation-name: dot;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+}
+.parralaxField .purple .welcome .loading .dot2 {
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
+  background-color: white;
+  margin: 4px;
+  animation-name: dot2;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+}
+.parralaxField .purple .welcome .loading .dot3 {
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
+  background-color: white;
+  margin: 4px;
+  animation-name: dot3;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+}
+@keyframes dot {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dot2 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dot3 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 .parralaxField .animation {

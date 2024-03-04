@@ -81,34 +81,34 @@
     .li {
         list-style: none;
       }
-      a,
-      a:visited {
+    a,
+    a:visited {
         color: white;
         text-decoration: none;
         text-transform: uppercase;
-      }
-      a:hover {
+    }
+    a:hover {
         color: #b674cc;
         transition: 1s;
       }
       /**** NAVBAR ****/
-      nav {
+    nav {
         display: flex;
         justify-content: space-around;
         align-items: center;
         padding: 10px;
-      }
-      nav .ul {
+    }
+    nav .ul {
         display: flex;
         justify-content: space-between;
         width: 60%;
         padding-top: 2dvh;
-      }
-      #icons {
+    }
+    #icons {
         cursor: pointer;
         display: none;
-      }
-      @media (max-width: 650px) {
+    }
+    @media (max-width: 650px) {
 
         .maGanache{
             width: 18dvh;
@@ -116,9 +116,8 @@
             left: 2dvw;
         }
         .title{
-position: fixed;
-left: 2dvw;
-            //padding-left: 2dvw;
+            position: fixed;
+            left: 2dvw;
             top: -10px;
             max-width: 60dvw ;
         }
@@ -134,13 +133,11 @@ left: 2dvw;
         }
         #icons {
           display: block;
-
           position: fixed;
           right: 5dvw;
           top: 0;
           .icons{
             width: 9dvh;
-
           }
         }
         .headerSpaced {
@@ -151,13 +148,12 @@ left: 2dvw;
             z-index: -1;
             top: 0;
         }
-
         nav .ul {
           position: fixed;
           left: -550dvh;
           top: 20dvh;
           z-index: -1;
-          height: 80dvh;
+          height: 70dvh;
           flex-direction: column;
           background:#b674cc ;
           width: 100%;
@@ -176,7 +172,6 @@ left: 2dvw;
         }
         h1 {
             font-size: 1.4rem;
-            //padding-top: 2.5dvh;
         }
       }
 }
