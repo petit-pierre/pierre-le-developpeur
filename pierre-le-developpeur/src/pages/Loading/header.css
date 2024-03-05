@@ -6,6 +6,7 @@
 }
 .loadingHeader .headerfield {
   height: 21dvh;
+  position: relative;
 }
 
 .loadingTopHeader .header {

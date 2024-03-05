@@ -1,6 +1,5 @@
 .parralaxField {
   width: 100%;
-  background-color: #99477a;
 }
 .parralaxField .animation, .parralaxField .animation_layer {
   height: 90dvh;
@@ -8,6 +7,7 @@
 .parralaxField .purple {
   background-color: #99477a;
   height: 110dvh;
+  z-index: -2;
 }
 .parralaxField .purple .welcome {
   position: relative;
@@ -26,6 +26,7 @@
   opacity: 0.1;
 }
 .parralaxField .purple .welcome .welcomeText {
+  z-index: 1;
   color: white;
   padding: 25px;
   text-align: center;
@@ -37,11 +38,6 @@
   justify-content: center;
 }
 @media (max-width: 650px) {
-  .parralaxField .purple .welcome .welcomeText p {
-    font-size: 1rem;
-  }
-}
-@media (max-height: 450px) {
   .parralaxField .purple .welcome .welcomeText p {
     font-size: 1rem;
   }

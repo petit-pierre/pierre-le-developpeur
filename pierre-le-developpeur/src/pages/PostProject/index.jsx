@@ -228,11 +228,11 @@ function PostProject() {
           <h1>Post new project</h1>
           <div>
             <p>title in french : </p>
-            <input ref={frenchProjectTitle} type="text" />
+            <textarea ref={frenchProjectTitle} type="text" />
           </div>
           <div>
             <p>title in english : </p>
-            <input ref={englishProjectTitle} type="text" />
+            <textarea ref={englishProjectTitle} type="text" />
           </div>
           <div>
             <p>date : </p>
@@ -241,19 +241,19 @@ function PostProject() {
 
           <div>
             <p>description in french : </p>
-            <input ref={frenchDescription} type="textarea" />
+            <textarea ref={frenchDescription} type="textarea" />
           </div>
           <div>
             <p>description in english : </p>
-            <input ref={englishDescription} type="textarea" />
+            <textarea ref={englishDescription} type="textarea" />
           </div>
           <div>
             <p>resum in french : </p>
-            <input ref={frenchResum} type="textarea" />
+            <textarea ref={frenchResum} type="textarea" />
           </div>
           <div>
             <p>resum in english : </p>
-            <input ref={englishResum} type="textarea" />
+            <textarea ref={englishResum} type="textarea" />
           </div>
           <fieldset>
             <legend>Links :</legend>
@@ -292,15 +292,15 @@ function PostProject() {
             </div>
             <div>
               <p>slider alt : </p>
-              <input ref={sliderAlt} type="text" />
+              <textarea ref={sliderAlt} type="text" />
             </div>
             <div>
               <p>slider content in french : </p>
-              <input ref={frenchSliderContent} type="text" />
+              <textarea ref={frenchSliderContent} type="text" />
             </div>
             <div>
               <p>slider content in english : </p>
-              <input ref={englishSliderContent} type="text" />
+              <textarea ref={englishSliderContent} type="text" />
             </div>
           </fieldset>
           <div>

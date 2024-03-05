@@ -1,33 +1,30 @@
 .parralaxField {
     width: 100%;
-    background-color: #99477a;
+    //background-color: #99477a;
     .animation, .animation_layer {
         height: 90dvh;
     }
     .purple {
       background-color: #99477a;
       height: 110dvh;
+      z-index: -2;
       .welcome{
         position: relative;
         display: flex;
         justify-content: center;
-        //padding-top: 75dvh;
         width: 98%;
         margin: 1%;
         height: 68dvh;
         overflow: hidden;
         border-radius: 20px;
-
-
         .particules {
           position: absolute;
           left: 0;
           min-width: 100%;
           opacity: 0.1;
-
-
         }
         .welcomeText{
+          z-index: 1;
           color: white;
           padding: 25px;
           text-align: center;
@@ -38,11 +35,6 @@
           flex-direction: column;
           justify-content: center;
           @media (max-width: 650px) {
-            p{
-              font-size: 1rem;
-            }
-          }
-          @media (max-height: 450px) {
             p{
               font-size: 1rem;
             }
@@ -180,7 +172,7 @@
           } 
           66% {
             opacity: 0 ;
-        } 
+          } 
             100% {
                 opacity: 1 ;
             } 
@@ -207,4 +199,4 @@
       height: 180vh;
     }
 
-  }
+}

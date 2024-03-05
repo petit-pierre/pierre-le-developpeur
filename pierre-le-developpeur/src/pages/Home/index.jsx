@@ -9,6 +9,7 @@ import Slider from "../../components/Slider";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
+  const sliders = useSelector((state) => state.data.sliders);
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
@@ -45,9 +46,10 @@ function Home() {
     return (
       <div>
         <Header></Header>
+        <div className="placeforheader"></div>
         <div className="withe">
           <div className="slider">
-            <Slider></Slider>
+            <Slider sliders={sliders}></Slider>
           </div>
           {language === "FR" ? (
             <p>{skills[0].french_title}</p>

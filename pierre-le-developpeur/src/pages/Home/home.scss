@@ -1,9 +1,15 @@
+.placeforheader{
+    width: 100%;
+    height: 21dvh;
+}
 .withe {
     background-color: white;
     .slider{
-        width: 95%;
+        width: 100%;
         margin: auto;
-        height: 60dvh;
+        height: 71dvh;
+        overflow: hidden;
+
     }
     .footerPlace {
         width: 100%;

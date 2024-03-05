@@ -2,5 +2,24 @@
   width: 100%;
   height: 100%;
   background-color: aqua;
-  border-radius: 20px;
+  overflow: hidden;
+}
+.sliderField .sliderDiv {
+  position: relative;
+}
+.sliderField .sliderPicture {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 0;
+}
+@media (min-width: 650px) {
+  .sliderField .sliderPicture {
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .sliderField .sliderPicture {
+    max-height: 71dvh;
+  }
 }/*# sourceMappingURL=slider.css.map */

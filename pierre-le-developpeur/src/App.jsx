@@ -6,6 +6,7 @@ import {
   getLikesThunk,
   getProjectsThunk,
   getSkillsThunk,
+  getSlidersThunk,
   getToolsThunk,
   getTranslationThunk,
 } from "./thunkActionsCreator";
@@ -61,6 +62,12 @@ function App() {
     const getLikesResult = await dispatch(getLikesThunk());
   };
   getLikes();
+
+  const getSlider = async () => {
+    const getSliderResult = await dispatch(getSlidersThunk());
+  };
+  getSlider();
+
   return (
     <Router>
       <Routes>
