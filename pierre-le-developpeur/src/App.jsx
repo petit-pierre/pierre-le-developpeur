@@ -29,9 +29,6 @@ import DeleteSlide from "./pages/DeleteSlide";
 function App() {
   const dispatch = useDispatch();
 
-  const mavar = localStorage.getItem("translation");
-  console.log(mavar);
-
   const lookAtLocalStorage = async () => {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState !== null) {

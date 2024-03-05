@@ -9,10 +9,19 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
 function Loading() {
-  const begin =
-    "Je suis un développeur Web spécialisé front-end mais pas seulement . Mon parcours de DJ/Liveur et VJ m'a apporté de solides compétences en M.A.O et vidéo . Les arts plastiques sont aussi une corde a mon arc qui me permet d’être a l'aise avec la conception visuel (P.A.O, communication visuel) . Ma curiosité et ma passion me poussent a m’intéresser sérieusement a d'autres aspects de mon métier tels que le développement back-end .";
-  const end =
-    "Finalement, mon expérience de vieux baroudeur de l'informatique me permet une vision profonde de la programmation et quelques compétences exotiques comme le langage BASIC . Je fait des algorithmes artistiques mais ne me croyez pas sur parole, venez donc jeter un œil a mes travaux pour peut que ces quelques lignes atypiques piquent votre curiosité .";
+  const language = useSelector((state) => state.data.language);
+  const begin = {
+    french:
+      "Je suis un développeur Web spécialisé front-end mais pas seulement . Mon parcours de DJ/Liveur et VJ m'a apporté de solides compétences en M.A.O et vidéo . Les arts plastiques sont aussi une corde a mon arc qui me permet d’être a l'aise avec la conception visuel (P.A.O, communication visuel) . Ma curiosité et ma passion me poussent a m’intéresser sérieusement a d'autres aspects de mon métier tels que le développement back-end .",
+    english:
+      "I am a front-end web developer, but not only that. My background as a DJ, live performer, and VJ has given me strong skills in music production and video. Visual arts are also an additional string to my bow, allowing me to feel comfortable with visual design (graphic design, visual communication). My curiosity and passion drive me to seriously explore other aspects of my profession, such as back-end development.",
+  };
+  const end = {
+    french:
+      "Finalement, mon expérience de vieux baroudeur de l'informatique me permet une vision profonde de la programmation et quelques compétences exotiques comme le langage BASIC . Je fait des algorithmes artistiques mais ne me croyez pas sur parole, venez donc jeter un œil a mes travaux pour peut que ces quelques lignes atypiques piquent votre curiosité .",
+    english:
+      "Finally, my experience as a seasoned computer adventurer allows me a deep insight into programming, along with some exotic skills like the BASIC language. I create artistic algorithms, but don’t just take my word for it—come take a look at my work! Perhaps these unconventional lines will pique your curiosity.",
+  };
   const [text, setText] = useState(begin);
 
   setInterval(() => {
@@ -73,7 +82,7 @@ function Loading() {
                 alt="particules"
               ></img>
               <div className="welcomeText">
-                <p> {text} </p>
+                <p> {language === "FR" ? text.french : text.english} </p>
                 {text === begin ? <p>1/2</p> : <p>2/2</p>}
                 <div className="loading">
                   <div className="dot1"></div>

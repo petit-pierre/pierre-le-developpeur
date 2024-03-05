@@ -1,0 +1,9 @@
+.like .buttonLike {
+  background: none;
+  color: inherit;
+  border: none;
+}
+.like .buttonLike .logoLike {
+  width: 20px;
+  cursor: pointer;
+}/*# sourceMappingURL=like.css.map */
