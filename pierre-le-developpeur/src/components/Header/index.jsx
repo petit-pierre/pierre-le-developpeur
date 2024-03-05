@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
-  const thanks = useSelector((state) => state.data.thanks);
   const [burger, setBurger] = useState(false);
   const dispatch = useDispatch();
   function burgerOff() {
@@ -69,19 +68,12 @@ function Header() {
             <img src={burgerIcon} alt="burger menu" className="icons"></img>
           </div>
         </nav>
-        {thanks === true ? (
-          <img
-            src="./assets/thanks.png"
-            className="maGanache"
-            alt="profil"
-          ></img>
-        ) : (
-          <img
-            src="./assets/pierre.png"
-            className="maGanache"
-            alt="thank you"
-          ></img>
-        )}
+
+        <img
+          src="./assets/pierre.png"
+          className="maGanache"
+          alt="thank you"
+        ></img>
       </div>
     </div>
   );

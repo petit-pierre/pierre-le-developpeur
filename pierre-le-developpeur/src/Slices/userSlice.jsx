@@ -11,7 +11,6 @@ export const userSlice = createSlice({
     sliders: null,
     likes: null,
     language: "FR",
-    thanks: false,
   },
   reducers: {
     setToken: (currentState, action) => {
@@ -52,11 +51,6 @@ export const userSlice = createSlice({
     setLanguage: (currentState, action) => {
       const language = { ...currentState, language: action.payload };
       return language;
-    },
-
-    setTanks: (currentState, action) => {
-      const thanks = { ...currentState, thanks: action.payload };
-      return thanks;
     },
   },
 });

@@ -1,3 +1,12 @@
+.like {
+  display: flex;
+  flex-direction: row;
+}
+.like .checked {
+  animation-name: like;
+  animation-duration: 1000ms;
+  pointer-events: none;
+}
 .like .buttonLike {
   background: none;
   color: inherit;
@@ -6,4 +15,16 @@
 .like .buttonLike .logoLike {
   width: 20px;
   cursor: pointer;
+}
+
+@keyframes like {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }/*# sourceMappingURL=like.css.map */

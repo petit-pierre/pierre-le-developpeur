@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import "./home.css";
 import io from "socket.io-client";
 import LikeButton from "../../components/LikeButton";
+import Slider from "../../components/Slider";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -26,7 +27,13 @@ function Home() {
       const newlikes = await get.json();
       const found = newlikes.find((like) => like._id === response.message);
 
-      document.getElementById(response.message).innerText = found.likes;
+      document.getElementById(response.message).innerText = Intl.NumberFormat(
+        "en-US",
+        {
+          notation: "compact",
+          maximumFractionDigits: 2,
+        }
+      ).format(found.likes);
     }
 
     socket.on("receive_message", (response) => {
@@ -39,6 +46,9 @@ function Home() {
       <div>
         <Header></Header>
         <div className="withe">
+          <div className="slider">
+            <Slider></Slider>
+          </div>
           {language === "FR" ? (
             <p>{skills[0].french_title}</p>
           ) : (
@@ -53,11 +63,11 @@ function Home() {
               likes Tools :
               {tools.map((tool) => (
                 <div key={tool._id}>
-                  {" "}
                   {tool.title} <LikeButton id={tool.likes_id}></LikeButton>
                 </div>
               ))}
             </fieldset>
+            <div className="footerPlace"></div>
           </div>
         </div>
         <Footer></Footer>

@@ -1,3 +1,12 @@
 .withe {
   background-color: white;
+}
+.withe .slider {
+  width: 95%;
+  margin: auto;
+  height: 60dvh;
+}
+.withe .footerPlace {
+  width: 100%;
+  height: 8dvh;
 }/*# sourceMappingURL=home.css.map */

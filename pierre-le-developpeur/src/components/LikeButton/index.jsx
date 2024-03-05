@@ -8,6 +8,10 @@ function LikeButton(id) {
 
   const sendLike = (evt, id) => {
     evt.preventDefault();
+    document.querySelector(".button" + id.id).classList.add("checked");
+    setTimeout(() => {
+      document.querySelector(".button" + id.id).classList.remove("checked");
+    }, 1000);
 
     let message = id.id;
     socket.emit("send_message", { message });
@@ -49,11 +53,17 @@ function LikeButton(id) {
 
   return (
     <div className="like">
-      <p id={id.id}> {found.likes}</p>
+      <p id={id.id}>
+        {" "}
+        {Intl.NumberFormat("en-US", {
+          notation: "compact",
+          maximumFractionDigits: 2,
+        }).format(found.likes)}{" "}
+      </p>
       <button
-        name={id}
+        name={id.id}
         onClick={(evt) => sendLike(evt, id)}
-        className="buttonLike"
+        className={"buttonLike button" + id.id}
       >
         <img
           src="./assets/logo like.png"

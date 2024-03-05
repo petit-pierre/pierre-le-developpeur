@@ -28,6 +28,16 @@
   color: white;
   z-index: 2;
   pointer-events: all;
+  background-color: #99477a;
+  border-radius: 20px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+@media (max-width: 650px) {
+  .loadingTopHeader .header h1 {
+    background-color: rgba(0, 0, 255, 0);
+    padding-left: 0;
+  }
 }
 .loadingTopHeader .header nav {
   display: flex;
