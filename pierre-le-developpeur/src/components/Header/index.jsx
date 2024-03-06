@@ -22,59 +22,62 @@ function Header() {
       : dispatch(userSlice.actions.setLanguage("FR"));
   }
   return (
-    <div className="headerfield">
-      <div className="header ">
-        <div className="topHeader">
-          <NavLink to="/Home" className="title">
-            <h1>Pierre le developpeur</h1>
-          </NavLink>
+    <div>
+      <div className="headerfield">
+        <div className="header ">
+          <div className="topHeader">
+            <NavLink to="/Home" className="title">
+              <h1>Pierre le developpeur</h1>
+            </NavLink>
+          </div>
+          <nav id="nav" className={burger === true ? "active" : ""}>
+            <div className="headerSpaced"></div>
+            <div className="ul">
+              <div className="li">
+                <NavLink onClick={burgerOff}>
+                  {" "}
+                  {language === "FR" ? "accueil" : "welcome"}
+                </NavLink>
+              </div>
+              <div className="li">
+                <NavLink onClick={burgerOff}>Contact</NavLink>
+              </div>
+              <div className="li">
+                <NavLink onClick={burgerOff}>
+                  {" "}
+                  {language === "FR" ? "Compétences" : "Skills"}
+                </NavLink>
+              </div>
+              <div className="li">
+                <NavLink onClick={burgerOff}>
+                  {language === "FR" ? "Projets" : "Projects"}
+                </NavLink>
+              </div>
+              <div className="li language">
+                <a> {language} </a>
+
+                <input
+                  type="checkbox"
+                  className="demo5"
+                  id="demo5"
+                  onClick={changeLanguage}
+                />
+                <label htmlFor="demo5"></label>
+              </div>
+            </div>
+            <div id="icons" onClick={changeBurger}>
+              <img src={burgerIcon} alt="burger menu" className="icons"></img>
+            </div>
+          </nav>
+
+          <img
+            src="./assets/pierre.png"
+            className="maGanache"
+            alt="thank you"
+          ></img>
         </div>
-        <nav id="nav" className={burger === true ? "active" : ""}>
-          <div className="headerSpaced"></div>
-          <div className="ul">
-            <div className="li">
-              <NavLink onClick={burgerOff}>
-                {" "}
-                {language === "FR" ? "accueil" : "welcome"}
-              </NavLink>
-            </div>
-            <div className="li">
-              <NavLink onClick={burgerOff}>Contact</NavLink>
-            </div>
-            <div className="li">
-              <NavLink onClick={burgerOff}>
-                {" "}
-                {language === "FR" ? "Compétences" : "Skills"}
-              </NavLink>
-            </div>
-            <div className="li">
-              <NavLink onClick={burgerOff}>
-                {language === "FR" ? "Projets" : "Projects"}
-              </NavLink>
-            </div>
-            <div className="li language">
-              <a> {language} </a>
-
-              <input
-                type="checkbox"
-                className="demo5"
-                id="demo5"
-                onClick={changeLanguage}
-              />
-              <label for="demo5"></label>
-            </div>
-          </div>
-          <div id="icons" onClick={changeBurger}>
-            <img src={burgerIcon} alt="burger menu" className="icons"></img>
-          </div>
-        </nav>
-
-        <img
-          src="./assets/pierre.png"
-          className="maGanache"
-          alt="thank you"
-        ></img>
       </div>
+      <div className="placeforheader"></div>
     </div>
   );
 }

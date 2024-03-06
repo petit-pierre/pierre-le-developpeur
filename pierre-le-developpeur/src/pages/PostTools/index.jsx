@@ -95,7 +95,7 @@ function PostTools() {
             name="categorie"
             value={cat.name}
           />
-          <label for="React">{cat.name}</label>
+          <label htmlFor="React">{cat.name}</label>
         </div>
       ))}
       <p>picture :</p>

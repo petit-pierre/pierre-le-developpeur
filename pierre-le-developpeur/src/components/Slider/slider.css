@@ -1,25 +1,90 @@
-.sliderField {
-  width: 100%;
+.sliderContainer {
   height: 100%;
-  background-color: aqua;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 490px;
+  background-color: white;
   overflow: hidden;
 }
-.sliderField .sliderDiv {
+
+.carousel-img {
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
 }
-.sliderField .sliderPicture {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 0;
-}
 @media (min-width: 650px) {
-  .sliderField .sliderPicture {
+  .carousel-img {
     width: 100%;
   }
 }
 @media (max-width: 650px) {
-  .sliderField .sliderPicture {
+  .carousel-img {
     max-height: 71dvh;
   }
+}
+
+.sliderContent {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  white-space: initial;
+  background-color: black;
+  margin: 20px;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+@media (max-width: 650px) {
+  .sliderContent {
+    font-size: 1.3rem;
+  }
+}
+
+.sliderTextDiv {
+  top: auto;
+  position: absolute;
+  width: 50dvw;
+}
+
+.counter {
+  position: absolute;
+  z-index: 3;
+  top: 60dvh;
+  left: 48%;
+  font-size: 18px;
+  color: #FFF;
+}
+
+.arrowLeft {
+  position: absolute;
+  z-index: 3;
+  top: 30dvh;
+  left: 0px;
+  cursor: pointer;
+}
+
+.arrowRight {
+  position: absolute;
+  z-index: 3;
+  top: 30dvh;
+  right: 0px;
+  cursor: pointer;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }/*# sourceMappingURL=slider.css.map */

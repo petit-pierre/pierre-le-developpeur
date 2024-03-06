@@ -46,10 +46,10 @@ function Home() {
     return (
       <div>
         <Header></Header>
-        <div className="placeforheader"></div>
+
         <div className="withe">
           <div className="slider">
-            <Slider sliders={sliders}></Slider>
+            <Slider sliders={sliders} mini={false}></Slider>
           </div>
           {language === "FR" ? (
             <p>{skills[0].french_title}</p>

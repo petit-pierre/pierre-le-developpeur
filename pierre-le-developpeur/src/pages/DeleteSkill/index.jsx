@@ -5,7 +5,6 @@ import {
   deleteLikesThunk,
   deletePictureThunk,
   deleteSkillThunk,
-  putTranslationThunk,
 } from "../../thunkActionsCreator";
 
 function DeleteSkill() {

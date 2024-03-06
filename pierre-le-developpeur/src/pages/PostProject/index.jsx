@@ -271,7 +271,7 @@ function PostProject() {
                   id={link.id}
                   value={link.name}
                 />
-                <label for="React">{link.name}</label>
+                <label htmlFor="React">{link.name}</label>
               </div>
             ))}
           </fieldset>
@@ -321,7 +321,7 @@ function PostProject() {
                     id={categorie.id}
                     value={categorie.name}
                   />
-                  <label for="category">{categorie.name}</label>
+                  <label htmlFor="category">{categorie.name}</label>
                 </div>
               ))}
             </fieldset>
@@ -339,7 +339,9 @@ function PostProject() {
                     id={skill._id}
                     value={skill._id}
                   />
-                  <label for={skill.french_title}>{skill.french_title}</label>
+                  <label htmlFor={skill.french_title}>
+                    {skill.french_title}
+                  </label>
                 </div>
               ))}
             </fieldset>
@@ -357,7 +359,7 @@ function PostProject() {
                     id={tool._id}
                     value={tool.id}
                   />
-                  <label for={tool.title}>{tool.title}</label>
+                  <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}
             </fieldset>
@@ -372,7 +374,7 @@ function PostProject() {
                     id={tool._id}
                     value={tool.id}
                   />
-                  <label for={tool.title}>{tool.title}</label>
+                  <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}
             </fieldset>
@@ -387,7 +389,7 @@ function PostProject() {
                     id={tool._id}
                     value={tool.id}
                   />
-                  <label for={tool.title}>{tool.title}</label>
+                  <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}
             </fieldset>

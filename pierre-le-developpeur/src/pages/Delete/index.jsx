@@ -5,7 +5,6 @@ import {
   deleteLikesThunk,
   deletePictureThunk,
   deleteProjectThunk,
-  deleteProjectTranslationThunk,
 } from "../../thunkActionsCreator";
 
 function DeleteProject() {
