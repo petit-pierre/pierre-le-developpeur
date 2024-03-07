@@ -49,13 +49,21 @@ function Contact(likeId) {
       To: "contact@mariage-en-morgan.fr",
       From: "contact@mariage-en-morgan.fr",
       Subject: "Site pierre le developpeur",
-      Body: document.querySelector(".contentForMail").value,
+      Body:
+        "email : " + mail.current.value + " message : " + content.current.value,
     };
     //const elastic = structuredClone(elasti);
     //console.log(document.querySelector(".contentForMail").value);
-    window.Email.send(elastic).then((message) =>
-      message === "OK" ? setSending(true) : setSendingError(true)
-    );
+    window.Email.send(elastic).then((message) => {
+      if (message === "OK") {
+        setSending(true);
+        setSendingError(false);
+      } else {
+        setSending(false);
+        setSendingError(true);
+        alert(message);
+      }
+    });
   };
 
   return (
