@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./slider.css";
 import { CarouselItem } from "./CarouselItem";
+import LikeButton from "../LikeButton";
 
-function Slider({ sliders, mini }) {
+function Slider({ sliders, mini, likeId }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   //swipe tactile//
@@ -52,6 +53,9 @@ function Slider({ sliders, mini }) {
       onTouchMove={(e) => handleTouchMove(e)}
       onTouchEnd={(e) => handleTouchEnd(e)}
     >
+      <div className="likeSlider">
+        <LikeButton id={likeId}></LikeButton>
+      </div>
       <div
         className="inner"
         style={{ transform: `translate(-${currentIndex * 100}%)` }}

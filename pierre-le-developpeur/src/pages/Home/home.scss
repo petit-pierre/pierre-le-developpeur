@@ -1,12 +1,15 @@
 
 .withe {
-    background-color: white;
     .slider{
         width: 100%;
         margin: auto;
         height: 71dvh;
+        min-height: 200px;
         overflow: hidden;
-
+    }
+    .contact{
+        //background-color: #99477a;
+        //background-color: #b674cc;
     }
     .footerPlace {
         width: 100%;

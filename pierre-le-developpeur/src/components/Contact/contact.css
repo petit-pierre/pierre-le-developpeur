@@ -1,0 +1,174 @@
+.contactField {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.contactField .contactPlace {
+  display: flex;
+  flex-direction: row;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .contactPlace {
+    flex-direction: column;
+  }
+}
+.contactField .recommendation {
+  position: relative;
+  width: 98dvw;
+  height: 16dvh;
+  margin: 1dvw;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .recommendation {
+    width: 96dvw;
+  }
+}
+.contactField .recommendation .reco {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: solid #6d477a;
+  box-sizing: border-box;
+  border-radius: 20px;
+  z-index: 2;
+}
+.contactField .messageAndMail {
+  width: 49dvw;
+  height: 61dvh;
+  margin: 1dvw;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .messageAndMail {
+    height: 64dvh;
+  }
+}
+.contactField .messageAndMail .mailAndSend {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contactField .messageAndMail .mailAndBackground {
+  margin: auto;
+  width: 19dvw;
+  height: 4dvh;
+  position: relative;
+  margin-bottom: 1dvh;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .messageAndMail .mailAndBackground {
+    width: 96dvw;
+    height: 6dvh;
+  }
+}
+.contactField .messageAndMail input {
+  box-sizing: border-box;
+  border: solid #6d477a;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 255, 0);
+  color: white;
+  z-index: 2;
+  padding-left: 10px;
+}
+.contactField .messageAndMail input:focus {
+  border: solid #99477a;
+  outline: none;
+}
+.contactField .messageAndMail .textAreaAndBackground {
+  position: relative;
+  width: 100%;
+  height: 50dvh;
+  margin-top: 1dvh;
+  margin-bottom: 1dvh;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .messageAndMail .textAreaAndBackground {
+    width: 96dvw;
+  }
+}
+.contactField .messageAndMail textarea {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  resize: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: solid #6d477a;
+  padding: 5px;
+  background-color: rgba(0, 0, 255, 0);
+  color: white;
+  position: absolute;
+  z-index: 2;
+}
+.contactField .messageAndMail textarea:focus {
+  border: solid #99477a;
+  outline: none;
+}
+.contactField .contactContent {
+  position: absolute;
+  color: white;
+  z-index: 2;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: solid #6d477a;
+  width: 100%;
+  height: 100%;
+}
+.contactField .contentAndBackground {
+  margin: 1dvw 1dvw 1dvh 1dvw;
+  position: relative;
+  height: 56dvh;
+  width: 49dvw;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .contentAndBackground {
+    width: 96dvw;
+  }
+}
+.contactField .snow {
+  background-image: url("../../../public/assets/particules.gif");
+  opacity: 0.2;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border-radius: 20px;
+}
+.contactField .snowBackground {
+  background-color: #99477a;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  border-radius: 20px;
+}
+.contactField button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 255, 0);
+  border-radius: 20px;
+  border: solid #6d477a;
+  color: white;
+  z-index: 2;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.contactField .buttonAndBackground {
+  position: relative;
+  width: 19dvw;
+  height: 4dvh;
+  margin: auto;
+}
+@media (aspect-ratio < 1/1) {
+  .contactField .buttonAndBackground {
+    width: 96dvw;
+    height: 6dvh;
+  }
+}/*# sourceMappingURL=contact.css.map */

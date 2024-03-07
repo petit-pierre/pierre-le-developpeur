@@ -1,11 +1,13 @@
 import Header from "../../components/Header";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import "./home.css";
 import io from "socket.io-client";
 import LikeButton from "../../components/LikeButton";
 import Slider from "../../components/Slider";
+import Contact from "../../components/Contact";
+import { useEffect, useRef } from "react";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -13,6 +15,26 @@ function Home() {
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
+
+  const location = useLocation();
+  const lastHash = useRef("");
+
+  // listen to location change using useEffect with location as dependency
+  // https://jasonwatmore.com/react-router-v6-listen-to-location-route-change-without-history-listen
+  useEffect(() => {
+    if (location.hash) {
+      lastHash.current = location.hash.slice(1); // safe hash for further use after navigation
+    }
+
+    if (lastHash.current && document.getElementById(lastHash.current)) {
+      setTimeout(() => {
+        document
+          .getElementById(lastHash.current)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        lastHash.current = "";
+      }, 100);
+    }
+  }, [location]);
 
   //const socket = useContext(SocketContext);
   const socket = io.connect("http://localhost:3000");
@@ -44,31 +66,33 @@ function Home() {
     });
 
     return (
-      <div>
+      <div id="accueil">
         <Header></Header>
 
         <div className="withe">
           <div className="slider">
-            <Slider sliders={sliders} mini={false}></Slider>
+            <Slider
+              sliders={sliders}
+              mini={false}
+              likeId={likes[1]._id}
+            ></Slider>
           </div>
-          {language === "FR" ? (
-            <p>{skills[0].french_title}</p>
-          ) : (
-            <p>{skills[0].english_title}</p>
-          )}
-          <div>
-            <fieldset>
-              likes CTA :<LikeButton id={likes[0]._id}></LikeButton>
-              likes slider :<LikeButton id={likes[1]._id}></LikeButton>
-            </fieldset>
-            <fieldset>
-              likes Tools :
-              {tools.map((tool) => (
-                <div key={tool._id}>
-                  {tool.title} <LikeButton id={tool.likes_id}></LikeButton>
-                </div>
-              ))}
-            </fieldset>
+          <div className="contact" id="contact">
+            <Contact likeId={likes[0]._id}></Contact>
+          </div>
+          <div id="competences">
+            <div>
+              <fieldset>
+                likes Tools :
+                {tools.map((tool) => (
+                  <div key={tool._id}>
+                    {tool.title} <LikeButton id={tool.likes_id}></LikeButton>
+                  </div>
+                ))}
+              </fieldset>
+            </div>
+            <div id="projets"></div>
+
             <div className="footerPlace"></div>
           </div>
         </div>
@@ -76,7 +100,9 @@ function Home() {
       </div>
     );
   } else {
-    navigate("/");
+    setTimeout(() => {
+      navigate("/Home");
+    }, 500);
   }
 }
 
