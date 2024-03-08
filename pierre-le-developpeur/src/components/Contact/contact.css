@@ -14,13 +14,14 @@
 }
 .contactField .recommendation {
   position: relative;
-  width: 98dvw;
+  width: 100%;
   height: 16dvh;
-  margin: 1dvw;
+  margin-top: 1dvh;
 }
 @media (aspect-ratio < 1/1) {
   .contactField .recommendation {
     width: 96dvw;
+    margin-left: 1dvw;
   }
 }
 .contactField .recommendation .reco {
@@ -91,7 +92,6 @@
 .contactField .messageAndMail textarea {
   width: 100%;
   height: 100%;
-  overflow: scroll;
   resize: none;
   box-sizing: border-box;
   border-radius: 20px;

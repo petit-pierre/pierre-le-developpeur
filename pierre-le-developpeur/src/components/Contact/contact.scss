@@ -11,13 +11,14 @@
     }
     .recommendation{
         position: relative;
-        width: 98dvw;
+        //width: 98dvw;
+        width: 100%;
         height: 16dvh;
-        margin: 1dvw;
-        //margin-top: 1dvw;
+        //margin: 1dvw;
+        margin-top: 1dvh;
         @media ( aspect-ratio< 1 / 1){
             width: 96dvw;
-            //margin-left: 0;
+            margin-left: 1dvw;
         }
         .reco{
             width: 100%;
@@ -86,7 +87,7 @@
         textarea{
             width: 100%;
             height: 100%;
-            overflow: scroll;
+            //overflow: scroll;
             resize: none;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;

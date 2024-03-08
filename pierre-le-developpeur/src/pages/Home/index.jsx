@@ -37,14 +37,15 @@ function Home() {
   }, [location]);
 
   //const socket = useContext(SocketContext);
-  const socket = io.connect("http://localhost:3000");
+  //const socket = io.connect("http://localhost:3000");
+  const socket = io.connect("http://api.petitpierre.net");
 
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
 
   if (likes != null && skills != null && tools != null) {
     async function getOldLikes(response) {
-      const get = await fetch("http://localhost:3000/api/likes", {
+      const get = await fetch("http://api.petitpierre.net/api/likes", {
         method: "GET",
       });
       const newlikes = await get.json();

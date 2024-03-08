@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 
 function LikeButton(id) {
   const likes = useSelector((state) => state.data.likes);
-  const socket = io.connect("http://localhost:3000");
+  //const socket = io.connect("http://localhost:3000");
+  const socket = io.connect("http://api.petitpierre.net");
 
   const sendLike = (evt, id) => {
     evt.preventDefault();
@@ -26,7 +27,7 @@ function LikeButton(id) {
   };
 
   async function getOldLikes(id) {
-    const get = await fetch("http://localhost:3000/api/likes", {
+    const get = await fetch("http://api.petitpierre.net/api/likes", {
       method: "GET",
     });
     const newlikes = await get.json();
@@ -37,7 +38,7 @@ function LikeButton(id) {
     };
 
     async function putOldLikes(id, like) {
-      const put = await fetch("http://localhost:3000/api/likes/" + id.id, {
+      const put = await fetch("http://api.petitpierre.net/api/likes/" + id.id, {
         method: "PUT",
         headers: {
           Accept: "application/json",
