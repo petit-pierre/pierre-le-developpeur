@@ -22,14 +22,18 @@ function Slider({ sliders, mini, likeId }) {
   function handleTouchEnd() {
     if (sliders.length > 1) {
       if (touchStart - touchEnd > 150) {
-        previousPicture();
+        nextPicture();
       }
 
       if (touchStart - touchEnd < -150) {
-        nextPicture();
+        previousPicture();
       }
     }
   }
+
+  setInterval(() => {
+    nextPicture();
+  }, 5000);
 
   //changement d'index//
 

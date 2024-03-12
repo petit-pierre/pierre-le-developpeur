@@ -5,12 +5,14 @@
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-
+    cursor: pointer;
     margin: auto;
-    @media ( aspect-ratio< 1 / 1) {
+    @media (max-width: 650px) {
         width: 80%;
     }
+    border: solid white;
 }
+
 .cardSlide{
     opacity: 1;
     position: absolute;
@@ -32,6 +34,7 @@
     transition: all ease-in-out 4s; 
     z-index: 1;
     height: 100%;
+
     .likeProject{
         position: absolute;
         right: -50px;
@@ -40,4 +43,13 @@
     img{
         filter: invert(1);
     }
+    
 }
+.cardField:hover {
+    //transform: translate(0px,-1px);
+    .cardResum{
+        opacity: 1;
+        transition: all ease-in-out 4s; 
+    }
+}
+
