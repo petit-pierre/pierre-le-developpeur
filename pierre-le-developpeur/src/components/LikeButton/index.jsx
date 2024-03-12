@@ -16,11 +16,9 @@ function LikeButton(id) {
 
     let message = id.id;
     socket.emit("send_message", { message });
-    document.querySelector(".maGanache").src =
-      "http://localhost:3000/assets/thanks.png";
+    document.querySelector(".maGanache").src = ".//assets/thanks.png";
     setTimeout(() => {
-      document.querySelector(".maGanache").src =
-        "http://localhost:3000/assets/pierre.png";
+      document.querySelector(".maGanache").src = ".//assets/pierre.png";
     }, 1000);
 
     getOldLikes(id);

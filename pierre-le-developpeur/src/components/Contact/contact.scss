@@ -104,10 +104,15 @@
             color: white;
             z-index: 2;
             padding-left: 10px;
+            top: 1px;
+            transition: all 1s;
         }
         input:focus{
-            border: solid #99477a;
+            border:  solid #99477a ;
             outline: none;
+            background-color: white;
+            color: black;
+            transition: all 1s;
         }
         .textAreaAndBackground{
             position: relative;
@@ -135,12 +140,15 @@
             color: white;
             position: absolute;
             z-index: 2;
-
+            transition: all 1s;
         }
 
         textarea:focus{
             border: solid #99477a;
             outline: none;
+            background-color: white;
+            color: black;
+            transition: all 1s;
         }
 
     }

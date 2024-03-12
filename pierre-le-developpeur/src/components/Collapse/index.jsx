@@ -8,14 +8,16 @@ function Collapse({ name, content }) {
     setOPen(!open);
   };
   return (
-    <div className="body">
-      <div className="headerCollapse">
+    <div className="collapseField">
+      <div
+        className={open ? "headerCollapse open" : "headerCollapse close"}
+        onClick={toggle}
+      >
         <p className="titleCollapse">{name}</p>
         <img
           className={open ? "openArrow" : "closedArrow"}
           src={Arrow}
           alt="Arrow"
-          onClick={toggle}
         />
       </div>
 

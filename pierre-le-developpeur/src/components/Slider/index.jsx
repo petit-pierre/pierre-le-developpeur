@@ -71,7 +71,7 @@ function Slider({ sliders, mini, likeId }) {
           );
         })}
       </div>
-      {sliders.length > 1 ? (
+      {sliders.length > 1 || mini === true ? (
         <div>
           <img
             className="arrowLeft"

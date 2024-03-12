@@ -27,7 +27,7 @@ function Header() {
       <div className="headerfield">
         <div className="header ">
           <div className="topHeader">
-            <NavLink to="/Home" className="title">
+            <NavLink to="/" className="title">
               <h1>Pierre le developpeur</h1>
             </NavLink>
           </div>

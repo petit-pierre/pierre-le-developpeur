@@ -34,6 +34,7 @@
     color: white;
     background-color: #99477a;
     opacity: 0.8;
+    transition: all ease-in-out 4s; 
     border-radius: 0 0 20px 20px;
     img{
         filter: invert(1);
@@ -42,7 +43,7 @@
 
 
 .headerCollapse {
-    border-radius: 5px;
+    //border-radius: 5px;
     height: 5dvh;
     width: 98%;
     background-color: #6d477a;
@@ -57,7 +58,11 @@
     padding-bottom: 0;
     margin-bottom: 0;
     z-index: 3;
-    border-radius:  20px 20px 0 0;
+    cursor: pointer;
+    min-height: 30px;
+    @media (max-width: 650px) {
+        height: 10dvh;
+    }
 
     p {
         margin-top: 6px;
@@ -68,10 +73,19 @@
         height: 14px;
         margin-right: 20px;
         margin-top: 8px;
-        cursor: pointer;
-        
+        cursor: pointer; 
     }
 
+
+}
+.open{
+    border-radius:  20px 20px 0px 0px;
+    //transition: all 0.1s;
+}
+.close{
+    border-radius:  20px 20px 20px 20px;
+    transition: all 3s;
+    transition-delay: 0.8s;
 }
 
 .openArrow {
@@ -82,4 +96,15 @@
 .closedArrow {
     transform: rotate(0deg);
     transition: all ease 0.9s;  
+}
+
+.collapseField:hover{
+    //transform: translate(0px,-1px);
+    .content{
+
+        opacity: 1;
+        //transition-duration: 4s;
+        transition: all ease-in-out 4s; 
+        //transition-timing-function: linear;
+    }
 }

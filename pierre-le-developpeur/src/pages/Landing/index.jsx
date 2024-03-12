@@ -29,15 +29,6 @@ function Landing() {
 
   return (
     <main className="parralaxField">
-      <div className="loadingTopHeader">
-        <div className="header">
-          <div className="topHeader">
-            <NavLink to="/Home" className="title">
-              <h1 className="purpleTitle">Pierre le developpeur</h1>
-            </NavLink>
-          </div>
-        </div>
-      </div>
       <Parallax pages={2} style={{ top: "0", left: "0" }} className="animation">
         <ParallaxLayer offset={0} speed={0.1}>
           <div className="animation_layer parallax" id="artback">

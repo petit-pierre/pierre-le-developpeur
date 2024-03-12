@@ -31,6 +31,7 @@
   color: white;
   background-color: #99477a;
   opacity: 0.8;
+  transition: all ease-in-out 4s;
   border-radius: 0 0 20px 20px;
 }
 .content img {
@@ -38,7 +39,6 @@
 }
 
 .headerCollapse {
-  border-radius: 5px;
   height: 5dvh;
   width: 98%;
   background-color: #6d477a;
@@ -51,7 +51,13 @@
   padding-bottom: 0;
   margin-bottom: 0;
   z-index: 3;
-  border-radius: 20px 20px 0 0;
+  cursor: pointer;
+  min-height: 30px;
+}
+@media (max-width: 650px) {
+  .headerCollapse {
+    height: 10dvh;
+  }
 }
 .headerCollapse p {
   margin-top: 6px;
@@ -65,6 +71,16 @@
   cursor: pointer;
 }
 
+.open {
+  border-radius: 20px 20px 0px 0px;
+}
+
+.close {
+  border-radius: 20px 20px 20px 20px;
+  transition: all 3s;
+  transition-delay: 0.8s;
+}
+
 .openArrow {
   transform: rotate(180deg);
   transition: all ease 0.9s;
@@ -73,4 +89,9 @@
 .closedArrow {
   transform: rotate(0deg);
   transition: all ease 0.9s;
+}
+
+.collapseField:hover .content {
+  opacity: 1;
+  transition: all ease-in-out 4s;
 }/*# sourceMappingURL=collapse.css.map */

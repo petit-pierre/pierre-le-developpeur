@@ -9,6 +9,7 @@ import Slider from "../../components/Slider";
 import Contact from "../../components/Contact";
 import { useEffect, useRef } from "react";
 import Collapse from "../../components/Collapse";
+import Cards from "../../components/Cards";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -182,8 +183,12 @@ function Home() {
               ></Collapse>
             </div>
             <div></div>
-            <div id="projets"></div>
-            dsqkhhqsdjklhdlsqhdsqjlk
+            <div id="projets">
+              {projects.map((project) => (
+                <Cards project={project}></Cards>
+              ))}
+            </div>
+
             <div className="footerPlace"></div>
           </div>
         </div>

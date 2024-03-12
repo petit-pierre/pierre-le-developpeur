@@ -1,0 +1,43 @@
+.cardField {
+  width: 20%;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+@media (aspect-ratio < 1/1) {
+  .cardField {
+    width: 80%;
+  }
+}
+
+.cardSlide {
+  opacity: 1;
+  position: absolute;
+  height: 162px;
+  z-index: 5;
+}
+.cardSlide .likeSlider {
+  right: -50px;
+}
+
+.cardResum {
+  position: absolute;
+  top: 150px;
+  color: white;
+  padding: 8px;
+  background-color: #99477a;
+  opacity: 0.8;
+  transition: all ease-in-out 4s;
+  z-index: 1;
+  height: 100%;
+}
+.cardResum .likeProject {
+  position: absolute;
+  right: -50px;
+  top: 160px;
+}
+.cardResum img {
+  filter: invert(1);
+}/*# sourceMappingURL=cards.css.map */

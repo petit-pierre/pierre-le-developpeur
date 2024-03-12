@@ -19,9 +19,10 @@ function PostProject() {
   ];
 
   const Category = [
-    { id: 1, name: "React" },
-    { id: 2, name: "wordpress" },
-    { id: 3, name: "Logo/flyers" },
+    { id: 1, name: "Front-end" },
+    { id: 2, name: "Design" },
+    { id: 3, name: "Full stack" },
+    { id: 3, name: "C.M.S" },
   ];
   const Skills = useSelector((state) => state.data.skills);
   const Tools = useSelector((state) => state.data.tools);
