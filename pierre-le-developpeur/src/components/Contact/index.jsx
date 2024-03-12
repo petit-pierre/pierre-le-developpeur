@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import "./contact.css";
 import { useRef, useState } from "react";
+import LikeButton from "../LikeButton";
+
 //import "./smtp";
 
-function Contact(likeId) {
+function Contact({ likeId, recoId }) {
   const contact = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
 
@@ -33,7 +35,6 @@ function Contact(likeId) {
 
   const formContentError = (e) => {
     setInputContentValue(e.target.value);
-    console.log(inputContentValue.length);
     if (inputContentValue.length > 6) {
       setErrorContent(false);
     } else {
@@ -45,9 +46,9 @@ function Contact(likeId) {
   const sendMail = (content, mail, e) => {
     e.preventDefault();
     const elastic = {
-      SecureToken: "05a438b4-7517-4e7a-b0ed-133a878decca",
-      To: "contact@mariage-en-morgan.fr",
-      From: "contact@mariage-en-morgan.fr",
+      SecureToken: "7bef508f-44aa-4566-ad18-bbbf44636155",
+      To: "contact@pierre-le-developpeur.com",
+      From: "contact@pierre-le-developpeur.com",
       Subject: "Site pierre le developpeur",
       Body:
         "email : " + mail.current.value + " message : " + content.current.value,
@@ -69,6 +70,9 @@ function Contact(likeId) {
   return (
     <div className="contactField">
       <div className="recommendation">
+        <div className="likeReco">
+          <LikeButton id={recoId}></LikeButton>
+        </div>
         <div className="reco">
           <blockquote>
             {" "}
@@ -161,6 +165,9 @@ function Contact(likeId) {
                   {sending === true ? <p>{contact.english.succes} </p> : ""}
                 </div>
               )}
+            </div>
+            <div className="likeReco">
+              <LikeButton id={likeId}></LikeButton>
             </div>
             <div className="snow"></div>
             <div className="snowBackground"></div>

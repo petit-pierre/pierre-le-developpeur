@@ -3,6 +3,18 @@
   flex-direction: column;
   color: white;
 }
+.contactField .likeReco {
+  position: absolute;
+  bottom: 1dvh;
+  right: 1px;
+  filter: invert(1);
+  color: black;
+  z-index: 5;
+  /*.buttonLike{
+      display: flex;
+      flex-direction: row;
+  }*/
+}
 .contactField .contactPlace {
   display: flex;
   flex-direction: row;
@@ -14,9 +26,11 @@
 }
 .contactField .recommendation {
   position: relative;
-  width: 100%;
+  width: 70%;
   height: 16dvh;
-  margin-top: 1dvh;
+  margin: auto;
+  margin-top: 12dvh;
+  margin-bottom: 6dvh;
 }
 @media (aspect-ratio < 1/1) {
   .contactField .recommendation {
@@ -164,6 +178,7 @@
   position: relative;
   width: 19dvw;
   height: 4dvh;
+  min-height: 30px;
   margin: auto;
 }
 @media (aspect-ratio < 1/1) {

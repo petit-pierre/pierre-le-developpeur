@@ -1,6 +1,7 @@
 .like {
   display: flex;
   flex-direction: row;
+  min-width: 100px;
 }
 .like .checked {
   animation-name: like;

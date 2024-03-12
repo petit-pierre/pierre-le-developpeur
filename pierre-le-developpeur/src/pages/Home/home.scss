@@ -1,5 +1,9 @@
 
 .withe {
+    #competences{
+        background-image: url("../../assets/background.png");
+        background-repeat: no-repeat;
+    }
     .slider{
         width: 100%;
         margin: auto;
@@ -7,9 +11,46 @@
         min-height: 200px;
         overflow: hidden;
     }
-    .contact{
-        //background-color: #99477a;
-        //background-color: #b674cc;
+    .tools{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        @media (max-width: 650px){
+            flex-direction: column;
+        }
+        margin-top: 12dvh;
+    }
+    .collapse{
+        width: 30%;
+        padding-left: 1dvw;
+
+        @media (max-width: 650px){
+            width: 90%;
+            margin: auto;
+        }
+        .logo{
+            width: 20px;
+            height: 20px;
+            padding-right: 10px;
+            margin-top: 15px;
+        }
+    }
+    .skills{
+        margin: auto;
+    }
+    .logoAndTitle{
+        display: flex;
+        flex-direction: row;
+    }
+    .collapseContent{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .toolTitle{
+            padding-right: 30px;
+        }
+        //justify-content: space-around;
     }
     .footerPlace {
         width: 100%;

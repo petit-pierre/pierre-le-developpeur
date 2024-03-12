@@ -8,6 +8,7 @@ import LikeButton from "../../components/LikeButton";
 import Slider from "../../components/Slider";
 import Contact from "../../components/Contact";
 import { useEffect, useRef } from "react";
+import Collapse from "../../components/Collapse";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -15,6 +16,8 @@ function Home() {
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
+  const translations = useSelector((state) => state.data.translations);
+  const projects = useSelector((state) => state.data.projects);
 
   const location = useLocation();
   const lastHash = useRef("");
@@ -43,7 +46,13 @@ function Home() {
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
 
-  if (likes != null && skills != null && tools != null) {
+  if (
+    likes != null &&
+    skills != null &&
+    tools &&
+    translations &&
+    projects != null
+  ) {
     async function getOldLikes(response) {
       const get = await fetch("http://api.petitpierre.net/api/likes", {
         method: "GET",
@@ -79,21 +88,102 @@ function Home() {
             ></Slider>
           </div>
           <div className="contact" id="contact">
-            <Contact likeId={likes[0]._id}></Contact>
+            <Contact likeId={likes[0]._id} recoId={likes[4]._id}></Contact>
           </div>
           <div id="competences">
-            <div>
-              <fieldset>
-                likes Tools :
-                {tools.map((tool) => (
-                  <div key={tool._id}>
-                    {tool.title} <LikeButton id={tool.likes_id}></LikeButton>
+            <div className="tools">
+              <div className="collapse">
+                <Collapse
+                  name={"Design/Mao"}
+                  content={tools.map((tool) =>
+                    tool.categorie === "Design" ? (
+                      <div key={tool._id} className="collapseContent">
+                        <div className="logoAndTitle">
+                          <img
+                            src={tool.picture_url}
+                            alt="logo"
+                            className="logo"
+                          ></img>
+                          <p className="toolTitle">{tool.title} </p>
+                        </div>
+                        <LikeButton id={tool.likes_id}></LikeButton>
+                      </div>
+                    ) : (
+                      ""
+                    )
+                  )}
+                ></Collapse>
+              </div>
+              <div className="collapse">
+                <Collapse
+                  name={"Front-end"}
+                  content={tools.map((tool) =>
+                    tool.categorie === "Front-end" ? (
+                      <div key={tool._id} className="collapseContent">
+                        <div className="logoAndTitle">
+                          <img
+                            src={tool.picture_url}
+                            alt="logo"
+                            className="logo"
+                          ></img>
+                          <p className="toolTitle">{tool.title}</p>
+                        </div>
+                        <LikeButton id={tool.likes_id}></LikeButton>
+                      </div>
+                    ) : (
+                      ""
+                    )
+                  )}
+                ></Collapse>
+              </div>
+              <div className="collapse">
+                <Collapse
+                  name={"Back-end"}
+                  content={tools.map((tool) =>
+                    tool.categorie === "Back-end" ? (
+                      <div key={tool._id} className="collapseContent">
+                        <div className="logoAndTitle">
+                          <img
+                            src={tool.picture_url}
+                            alt="logo"
+                            className="logo"
+                          ></img>
+                          <p className="toolTitle">{tool.title}</p>
+                        </div>
+                        <LikeButton id={tool.likes_id}></LikeButton>
+                      </div>
+                    ) : (
+                      ""
+                    )
+                  )}
+                ></Collapse>
+              </div>
+            </div>
+            <div className="collapse skills">
+              <Collapse
+                name={"Soft skills"}
+                content={skills.map((skill) => (
+                  <div key={skill._id} className="collapseContent">
+                    <div className="logoAndTitle">
+                      <img
+                        src={skill.picture_url}
+                        alt="logo"
+                        className="logo"
+                      ></img>
+                      <p className="toolTitle">
+                        {language === "FR"
+                          ? skill.french_title
+                          : skill.english_title}
+                      </p>
+                    </div>
+                    <LikeButton id={skill.likes_id}></LikeButton>
                   </div>
                 ))}
-              </fieldset>
+              ></Collapse>
             </div>
+            <div></div>
             <div id="projets"></div>
-
+            dsqkhhqsdjklhdlsqhdsqjlk
             <div className="footerPlace"></div>
           </div>
         </div>

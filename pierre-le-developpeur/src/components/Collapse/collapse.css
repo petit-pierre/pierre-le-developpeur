@@ -1,0 +1,76 @@
+.blank {
+  height: 10px;
+}
+
+.content-parent {
+  max-height: 0px;
+  overflow: hidden;
+  transform: translateY(0px);
+  transition: all ease 0.9s;
+  margin: 0px 0px 0px 0px;
+  z-index: -1;
+  width: 100%;
+}
+
+.content-show {
+  overflow: hidden;
+  transform: translateY(0px);
+  transition: all ease 0.9s;
+  max-height: 750px;
+  margin: 0px 0px 0px 0px;
+  z-index: -1;
+  width: 100%;
+}
+.content-show .content {
+  border-radius: 0 0 20px 20px;
+}
+
+.content {
+  margin-top: 0;
+  padding: 20px;
+  color: white;
+  background-color: #99477a;
+  opacity: 0.8;
+  border-radius: 0 0 20px 20px;
+}
+.content img {
+  filter: invert(1);
+}
+
+.headerCollapse {
+  border-radius: 5px;
+  height: 5dvh;
+  width: 98%;
+  background-color: #6d477a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-left: 0px;
+  padding-left: 2%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  z-index: 3;
+  border-radius: 20px 20px 0 0;
+}
+.headerCollapse p {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+.headerCollapse img {
+  width: 24px;
+  height: 14px;
+  margin-right: 20px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.openArrow {
+  transform: rotate(180deg);
+  transition: all ease 0.9s;
+}
+
+.closedArrow {
+  transform: rotate(0deg);
+  transition: all ease 0.9s;
+}/*# sourceMappingURL=collapse.css.map */

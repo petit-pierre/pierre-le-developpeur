@@ -1,6 +1,8 @@
 .like{
     display: flex;
     flex-direction: row;
+    //justify-content: flex-start;
+    min-width: 100px;
     .checked{
             animation-name: like;
             animation-duration: 1000ms;

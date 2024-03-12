@@ -2,6 +2,40 @@
     display: flex;
     flex-direction: column;
     color: white;
+    .likeReco{
+        position: absolute;
+        //right: -30px;
+        bottom: 1dvh;
+        right: 1px;
+        filter: invert(1);
+        color: black;
+        z-index: 5;
+        //min-width: 50px;
+        //justify-content: end;
+        //right: 10px;
+        //display: flex;
+        @media ( aspect-ratio< 1 / 1){
+            //right: 36px;
+        }
+        /*.buttonLike{
+            display: flex;
+            flex-direction: row;
+        }*/
+        .like{
+            //display: flex;
+            //right: 0;
+            //width: 10px;
+            //flex-direction: row;
+            //grid-gap: 1dvw;
+            //width: 110px;
+            //right: 0;
+            //flex-direction: row-reverse;
+            //justify-content: flex-end;
+            img{
+                //padding-left: 38px;
+            }
+        }
+    }
     .contactPlace{
         display: flex;
         flex-direction: row;
@@ -12,10 +46,11 @@
     .recommendation{
         position: relative;
         //width: 98dvw;
-        width: 100%;
+        width: 70%;
         height: 16dvh;
-        //margin: 1dvw;
-        margin-top: 1dvh;
+        margin: auto;
+        margin-top: 12dvh;
+        margin-bottom: 6dvh;
         @media ( aspect-ratio< 1 / 1){
             width: 96dvw;
             margin-left: 1dvw;
@@ -175,6 +210,7 @@
         position: relative;
         width: 19dvw;
         height: 4dvh;
+        min-height: 30px;
         margin: auto;
         @media ( aspect-ratio< 1 / 1){
             width: 96dvw;
