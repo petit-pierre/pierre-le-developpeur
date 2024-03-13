@@ -1,4 +1,5 @@
 .contactField{
+    //height: 100dvh;
     display: flex;
     flex-direction: column;
     color: white;
@@ -97,7 +98,7 @@
             height: 4dvh;
             position: relative;
             margin-bottom: 1dvh;
-            min-height: 30px;
+            //min-height: 30px;
             @media (max-width: 650px){
                 width: 96dvw;
                 height: 6dvh;

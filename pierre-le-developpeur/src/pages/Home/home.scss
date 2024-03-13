@@ -60,6 +60,10 @@
 #projets{
     margin-top: 12dvh;
     margin-bottom: 12dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./slider.css";
 import { CarouselItem } from "./CarouselItem";
 import LikeButton from "../LikeButton";
@@ -30,10 +30,29 @@ function Slider({ sliders, mini, likeId }) {
       }
     }
   }
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
 
-  /*setInterval(() => {
+    // Remember the latest callback.
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+  useInterval(() => {
+    // Your custom logic here
     nextPicture();
-  }, 5000);*/
+  }, 3000);
 
   //changement d'index//
 

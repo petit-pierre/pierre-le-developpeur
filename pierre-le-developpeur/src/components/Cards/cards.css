@@ -6,6 +6,7 @@
   position: relative;
   cursor: pointer;
   margin: auto;
+  margin-bottom: 4dvh;
   border: solid white;
 }
 @media (max-width: 650px) {

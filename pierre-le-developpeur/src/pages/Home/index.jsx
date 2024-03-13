@@ -20,8 +20,8 @@ function Home() {
   const translations = useSelector((state) => state.data.translations);
   const projects = useSelector((state) => state.data.projects);
 
-  const socket = io.connect("http://localhost:3000");
-  //const socket = io.connect("http://api.petitpierre.net");
+  //const socket = io.connect("http://localhost:3000");
+  const socket = io.connect("http://api.petitpierre.net");
 
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
@@ -50,7 +50,6 @@ function Home() {
     }
 
     socket.on("receive_message", (response) => {
-      //console.log(response);
       setTimeout(() => {
         getOldLikes(response);
       }, 150);
@@ -172,6 +171,15 @@ function Home() {
             </div>
             <div></div>
             <div id="projets">
+              {projects.map((project) => (
+                <Cards project={project} key={project._id}></Cards>
+              ))}
+              {projects.map((project) => (
+                <Cards project={project} key={project._id}></Cards>
+              ))}
+              {projects.map((project) => (
+                <Cards project={project} key={project._id}></Cards>
+              ))}
               {projects.map((project) => (
                 <Cards project={project} key={project._id}></Cards>
               ))}

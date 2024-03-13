@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 
 function LikeButton(id) {
   const likes = useSelector((state) => state.data.likes);
-  //const socket = io.connect("http://api.petitpierre.net");
 
   const sendLike = (evt, id) => {
     evt.preventDefault();
-    const socket = io.connect("http://localhost:3000");
+    const socket = io.connect("http://api.petitpierre.net");
+    //const socket = io.connect("http://localhost:3000");
     document.querySelector(".button" + id.id).classList.add("checked");
     setTimeout(() => {
       document.querySelector(".button" + id.id).classList.remove("checked");
