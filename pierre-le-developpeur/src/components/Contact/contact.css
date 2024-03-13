@@ -3,6 +3,15 @@
   flex-direction: column;
   color: white;
 }
+.contactField button:active {
+  background-color: white;
+  color: black;
+  transition: all 0s;
+}
+.contactField button {
+  color: white;
+  transition: all 1s;
+}
 .contactField .likeReco {
   position: absolute;
   bottom: 1dvh;
@@ -19,7 +28,7 @@
   display: flex;
   flex-direction: row;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .contactPlace {
     flex-direction: column;
   }
@@ -32,7 +41,7 @@
   margin-top: 12dvh;
   margin-bottom: 6dvh;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .recommendation {
     width: 96dvw;
     margin-left: 1dvw;
@@ -52,7 +61,7 @@
   height: 61dvh;
   margin: 1dvw;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .messageAndMail {
     height: 64dvh;
   }
@@ -69,7 +78,7 @@
   position: relative;
   margin-bottom: 1dvh;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .messageAndMail .mailAndBackground {
     width: 96dvw;
     height: 6dvh;
@@ -103,7 +112,7 @@
   margin-top: 1dvh;
   margin-bottom: 1dvh;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .messageAndMail .textAreaAndBackground {
     width: 96dvw;
   }
@@ -145,7 +154,7 @@
   height: 56dvh;
   width: 49dvw;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .contentAndBackground {
     width: 96dvw;
   }
@@ -190,7 +199,7 @@
   min-height: 30px;
   margin: auto;
 }
-@media (aspect-ratio < 1/1) {
+@media (max-width: 650px) {
   .contactField .buttonAndBackground {
     width: 96dvw;
     height: 6dvh;

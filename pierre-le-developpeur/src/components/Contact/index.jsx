@@ -13,7 +13,7 @@ function Contact({ likeId, recoId }) {
   const [errorContent, setErrorContent] = useState(true);
 
   const [error, setError] = useState(false);
-  const [sendingError, setSendingError] = useState(false);
+  const [sendingError, setSendingError] = useState("");
   const [sending, setSending] = useState(false);
 
   const [inputMailValue, setInputMailValue] = useState("");
@@ -58,11 +58,10 @@ function Contact({ likeId, recoId }) {
     window.Email.send(elastic).then((message) => {
       if (message === "OK") {
         setSending(true);
-        setSendingError(false);
+        setSendingError("");
       } else {
         setSending(false);
-        setSendingError(true);
-        alert(message);
+        setSendingError(message);
       }
     });
   };
@@ -70,9 +69,7 @@ function Contact({ likeId, recoId }) {
   return (
     <div className="contactField">
       <div className="recommendation">
-        <div className="likeReco">
-          <LikeButton id={recoId}></LikeButton>
-        </div>
+        <div className="likeReco"></div>
         <div className="reco">
           <blockquote>
             {" "}
@@ -139,36 +136,44 @@ function Contact({ likeId, recoId }) {
               {language === "FR" ? (
                 <div>
                   {<p>{contact.french.content}</p>}
+                  {errorMail === true ? <p>{contact.french.error_mail}</p> : ""}
                   {errorContent === true ? (
                     <p>{contact.french.error_content}</p>
                   ) : (
                     ""
                   )}
-                  {errorMail === true ? <p>{contact.french.error_mail}</p> : ""}
-                  {sendingError === true ? <p>erreur reseau</p> : ""}
+
+                  {sendingError != "" ? (
+                    <p>erreur reseau : {sendingError}</p>
+                  ) : (
+                    ""
+                  )}
                   {sending === true ? <p>{contact.french.succes} </p> : ""}
                 </div>
               ) : (
                 <div>
                   {<p> {contact.english.content} </p>}
-                  {errorContent === true ? (
-                    <p>{contact.english.error_content}</p>
-                  ) : (
-                    ""
-                  )}
                   {errorMail === true ? (
                     <p>{contact.english.error_mail}</p>
                   ) : (
                     ""
                   )}
-                  {sendingError === true ? <p>networck error</p> : ""}
+                  {errorContent === true ? (
+                    <p>{contact.english.error_content}</p>
+                  ) : (
+                    ""
+                  )}
+
+                  {sendingError != "" ? (
+                    <p>networck error : {sendingError}</p>
+                  ) : (
+                    ""
+                  )}
                   {sending === true ? <p>{contact.english.succes} </p> : ""}
                 </div>
               )}
             </div>
-            <div className="likeReco">
-              <LikeButton id={likeId}></LikeButton>
-            </div>
+            <div className="likeReco"></div>
             <div className="snow"></div>
             <div className="snowBackground"></div>
           </div>

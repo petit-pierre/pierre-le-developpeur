@@ -5,6 +5,7 @@ import burgerIcon from "../../assets/burger.svg";
 import { userSlice } from "../../Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 //import { HashLink } from "react-router-hash-link";
+import { HashLink, HashLink as Link } from "react-router-hash-link";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
@@ -35,26 +36,26 @@ function Header() {
             <div className="headerSpaced"></div>
             <div className="ul">
               <div className="li">
-                <NavLink onClick={burgerOff} to="/Home#accueil">
+                <HashLink onClick={burgerOff} to="/Home#accueil">
                   {" "}
                   {language === "FR" ? "accueil" : "welcome"}
-                </NavLink>
+                </HashLink>
               </div>
               <div className="li">
-                <NavLink onClick={burgerOff} to="/Home#contact">
+                <HashLink onClick={burgerOff} to="/Home#contact">
                   Contact
-                </NavLink>
+                </HashLink>
               </div>
               <div className="li">
-                <NavLink onClick={burgerOff} to="/Home#competences">
+                <HashLink onClick={burgerOff} to="/Home#competences">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
-                </NavLink>
+                </HashLink>
               </div>
               <div className="li">
-                <NavLink onClick={burgerOff} to="/Home#projets">
+                <HashLink onClick={burgerOff} to="/Home#projets">
                   {language === "FR" ? "Projets" : "Projects"}
-                </NavLink>
+                </HashLink>
               </div>
               <div className="li language">
                 <a> {language} </a>

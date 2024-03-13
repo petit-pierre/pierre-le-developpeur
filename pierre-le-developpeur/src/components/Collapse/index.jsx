@@ -13,7 +13,7 @@ function Collapse({ name, content }) {
         className={open ? "headerCollapse open" : "headerCollapse close"}
         onClick={toggle}
       >
-        <p className="titleCollapse">{name}</p>
+        <span className="titleCollapse">{name}</span>
         <img
           className={open ? "openArrow" : "closedArrow"}
           src={Arrow}
@@ -22,7 +22,7 @@ function Collapse({ name, content }) {
       </div>
 
       <div className={open ? "content-show" : "content-parent"}>
-        <p className="content">{content}</p>
+        <div className="content">{content}</div>
       </div>
       <div className="blank"></div>
     </div>

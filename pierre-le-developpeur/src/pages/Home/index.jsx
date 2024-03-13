@@ -25,7 +25,7 @@ function Home() {
 
   // listen to location change using useEffect with location as dependency
   // https://jasonwatmore.com/react-router-v6-listen-to-location-route-change-without-history-listen
-  useEffect(() => {
+  /*useEffect(() => {
     if (location.hash) {
       lastHash.current = location.hash.slice(1); // safe hash for further use after navigation
     }
@@ -38,7 +38,7 @@ function Home() {
         lastHash.current = "";
       }, 100);
     }
-  }, [location]);
+  }, [location]);*/
 
   //const socket = useContext(SocketContext);
   //const socket = io.connect("http://localhost:3000");
@@ -89,7 +89,15 @@ function Home() {
             ></Slider>
           </div>
           <div className="contact" id="contact">
+            <div className="buttonLikeReco">
+              <LikeButton id={likes[4]._id}></LikeButton>
+            </div>
             <Contact likeId={likes[0]._id} recoId={likes[4]._id}></Contact>
+            <div className="relative">
+              <div className="buttonLikeCta">
+                <LikeButton id={likes[0]._id}></LikeButton>
+              </div>
+            </div>
           </div>
           <div id="competences">
             <div className="tools">
@@ -185,7 +193,7 @@ function Home() {
             <div></div>
             <div id="projets">
               {projects.map((project) => (
-                <Cards project={project}></Cards>
+                <Cards project={project} key={project._id}></Cards>
               ))}
             </div>
 

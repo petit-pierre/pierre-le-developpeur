@@ -31,9 +31,9 @@ function Slider({ sliders, mini, likeId }) {
     }
   }
 
-  setInterval(() => {
+  /*setInterval(() => {
     nextPicture();
-  }, 5000);
+  }, 5000);*/
 
   //changement d'index//
 
@@ -75,7 +75,7 @@ function Slider({ sliders, mini, likeId }) {
           );
         })}
       </div>
-      {sliders.length > 1 || mini === true ? (
+      {sliders.length > 1 && mini === false ? (
         <div>
           <img
             className="arrowLeft"

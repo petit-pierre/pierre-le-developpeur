@@ -53,10 +53,11 @@
   z-index: 3;
   cursor: pointer;
   min-height: 30px;
+  padding-top: 10px;
 }
 @media (max-width: 650px) {
   .headerCollapse {
-    height: 10dvh;
+    height: 5dvh;
   }
 }
 .headerCollapse p {
