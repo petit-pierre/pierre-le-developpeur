@@ -26,6 +26,7 @@ import Landing from "./pages/Landing";
 import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
+//import { Socket } from "socket.io-client";
 
 function App() {
   const dispatch = useDispatch();

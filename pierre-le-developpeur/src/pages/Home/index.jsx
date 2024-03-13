@@ -20,29 +20,8 @@ function Home() {
   const translations = useSelector((state) => state.data.translations);
   const projects = useSelector((state) => state.data.projects);
 
-  const location = useLocation();
-  const lastHash = useRef("");
-
-  // listen to location change using useEffect with location as dependency
-  // https://jasonwatmore.com/react-router-v6-listen-to-location-route-change-without-history-listen
-  /*useEffect(() => {
-    if (location.hash) {
-      lastHash.current = location.hash.slice(1); // safe hash for further use after navigation
-    }
-
-    if (lastHash.current && document.getElementById(lastHash.current)) {
-      setTimeout(() => {
-        document
-          .getElementById(lastHash.current)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-        lastHash.current = "";
-      }, 100);
-    }
-  }, [location]);*/
-
-  //const socket = useContext(SocketContext);
-  //const socket = io.connect("http://localhost:3000");
-  const socket = io.connect("http://api.petitpierre.net");
+  const socket = io.connect("http://localhost:3000");
+  //const socket = io.connect("http://api.petitpierre.net");
 
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
@@ -71,6 +50,7 @@ function Home() {
     }
 
     socket.on("receive_message", (response) => {
+      //console.log(response);
       setTimeout(() => {
         getOldLikes(response);
       }, 150);

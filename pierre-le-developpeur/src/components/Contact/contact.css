@@ -40,6 +40,7 @@
   margin: auto;
   margin-top: 12dvh;
   margin-bottom: 6dvh;
+  min-height: 100px;
 }
 @media (max-width: 650px) {
   .contactField .recommendation {
@@ -77,6 +78,7 @@
   height: 4dvh;
   position: relative;
   margin-bottom: 1dvh;
+  min-height: 30px;
 }
 @media (max-width: 650px) {
   .contactField .messageAndMail .mailAndBackground {

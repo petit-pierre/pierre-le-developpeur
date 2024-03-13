@@ -62,6 +62,10 @@ function Contact({ likeId, recoId }) {
       } else {
         setSending(false);
         setSendingError(message);
+        window.open(
+          "mailto:contact@pierre-le-developpeur.com?subject=Contact pierre le developpeur&body=Body" +
+            mail.current.value
+        );
       }
     });
   };
