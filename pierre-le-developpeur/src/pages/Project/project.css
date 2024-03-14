@@ -1,9 +1,14 @@
 .projectContentAndBackground {
   position: relative;
-  height: 25dvh;
+  height: 55dvh;
   width: 80%;
   margin: auto;
   margin-top: 12dvh;
+}
+@media (max-width: 650px) {
+  .projectContentAndBackground {
+    height: 85dvh;
+  }
 }
 .projectContentAndBackground .projectContent {
   position: absolute;
@@ -97,4 +102,12 @@
 .projectPage .footerPlace {
   width: 100%;
   height: 8dvh;
+}
+.projectPage .projectLink {
+  color: white;
+  transition: 1s;
+}
+.projectPage .projectLink:hover {
+  color: #99477a;
+  transition: 1s;
 }/*# sourceMappingURL=project.css.map */

@@ -50,6 +50,18 @@ function Project() {
             {language === "FR"
               ? project.french_description
               : project.english_description}
+            <br />
+            <br />
+            <h1> {language === "FR" ? "Liens" : "Links"} </h1>
+            {project.links.map((link) => (
+              <div>
+                <a href={link.url} target="_blank" className="projectLink">
+                  {link.url}
+                </a>
+                <br />
+                <br />
+              </div>
+            ))}
           </div>
           <div className="snow"></div>
           <div className="snowBackground"></div>
