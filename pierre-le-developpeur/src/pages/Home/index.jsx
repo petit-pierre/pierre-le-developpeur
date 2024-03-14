@@ -32,6 +32,13 @@ function Home() {
     getLikes();
   }, []);
 
+  let loaded = false;
+
+  window.addEventListener("load", () => {
+    console.log("Chargé !!");
+    loaded = true;
+  });
+
   //const socket = io.connect("http://localhost:3000");
 
   //let likes = structuredClone(likess);
@@ -80,7 +87,8 @@ function Home() {
               likeId={likes[1]._id}
             ></Slider>
           </div>
-          <div className="contact" id="contact">
+          <div className="contact">
+            <span id="contact"></span>
             <div className="buttonLikeReco">
               <LikeButton id={likes[4]._id}></LikeButton>
             </div>
@@ -91,7 +99,8 @@ function Home() {
               </div>
             </div>
           </div>
-          <div id="competences">
+          <div className="competences">
+            <span id="competences"></span>
             <div className="tools">
               <div className="collapse">
                 <Collapse
@@ -183,7 +192,8 @@ function Home() {
               ></Collapse>
             </div>
             <div></div>
-            <div id="projets">
+            <div className="projets">
+              <span id="projets"></span>
               {projects.map((project) => (
                 <Cards project={project} key={project._id}></Cards>
               ))}

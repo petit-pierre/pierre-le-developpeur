@@ -25,8 +25,8 @@ function Project() {
     };
     getLikes();
   }, []);
-  if (likes != null && skills != null && tools && projects != null) {
-    const project = projects.find((project) => project.french_title === title);
+  const project = projects.find((project) => project.french_title === title);
+  if (likes != null && skills != null && tools && projects && project != null) {
     const tadaTools = [];
     for (let oneOfTools of tools) {
       for (let projectTool of project.tools) {
@@ -64,7 +64,7 @@ function Project() {
             <br />
             <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
             {project.links.map((link) => (
-              <div>
+              <div key={link._id}>
                 <a href={link.url} target="_blank" className="projectLink">
                   {link.url}
                 </a>
@@ -125,7 +125,9 @@ function Project() {
         <Footer></Footer>
       </div>
     ) : (
-      navigate("/404")
+      setTimeout(() => {
+        navigate("/HomeProject" + title);
+      }, 500)
     );
   }
 }

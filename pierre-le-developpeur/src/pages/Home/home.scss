@@ -57,7 +57,7 @@
         height: 8dvh;
     }
 }
-#projets{
+.projets{
     margin-top: 12dvh;
     margin-bottom: 12dvh;
     display: flex;
@@ -95,3 +95,18 @@ z-index: 6;
         left: 70dvw;
     }
     }
+.contact{position: relative;}
+#contact{
+    position: absolute;
+    top: -17dvh;
+}
+.competences{position: relative;}
+#competences{
+    position: absolute;
+    top: -27dvh;
+}
+.projets{position: relative;}
+#projets{
+    position: absolute;
+    top: -27dvh;
+}
