@@ -3,10 +3,41 @@
   flex-direction: row;
   min-width: 100px;
 }
+.like .poc {
+  position: absolute;
+  display: none;
+}
+.like .pocContain {
+  position: relative;
+}
+.like .poc1 {
+  left: 0px;
+  top: -10px;
+}
+.like .poc2 {
+  left: 4px;
+  top: -14px;
+}
+.like .poc3 {
+  left: 10px;
+  top: -17px;
+}
+.like .poc4 {
+  left: 16px;
+  top: -14px;
+}
+.like .poc5 {
+  left: 20px;
+  top: -10px;
+}
 .like .checked {
   animation-name: like;
   animation-duration: 1000ms;
   pointer-events: none;
+}
+.like .checked .poc {
+  transform: translateY(-2px);
+  display: block;
 }
 .like .buttonLike {
   background: none;
@@ -20,12 +51,18 @@
 
 @keyframes like {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-1px);
+  }
+  25% {
+    transform: translateX(1px);
   }
   50% {
-    transform: rotate(-20deg);
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(1px);
   }
   100% {
-    transform: rotate(0deg);
+    transform: translateX(0px);
   }
 }/*# sourceMappingURL=like.css.map */

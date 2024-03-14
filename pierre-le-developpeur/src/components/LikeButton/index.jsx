@@ -64,11 +64,18 @@ function LikeButton(id) {
         onClick={(evt) => sendLike(evt, id)}
         className={"buttonLike button" + id.id}
       >
-        <img
-          src="./assets/logo like.png"
-          alt="logo like"
-          className="logoLike"
-        ></img>
+        <div className="pocContain">
+          <div className="poc poc1">.</div>
+          <div className="poc poc2">.</div>
+          <div className="poc poc3">.</div>
+          <div className="poc poc4">.</div>
+          <div className="poc poc5">.</div>
+          <img
+            src="./assets/logo like.png"
+            alt="logo like"
+            className="logoLike"
+          ></img>
+        </div>
       </button>
     </div>
   );

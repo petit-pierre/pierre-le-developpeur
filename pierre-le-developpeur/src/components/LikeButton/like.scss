@@ -3,10 +3,43 @@
     flex-direction: row;
     //justify-content: flex-start;
     min-width: 100px;
+    .poc{
+        position: absolute;
+        display: none;
+        //z-index: 18;
+        //display: inline-block;
+    }
+    .pocContain{
+        position: relative;
+    }
+    .poc1{
+        left: 0px;
+        top: -10px;
+    }
+    .poc2{
+        left: 4px;
+        top: -14px;
+    }
+    .poc3{
+        left: 10px;
+        top: -17px;
+    }
+    .poc4{
+        left: 16px;
+        top: -14px;
+    }
+    .poc5{
+        left: 20px;
+        top: -10px;
+    }
     .checked{
             animation-name: like;
             animation-duration: 1000ms;
             pointer-events: none;
+            .poc{
+                transform: translateY(-2px);
+                display: block;
+            }
         }
     .buttonLike{
         background: none;
@@ -20,12 +53,23 @@
 }
 @keyframes like{
     0% {
-        transform: rotate(0deg);
+        //transform: rotate(0deg);
+        transform: translateX(-1px);
+    }
+    25% {
+        //transform: rotate(0deg);
+        transform: translateX(1px);
     }
     50% {
-        transform: rotate(-20deg);
+        //transform: rotate(-20deg);
+        transform: translateX(-2px);
+    }  
+    75% {
+        //transform: rotate(0deg);
+        transform: translateX(1px);
     }  
     100% {
-        transform: rotate(0deg);
+        //transform: rotate(0deg);
+        transform: translateX(0px);
     }  
   }

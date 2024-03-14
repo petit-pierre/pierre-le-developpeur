@@ -12,6 +12,9 @@ function Cards({ project }) {
   };
   return (
     <div className="cardField">
+      <div className="likeSliderProjet">
+        <LikeButton id={project.slider_likes_id}></LikeButton>
+      </div>
       <div className="cardSlide">
         <Slider
           sliders={project.sliders}
