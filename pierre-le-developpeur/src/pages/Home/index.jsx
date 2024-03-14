@@ -51,13 +51,15 @@ function Home() {
       const newlikes = await get.json();
       const found = newlikes.find((like) => like._id === response.message);
 
-      document.getElementById(response.message).innerText = Intl.NumberFormat(
-        "en-US",
-        {
-          notation: "compact",
-          maximumFractionDigits: 2,
-        }
-      ).format(found.likes);
+      if (document.getElementById(response.message) != null) {
+        document.getElementById(response.message).innerText = Intl.NumberFormat(
+          "en-US",
+          {
+            notation: "compact",
+            maximumFractionDigits: 2,
+          }
+        ).format(found.likes);
+      }
     }
 
     socket.on("receive_message", (response) => {

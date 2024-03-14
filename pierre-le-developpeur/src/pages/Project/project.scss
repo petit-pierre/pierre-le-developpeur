@@ -1,0 +1,103 @@
+.projectContentAndBackground {
+    position: relative;
+    height: 25dvh;
+    width: 80%;
+    margin: auto;
+    margin-top: 12dvh;
+    .projectContent{
+        position: absolute;
+        //top: 0;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        z-index: 2;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: solid  #6d477a;
+        width: 100%;
+        height: 100%;
+    }
+    .snow{
+        //background-color: #99477a;
+        background-image:   url("../../../public/assets/particules.gif");
+        opacity: 0.2;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        border-radius: 20px;
+    }
+    .snowBackground{
+        background-color: #99477a;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        border-radius: 20px;}
+}
+.projectPage{
+    position: relative;
+    .buttonLikeProjectContent{
+        position: absolute;
+        left: 92dvw;
+        //top: 0dvh;
+        z-index: 6;
+    }
+    .tools{
+        margin-top: 21dvh;
+        margin-bottom: 21dvh;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        @media (max-width: 650px){
+            flex-direction: column;
+        }
+        margin-top: 12dvh;
+    }
+    .collapse{
+        width: 30%;
+        padding-left: 1dvw;
+        margin-left: auto;
+        margin-right: auto;
+
+        @media (max-width: 650px){
+            width: 90%;
+            margin: auto;
+        }
+        .logo{
+            width: 20px;
+            height: 20px;
+            padding-right: 10px;
+            margin-top: 15px;
+        }
+    }
+    .skills{
+        margin: auto;
+    }
+    .logoAndTitle{
+        display: flex;
+        flex-direction: row;
+    }
+    .collapseContent{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .toolTitle{
+            padding-right: 30px;
+        }
+        //justify-content: space-around;
+    }
+    .footerPlace {
+        width: 100%;
+        height: 8dvh;
+    }
+}
+
+

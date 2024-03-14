@@ -11,7 +11,7 @@ function Footer() {
           className="logoLink"
         >
           <img
-            src="./assets/logo github.png"
+            src="http://pierre-le-developpeur.com/assets/logo github.png"
             alt="logo github"
             className="logo"
           ></img>
@@ -22,7 +22,7 @@ function Footer() {
           className="logoLink"
         >
           <img
-            src="./assets/logo linkedin.png"
+            src="http://pierre-le-developpeur.com/assets/logo linkedin.png"
             alt="logo linkedin"
             className="logo"
           ></img>

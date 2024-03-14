@@ -6,6 +6,7 @@
 .like .poc {
   position: absolute;
   display: none;
+  margin-top: -5px;
 }
 .like .pocContain {
   position: relative;
@@ -15,16 +16,16 @@
   top: -10px;
 }
 .like .poc2 {
-  left: 4px;
-  top: -14px;
+  left: 3px;
+  top: -15px;
 }
 .like .poc3 {
   left: 10px;
   top: -17px;
 }
 .like .poc4 {
-  left: 16px;
-  top: -14px;
+  left: 17px;
+  top: -15px;
 }
 .like .poc5 {
   left: 20px;
@@ -32,12 +33,18 @@
 }
 .like .checked {
   animation-name: like;
-  animation-duration: 1000ms;
-  pointer-events: none;
+  animation-duration: 2000ms;
 }
 .like .checked .poc {
   transform: translateY(-2px);
   display: block;
+  animation-name: poc;
+  animation-duration: 2000ms;
+  pointer-events: none;
+}
+.like .checked img {
+  pointer-events: none;
+  cursor: none;
 }
 .like .buttonLike {
   background: none;
@@ -47,22 +54,46 @@
 .like .buttonLike .logoLike {
   width: 20px;
   cursor: pointer;
+  margin-top: -5px;
 }
 
 @keyframes like {
   0% {
     transform: translateX(-1px);
   }
+  12% {
+    transform: translateX(1px);
+  }
   25% {
+    transform: translateX(-2px);
+  }
+  37% {
     transform: translateX(1px);
   }
   50% {
-    transform: translateX(-2px);
+    transform: translateX(0px);
   }
-  75% {
-    transform: translateX(1px);
+  90% {
+    transform: translateX(-1px);
   }
   100% {
     transform: translateX(0px);
+  }
+}
+@keyframes poc {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }/*# sourceMappingURL=like.css.map */

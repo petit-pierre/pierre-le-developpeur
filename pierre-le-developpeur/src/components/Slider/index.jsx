@@ -98,13 +98,13 @@ function Slider({ sliders, mini, likeId }) {
         <div>
           <img
             className="arrowLeft"
-            src="./assets/arrow_left.png"
+            src="http://pierre-le-developpeur.com/assets/arrow_left.png"
             alt="fleche vers la gauche"
             onClick={previousPicture}
           ></img>
           <img
             className="arrowRight"
-            src="./assets/arrow_right.png"
+            src="http://pierre-le-developpeur.com/assets/arrow_right.png"
             alt="fleche vers la droite"
             onClick={nextPicture}
           ></img>

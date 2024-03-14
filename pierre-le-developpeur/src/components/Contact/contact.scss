@@ -119,6 +119,11 @@
             padding-left: 10px;
             top: 1px;
             transition: all 1s;
+            font-family: "abacaxi-devanagari", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            font-size: 0.8rem;
+            padding-top: 2px;
         }
         input:focus{
             border:  solid #99477a ;
@@ -154,6 +159,10 @@
             position: absolute;
             z-index: 2;
             transition: all 1s;
+            font-family: "abacaxi-devanagari", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            font-size: 0.8rem;
         }
 
         textarea:focus{

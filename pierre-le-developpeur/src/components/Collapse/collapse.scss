@@ -18,7 +18,7 @@
     overflow: hidden;
     transform: translateY(0px);
     transition: all ease 0.9s;
-    max-height: 750px;
+    max-height: 2500px;
     //background-color:#F6F6F6;
     margin: 0px 0px 0px 0px;
     z-index: -1;
@@ -43,20 +43,13 @@
 
 
 .headerCollapse {
-    //border-radius: 5px;
     height: 5dvh;
     width: 98%;
     background-color: #6d477a;
     color: white;
     display: flex;
     justify-content: space-between;
-    //font-size: 32px;
-    //font-family: Montserrat;
-    text-align: center;
-    margin-left: 0px;
     padding-left: 2%;
-    padding-bottom: 0;
-    margin-bottom: 0;
     z-index: 3;
     cursor: pointer;
     min-height: 30px;
@@ -64,10 +57,9 @@
     @media (max-width: 650px) {
         height: 5dvh;
     }
-
-    p {
-        margin-top: 6px;
-        margin-left: 10px;
+    span {
+        margin-left: auto;
+        margin-right: auto;
     }
     img {
         width: 24px;

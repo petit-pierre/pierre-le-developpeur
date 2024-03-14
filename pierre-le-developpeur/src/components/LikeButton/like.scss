@@ -3,9 +3,11 @@
     flex-direction: row;
     //justify-content: flex-start;
     min-width: 100px;
+
     .poc{
         position: absolute;
         display: none;
+        margin-top: -5px;
         //z-index: 18;
         //display: inline-block;
     }
@@ -17,16 +19,16 @@
         top: -10px;
     }
     .poc2{
-        left: 4px;
-        top: -14px;
+        left: 3px;
+        top: -15px;
     }
     .poc3{
         left: 10px;
         top: -17px;
     }
     .poc4{
-        left: 16px;
-        top: -14px;
+        left: 17px;
+        top: -15px;
     }
     .poc5{
         left: 20px;
@@ -34,11 +36,17 @@
     }
     .checked{
             animation-name: like;
-            animation-duration: 1000ms;
-            pointer-events: none;
+            animation-duration: 2000ms;
             .poc{
                 transform: translateY(-2px);
                 display: block;
+                animation-name: poc;
+                animation-duration: 2000ms;
+                pointer-events: none;
+            }
+            img{
+                pointer-events: none;
+                cursor: none;
             }
         }
     .buttonLike{
@@ -48,6 +56,7 @@
         .logoLike{
             width: 20px;
             cursor: pointer;
+            margin-top: -5px;
         }
     }
 }
@@ -56,20 +65,55 @@
         //transform: rotate(0deg);
         transform: translateX(-1px);
     }
-    25% {
+    12% {
         //transform: rotate(0deg);
         transform: translateX(1px);
     }
-    50% {
+    25% {
         //transform: rotate(-20deg);
         transform: translateX(-2px);
     }  
-    75% {
+    37% {
         //transform: rotate(0deg);
         transform: translateX(1px);
+    }  
+    50% {
+        //transform: rotate(0deg);
+        transform: translateX(0px);
+    }  
+    90% {
+        //transform: rotate(0deg);
+        transform: translateX(-1px);
     }  
     100% {
         //transform: rotate(0deg);
         transform: translateX(0px);
+    }  
+  }
+  @keyframes poc{
+    0% {
+        //transform: rotate(0deg);
+        //transform: translateX(-1px);
+        opacity: 0;
+    }
+    25% {
+        //transform: rotate(0deg);
+        //transform: translateX(-1px);
+        opacity: 0;
+    }
+
+    30% {
+        //transform: rotate(-20deg);
+        opacity: 1;
+    }  
+    90% {
+        //transform: rotate(0deg);
+        //transform: translateX(0px);
+        opacity: 1;
+    }  
+    100% {
+        //transform: rotate(0deg);
+        //transform: translateX(0px);
+        opacity: 1;
     }  
   }

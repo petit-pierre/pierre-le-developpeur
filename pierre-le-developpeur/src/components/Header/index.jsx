@@ -73,7 +73,7 @@ function Header() {
           </nav>
 
           <img
-            src="./assets/pierre.png"
+            src="http://pierre-le-developpeur.com/assets/pierre.png"
             className="maGanache"
             alt="thank you"
           ></img>

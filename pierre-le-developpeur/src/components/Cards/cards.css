@@ -9,6 +9,7 @@
   margin: auto;
   margin-bottom: 4dvh;
   border: solid white;
+  text-align: center;
 }
 @media (max-width: 650px) {
   .cardField {
@@ -17,11 +18,12 @@
 }
 
 .likeSliderProjet {
+  transition: 1000ms;
   position: absolute;
   top: 100px;
   opacity: 0.6;
   z-index: 6;
-  right: -35px;
+  right: -350px;
   background-color: white;
   border-radius: 20px;
   padding-left: 20px;
@@ -46,8 +48,9 @@
   height: 100%;
 }
 .cardResum .likeProject {
+  transition: 1000ms;
   position: absolute;
-  right: -35px;
+  right: -350px;
   top: 140px;
   opacity: 0.6;
   z-index: 6;
@@ -62,4 +65,12 @@
 .cardField:hover .cardResum {
   opacity: 1;
   transition: all ease-in-out 4s;
+}
+.cardField:hover .likeProject {
+  right: -35px;
+  transition: 1000ms;
+}
+.cardField:hover .likeSliderProjet {
+  right: -35px;
+  transition: 1000ms;
 }/*# sourceMappingURL=cards.css.map */

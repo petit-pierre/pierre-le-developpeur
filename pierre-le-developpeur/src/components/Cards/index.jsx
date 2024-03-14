@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import LikeButton from "../LikeButton";
 import Slider from "../Slider";
 import "./cards.css";
@@ -11,29 +12,31 @@ function Cards({ project }) {
     setOPen(!open);
   };
   return (
-    <div className="cardField">
-      <div className="likeSliderProjet">
-        <LikeButton id={project.slider_likes_id}></LikeButton>
-      </div>
-      <div className="cardSlide">
-        <Slider
-          sliders={project.sliders}
-          mini={true}
-          likeId={project.slider_likes_id}
-        ></Slider>
-      </div>
-      <div className="cardResum">
-        {language === "FR" ? (
-          <p> {project.french_resum} </p>
-        ) : (
-          <p> {project.english_resum} </p>
-        )}
+    <Link to={"/Project/" + project.french_title}>
+      <div className="cardField">
+        <div className="likeSliderProjet">
+          <LikeButton id={project.slider_likes_id}></LikeButton>
+        </div>
+        <div className="cardSlide">
+          <Slider
+            sliders={project.sliders}
+            mini={true}
+            likeId={project.slider_likes_id}
+          ></Slider>
+        </div>
+        <div className="cardResum">
+          {language === "FR" ? (
+            <p> {project.french_resum} </p>
+          ) : (
+            <p> {project.english_resum} </p>
+          )}
 
-        <div className="likeProject">
-          <LikeButton id={project.content_likes_id}></LikeButton>
+          <div className="likeProject">
+            <LikeButton id={project.content_likes_id}></LikeButton>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

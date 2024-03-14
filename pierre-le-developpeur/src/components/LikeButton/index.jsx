@@ -16,9 +16,11 @@ function LikeButton(id) {
 
     let message = id.id;
     socket.emit("send_message", { message });
-    document.querySelector(".maGanache").src = "./assets/thanks.png";
+    document.querySelector(".maGanache").src =
+      "http://pierre-le-developpeur.com/assets/thanks.png";
     setTimeout(() => {
-      document.querySelector(".maGanache").src = "./assets/pierre.png";
+      document.querySelector(".maGanache").src =
+        "http://pierre-le-developpeur.com/assets/pierre.png";
     }, 1000);
 
     getOldLikes(id);
@@ -71,7 +73,7 @@ function LikeButton(id) {
           <div className="poc poc4">.</div>
           <div className="poc poc5">.</div>
           <img
-            src="./assets/logo like.png"
+            src="http://pierre-le-developpeur.com/assets/logo like.png"
             alt="logo like"
             className="logoLike"
           ></img>

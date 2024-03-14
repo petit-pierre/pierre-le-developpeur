@@ -84,6 +84,7 @@ function App() {
         <Route path="/User/Skills/:skillId" element={<DeleteSkill />} />
         <Route path="/User/Tools/:toolId" element={<DeleteTool />} />
         <Route path="/User/Slide/:slideId" element={<DeleteSlide />} />
+        <Route path="/Project/:title" element={<Project />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

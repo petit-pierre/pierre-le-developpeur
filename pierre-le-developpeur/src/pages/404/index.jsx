@@ -1,11 +1,11 @@
 import Header from "../../components/Header";
-//import "./user.css";
+import "./404.css";
 
 function Error404() {
   return (
     <div>
       <Header />
-      <h1>404 Boom !!!</h1>
+      <h1 className="errorRedirect">404 Boom !!!</h1>
     </div>
   );
 }
