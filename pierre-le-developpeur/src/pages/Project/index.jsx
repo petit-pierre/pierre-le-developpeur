@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header";
 import "./project.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,6 +6,8 @@ import Slider from "../../components/Slider";
 import LikeButton from "../../components/LikeButton";
 import Collapse from "../../components/Collapse";
 import Footer from "../../components/Footer";
+import { useEffect } from "react";
+import { getLikesThunk } from "../../thunkActionsCreator";
 
 function Project() {
   const navigate = useNavigate();
@@ -15,6 +17,14 @@ function Project() {
   const tools = useSelector((state) => state.data.tools);
   const projects = useSelector((state) => state.data.projects);
   let { title } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getLikes = async () => {
+      const getLikesResult = await dispatch(getLikesThunk());
+    };
+    getLikes();
+  }, []);
   if (likes != null && skills != null && tools && projects != null) {
     const project = projects.find((project) => project.french_title === title);
     const tadaTools = [];
@@ -52,7 +62,7 @@ function Project() {
               : project.english_description}
             <br />
             <br />
-            <h1> {language === "FR" ? "Liens" : "Links"} </h1>
+            <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
             {project.links.map((link) => (
               <div>
                 <a href={link.url} target="_blank" className="projectLink">
