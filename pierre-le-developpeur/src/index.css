@@ -10,6 +10,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }*/
+/** {
+    outline: 1px solid red;
+}*/
 body {
   margin: 0;
   background-color: white;
@@ -31,4 +34,16 @@ h1 {
 
 h2 {
   font-size: 3dvh;
+}
+
+p {
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1rem;
+}
+@media (max-width: 650px) {
+  p {
+    font-size: 0.7rem;
+  }
 }/*# sourceMappingURL=index.css.map */

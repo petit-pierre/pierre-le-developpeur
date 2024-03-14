@@ -52,7 +52,7 @@ function Slider({ sliders, mini, likeId }) {
   useInterval(() => {
     // Your custom logic here
     nextPicture();
-  }, 3000);
+  }, 6000);
 
   //changement d'index//
 

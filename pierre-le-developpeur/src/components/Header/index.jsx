@@ -35,28 +35,26 @@ function Header() {
           <nav id="nav" className={burger === true ? "active" : ""}>
             <div className="headerSpaced"></div>
             <div className="ul">
-              <div className="li">
-                <HashLink onClick={burgerOff} to="/Home#accueil">
+              <HashLink onClick={burgerOff} to="/Home#accueil">
+                <div className="li">
                   {" "}
                   {language === "FR" ? "accueil" : "welcome"}
-                </HashLink>
-              </div>
-              <div className="li">
-                <HashLink onClick={burgerOff} to="/Home#contact">
-                  Contact
-                </HashLink>
-              </div>
-              <div className="li">
-                <HashLink onClick={burgerOff} to="/Home#competences">
+                </div>
+              </HashLink>
+              <HashLink onClick={burgerOff} to="/Home#contact">
+                <div className="li">Contact</div>
+              </HashLink>
+              <HashLink onClick={burgerOff} to="/Home#competences">
+                <div className="li">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
-                </HashLink>
-              </div>
-              <div className="li">
-                <HashLink onClick={burgerOff} to="/Home#projets">
+                </div>
+              </HashLink>
+              <HashLink onClick={burgerOff} to="/Home#projets">
+                <div className="li">
                   {language === "FR" ? "Projets" : "Projects"}
-                </HashLink>
-              </div>
+                </div>
+              </HashLink>
               <div className="li language">
                 <a> {language} </a>
 

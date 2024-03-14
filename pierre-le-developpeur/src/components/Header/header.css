@@ -104,7 +104,6 @@
   display: flex;
   justify-content: space-between;
   width: 60%;
-  padding-top: 2dvh;
 }
 .header #icons {
   cursor: pointer;
@@ -153,7 +152,7 @@
     left: -550dvh;
     top: 20dvh;
     z-index: -1;
-    height: 70dvh;
+    height: 72dvh;
     flex-direction: column;
     background: #b674cc;
     width: 100%;
@@ -162,7 +161,7 @@
   }
   .header nav .li {
     padding: 3px 0;
-    height: 16dvh;
+    height: 14dvh;
   }
   .header nav .li:hover {
     background: #6d477a;

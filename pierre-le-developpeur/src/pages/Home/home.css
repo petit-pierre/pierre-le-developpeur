@@ -79,7 +79,7 @@
 @media (max-width: 650px) {
   .buttonLikeReco {
     top: 28dvh;
-    left: 84dvw;
+    left: 70dvw;
   }
 }
 
@@ -96,6 +96,6 @@
 @media (max-width: 650px) {
   .buttonLikeCta {
     top: 0dvh;
-    left: 84dvw;
+    left: 70dvw;
   }
 }/*# sourceMappingURL=home.css.map */

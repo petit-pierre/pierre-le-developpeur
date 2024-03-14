@@ -11,6 +11,10 @@ code {
     monospace;
 }*/
 
+/** {
+    outline: 1px solid red;
+}*/
+
 body {
   margin: 0;
   //background-color: #99477a;;
@@ -29,5 +33,14 @@ h1 {
 }
 h2 {
   font-size: 3dvh;
+}
+p{
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1rem;
+  @media (max-width: 650px){
+    font-size: 0.7rem;
+  }
 }
 

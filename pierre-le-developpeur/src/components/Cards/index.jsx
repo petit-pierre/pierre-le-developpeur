@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
 import LikeButton from "../LikeButton";
 import Slider from "../Slider";
 import "./cards.css";
 import React, { useState } from "react";
 
 function Cards({ project }) {
+  const language = useSelector((state) => state.data.language);
   const [open, setOPen] = useState(false);
   const toggle = () => {
     setOPen(!open);
@@ -18,7 +20,12 @@ function Cards({ project }) {
         ></Slider>
       </div>
       <div className="cardResum">
-        <p> {project.french_resum} </p>
+        {language === "FR" ? (
+          <p> {project.french_resum} </p>
+        ) : (
+          <p> {project.english_resum} </p>
+        )}
+
         <div className="likeProject">
           <LikeButton id={project.content_likes_id}></LikeButton>
         </div>

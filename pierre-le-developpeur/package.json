@@ -1,5 +1,6 @@
 {
   "name": "pierre-le-developpeur",
+  "homepage": "http://pierre-le-developpeur.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

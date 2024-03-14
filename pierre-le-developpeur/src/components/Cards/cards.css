@@ -1,5 +1,6 @@
 .cardField {
   width: 20%;
+  min-width: 250px;
   height: 350px;
   border-radius: 20px;
   overflow: hidden;

@@ -1,15 +1,16 @@
 import Header from "../../components/Header";
-import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import "./home.css";
 import io from "socket.io-client";
 import LikeButton from "../../components/LikeButton";
 import Slider from "../../components/Slider";
 import Contact from "../../components/Contact";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
+import { getLikesThunk } from "../../thunkActionsCreator";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -20,8 +21,18 @@ function Home() {
   const translations = useSelector((state) => state.data.translations);
   const projects = useSelector((state) => state.data.projects);
 
-  //const socket = io.connect("http://localhost:3000");
   const socket = io.connect("http://api.petitpierre.net");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getLikes = async () => {
+      const getLikesResult = await dispatch(getLikesThunk());
+    };
+    getLikes();
+  }, []);
+
+  //const socket = io.connect("http://localhost:3000");
 
   //let likes = structuredClone(likess);
   const navigate = useNavigate();
@@ -171,15 +182,6 @@ function Home() {
             </div>
             <div></div>
             <div id="projets">
-              {projects.map((project) => (
-                <Cards project={project} key={project._id}></Cards>
-              ))}
-              {projects.map((project) => (
-                <Cards project={project} key={project._id}></Cards>
-              ))}
-              {projects.map((project) => (
-                <Cards project={project} key={project._id}></Cards>
-              ))}
               {projects.map((project) => (
                 <Cards project={project} key={project._id}></Cards>
               ))}
