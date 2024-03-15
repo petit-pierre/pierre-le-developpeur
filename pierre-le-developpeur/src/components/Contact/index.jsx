@@ -76,12 +76,14 @@ function Contact({ likeId, recoId }) {
       <div className="recommendation">
         <div className="likeReco"></div>
         <div className="reco">
-          <blockquote>
-            {" "}
-            {language === "FR"
-              ? contact.french.recommendation
-              : contact.english.recommendation}{" "}
-          </blockquote>
+          <textarea
+            disabled="true"
+            placeholder={
+              language === "FR"
+                ? contact.french.recommendation
+                : contact.english.recommendation
+            }
+          ></textarea>
         </div>
         <div className="snow"></div>
         <div className="snowBackground"></div>

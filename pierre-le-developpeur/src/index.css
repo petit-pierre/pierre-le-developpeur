@@ -46,4 +46,10 @@ p {
   p {
     font-size: 0.7rem;
   }
+}
+
+textarea {
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }/*# sourceMappingURL=index.css.map */

@@ -73,12 +73,24 @@
 .buttonLikeReco {
   position: absolute;
   left: 92dvw;
-  top: 68dvh;
+  top: 88dvh;
   z-index: 6;
 }
-@media (max-width: 650px) {
+@media (max-width: 335px) {
   .buttonLikeReco {
-    top: 70dvh;
+    top: 133dvh;
+    left: 70dvw;
+  }
+}
+@media (min-width: 335px) and (max-width: 649px) {
+  .buttonLikeReco {
+    top: 108dvh;
+    left: 70dvw;
+  }
+}
+@media (min-width: 650px) and (max-width: 950px) {
+  .buttonLikeReco {
+    top: 97dvh;
     left: 70dvw;
   }
 }
