@@ -21,6 +21,12 @@
   border: solid #6d477a;
   width: 100%;
   height: 100%;
+  font-size: 1rem;
+}
+@media (max-width: 650px) {
+  .projectContentAndBackground .projectContent {
+    font-size: 0.8rem;
+  }
 }
 .projectContentAndBackground .snow {
   background-image: url("../../../public/assets/particules.gif");
@@ -51,6 +57,11 @@
   position: absolute;
   left: 92dvw;
   z-index: 6;
+}
+@media (max-width: 650px) {
+  .projectPage .buttonLikeProjectContent {
+    left: 70dvw;
+  }
 }
 .projectPage .tools {
   margin-top: 21dvh;

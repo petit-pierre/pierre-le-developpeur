@@ -95,7 +95,7 @@ function Slider({ sliders, mini, likeId }) {
         })}
       </div>
       {sliders.length > 1 && mini === false ? (
-        <div>
+        <div className="arrowAndCounter">
           <img
             className="arrowLeft"
             src="http://pierre-le-developpeur.com/assets/arrow_left.png"

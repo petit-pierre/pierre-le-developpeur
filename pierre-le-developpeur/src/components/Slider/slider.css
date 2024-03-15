@@ -16,8 +16,12 @@
   position: absolute;
   z-index: 5;
   bottom: 1dvh;
-  right: 1px;
+  right: 0px;
   filter: invert(1);
+  background-color: white;
+  border-radius: 20px 0 0 20px;
+  padding-left: 10px;
+  opacity: 0.8;
 }
 
 .carousel-item {
@@ -62,6 +66,7 @@
   white-space: initial;
   background-color: black;
   margin: 20px;
+  padding: 10px;
   border-radius: 20px;
   opacity: 0.8;
 }
@@ -77,13 +82,20 @@
   width: 50dvw;
 }
 
+.arrowAndCounter {
+  display: flex;
+  justify-content: center;
+}
+
 .counter {
   position: absolute;
   z-index: 3;
   top: 60dvh;
-  left: 48%;
   font-size: 18px;
   color: #FFF;
+  background-color: black;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .arrowLeft {

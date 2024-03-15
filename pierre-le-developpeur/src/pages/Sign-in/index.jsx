@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setTokenThunk } from "../../thunkActionsCreator";
 import Header from "../../components/Header";
+import "./signin.css";
 
 function SignIn() {
   const name = useRef();
@@ -58,7 +59,7 @@ function SignIn() {
   return (
     <main>
       <Header />
-      <section>
+      <section className="signin">
         <h1>Sign In</h1>
         <form onSubmit={(e) => submit(e)}>
           <div>

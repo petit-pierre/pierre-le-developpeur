@@ -18,6 +18,20 @@
   height: 68dvh;
   overflow: hidden;
   border-radius: 20px;
+  /*.enter{
+    position: absolute;
+    font-size: 5dvh;
+    z-index: 19;
+
+    &:hover{
+      color: white;
+      transition: 1s;
+    }
+    @media (max-width: 650px) {
+      display: none;
+    }
+
+  }*/
 }
 .parralaxField .purple .welcome .particules {
   position: absolute;
@@ -39,21 +53,7 @@
 }
 @media (max-width: 650px) {
   .parralaxField .purple .welcome .welcomeText p {
-    font-size: 1rem;
-  }
-}
-.parralaxField .purple .welcome .enter {
-  position: absolute;
-  font-size: 5dvh;
-  z-index: 19;
-}
-.parralaxField .purple .welcome .enter:hover {
-  color: white;
-  transition: 1s;
-}
-@media (max-width: 650px) {
-  .parralaxField .purple .welcome .enter {
-    display: none;
+    font-size: 0.8rem;
   }
 }
 .parralaxField .purple .welcome .cofee {

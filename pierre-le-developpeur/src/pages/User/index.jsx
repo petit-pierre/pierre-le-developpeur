@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-//import "./user.css";
+import "./user.css";
 import { userSlice } from "../../Slices/userSlice";
 import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
@@ -29,7 +29,7 @@ function User() {
   return (
     <main>
       <Header />
-      <h1>Dashboard</h1>
+      <h1 className="dashboard">Dashboard</h1>
       <fieldset>
         <button onClick={signOut}>sign out</button>
       </fieldset>

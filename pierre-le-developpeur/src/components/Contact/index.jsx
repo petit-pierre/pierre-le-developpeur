@@ -77,11 +77,9 @@ function Contact({ likeId, recoId }) {
         <div className="reco">
           <blockquote>
             {" "}
-            "
             {language === "FR"
               ? contact.french.recommendation
-              : contact.english.recommendation}
-            "{" "}
+              : contact.english.recommendation}{" "}
           </blockquote>
         </div>
         <div className="snow"></div>

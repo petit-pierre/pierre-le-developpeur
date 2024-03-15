@@ -21,7 +21,7 @@ function DeleteProject() {
   const translationId = project.translation;
 
   if (token === null) {
-    return <Navigate to="../404/" replace={true} />;
+    return <Navigate to="/404/" replace={true} />;
   }
 
   function goBack() {
