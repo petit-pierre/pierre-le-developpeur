@@ -6,6 +6,7 @@ import LikeButton from "../LikeButton";
 //import "./smtp";
 
 function Contact({ likeId, recoId }) {
+  const likes = useSelector((state) => state.data.likes);
   const contact = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
 
@@ -180,15 +181,32 @@ function Contact({ likeId, recoId }) {
             <div className="snowBackground"></div>
           </div>
           <div className="buttonAndBackground">
-            <a
-              download="CV_aubree_pierre.pdf"
-              href={contact.french.cv}
-              target="_blank"
-            >
-              <button>
-                {language === "FR" ? "Telechargez mon C.V" : "Download my C.V"}
-              </button>
-            </a>
+            {language === "FR" ? (
+              <a
+                download="CV_aubree_pierre.pdf"
+                href={contact.french.cv}
+                target="_blank"
+              >
+                <button>
+                  {language === "FR"
+                    ? "Telechargez mon C.V"
+                    : "Download my C.V"}
+                </button>
+              </a>
+            ) : (
+              <a
+                download="CV_aubree_pierre.pdf"
+                href={contact.english.cv}
+                target="_blank"
+              >
+                <button>
+                  {language === "FR"
+                    ? "Telechargez mon C.V"
+                    : "Download my C.V"}
+                </button>
+              </a>
+            )}
+
             <div className="snow"></div>
             <div className="snowBackground"></div>
           </div>

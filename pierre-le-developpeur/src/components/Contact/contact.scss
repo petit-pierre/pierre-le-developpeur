@@ -58,14 +58,22 @@
         position: relative;
         //width: 98dvw;
         width: 70%;
-        height: 16dvh;
+        height: 56dvh;
         margin: auto;
         margin-top: 12dvh;
         margin-bottom: 6dvh;
         min-height: 100px;
+        font-size: 1rem;
+
         @media (max-width: 650px){
             width: 96dvw;
             margin-left: 1dvw;
+            font-size: 0.8rem;
+        }
+        @media (min-width:650px) and (max-width: 950px){
+            width: 96dvw;
+            margin-left: 1dvw;
+            font-size: 0.9rem;
         }
         .reco{
             width: 100%;
@@ -77,6 +85,7 @@
             box-sizing: border-box;
             border-radius: 20px;
             z-index: 2;
+            //padding-top: 5dvh;
         }
     }
     .messageAndMail{
