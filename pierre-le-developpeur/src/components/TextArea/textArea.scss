@@ -1,0 +1,17 @@
+.textArea{
+    height: 500px;
+    textarea{
+        //display: flex;
+        resize: none;
+        //background-color:rgba(0, 0, 255, 0.0);
+        width: 98%;
+        height: 100%;
+        //position: absolute;
+        //color: white;
+        //border: none;
+        padding: 10px;
+        text-decoration:none;
+        background-image:   url("../../../public/assets/snow.gif");
+        background-size: 100%;
+    }
+}

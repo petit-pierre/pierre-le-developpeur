@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
+import TextArea from "../../components/TextArea";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -32,12 +33,12 @@ function Home() {
     getLikes();
   }, []);
 
-  let loaded = false;
+  /*let loaded = false;
 
   window.addEventListener("load", () => {
     console.log("Chargé !!");
     loaded = true;
-  });
+  });*/
 
   //const socket = io.connect("http://localhost:3000");
 
@@ -87,6 +88,12 @@ function Home() {
               likeId={likes[1]._id}
             ></Slider>
           </div>
+          <TextArea
+            props={{
+              french: translations.french.recommendation,
+              english: translations.english.recommendation,
+            }}
+          ></TextArea>
           <div className="contact">
             <span id="contact"></span>
             <div className="buttonLikeReco">

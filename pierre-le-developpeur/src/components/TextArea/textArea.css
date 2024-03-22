@@ -1,0 +1,12 @@
+.textArea {
+  height: 500px;
+}
+.textArea textarea {
+  resize: none;
+  width: 98%;
+  height: 100%;
+  padding: 10px;
+  text-decoration: none;
+  background-image: url("../../../public/assets/snow.gif");
+  background-size: 100%;
+}/*# sourceMappingURL=textArea.css.map */

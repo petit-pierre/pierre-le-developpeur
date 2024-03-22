@@ -3,6 +3,22 @@
   flex-direction: column;
   color: white;
 }
+.contactField textarea {
+  resize: none;
+  background-color: rgba(0, 0, 255, 0);
+  width: 98%;
+  height: 100%;
+  position: absolute;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-decoration: none;
+}
+@media (max-width: 335px) {
+  .contactField textarea {
+    font-size: 0.9rem;
+  }
+}
 .contactField button:active {
   background-color: white;
   color: black;
@@ -232,22 +248,5 @@
   .contactField .buttonAndBackground {
     width: 96dvw;
     height: 6dvh;
-  }
-}
-
-textarea {
-  resize: none;
-  background-color: rgba(0, 0, 255, 0);
-  width: 98%;
-  height: 100%;
-  position: absolute;
-  color: white;
-  border: none;
-  padding: 10px;
-  text-decoration: none;
-}
-@media (max-width: 335px) {
-  textarea {
-    font-size: 0.9rem;
   }
 }/*# sourceMappingURL=contact.css.map */

@@ -1,4 +1,21 @@
 .contactField{
+    //en attente
+    textarea{
+        //display: flex;
+        resize: none;
+        background-color:rgba(0, 0, 255, 0.0);
+        width: 98%;
+        height: 100%;
+        position: absolute;
+        color: white;
+        border: none;
+        padding: 10px;
+        text-decoration:none;
+        @media (max-width: 335px){
+            font-size: 0.9rem;
+        }
+    }
+    //voila
     //height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -266,19 +283,4 @@
         }
     }
 
-}
-textarea{
-    //display: flex;
-    resize: none;
-    background-color:rgba(0, 0, 255, 0.0);
-    width: 98%;
-    height: 100%;
-    position: absolute;
-    color: white;
-    border: none;
-    padding: 10px;
-    text-decoration:none;
-    @media (max-width: 335px){
-        font-size: 0.9rem;
-    }
 }
