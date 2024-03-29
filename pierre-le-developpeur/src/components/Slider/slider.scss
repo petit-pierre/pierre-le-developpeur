@@ -117,13 +117,19 @@
 
     .like{
       //left: 0;
-      right: -15px;
+      right: -10px;
       transition: 1000ms;
       bottom: 10px;
   }
 }
 .sliderField{
   .like{
+    //color: black;
+    //background-color: white;
     bottom: 10px;
+            .logoLike{
+              //color: white;
+            filter: invert(1);
+        }
 }
 }

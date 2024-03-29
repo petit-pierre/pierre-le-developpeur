@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import "./like.css";
 import { useSelector } from "react-redux";
 
-function LikeButton(id) {
+function LikeButton(id, color) {
   const likes = useSelector((state) => state.data.likes);
 
   const sendLike = (evt, id) => {
@@ -64,7 +64,11 @@ function LikeButton(id) {
       <button
         name={id.id}
         onClick={(evt) => sendLike(evt, id)}
-        className={"buttonLike button" + id.id}
+        className={
+          color === "withe"
+            ? "buttonLike button withLike" + id.id
+            : "buttonLike button" + id.id
+        }
       >
         <div className="pocContain">
           <div className="poc poc1">.</div>

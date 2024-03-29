@@ -88,15 +88,6 @@ function Home() {
               likeId={likes[1]._id}
             ></Slider>
           </div>
-          <div className="prout">
-            <TextArea
-              props={{
-                french: translations.french.recommendation,
-                english: translations.english.recommendation,
-                like: likes[4]._id,
-              }}
-            ></TextArea>
-          </div>
           <div className="contact">
             <span id="contact"></span>
             <Contact likeId={likes[0]._id} recoId={likes[4]._id}></Contact>

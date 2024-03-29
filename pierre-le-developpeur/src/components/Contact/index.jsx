@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "./contact.css";
 import { useRef, useState } from "react";
 import LikeButton from "../LikeButton";
+import TextArea from "../TextArea";
 
 //import "./smtp";
 
@@ -9,6 +10,7 @@ function Contact({ likeId, recoId }) {
   const likes = useSelector((state) => state.data.likes);
   const contact = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
+  const translations = useSelector((state) => state.data.translations);
 
   const [errorMail, setErrorMail] = useState(true);
   const [errorContent, setErrorContent] = useState(true);
@@ -73,21 +75,13 @@ function Contact({ likeId, recoId }) {
 
   return (
     <div className="contactField">
-      <div className="recommendation">
-        <div className="likeReco"></div>
-        <div className="reco">
-          <textarea
-            disabled="true"
-            placeholder={
-              language === "FR"
-                ? contact.french.recommendation
-                : contact.english.recommendation
-            }
-          ></textarea>
-        </div>
-        <div className="snow"></div>
-        <div className="snowBackground"></div>
-      </div>
+      <TextArea
+        props={{
+          french: translations.french.recommendation,
+          english: translations.english.recommendation,
+          like: likes[4]._id,
+        }}
+      ></TextArea>
 
       <div className="contactPlace">
         <div className="messageAndMail">

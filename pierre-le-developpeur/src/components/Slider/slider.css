@@ -121,11 +121,14 @@
 }
 
 .sliderField:hover .like {
-  right: -15px;
+  right: -10px;
   transition: 1000ms;
   bottom: 10px;
 }
 
 .sliderField .like {
   bottom: 10px;
+}
+.sliderField .like .logoLike {
+  filter: invert(1);
 }/*# sourceMappingURL=slider.css.map */

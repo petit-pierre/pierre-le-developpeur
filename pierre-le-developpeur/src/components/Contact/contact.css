@@ -1,113 +1,92 @@
 .contactField {
+  /*textarea{
+      //display: flex;
+      resize: none;
+      background-color:rgba(0, 0, 255, 0.0);
+      width: 98%;
+      height: 100%;
+      position: absolute;
+      color: white;
+      border: none;
+      padding: 10px;
+      text-decoration:none;
+      @media (max-width: 335px){
+          font-size: 0.9rem;
+      }
+  }*/
   display: flex;
   flex-direction: column;
   color: white;
+  /*.likeReco{
+      position: absolute;
+      //right: -30px;
+      bottom: 1dvh;
+      right: 1px;
+      filter: invert(1);
+      color: black;
+      z-index: 5;
+      //min-width: 50px;
+      //justify-content: end;
+      //right: 10px;
+      //display: flex;
+      @media (max-width: 650px){
+          //right: 36px;
+      }
+      /*.buttonLike{
+          display: flex;
+          flex-direction: row;
+      }
+      .like{
+          //display: flex;
+          //right: 0;
+          //width: 10px;
+          //flex-direction: row;
+          //grid-gap: 1dvw;
+          //width: 110px;
+          //right: 0;
+          //flex-direction: row-reverse;
+          //justify-content: flex-end;
+          img{
+              //padding-left: 38px;
+          }
+      }*/
 }
-.contactField textarea {
-  resize: none;
-  background-color: rgba(0, 0, 255, 0);
-  width: 98%;
-  height: 100%;
-  position: absolute;
-  color: white;
-  border: none;
-  padding: 10px;
-  text-decoration: none;
-}
-@media (max-width: 335px) {
-  .contactField textarea {
-    font-size: 0.9rem;
-  }
-}
-.contactField button:active {
-  background-color: white;
-  color: black;
-  transition: all 0s;
-}
-.contactField button {
-  color: white;
-  transition: all 1s;
-}
-.contactField .likeReco {
-  position: absolute;
-  bottom: 1dvh;
-  right: 1px;
-  filter: invert(1);
-  color: black;
-  z-index: 5;
-  /*.buttonLike{
-      display: flex;
-      flex-direction: row;
-  }*/
-}
-.contactField .contactPlace {
+
+.contactPlace {
   display: flex;
   flex-direction: row;
 }
 @media (max-width: 650px) {
-  .contactField .contactPlace {
+  .contactPlace {
     flex-direction: column;
   }
 }
-.contactField .recommendation {
-  position: relative;
-  width: 70%;
-  height: 75dvh;
-  margin: auto;
-  margin-top: 12dvh;
-  margin-bottom: 6dvh;
-  min-height: 370px;
-  font-size: 1rem;
-}
-@media (max-width: 335px) {
-  .contactField .recommendation {
-    width: 96dvw;
-    height: 120dvh;
-    margin-left: 1dvw;
-    font-size: 0.75rem;
-  }
-}
-@media (min-width: 335px) and (max-width: 649px) {
-  .contactField .recommendation {
-    width: 96dvw;
-    margin-left: 1dvw;
-    height: 95dvh;
-    font-size: 0.8rem;
-  }
-}
-@media (min-width: 650px) and (max-width: 950px) {
-  .contactField .recommendation {
-    width: 96dvw;
-    height: 85dvh;
-    margin-left: 1dvw;
-    font-size: 0.9rem;
-  }
-}
-.contactField .recommendation .reco {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border: solid #6d477a;
-  box-sizing: border-box;
-  border-radius: 20px;
-  z-index: 2;
-}
-.contactField .messageAndMail {
+
+.messageAndMail {
   width: 49dvw;
   height: 61dvh;
   margin: 1dvw;
 }
+.messageAndMail button:active {
+  background-color: white;
+  color: black;
+  transition: all 0s;
+}
+.messageAndMail button {
+  color: white;
+  transition: all 1s;
+}
 @media (max-width: 650px) {
-  .contactField .messageAndMail {
+  .messageAndMail {
     height: 64dvh;
   }
 }
-.contactField .messageAndMail .mailAndSend {
+.messageAndMail .mailAndSend {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.contactField .messageAndMail .mailAndBackground {
+.messageAndMail .mailAndBackground {
   margin: auto;
   width: 19dvw;
   height: 4dvh;
@@ -115,12 +94,12 @@
   margin-bottom: 1dvh;
 }
 @media (max-width: 650px) {
-  .contactField .messageAndMail .mailAndBackground {
+  .messageAndMail .mailAndBackground {
     width: 96dvw;
     height: 6dvh;
   }
 }
-.contactField .messageAndMail input {
+.messageAndMail input {
   box-sizing: border-box;
   border: solid #6d477a;
   border-radius: 20px;
@@ -139,14 +118,14 @@
   font-size: 0.8rem;
   padding-top: 2px;
 }
-.contactField .messageAndMail input:focus {
+.messageAndMail input:focus {
   border: solid #99477a;
   outline: none;
   background-color: white;
   color: black;
   transition: all 1s;
 }
-.contactField .messageAndMail .textAreaAndBackground {
+.messageAndMail .textAreaAndBackground {
   position: relative;
   width: 100%;
   height: 50dvh;
@@ -154,11 +133,11 @@
   margin-bottom: 1dvh;
 }
 @media (max-width: 650px) {
-  .contactField .messageAndMail .textAreaAndBackground {
+  .messageAndMail .textAreaAndBackground {
     width: 96dvw;
   }
 }
-.contactField .messageAndMail textarea {
+.messageAndMail textarea {
   width: 100%;
   height: 100%;
   resize: none;
@@ -176,14 +155,15 @@
   font-style: normal;
   font-size: 0.8rem;
 }
-.contactField .messageAndMail textarea:focus {
+.messageAndMail textarea:focus {
   border: solid #99477a;
   outline: none;
   background-color: white;
   color: black;
   transition: all 1s;
 }
-.contactField .contactContent {
+
+.contactContent {
   position: absolute;
   color: white;
   z-index: 2;
@@ -193,18 +173,20 @@
   width: 100%;
   height: 100%;
 }
-.contactField .contentAndBackground {
+
+.contentAndBackground {
   margin: 1dvw 1dvw 1dvh 1dvw;
   position: relative;
   height: 56dvh;
   width: 49dvw;
 }
 @media (max-width: 650px) {
-  .contactField .contentAndBackground {
+  .contentAndBackground {
     width: 96dvw;
   }
 }
-.contactField .snow {
+
+.snow {
   background-image: url("../../../public/assets/particules.gif");
   opacity: 0.2;
   position: absolute;
@@ -215,7 +197,8 @@
   z-index: 1;
   border-radius: 20px;
 }
-.contactField .snowBackground {
+
+.snowBackground {
   background-color: #99477a;
   position: absolute;
   top: 1px;
@@ -225,7 +208,8 @@
   z-index: 0;
   border-radius: 20px;
 }
-.contactField button {
+
+button {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -237,7 +221,8 @@
   box-sizing: border-box;
   cursor: pointer;
 }
-.contactField .buttonAndBackground {
+
+.buttonAndBackground {
   position: relative;
   width: 19dvw;
   height: 4dvh;
@@ -245,7 +230,7 @@
   margin: auto;
 }
 @media (max-width: 650px) {
-  .contactField .buttonAndBackground {
+  .buttonAndBackground {
     width: 96dvw;
     height: 6dvh;
   }

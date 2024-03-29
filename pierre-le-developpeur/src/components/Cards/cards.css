@@ -11,6 +11,9 @@
   border: solid white;
   text-align: center;
 }
+.cardField .like {
+  top: 50px;
+}
 @media (max-width: 650px) {
   .cardField {
     width: 80%;
@@ -19,7 +22,7 @@
 .cardField .like p {
   color: white;
 }
-.cardField .like .pocContain {
+.cardField .like .logoLike {
   filter: invert(1);
 }
 
@@ -57,23 +60,6 @@
   transition: all ease-in-out 4s;
   z-index: 1;
   height: 100%;
-  /*.likeProject{
-      transition: 1000ms;
-      position: absolute;
-      right: -350px;
-      top: 140px;
-      opacity: 0.6;
-      z-index: 6;
-      background-color: black;
-      border-radius: 20px;
-      padding-left: 20px;
-      @media (max-width: 650px) {
-          right: -35px;
-        }
-  }*/
-}
-.cardResum img {
-  filter: invert(1);
 }
 
 .cardField:hover .cardResum {
@@ -81,6 +67,6 @@
   transition: all ease-in-out 4s;
 }
 .cardField:hover .like {
-  right: -15px;
+  right: -10px;
   transition: 1000ms;
 }/*# sourceMappingURL=cards.css.map */

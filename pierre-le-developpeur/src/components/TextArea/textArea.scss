@@ -4,6 +4,11 @@
     overflow: hidden;
     border-radius: 20px;
     .like{
+        /*.pocContain{
+            filter: invert(1);
+        }*/
+        color: black;
+        background-color: white;
         bottom: 20px;
         transition: 1000ms;
         position: absolute;
@@ -12,7 +17,7 @@
         opacity: 0.6;
         z-index: 6;
         right: -350px;
-        background-color: white;
+        //background-color: white;
         border-radius: 20px;
         padding-left: 20px;
         //left: 200px;
@@ -44,7 +49,31 @@
 
 .textArea:hover {
     .like{
-        right: -35px;
+        right: -15px;
         transition: 1000ms;
+    }
+}
+textarea{
+    overflow: hidden;
+}
+
+.textArea:hover{
+
+
+        .like{
+            right: -10px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
+    
+
+}
+.textArea{
+    @media  (max-width: 649px){
+        .like{
+            right: -10px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
     }
 }

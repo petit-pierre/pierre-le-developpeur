@@ -60,7 +60,9 @@ function TextArea({ props }) {
       >
         {}
       </textarea>
-      <LikeButton id={props.like} className="like"></LikeButton>
+      <div className="like">
+        <LikeButton id={props.like} className="like"></LikeButton>
+      </div>
     </form>
   );
 }
