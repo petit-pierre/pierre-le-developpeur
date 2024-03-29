@@ -112,3 +112,18 @@
     transition: transform 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   }
+
+.sliderField:hover {
+
+    .like{
+      //left: 0;
+      right: -15px;
+      transition: 1000ms;
+      bottom: 10px;
+  }
+}
+.sliderField{
+  .like{
+    bottom: 10px;
+}
+}

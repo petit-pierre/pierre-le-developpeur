@@ -88,22 +88,20 @@ function Home() {
               likeId={likes[1]._id}
             ></Slider>
           </div>
-          <TextArea
-            props={{
-              french: translations.french.recommendation,
-              english: translations.english.recommendation,
-            }}
-          ></TextArea>
+          <div className="prout">
+            <TextArea
+              props={{
+                french: translations.french.recommendation,
+                english: translations.english.recommendation,
+                like: likes[4]._id,
+              }}
+            ></TextArea>
+          </div>
           <div className="contact">
             <span id="contact"></span>
-            <div className="buttonLikeReco">
-              <LikeButton id={likes[4]._id}></LikeButton>
-            </div>
             <Contact likeId={likes[0]._id} recoId={likes[4]._id}></Contact>
             <div className="relative">
-              <div className="buttonLikeCta">
-                <LikeButton id={likes[0]._id}></LikeButton>
-              </div>
+              <div className="buttonLikeCta"></div>
             </div>
           </div>
           <div className="competences">
@@ -123,7 +121,9 @@ function Home() {
                           ></img>
                           <p className="toolTitle">{tool.title} </p>
                         </div>
-                        <LikeButton id={tool.likes_id}></LikeButton>
+                        <div className="like">
+                          <LikeButton id={tool.likes_id}></LikeButton>
+                        </div>
                       </div>
                     ) : (
                       ""
@@ -145,7 +145,9 @@ function Home() {
                           ></img>
                           <p className="toolTitle">{tool.title}</p>
                         </div>
-                        <LikeButton id={tool.likes_id}></LikeButton>
+                        <div className="like">
+                          <LikeButton id={tool.likes_id}></LikeButton>
+                        </div>
                       </div>
                     ) : (
                       ""
@@ -167,7 +169,9 @@ function Home() {
                           ></img>
                           <p className="toolTitle">{tool.title}</p>
                         </div>
-                        <LikeButton id={tool.likes_id}></LikeButton>
+                        <div className="like">
+                          <LikeButton id={tool.likes_id}></LikeButton>
+                        </div>
                       </div>
                     ) : (
                       ""
@@ -193,7 +197,9 @@ function Home() {
                           : skill.english_title}
                       </p>
                     </div>
-                    <LikeButton id={skill.likes_id}></LikeButton>
+                    <div className="like">
+                      <LikeButton id={skill.likes_id}></LikeButton>
+                    </div>
                   </div>
                 ))}
               ></Collapse>

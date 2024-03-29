@@ -11,9 +11,9 @@ code {
     monospace;
 }*/
 
-/** {
+* {
     outline: 1px solid red;
-}*/
+}
 
 body {
   margin: 0;
@@ -32,7 +32,7 @@ h1 {
   font-size: 1.5rem;
 }
 h2 {
-  font-size: 3dvh;
+  font-size: 1.3rem;
 }
 p{
   font-family: "abacaxi-devanagari", sans-serif;
@@ -48,5 +48,6 @@ textarea{
   font-family: "abacaxi-devanagari", sans-serif;
   font-weight: 100;
   font-style: normal;
+  font-size: 1rem;
 }
 

@@ -117,3 +117,20 @@
         opacity: 1;
     }  
   }
+
+.like{
+    transition: 1000ms;
+    position: absolute;
+    right: -350px;
+    //top: 140px;
+    //bottom: 20px;
+    opacity: 0.6;
+    z-index: 6;
+    background-color: black;
+    border-radius: 20px;
+    padding-left: 20px;
+    //z-index: 18;
+    @media (max-width: 650px) {
+        right: -15px;
+      }
+}

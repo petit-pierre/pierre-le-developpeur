@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import "./textArea.css";
 import { useEffect } from "react";
+import LikeButton from "../LikeButton";
 
 function TextArea({ props }) {
   const language = useSelector((state) => state.data.language);
@@ -49,19 +50,18 @@ function TextArea({ props }) {
   }, [language]);
 
   return (
-    <div className="textArea">
-      <form id="myForm" className="mise-en-page">
-        <textarea
-          id="champText"
-          className="wdgAutoSize"
-          spellCheck={false}
-          readOnly={true}
-          value={language === "FR" ? props.french : props.english}
-        >
-          {}
-        </textarea>
-      </form>
-    </div>
+    <form id="myForm" className="mise-en-page textArea">
+      <textarea
+        id="champText"
+        className="wdgAutoSize"
+        spellCheck={false}
+        readOnly={true}
+        value={language === "FR" ? props.french : props.english}
+      >
+        {}
+      </textarea>
+      <LikeButton id={props.like} className="like"></LikeButton>
+    </form>
   );
 }
 

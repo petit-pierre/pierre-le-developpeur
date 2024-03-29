@@ -14,9 +14,18 @@
     }
     border: solid white;
     text-align: center;
+    .like{
+        p{
+            color: white;
+        }
+        .pocContain{
+            filter: invert(1);
+        }
+
+    }
 }
 
-.likeSliderProjet{
+/*.likeSliderProjet{
     transition: 1000ms;
     position: absolute;
     top: 100px;
@@ -32,7 +41,7 @@
     @media (max-width: 650px) {
         right: -35px;
       }
-}
+}*/
 
 .cardSlide{
     opacity: 1;
@@ -53,7 +62,7 @@
     z-index: 1;
     height: 100%;
 
-    .likeProject{
+    /*.likeProject{
         transition: 1000ms;
         position: absolute;
         right: -350px;
@@ -66,7 +75,7 @@
         @media (max-width: 650px) {
             right: -35px;
           }
-    }
+    }*/
     img{
         filter: invert(1);
     }
@@ -77,13 +86,10 @@
         opacity: 1;
         transition: all ease-in-out 4s; 
     }
-    .likeProject{
-        right: -35px;
+    .like{
+        right: -15px;
         transition: 1000ms;
-    }
-    .likeSliderProjet{
-        right: -35px;
-        transition: 1000ms;
+        //bottom: 5px;
     }
 }
 

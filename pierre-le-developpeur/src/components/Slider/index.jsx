@@ -76,7 +76,7 @@ function Slider({ sliders, mini, likeId }) {
       onTouchMove={(e) => handleTouchMove(e)}
       onTouchEnd={(e) => handleTouchEnd(e)}
     >
-      <div className="likeSlider">
+      <div className="like">
         <LikeButton id={likeId}></LikeButton>
       </div>
       <div

@@ -1,11 +1,29 @@
 .textArea {
-  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.textArea .like {
+  bottom: 20px;
+  transition: 1000ms;
+  position: absolute;
+  opacity: 0.6;
+  z-index: 6;
+  right: -350px;
+  background-color: white;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+@media (max-width: 650px) {
+  .textArea .like {
+    right: -35px;
+  }
 }
 .textArea textarea {
   resize: none;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 20px;
   text-decoration: none;
   background-image: url("../../../public/assets/snow.gif");
   background-size: 100%;
@@ -15,4 +33,9 @@
 }
 .textArea textarea:focus {
   outline: none;
+}
+
+.textArea:hover .like {
+  right: -35px;
+  transition: 1000ms;
 }/*# sourceMappingURL=textArea.css.map */

@@ -52,6 +52,7 @@
         }
         //justify-content: space-around;
     }
+
     .footerPlace {
         width: 100%;
         height: 8dvh;
@@ -92,7 +93,7 @@ z-index: 6;
 .relative{
     position: relative;
 }
-.buttonLikeCta{
+/*.buttonLikeCta{
     position: absolute;
     left: 92dvw;
     top: 0dvh;
@@ -102,7 +103,7 @@ z-index: 6;
         top: 0dvh;
         left: 70dvw;
     }
-    }
+    }*/
 .contact{position: relative;}
 #contact{
     position: absolute;
@@ -117,4 +118,25 @@ z-index: 6;
 #projets{
     position: absolute;
     top: -27dvh;
+}
+
+.collapseContent:hover{
+
+    @media (min-width:650px) {
+        .like{
+            right: -15px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
+    }
+
+}
+.collapseContent{
+    @media  (max-width: 649px){
+        .like{
+            right: -15px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
+    }
 }

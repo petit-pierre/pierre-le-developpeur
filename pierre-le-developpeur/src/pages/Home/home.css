@@ -99,19 +99,17 @@
   position: relative;
 }
 
-.buttonLikeCta {
-  position: absolute;
-  left: 92dvw;
-  top: 0dvh;
-  z-index: 6;
-}
-@media (max-width: 650px) {
-  .buttonLikeCta {
+/*.buttonLikeCta{
+    position: absolute;
+    left: 92dvw;
     top: 0dvh;
-    left: 70dvw;
-  }
-}
-
+    z-index: 6;
+    //filter: invert(1);
+    @media (max-width: 650px){
+        top: 0dvh;
+        left: 70dvw;
+    }
+    }*/
 .contact {
   position: relative;
 }
@@ -137,4 +135,18 @@
 #projets {
   position: absolute;
   top: -27dvh;
+}
+
+@media (min-width: 650px) {
+  .collapseContent:hover .like {
+    right: -15px;
+    transition: 1000ms;
+  }
+}
+
+@media (max-width: 649px) {
+  .collapseContent .like {
+    right: -15px;
+    transition: 1000ms;
+  }
 }/*# sourceMappingURL=home.css.map */
