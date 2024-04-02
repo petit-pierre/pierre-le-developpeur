@@ -1,30 +1,60 @@
 .contactField{
+    .send{
+        margin: auto;
+    }
+    .cvAndMail{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+    .button:active{
+        background-color: white;
+        color: black;
+        transition: all 0s;
+    }
+    .button{
+        color: white;
+        transition: all 1s;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 255, 0.0);
 
+        border: solid #6d477a ;
+        color: white;
+        z-index: 2;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .buttonAndBackground{
+        background-image:   url("../../../public/assets/snow.gif");
+        border-radius: 20px;
+        overflow: hidden;
+        height: 35px;
+        width: 300px;
+
+    }
+    .like{
         .like{
-            .like{
-                background-color: black;
-            }
-    
-            .pocContain{
-                color: white;
-            }
-            p{
-                color: white;
-            }
-            .logoLike{
-                //color: white;
-              filter: invert(1);
-          }
+            background-color: black;
         }
-
+       .pocContain{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .logoLike{
+            filter: invert(1);
+        }
+    }
     .inputMail{
         background-image:   url("../../../public/assets/snow.gif");
         //height: 100%;
         //width: 100%;
-        border-radius: 20px;
-
-
-        
+        border-radius: 20px; 
+        width: 300px;
     }
     input{
         -webkit-box-sizing: border-box;
@@ -62,161 +92,7 @@
     }
     display: flex;
     flex-direction: column;
-    }
-    .contactPlace{
-        display: flex;
-        flex-direction: row;
-        @media (max-width: 650px){
-            flex-direction: column;
-        }
-    }
-    .messageAndMail{
-        width: 49dvw;
-        height: 61dvh;
-        margin: 1dvw;
-        @media (max-width: 650px){
-            height: 64dvh;
-        }
-        button:active{
-            background-color: white;
-            color: black;
-            transition: all 0s;
-        }
-        button{
-            color: white;
-            transition: all 1s;
-        }
-        .mailAndSend{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .mailAndBackground{
-            margin: auto;
-            width: 19dvw;
-            height: 4dvh;
-            position: relative;
-            margin-bottom: 1dvh;
-            //min-height: 30px;
-            @media (max-width: 650px){
-                width: 96dvw;
-                height: 6dvh;
-            }
-        }
-        .textAreaAndBackground{
-            position: relative;
-            width: 100%;
-            height: 50dvh;
-            margin-top: 1dvh;
-            margin-bottom: 1dvh;
-            @media (max-width: 650px){
-                width: 96dvw;
-            }
-        }
-        textarea{
-            width: 100%;
-           //height: 100%;
-            //overflow: scroll;
-            resize: none;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 20px;
-            border: solid #6d477a ;
-            padding: 5px;
-            //background-color: #99477a49;
-            background-color: rgba(0, 0, 255, 0.0);
-            color: white;
-            position: absolute;
-            z-index: 2;
-            transition: all 1s;
-            font-family: "abacaxi-devanagari", sans-serif;
-            font-weight: 100;
-            font-style: normal;
-            font-size: 0.8rem;
-        }
+}
 
-        textarea:focus{
-            border: solid #99477a;
-            outline: none;
-            background-color: white;
-            color: black;
-            transition: all 1s;
-        }
-
-    }
-    .contactContent{
-
-        position: absolute;
-        color: white;
-        z-index: 2;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        border-radius: 20px;
-        border: solid  #6d477a;
-        width: 100%;
-        height: 100%;
-    }
-    .contentAndBackground{
-
-        margin: 1dvw 1dvw 1dvh 1dvw;
-        //margin-bottom: 0.5dvw;
-        position: relative;
-        height: 56dvh;
-        width: 49dvw;
-
-        @media (max-width: 650px){
-            width: 96dvw;
-        }
-    }
-    .snow{
-        //background-color: #99477a;
-        background-image:   url("../../../public/assets/particules.gif");
-        opacity: 0.2;
-        position: absolute;
-        top: 1px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-        border-radius: 20px;
-    }
-    .snowBackground{
-        background-color: #99477a;
-        position: absolute;
-        top: 1px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        border-radius: 20px;
-    }
-    button{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-color: rgba(0, 0, 255, 0.0);
-        border-radius: 20px;
-        border: solid #6d477a ;
-        color: white;
-        z-index: 2;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        cursor: pointer;
-    }
-    .buttonAndBackground{
-
-        position: relative;
-        width: 19dvw;
-        height: 4dvh;
-        min-height: 30px;
-        margin: auto;
-        @media (max-width: 650px){
-            width: 96dvw;
-            height: 6dvh;
-        }
-    }
 
 

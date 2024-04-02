@@ -93,17 +93,42 @@ function Contact({ likeId, recoId }) {
           }}
         ></TextArea>
       </div>
-      <div className="inputMail elements">
-        <input
-          type="mail"
-          placeholder={
-            language === "FR"
-              ? contact.french.placeholder_mail
-              : contact.english.placeholder_mail
-          }
-          onChange={formMailError}
-          ref={mail}
-        ></input>
+      <div className="cvAndMail">
+        <div className="buttonAndBackground elements">
+          {language === "FR" ? (
+            <a
+              download="CV_aubree_pierre.pdf"
+              href={contact.french.cv}
+              target="_blank"
+            >
+              <button className="button">
+                {language === "FR" ? "Telechargez mon C.V" : "Download my C.V"}
+              </button>
+            </a>
+          ) : (
+            <a
+              download="CV_aubree_pierre.pdf"
+              href={contact.english.cv}
+              target="_blank"
+            >
+              <button className="button">
+                {language === "FR" ? "Telechargez mon C.V" : "Download my C.V"}
+              </button>
+            </a>
+          )}
+        </div>
+        <div className="inputMail elements">
+          <input
+            type="mail"
+            placeholder={
+              language === "FR"
+                ? contact.french.placeholder_mail
+                : contact.english.placeholder_mail
+            }
+            onChange={formMailError}
+            ref={mail}
+          ></input>
+        </div>
       </div>
       <div className="elements" ref={content} onChange={formContentError}>
         <TextArea
@@ -116,109 +141,18 @@ function Contact({ likeId, recoId }) {
           }}
         ></TextArea>
       </div>
-
-      <div className="contactPlace">
-        <div className="messageAndMail">
-          <div className="mailAndSend">
-            <div className="mailAndBackground">
-              <div className="snow"></div>
-              <div className="snowBackground"></div>
-            </div>
-
-            {errorContent === false && errorMail === false ? (
-              <div className="buttonAndBackground">
-                <button onClick={(e) => sendMail(content, mail, e)}>
-                  {language === "FR"
-                    ? contact.french.button
-                    : contact.english.button}
-                </button>
-                <div className="snow"></div>
-                <div className="snowBackground"></div>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
+      {errorContent === false && errorMail === false ? (
+        <div className="buttonAndBackground send">
+          <button
+            className="button"
+            onClick={(e) => sendMail(content, mail, e)}
+          >
+            {language === "FR" ? contact.french.button : contact.english.button}
+          </button>
         </div>
-        <div className="errorAndContact">
-          <div className="contentAndBackground">
-            <div className="contactContent">
-              {language === "FR" ? (
-                <div>
-                  {<p>{contact.french.content}</p>}
-                  {errorMail === true ? <p>{contact.french.error_mail}</p> : ""}
-                  {errorContent === true ? (
-                    <p>{contact.french.error_content}</p>
-                  ) : (
-                    ""
-                  )}
-
-                  {sendingError != "" ? (
-                    <p>erreur reseau : {sendingError}</p>
-                  ) : (
-                    ""
-                  )}
-                  {sending === true ? <p>{contact.french.succes} </p> : ""}
-                </div>
-              ) : (
-                <div>
-                  {<p> {contact.english.content} </p>}
-                  {errorMail === true ? (
-                    <p>{contact.english.error_mail}</p>
-                  ) : (
-                    ""
-                  )}
-                  {errorContent === true ? (
-                    <p>{contact.english.error_content}</p>
-                  ) : (
-                    ""
-                  )}
-
-                  {sendingError != "" ? (
-                    <p>networck error : {sendingError}</p>
-                  ) : (
-                    ""
-                  )}
-                  {sending === true ? <p>{contact.english.succes} </p> : ""}
-                </div>
-              )}
-            </div>
-            <div className="likeReco"></div>
-            <div className="snow"></div>
-            <div className="snowBackground"></div>
-          </div>
-          <div className="buttonAndBackground">
-            {language === "FR" ? (
-              <a
-                download="CV_aubree_pierre.pdf"
-                href={contact.french.cv}
-                target="_blank"
-              >
-                <button>
-                  {language === "FR"
-                    ? "Telechargez mon C.V"
-                    : "Download my C.V"}
-                </button>
-              </a>
-            ) : (
-              <a
-                download="CV_aubree_pierre.pdf"
-                href={contact.english.cv}
-                target="_blank"
-              >
-                <button>
-                  {language === "FR"
-                    ? "Telechargez mon C.V"
-                    : "Download my C.V"}
-                </button>
-              </a>
-            )}
-
-            <div className="snow"></div>
-            <div className="snowBackground"></div>
-          </div>
-        </div>
-      </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
