@@ -11,9 +11,6 @@
   border: solid white;
   text-align: center;
 }
-.cardField .like {
-  top: 50px;
-}
 @media (max-width: 650px) {
   .cardField {
     width: 80%;
@@ -43,6 +40,10 @@
         right: -35px;
       }
 }*/
+.likeSlide {
+  top: 100px;
+}
+
 .cardSlide {
   opacity: 1;
   position: absolute;
@@ -60,6 +61,9 @@
   transition: all ease-in-out 4s;
   z-index: 1;
   height: 100%;
+}
+.cardResum .like {
+  top: 70px;
 }
 
 .cardField:hover .cardResum {

@@ -1,7 +1,5 @@
 .cardField{
-    .like{
-        top: 50px;
-    }
+
     width: 20%;
     min-width: 250px;
     height: 350px;
@@ -45,6 +43,9 @@
         right: -35px;
       }
 }*/
+.likeSlide{
+    top: 100px;
+}
 
 .cardSlide{
     opacity: 1;
@@ -64,7 +65,9 @@
     transition: all ease-in-out 4s; 
     z-index: 1;
     height: 100%;
-    
+    .like{
+        top: 70px;
+    }
 }
 .cardField:hover {
     .cardResum{

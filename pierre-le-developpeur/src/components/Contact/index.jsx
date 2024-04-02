@@ -37,8 +37,12 @@ function Contact({ likeId, recoId }) {
   };
 
   const formContentError = (e) => {
+    e.preventDefault();
+    //console.log(content.current.children[0][0].value);
+    //console.log(e.target.value.length);
     setInputContentValue(e.target.value);
-    if (inputContentValue.length > 6) {
+
+    if (e.target.value.length > 6) {
       setErrorContent(false);
     } else {
       setErrorContent(true);
@@ -54,7 +58,10 @@ function Contact({ likeId, recoId }) {
       From: "contact@pierre-le-developpeur.com",
       Subject: "Site pierre le developpeur",
       Body:
-        "email : " + mail.current.value + " message : " + content.current.value,
+        "email : " +
+        mail.current.value +
+        " message : " +
+        content.current.children[0][0].value,
     };
     //const elastic = structuredClone(elasti);
     //console.log(document.querySelector(".contentForMail").value);
@@ -75,45 +82,49 @@ function Contact({ likeId, recoId }) {
 
   return (
     <div className="contactField">
-      <TextArea
-        props={{
-          french: translations.french.recommendation,
-          english: translations.english.recommendation,
-          like: likes[4]._id,
-        }}
-      ></TextArea>
+      <div className="elements">
+        <TextArea
+          props={{
+            french: translations.french.recommendation,
+            english: translations.english.recommendation,
+            like: likes[4]._id,
+            links: null,
+            edit: false,
+          }}
+        ></TextArea>
+      </div>
+      <div className="inputMail elements">
+        <input
+          type="mail"
+          placeholder={
+            language === "FR"
+              ? contact.french.placeholder_mail
+              : contact.english.placeholder_mail
+          }
+          onChange={formMailError}
+          ref={mail}
+        ></input>
+      </div>
+      <div className="elements" ref={content} onChange={formContentError}>
+        <TextArea
+          props={{
+            french: contact.french.content,
+            english: contact.english.content,
+            like: likes[0]._id,
+            links: null,
+            edit: true,
+          }}
+        ></TextArea>
+      </div>
 
       <div className="contactPlace">
         <div className="messageAndMail">
           <div className="mailAndSend">
             <div className="mailAndBackground">
-              <input
-                type="mail"
-                placeholder={
-                  language === "FR"
-                    ? contact.french.placeholder_mail
-                    : contact.english.placeholder_mail
-                }
-                onChange={formMailError}
-                ref={mail}
-              ></input>
               <div className="snow"></div>
               <div className="snowBackground"></div>
             </div>
-            <div className="textAreaAndBackground">
-              <textarea
-                placeholder={
-                  language === "FR"
-                    ? contact.french.placeholder_content
-                    : contact.english.placeholder_content
-                }
-                onChange={formContentError}
-                ref={content}
-                className="contentForMail"
-              ></textarea>
-              <div className="snow"></div>
-              <div className="snowBackground"></div>
-            </div>
+
             {errorContent === false && errorMail === false ? (
               <div className="buttonAndBackground">
                 <button onClick={(e) => sendMail(content, mail, e)}>

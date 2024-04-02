@@ -1,55 +1,50 @@
 .contactField {
-  /*textarea{
-      //display: flex;
-      resize: none;
-      background-color:rgba(0, 0, 255, 0.0);
-      width: 98%;
-      height: 100%;
-      position: absolute;
-      color: white;
-      border: none;
-      padding: 10px;
-      text-decoration:none;
-      @media (max-width: 335px){
-          font-size: 0.9rem;
-      }
-  }*/
   display: flex;
   flex-direction: column;
+}
+.contactField .like .like {
+  background-color: black;
+}
+.contactField .like .pocContain {
   color: white;
-  /*.likeReco{
-      position: absolute;
-      //right: -30px;
-      bottom: 1dvh;
-      right: 1px;
-      filter: invert(1);
-      color: black;
-      z-index: 5;
-      //min-width: 50px;
-      //justify-content: end;
-      //right: 10px;
-      //display: flex;
-      @media (max-width: 650px){
-          //right: 36px;
-      }
-      /*.buttonLike{
-          display: flex;
-          flex-direction: row;
-      }
-      .like{
-          //display: flex;
-          //right: 0;
-          //width: 10px;
-          //flex-direction: row;
-          //grid-gap: 1dvw;
-          //width: 110px;
-          //right: 0;
-          //flex-direction: row-reverse;
-          //justify-content: flex-end;
-          img{
-              //padding-left: 38px;
-          }
-      }*/
+}
+.contactField .like p {
+  color: white;
+}
+.contactField .like .logoLike {
+  filter: invert(1);
+}
+.contactField .inputMail {
+  background-image: url("../../../public/assets/snow.gif");
+  border-radius: 20px;
+}
+.contactField input {
+  box-sizing: border-box;
+  border: solid #6d477a;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 255, 0);
+  color: white;
+  z-index: 2;
+  padding-left: 10px;
+  transition: all 1s;
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1rem;
+  padding-top: 2px;
+}
+.contactField input:focus {
+  border: solid #99477a;
+  outline: none;
+  background-color: white;
+  color: black;
+  transition: all 1s;
+}
+.contactField .elements {
+  margin: 25px;
+  margin-top: 25px;
 }
 
 .contactPlace {
@@ -67,6 +62,11 @@
   height: 61dvh;
   margin: 1dvw;
 }
+@media (max-width: 650px) {
+  .messageAndMail {
+    height: 64dvh;
+  }
+}
 .messageAndMail button:active {
   background-color: white;
   color: black;
@@ -75,11 +75,6 @@
 .messageAndMail button {
   color: white;
   transition: all 1s;
-}
-@media (max-width: 650px) {
-  .messageAndMail {
-    height: 64dvh;
-  }
 }
 .messageAndMail .mailAndSend {
   display: flex;
@@ -99,32 +94,6 @@
     height: 6dvh;
   }
 }
-.messageAndMail input {
-  box-sizing: border-box;
-  border: solid #6d477a;
-  border-radius: 20px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 255, 0);
-  color: white;
-  z-index: 2;
-  padding-left: 10px;
-  top: 1px;
-  transition: all 1s;
-  font-family: "abacaxi-devanagari", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-  font-size: 0.8rem;
-  padding-top: 2px;
-}
-.messageAndMail input:focus {
-  border: solid #99477a;
-  outline: none;
-  background-color: white;
-  color: black;
-  transition: all 1s;
-}
 .messageAndMail .textAreaAndBackground {
   position: relative;
   width: 100%;
@@ -139,7 +108,6 @@
 }
 .messageAndMail textarea {
   width: 100%;
-  height: 100%;
   resize: none;
   box-sizing: border-box;
   border-radius: 20px;

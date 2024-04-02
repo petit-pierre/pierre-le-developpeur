@@ -2,6 +2,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 20px;
+  background-image: url("../../../public/assets/snow.gif");
+  background-size: 100%;
+  border: solid 3px #6d477a;
 }
 .textArea .like {
   /*.pocContain{
@@ -29,11 +32,12 @@
   border: none;
   padding: 20px;
   text-decoration: none;
-  background-image: url("../../../public/assets/snow.gif");
-  background-size: 100%;
+  background-color: rgba(0, 0, 255, 0);
+  transition: all 1s;
   border-radius: 20px;
   box-sizing: border-box;
   width: 100%;
+  min-height: 130px;
 }
 .textArea textarea:focus {
   outline: none;
@@ -58,4 +62,12 @@ textarea {
     right: -10px;
     transition: 1000ms;
   }
+}
+
+.edit:focus {
+  outline: none;
+  background-image: 0.5;
+  background-color: white;
+  color: black;
+  transition: all 1s;
 }/*# sourceMappingURL=textArea.css.map */

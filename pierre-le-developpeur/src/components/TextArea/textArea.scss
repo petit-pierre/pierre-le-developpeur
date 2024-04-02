@@ -3,6 +3,10 @@
     position: relative;
     overflow: hidden;
     border-radius: 20px;
+    background-image:   url("../../../public/assets/snow.gif");
+    background-size: 100%;
+    border: solid 3px  #6d477a;
+    //min-height: 130px;
     .like{
         /*.pocContain{
             filter: invert(1);
@@ -32,14 +36,16 @@
         border: none;
         padding: 20px;
         text-decoration:none;
-        background-image:   url("../../../public/assets/snow.gif");
-        background-size: 100%;
+        background-color: rgba(0, 0, 255, 0.0);
+        transition: all 1s;
+        //background: no-repeat url("../../../public/assets/snow.gif");
         border-radius: 20px;
         //box-shadow: 0px 15px 25px black;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;	
         width: 100%;
+        min-height: 130px;
         //text-align: center;
     }
     textarea:focus{
@@ -76,4 +82,12 @@ textarea{
             //bottom: 10px;
         }
     }
+}
+
+.edit:focus{
+    outline: none;
+    background-image: 0.5;
+    background-color: white;
+    color: black;
+    transition: all 1s;
 }

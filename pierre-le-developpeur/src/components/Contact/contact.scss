@@ -1,59 +1,67 @@
 .contactField{
-    //en attente
-    /*textarea{
-        //display: flex;
-        resize: none;
-        background-color:rgba(0, 0, 255, 0.0);
-        width: 98%;
-        height: 100%;
-        position: absolute;
-        color: white;
-        border: none;
-        padding: 10px;
-        text-decoration:none;
-        @media (max-width: 335px){
-            font-size: 0.9rem;
+
+        .like{
+            .like{
+                background-color: black;
+            }
+    
+            .pocContain{
+                color: white;
+            }
+            p{
+                color: white;
+            }
+            .logoLike{
+                //color: white;
+              filter: invert(1);
+          }
         }
-    }*/
-    //voila
-    //height: 100dvh;
+
+    .inputMail{
+        background-image:   url("../../../public/assets/snow.gif");
+        //height: 100%;
+        //width: 100%;
+        border-radius: 20px;
+
+
+        
+    }
+    input{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: solid #6d477a;
+        //border: none;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        //position: absolute;
+        background-color: rgba(0, 0, 255, 0.0);
+        color: white;
+        z-index: 2;
+        padding-left: 10px;
+        //top: -1px;
+        transition: all 1s;
+        font-family: "abacaxi-devanagari", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 1rem;
+        padding-top: 2px;
+    }
+    input:focus{
+        //border: none;
+        border:  solid #99477a ;
+        outline: none;
+        background-color: white;
+        color: black;
+        transition: all 1s;
+    }
+    .elements{
+        margin: 25px;
+        margin-top: 25px;
+    }
     display: flex;
     flex-direction: column;
-    color: white;
-
-    /*.likeReco{
-        position: absolute;
-        //right: -30px;
-        bottom: 1dvh;
-        right: 1px;
-        filter: invert(1);
-        color: black;
-        z-index: 5;
-        //min-width: 50px;
-        //justify-content: end;
-        //right: 10px;
-        //display: flex;
-        @media (max-width: 650px){
-            //right: 36px;
-        }
-        /*.buttonLike{
-            display: flex;
-            flex-direction: row;
-        }
-        .like{
-            //display: flex;
-            //right: 0;
-            //width: 10px;
-            //flex-direction: row;
-            //grid-gap: 1dvw;
-            //width: 110px;
-            //right: 0;
-            //flex-direction: row-reverse;
-            //justify-content: flex-end;
-            img{
-                //padding-left: 38px;
-            }
-        }*/
     }
     .contactPlace{
         display: flex;
@@ -61,12 +69,15 @@
         @media (max-width: 650px){
             flex-direction: column;
         }
-    
-
     }
     .messageAndMail{
+        width: 49dvw;
+        height: 61dvh;
+        margin: 1dvw;
+        @media (max-width: 650px){
+            height: 64dvh;
+        }
         button:active{
-            //filter: invert(1);
             background-color: white;
             color: black;
             transition: all 0s;
@@ -75,13 +86,6 @@
             color: white;
             transition: all 1s;
         }
-        width: 49dvw;
-        height: 61dvh;
-        margin: 1dvw;
-        @media (max-width: 650px){
-            height: 64dvh;
-        }
-
         .mailAndSend{
             display: flex;
             flex-direction: column;
@@ -99,34 +103,6 @@
                 height: 6dvh;
             }
         }
-        input{
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            border: solid #6d477a;
-            border-radius: 20px;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            background-color: rgba(0, 0, 255, 0.0);
-            color: white;
-            z-index: 2;
-            padding-left: 10px;
-            top: 1px;
-            transition: all 1s;
-            font-family: "abacaxi-devanagari", sans-serif;
-            font-weight: 100;
-            font-style: normal;
-            font-size: 0.8rem;
-            padding-top: 2px;
-        }
-        input:focus{
-            border:  solid #99477a ;
-            outline: none;
-            background-color: white;
-            color: black;
-            transition: all 1s;
-        }
         .textAreaAndBackground{
             position: relative;
             width: 100%;
@@ -139,7 +115,7 @@
         }
         textarea{
             width: 100%;
-            height: 100%;
+           //height: 100%;
             //overflow: scroll;
             resize: none;
             -webkit-box-sizing: border-box;

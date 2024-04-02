@@ -14,7 +14,7 @@ function Cards({ project }) {
   return (
     <Link to={"/Project/" + project.french_title}>
       <div className="cardField">
-        <div className="like miniLike">
+        <div className="like miniLike likeSlide">
           <LikeButton id={project.slider_likes_id}></LikeButton>
         </div>
         <div className="cardSlide">
