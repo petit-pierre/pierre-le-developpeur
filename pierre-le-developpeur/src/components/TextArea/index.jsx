@@ -30,9 +30,6 @@ function TextArea({ props }) {
       /* vous pouver aussi utiliser l'event keyup */
       oTextArea.addEventListener("input", setTailleHeight);
       //si le textarea n'est pas vide au chargement de la page
-      //console.log(oTextArea.value);
-      //let content = oTextArea;
-      //content.value = oTextArea.placeholder;
       setTailleHeight.call(oTextArea, true);
     }
   }
@@ -59,7 +56,7 @@ function TextArea({ props }) {
       textPlace.current.value = props.english;
     }
 
-    handleResize();
+    //handleResize();
   }, [language]);
 
   function clearText(evt) {

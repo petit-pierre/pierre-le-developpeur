@@ -13,6 +13,11 @@ function Collapse({ name, content }) {
         className={open ? "headerCollapse open" : "headerCollapse close"}
         onClick={toggle}
       >
+        <img
+          className={open ? "openArrow hiddenArrow" : "closedArrow hiddenArrow"}
+          src={Arrow}
+          alt="Arrow"
+        />
         <span className="titleCollapse">{name}</span>
         <img
           className={open ? "openArrow" : "closedArrow"}

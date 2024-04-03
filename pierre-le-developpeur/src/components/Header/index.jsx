@@ -35,12 +35,30 @@ function Header() {
           <nav id="nav" className={burger === true ? "active" : ""}>
             <div className="headerSpaced"></div>
             <div className="ul">
-              <HashLink onClick={burgerOff} to="/Home#accueil">
-                <div className="li">
-                  {" "}
-                  {language === "FR" ? "accueil" : "welcome"}
-                </div>
-              </HashLink>
+              <div className="logos li">
+                <a
+                  href="https://github.com/petit-pierre"
+                  target="_blank"
+                  className="logoLink "
+                >
+                  <img
+                    src="http://pierre-le-developpeur.com/assets/logo github.png"
+                    alt="logo github"
+                    className="logo"
+                  ></img>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/pierre-aubrée/"
+                  target="_blank"
+                  className="logoLink"
+                >
+                  <img
+                    src="http://pierre-le-developpeur.com/assets/logo linkedin.png"
+                    alt="logo linkedin"
+                    className="logo"
+                  ></img>
+                </a>
+              </div>
               <HashLink onClick={burgerOff} to="/Home#contact">
                 <div className="li">Contact</div>
               </HashLink>
@@ -71,12 +89,13 @@ function Header() {
               <img src={burgerIcon} alt="burger menu" className="icons"></img>
             </div>
           </nav>
-
-          <img
-            src="http://pierre-le-developpeur.com/assets/pierre.png"
-            className="maGanache"
-            alt="thank you"
-          ></img>
+          <HashLink onClick={burgerOff} to="/Home#accueil">
+            <img
+              src="http://pierre-le-developpeur.com/assets/pierre.png"
+              className="maGanache"
+              alt="thank you"
+            ></img>
+          </HashLink>
         </div>
       </div>
       <div className="placeforheader"></div>

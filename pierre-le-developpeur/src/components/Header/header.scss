@@ -6,6 +6,34 @@
     position: fixed;
     top: 0px;
     z-index: 10;
+    .logos{
+        //background-color: #492f52;
+        //width: 100%;
+        //height: 100%;
+        //margin: auto;
+
+    }
+    .logos{
+        display: flex;
+        flex-direction: row;
+        //margin-right: 2dvw;
+        justify-content: center;
+        //margin: none;
+        //max-width: 2dvw;
+        .logoLink{
+        width: 6dvh;
+        min-width: 28px;
+        }
+        .logo{
+            //height: 60%;
+            //margin-top: 10px;
+            
+            //padding-left: 1dvw;
+
+            filter: invert(1);
+            //cursor: pointer;
+        }
+    }
 }
 
 .header {
@@ -114,6 +142,12 @@
         display: none;
     }
     @media (max-width: 650px) {
+        .logos{
+            margin: auto;
+                    width: 100%;
+        //height: 100%;
+        margin: auto;
+        }
 
         .maGanache{
             width: 18dvh;
@@ -158,7 +192,7 @@
           left: -550dvh;
           top: 20dvh;
           z-index: -1;
-          height: 72dvh;
+          height: 80dvh;
           flex-direction: column;
           background:#b674cc ;
           width: 100%;
@@ -167,7 +201,8 @@
         }
         nav .li {
           padding: 3px 0;
-          height: 14dvh ;
+          height: 15dvh ;
+          //padding-top: 5dvh;
         }
         nav .li:hover {
           background: #6d477a;

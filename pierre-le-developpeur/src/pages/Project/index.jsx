@@ -121,8 +121,6 @@ function Project() {
             ></Collapse>
           </div>
         </div>
-        <div className="footerPlace"></div>
-        <Footer></Footer>
       </div>
     ) : (
       setTimeout(() => {

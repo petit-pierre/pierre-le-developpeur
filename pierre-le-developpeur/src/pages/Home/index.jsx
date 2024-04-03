@@ -206,7 +206,6 @@ function Home() {
             <div className="footerPlace"></div>
           </div>
         </div>
-        <Footer></Footer>
       </div>
     );
   } else {

@@ -44,31 +44,36 @@
 
 .headerCollapse {
     height: 5dvh;
-    width: 98%;
+    //width: 98%;
     background-color: #6d477a;
     color: white;
     display: flex;
     justify-content: space-between;
-    padding-left: 2%;
+    //padding-left: 2%;
     z-index: 3;
     cursor: pointer;
     min-height: 30px;
-    padding-top: 10px;
+    //padding-top: 10px;
     @media (max-width: 650px) {
         height: 5dvh;
     }
     span {
-        margin-left: auto;
-        margin-right: auto;
+        //margin-left: auto;
+        //margin-right: auto;
+        margin: auto;
+        //text-align: center;
     }
     img {
         width: 24px;
         height: 14px;
-        margin-right: 20px;
-        margin-top: 3px;
+        margin: auto;
+        //margin-right: 20px;
+        //margin-top: 3px;
         cursor: pointer; 
     }
-
+    .hiddenArrow{
+        opacity: 0;
+    }
 
 }
 .open{

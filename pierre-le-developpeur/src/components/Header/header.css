@@ -6,6 +6,18 @@
   top: 0px;
   z-index: 10;
 }
+.headerfield .logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.headerfield .logos .logoLink {
+  width: 6dvh;
+  min-width: 28px;
+}
+.headerfield .logos .logo {
+  filter: invert(1);
+}
 
 .header {
   background-color: #99477a;
@@ -110,6 +122,11 @@
   display: none;
 }
 @media (max-width: 650px) {
+  .header .logos {
+    margin: auto;
+    width: 100%;
+    margin: auto;
+  }
   .header .maGanache {
     width: 18dvh;
     top: 12dvh;
@@ -152,7 +169,7 @@
     left: -550dvh;
     top: 20dvh;
     z-index: -1;
-    height: 72dvh;
+    height: 80dvh;
     flex-direction: column;
     background: #b674cc;
     width: 100%;
@@ -161,7 +178,7 @@
   }
   .header nav .li {
     padding: 3px 0;
-    height: 14dvh;
+    height: 15dvh;
   }
   .header nav .li:hover {
     background: #6d477a;
