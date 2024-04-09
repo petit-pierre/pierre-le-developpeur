@@ -1,3 +1,11 @@
+.withe .intro {
+  padding: 100px 50px 100px 250px;
+}
+@media (max-width: 650px) {
+  .withe .intro {
+    padding: 100px 50px 100px 50px;
+  }
+}
 .withe .competences {
   background-image: url("../../assets/background.png");
   background-repeat: no-repeat;
@@ -70,50 +78,6 @@
   position: relative;
 }
 
-.buttonLikeReco {
-  position: absolute;
-  left: 92dvw;
-  top: 88dvh;
-  z-index: 6;
-}
-@media (max-width: 335px) {
-  .buttonLikeReco {
-    top: 133dvh;
-    left: 70dvw;
-  }
-}
-@media (min-width: 335px) and (max-width: 649px) {
-  .buttonLikeReco {
-    top: 108dvh;
-    left: 70dvw;
-  }
-}
-@media (min-width: 650px) and (max-width: 950px) {
-  .buttonLikeReco {
-    top: 97dvh;
-    left: 70dvw;
-  }
-}
-
-.relative {
-  position: relative;
-}
-
-/*.buttonLikeCta{
-    position: absolute;
-    left: 92dvw;
-    top: 0dvh;
-    z-index: 6;
-    //filter: invert(1);
-    @media (max-width: 650px){
-        top: 0dvh;
-        left: 70dvw;
-    }
-    }*/
-.contact {
-  position: relative;
-}
-
 #contact {
   position: absolute;
   top: -17dvh;
@@ -135,18 +99,4 @@
 #projets {
   position: absolute;
   top: -27dvh;
-}
-
-@media (min-width: 650px) {
-  .collapseContent:hover .like {
-    right: -10px;
-    transition: 1000ms;
-  }
-}
-
-@media (max-width: 649px) {
-  .collapseContent .like {
-    right: -10px;
-    transition: 1000ms;
-  }
 }/*# sourceMappingURL=home.css.map */

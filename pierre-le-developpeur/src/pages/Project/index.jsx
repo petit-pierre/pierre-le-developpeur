@@ -8,6 +8,7 @@ import Collapse from "../../components/Collapse";
 import Footer from "../../components/Footer";
 import { useEffect } from "react";
 import { getLikesThunk } from "../../thunkActionsCreator";
+import TextArea from "../../components/TextArea";
 
 function Project() {
   const navigate = useNavigate();
@@ -44,7 +45,6 @@ function Project() {
         }
       }
     }
-
     return project != undefined ? (
       <div className="projectPage">
         <Header />
@@ -55,30 +55,19 @@ function Project() {
             likeId={project.slider_likes_id}
           ></Slider>
         </div>
-        <div className="projectContentAndBackground">
-          <div className="projectContent">
-            {language === "FR"
-              ? project.french_description
-              : project.english_description}
-            <br />
-            <br />
-            <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
-            {project.links.map((link) => (
-              <div key={link._id}>
-                <a href={link.url} target="_blank" className="projectLink">
-                  {link.url}
-                </a>
-                <br />
-                <br />
-              </div>
-            ))}
-          </div>
-          <div className="snow"></div>
-          <div className="snowBackground"></div>
+        <div className="textAndLinks">
+          <TextArea
+            props={{
+              french: project.french_description,
+              english: project.english_description,
+              likes: project.content_likes_id,
+              links: project.links,
+              edit: false,
+              style: "windows",
+            }}
+          ></TextArea>
         </div>
-        <div className="buttonLikeProjectContent">
-          <LikeButton id={project.content_likes_id}></LikeButton>
-        </div>
+
         <div className="tools">
           <div className="collapse">
             <Collapse

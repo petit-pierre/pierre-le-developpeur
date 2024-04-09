@@ -94,8 +94,16 @@ function TextArea({ props }) {
   //console.log(props.edit);
   let classi = props.french + " wdgAutoSize edit";
   let classedit = props.french + " wdgAutoSize";
+  console.log(props.style);
   return (
-    <form id={props.french + "myForm"} className="mise-en-page textArea">
+    <form
+      id={props.french + "myForm"}
+      className={
+        props.style === "windows"
+          ? "mise-en-page textArea windows"
+          : "mise-en-page textArea empty"
+      }
+    >
       <textarea
         id="champText"
         className={props.edit === true ? classi : classedit}
@@ -106,10 +114,30 @@ function TextArea({ props }) {
         onSelect={(evt) => clearText(evt)}
         onBlur={(evt) => textBack(evt)}
       ></textarea>
-      {props.links != null ? "" : ""}
-      <div className="like">
-        <LikeButton id={props.like} className="like"></LikeButton>
-      </div>
+      {props.links != null ? (
+        <div className="textareaLinks">
+          {" "}
+          <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
+          {props.links.map((link) => (
+            <div key={link._id}>
+              <a href={link.url} target="_blank" className="projectLink">
+                {link.url}
+              </a>
+              <br />
+              <br />
+            </div>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+      {props.likes != null ? (
+        <div className="like">
+          <LikeButton id={props.likes} className="like"></LikeButton>
+        </div>
+      ) : (
+        ""
+      )}
     </form>
   );
 }

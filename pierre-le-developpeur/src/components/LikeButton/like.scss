@@ -1,9 +1,7 @@
 .like{
     display: flex;
     flex-direction: row;
-    //justify-content: flex-start;
     min-width: 100px;
-
     .poc{
         position: absolute;
         display: none;
@@ -58,7 +56,7 @@
         .logoLike{
             width: 20px;
             cursor: pointer;
-            margin-top: -5px;
+            margin-top: 0px;
         }
     }
 }

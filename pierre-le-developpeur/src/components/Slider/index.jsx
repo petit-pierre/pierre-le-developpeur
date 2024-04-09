@@ -30,7 +30,7 @@ function Slider({ sliders, mini, likeId }) {
       }
     }
   }
-  function useInterval(callback, delay) {
+  /*function useInterval(callback, delay) {
     const savedCallback = useRef();
 
     // Remember the latest callback.
@@ -52,7 +52,7 @@ function Slider({ sliders, mini, likeId }) {
   useInterval(() => {
     // Your custom logic here
     nextPicture();
-  }, 6000);
+  }, 6000);*/
 
   //changement d'index//
 

@@ -1,7 +1,5 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { NavLink } from "react-router-dom";
 import "./parralax.css";
-import "./header.css";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Footer from "../../components/Footer";

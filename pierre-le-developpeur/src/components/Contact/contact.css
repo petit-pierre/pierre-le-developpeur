@@ -3,7 +3,17 @@
   flex-direction: column;
 }
 .contactField .send {
-  margin: auto;
+  opacity: 1;
+  cursor: pointer;
+}
+.contactField .cantSend {
+  opacity: 0.6;
+  cursor: none;
+}
+.contactField .cantSend .button:active {
+  background-color: transparent;
+  color: white;
+  transition: all 0s;
 }
 .contactField .cvAndMail {
   display: flex;
@@ -15,17 +25,19 @@
   color: black;
   transition: all 0s;
 }
+.contactField .visible {
+  cursor: pointer;
+}
 .contactField .button {
   color: white;
   transition: all 1s;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 255, 0);
-  border: solid #6d477a;
   color: white;
   z-index: 2;
   box-sizing: border-box;
-  cursor: pointer;
+  border: none;
 }
 .contactField .buttonAndBackground {
   background-image: url("../../../public/assets/snow.gif");
@@ -33,6 +45,8 @@
   overflow: hidden;
   height: 35px;
   width: 300px;
+  border: solid #6d477a;
+  margin: auto;
 }
 .contactField .like .like {
   background-color: black;
@@ -47,16 +61,30 @@
   filter: invert(1);
 }
 .contactField .inputMail {
-  background-image: url("../../../public/assets/snow.gif");
-  border-radius: 20px;
   width: 300px;
+}
+@media (max-width: 650px) {
+  .contactField .inputMail {
+    width: 80%;
+  }
+}
+.contactField .message {
+  width: 80dvw;
+  margin: auto;
+}
+.contactField .message textarea {
+  min-height: 130px;
+}
+@media (max-width: 650px) {
+  .contactField .message {
+    width: 80dvw;
+    margin: auto;
+  }
 }
 .contactField input {
   box-sizing: border-box;
   border: solid #6d477a;
   text-align: center;
-  height: 100%;
-  width: 100%;
   border-radius: 20px;
   background-color: rgba(0, 0, 255, 0);
   color: white;
@@ -77,6 +105,5 @@
   transition: all 1s;
 }
 .contactField .elements {
-  margin: 25px;
   margin-top: 25px;
 }/*# sourceMappingURL=contact.css.map */

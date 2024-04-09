@@ -12,6 +12,7 @@
     margin: 0px 0px 0px 0px;
     z-index: -1;
     width: 100%;
+
 }
     
 .content-show {
@@ -31,21 +32,27 @@
 .content {
     margin-top: 0;
     padding: 20px;
-    color: white;
-    background-color: #99477a;
+    //color: white;
+    color: black;
+    //background-color: #99477a;
+    background-color: white;
     opacity: 0.8;
     transition: all ease-in-out 4s; 
     border-radius: 0 0 20px 20px;
-    img{
-        filter: invert(1);
+    .like{
+        color: white;
+        img{
+            filter: invert(1);
+        }
     }
+    //outline: solid 3px black;
 }
 
 
 .headerCollapse {
     height: 5dvh;
     //width: 98%;
-    background-color: #6d477a;
+    background-color: #99477a;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -97,12 +104,28 @@
 }
 
 .collapseField:hover{
-    //transform: translate(0px,-1px);
     .content{
-
         opacity: 1;
-        //transition-duration: 4s;
         transition: all ease-in-out 4s; 
-        //transition-timing-function: linear;
+    }
+}
+.collapseContent:hover{
+
+    @media (min-width:650px) {
+        .like{
+            right: -20px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
+    }
+
+}
+.collapseContent{
+    @media  (max-width: 649px){
+        .like{
+            right: -20px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
     }
 }

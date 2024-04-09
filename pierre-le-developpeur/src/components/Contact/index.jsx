@@ -6,7 +6,7 @@ import TextArea from "../TextArea";
 
 //import "./smtp";
 
-function Contact({ likeId, recoId }) {
+function Contact({ props }) {
   const likes = useSelector((state) => state.data.likes);
   const contact = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
@@ -26,7 +26,9 @@ function Contact({ likeId, recoId }) {
   const mail = useRef();
 
   const formMailError = (e) => {
+    e.preventDefault();
     setInputMailValue(e.target.value);
+    console.log(e.target.value, mail);
     const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
     if (emailRegExp.test(e.target.value)) {
       setErrorMail(false);
@@ -59,7 +61,7 @@ function Contact({ likeId, recoId }) {
       Subject: "Site pierre le developpeur",
       Body:
         "email : " +
-        mail.current.value +
+        mail.current.children[0][0].value +
         " message : " +
         content.current.children[0][0].value,
     };
@@ -69,6 +71,9 @@ function Contact({ likeId, recoId }) {
       if (message === "OK") {
         setSending(true);
         setSendingError("");
+        language === "FR"
+          ? (content.current.children[0][0].value = contact.french.succes)
+          : (content.current.children[0][0].value = contact.english.succes);
       } else {
         setSending(false);
         setSendingError(message);
@@ -82,67 +87,72 @@ function Contact({ likeId, recoId }) {
 
   return (
     <div className="contactField">
-      <div className="elements">
-        <TextArea
-          props={{
-            french: translations.french.recommendation,
-            english: translations.english.recommendation,
-            like: likes[4]._id,
-            links: null,
-            edit: false,
-          }}
-        ></TextArea>
+      <TextArea
+        props={{
+          french: translations.french.recommendation,
+          english: translations.english.recommendation,
+          likes: likes[4]._id,
+          links: null,
+          edit: false,
+          style: "empty",
+        }}
+      ></TextArea>
+
+      <div className="buttonAndBackground elements">
+        {language === "FR" ? (
+          <a
+            href={contact.french.cv}
+            download="CV-aubree-pierre.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="button visible">Téléchargez mon C.V</button>
+          </a>
+        ) : (
+          <a
+            href={contact.english.cv}
+            download="CV-aubree-pierre.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="button visible">Download my C.V</button>
+          </a>
+        )}
       </div>
       <div className="cvAndMail">
-        <div className="buttonAndBackground elements">
-          {language === "FR" ? (
-            <a
-              download="CV_aubree_pierre.pdf"
-              href={contact.french.cv}
-              target="_blank"
-            >
-              <button className="button">
-                {language === "FR" ? "Telechargez mon C.V" : "Download my C.V"}
-              </button>
-            </a>
-          ) : (
-            <a
-              download="CV_aubree_pierre.pdf"
-              href={contact.english.cv}
-              target="_blank"
-            >
-              <button className="button">
-                {language === "FR" ? "Telechargez mon C.V" : "Download my C.V"}
-              </button>
-            </a>
-          )}
-        </div>
-        <div className="inputMail elements">
-          <input
-            type="mail"
-            placeholder={
-              language === "FR"
-                ? contact.french.placeholder_mail
-                : contact.english.placeholder_mail
-            }
-            onChange={formMailError}
-            ref={mail}
-          ></input>
+        <div
+          className="inputMail elements mail"
+          ref={mail}
+          onChange={formMailError}
+        >
+          <TextArea
+            props={{
+              french: contact.french.placeholder_mail,
+              english: contact.english.placeholder_mail,
+              likes: null,
+              links: null,
+              edit: true,
+              style: "windows",
+            }}
+          ></TextArea>
         </div>
       </div>
-      <div className="elements" ref={content} onChange={formContentError}>
-        <TextArea
-          props={{
-            french: contact.french.content,
-            english: contact.english.content,
-            like: likes[0]._id,
-            links: null,
-            edit: true,
-          }}
-        ></TextArea>
+      <div className="message">
+        <div className="elements" ref={content} onChange={formContentError}>
+          <TextArea
+            props={{
+              french: contact.french.content,
+              english: contact.english.content,
+              likes: props.likeId,
+              links: null,
+              edit: true,
+              style: "windows",
+            }}
+          ></TextArea>
+        </div>
       </div>
       {errorContent === false && errorMail === false ? (
-        <div className="buttonAndBackground send">
+        <div className="buttonAndBackground send elements">
           <button
             className="button"
             onClick={(e) => sendMail(content, mail, e)}
@@ -151,7 +161,17 @@ function Contact({ likeId, recoId }) {
           </button>
         </div>
       ) : (
-        ""
+        <div className="buttonAndBackground cantSend elements">
+          <button className="button ">
+            {language === "FR"
+              ? errorMail === true
+                ? contact.french.error_mail
+                : contact.french.error_content
+              : errorMail === true
+              ? contact.english.error_mail
+              : contact.english.error_content}
+          </button>
+        </div>
       )}
     </div>
   );

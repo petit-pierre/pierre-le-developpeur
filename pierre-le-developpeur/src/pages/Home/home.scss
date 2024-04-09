@@ -1,5 +1,10 @@
-
 .withe {
+    .intro{
+        padding: 100px 50px 100px 250px;
+        @media (max-width: 650px){
+            padding: 100px 50px 100px 50px;
+        }
+    }
     .competences{
         background-image: url("../../assets/background.png");
         background-repeat: no-repeat;
@@ -50,9 +55,7 @@
         .toolTitle{
             padding-right: 30px;
         }
-        //justify-content: space-around;
     }
-
     .footerPlace {
         width: 100%;
         height: 8dvh;
@@ -71,40 +74,6 @@
 .contact{
     position: relative;
 }
-.buttonLikeReco{
-position: absolute;
-left: 92dvw;
-top: 88dvh;
-z-index: 6;
-//filter: invert(1);
-@media (max-width: 335px){
-    top: 133dvh;
-    left: 70dvw;
-}
-@media (min-width:335px) and (max-width: 649px){
-    top: 108dvh;
-    left: 70dvw;
-}
-@media (min-width:650px) and (max-width: 950px){
-    top: 97dvh;
-    left: 70dvw;
-}
-}
-.relative{
-    position: relative;
-}
-/*.buttonLikeCta{
-    position: absolute;
-    left: 92dvw;
-    top: 0dvh;
-    z-index: 6;
-    //filter: invert(1);
-    @media (max-width: 650px){
-        top: 0dvh;
-        left: 70dvw;
-    }
-    }*/
-.contact{position: relative;}
 #contact{
     position: absolute;
     top: -17dvh;
@@ -120,23 +89,3 @@ z-index: 6;
     top: -27dvh;
 }
 
-.collapseContent:hover{
-
-    @media (min-width:650px) {
-        .like{
-            right: -10px;
-            transition: 1000ms;
-            //bottom: 10px;
-        }
-    }
-
-}
-.collapseContent{
-    @media  (max-width: 649px){
-        .like{
-            right: -10px;
-            transition: 1000ms;
-            //bottom: 10px;
-        }
-    }
-}

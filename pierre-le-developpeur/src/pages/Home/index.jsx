@@ -26,6 +26,9 @@ function Home() {
 
   const dispatch = useDispatch();
 
+  const intro =
+    "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour /n comme Aldus PageMaker.";
+
   useEffect(() => {
     const getLikes = async () => {
       const getLikesResult = await dispatch(getLikesThunk());
@@ -81,19 +84,24 @@ function Home() {
         <Header></Header>
 
         <div className="withe">
-          <div className="slider">
-            <Slider
-              sliders={sliders}
-              mini={false}
-              likeId={likes[1]._id}
-            ></Slider>
+          <div className="intro">
+            <TextArea
+              props={{
+                french: intro,
+                english: intro,
+                likes: null,
+                links: null,
+                edit: false,
+                style: "empty",
+              }}
+            ></TextArea>
           </div>
+
           <div className="contact">
             <span id="contact"></span>
-            <Contact likeId={likes[0]._id} recoId={likes[4]._id}></Contact>
-            <div className="relative">
-              <div className="buttonLikeCta"></div>
-            </div>
+            <Contact
+              props={{ likeId: likes[0]._id, recoId: likes[4]._id }}
+            ></Contact>
           </div>
           <div className="competences">
             <span id="competences"></span>

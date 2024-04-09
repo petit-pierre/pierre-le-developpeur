@@ -1,10 +1,20 @@
+.windows {
+  background-image: url("../../../public/assets/snow.gif");
+  border: solid 3px #6d477a;
+}
+.windows textarea {
+  color: white;
+}
+
 .textArea {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  background-image: url("../../../public/assets/snow.gif");
   background-size: 100%;
-  border: solid 3px #6d477a;
+}
+.textArea .textareaLinks {
+  color: white;
+  text-align: center;
 }
 .textArea .like {
   /*.pocContain{
@@ -28,7 +38,6 @@
 }
 .textArea textarea {
   resize: none;
-  color: white;
   border: none;
   padding: 20px;
   text-decoration: none;
@@ -37,7 +46,6 @@
   border-radius: 20px;
   box-sizing: border-box;
   width: 100%;
-  min-height: 130px;
 }
 .textArea textarea:focus {
   outline: none;

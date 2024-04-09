@@ -7,6 +7,7 @@
     width: 80%;
     margin: auto;
     margin-top: 12dvh;
+
     .projectContent{
         position: absolute;
         //top: 0;
@@ -30,27 +31,7 @@
             
           }
     }
-    .snow{
-        //background-color: #99477a;
-        background-image:   url("../../../public/assets/particules.gif");
-        opacity: 0.2;
-        position: absolute;
-        top: 1px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-        border-radius: 20px;
-    }
-    .snowBackground{
-        background-color: #99477a;
-        position: absolute;
-        top: 1px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        border-radius: 20px;}
+
 }
 .projectPage{
     position: relative;
@@ -63,6 +44,11 @@
             //top: 28dvh;
             left: 70dvw;
         }
+    }
+    .textAndLinks{
+        width: 80dvw;
+        margin: auto;
+        margin-top: 100px;
     }
     .tools{
         margin-top: 21dvh;
@@ -108,10 +94,6 @@
             padding-right: 30px;
         }
         //justify-content: space-around;
-    }
-    .footerPlace {
-        width: 100%;
-        height: 8dvh;
     }
     .projectLink{
         color: white;

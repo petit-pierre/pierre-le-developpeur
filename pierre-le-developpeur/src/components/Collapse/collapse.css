@@ -28,19 +28,22 @@
 .content {
   margin-top: 0;
   padding: 20px;
-  color: white;
-  background-color: #99477a;
+  color: black;
+  background-color: white;
   opacity: 0.8;
   transition: all ease-in-out 4s;
   border-radius: 0 0 20px 20px;
 }
-.content img {
+.content .like {
+  color: white;
+}
+.content .like img {
   filter: invert(1);
 }
 
 .headerCollapse {
   height: 5dvh;
-  background-color: #6d477a;
+  background-color: #99477a;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -89,4 +92,18 @@
 .collapseField:hover .content {
   opacity: 1;
   transition: all ease-in-out 4s;
+}
+
+@media (min-width: 650px) {
+  .collapseContent:hover .like {
+    right: -20px;
+    transition: 1000ms;
+  }
+}
+
+@media (max-width: 649px) {
+  .collapseContent .like {
+    right: -20px;
+    transition: 1000ms;
+  }
 }/*# sourceMappingURL=collapse.css.map */
