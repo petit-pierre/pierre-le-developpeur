@@ -153,11 +153,6 @@ function Home() {
             ></Contact>
           </div>
           <div className="competences">
-            <img
-              src="http://pierre-le-developpeur.com/assets/background.png"
-              className="background"
-              alt="cerisier du japon (background)"
-            ></img>
             <div className="contentSkills">
               <TextArea
                 props={{
@@ -187,6 +182,13 @@ function Home() {
                   </div>
                 ))}
               ></TextArea>
+            </div>
+            <div className="pictureJap">
+              <img
+                src="http://pierre-le-developpeur.com/assets/background.png"
+                className="background"
+                alt="cerisier du japon (background)"
+              ></img>
             </div>
             <span id="competences"></span>
             <div className="tools">

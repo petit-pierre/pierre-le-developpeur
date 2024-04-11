@@ -2,6 +2,7 @@
     //background-image: url("http://localhost:3001/static/media/background.e8a9dc6eb04046b78043.png");
     //background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
     .background{
         position: absolute;
         top: 0;
@@ -125,9 +126,13 @@
         }
     }
     .competences{
-        width: 100%;
+        width: 100dvw;
         //padding-left: 1dvw;
+        //overflow: hidden;
+        //background-image: url("http://pierre-le-developpeur.com/assets/background.png");
+
         margin-top: 35dvh;
+        //object-fit: cover;
         .contentSkills{
             width: 90%;
             margin: auto;

@@ -1,5 +1,6 @@
 .withe {
   position: relative;
+  overflow: hidden;
 }
 .withe .background {
   position: absolute;
@@ -119,7 +120,7 @@
   margin-top: 15px;
 }
 .withe .competences {
-  width: 100%;
+  width: 100dvw;
   margin-top: 35dvh;
 }
 .withe .competences .contentSkills {
