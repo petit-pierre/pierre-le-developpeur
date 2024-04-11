@@ -47,7 +47,6 @@ function DeleteTool() {
   }
   return (
     <div>
-      <Header />
       <h1>Oh non !!!!!!</h1>
       <p>Confirmez vous la suppression de ce tool : {tool.title} ?</p>
       <button onClick={deleteTool}>OUI</button>

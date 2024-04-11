@@ -38,7 +38,7 @@ h2 {
 
 p {
   font-family: "abacaxi-devanagari", sans-serif;
-  font-weight: 100;
+  font-weight: 700;
   font-style: normal;
   font-size: 1rem;
 }
@@ -48,9 +48,16 @@ p {
   }
 }
 
-textarea, button {
-  font-family: "abacaxi-devanagari", sans-serif;
+span {
+  font-family: "hayanbaram", sans-serif;
   font-weight: 100;
   font-style: normal;
+}
+
+textarea, button {
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-style: normal;
   font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
 }/*# sourceMappingURL=index.css.map */

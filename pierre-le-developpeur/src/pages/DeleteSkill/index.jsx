@@ -57,7 +57,6 @@ function DeleteSkill() {
   }
   return (
     <div>
-      <Header />
       <h1>Oh non !!!!!!</h1>
       <p>Confirmez vous la suppression de ce skill : {skill.french_title} ?</p>
       <button onClick={deleteSkill}>OUI</button>

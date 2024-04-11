@@ -80,7 +80,6 @@ function PostSkills() {
   }
   return (
     <div>
-      <Header />
       <p>title in french :</p>
       <input type="text" ref={frenchTitle}></input>
       <p>title in english :</p>

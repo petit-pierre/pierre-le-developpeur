@@ -27,7 +27,8 @@
     z-index: 10;
 
     nav{
-        background-color: #c996b7;
+        //background-color: #c996b7;
+        background-color: #99477a;
         //background-color: #99477a;
         //opacity: 0.8;
         transition: 1s;
@@ -93,12 +94,7 @@
         display: flex;
         flex-direction: row;
         color: white;
-        a{
-            cursor: default;
-        }
-        a:hover {
-            color: white;
-        }
+        cursor: default;
     }
     input[type="checkbox"].demo5 {
         display: none;
@@ -232,7 +228,7 @@
         }
         nav .li {
           padding: 3px 0;
-          height: 15dvh ;
+          height: 12dvh ;
         }
         nav .li:hover {
           background: #6d477a;

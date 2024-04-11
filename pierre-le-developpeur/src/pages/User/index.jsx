@@ -28,7 +28,6 @@ function User() {
 
   return (
     <main>
-      <Header />
       <h1 className="dashboard">Dashboard</h1>
       <fieldset>
         <button onClick={signOut}>sign out</button>

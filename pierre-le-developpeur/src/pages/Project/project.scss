@@ -35,6 +35,10 @@
 }
 .projectPage{
     position: relative;
+    #project{
+        position: absolute;
+        top: -100px;
+    }
     .buttonLikeProjectContent{
         position: absolute;
         left: 92dvw;
@@ -44,6 +48,10 @@
             //top: 28dvh;
             left: 70dvw;
         }
+    }
+    .slider{
+        margin-top: 0px;
+        height: 90dvh;
     }
     .textAndLinks{
         width: 80dvw;

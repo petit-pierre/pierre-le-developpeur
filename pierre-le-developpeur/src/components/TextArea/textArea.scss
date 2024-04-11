@@ -1,24 +1,87 @@
 .windows{
     background-image:   url("../../../public/assets/snow.gif");
     border: solid 3px  #6d477a;
+    border-radius: 20px;
+    overflow: hidden;
+    form{
+
+    }
     textarea{
         color: white;
     }
 }
 
 .empty{
+    border-radius: 20px;
     //border: solid 1px  black;
 }
+
+.purpleAndWitheTextarea{
+    //background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .title{
+        //height: 25px;
+        width: 100%;
+        background-color: #99477a;
+        color: white;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+
+    }
+    .mise-en-page{
+        background-color: white;
+        opacity: 0.8;
+        transition: 1s;
+    }
+    .mise-en-page:hover{
+        opacity: 1;
+        transition: 1s;
+    }
+}
+/*.purpleAndWitheTextarea:hover{
+    .textArea{
+        opacity: 1;
+        transition: 1s;
+    }
+}*/
 
 .textArea{
     //height: 500px;
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
 
     background-size: 100%;
 
     //min-height: 130px;
+    .softSkills{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        .logoAndTitle{
+            display: flex;
+            flex-direction: column;
+            //margin: auto;
+            //text-align: center;
+            p{
+                //display: inline;
+                margin: auto;
+                //padding: auto;
+                padding-left: 20px;
+                //text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .logo{
+                width: 25px;
+                margin: auto;
+            }
+        }
+    }
     .textareaLinks{
         color: white;
         text-align: center;
@@ -108,3 +171,10 @@ textarea{
     color: black;
     transition: all 1s;
 }
+.cofeeComponentEdit{
+    .cofeeContainer{
+        filter: invert(1); 
+        transition: 1s;
+    }
+}
+

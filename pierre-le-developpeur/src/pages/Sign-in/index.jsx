@@ -58,7 +58,6 @@ function SignIn() {
 
   return (
     <main>
-      <Header />
       <section className="signin">
         <h1>Sign In</h1>
         <form onSubmit={(e) => submit(e)}>

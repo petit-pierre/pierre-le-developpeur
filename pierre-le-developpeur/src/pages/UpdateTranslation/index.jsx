@@ -139,7 +139,6 @@ function UpdateInfo() {
 
   return (
     <main>
-      <Header />
       <div>
         <h1>Info</h1>
         <fieldset>

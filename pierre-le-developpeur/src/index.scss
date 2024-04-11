@@ -36,18 +36,25 @@ h2 {
 }
 p{
   font-family: "abacaxi-devanagari", sans-serif;
-  font-weight: 100;
+  font-weight: 700;
   font-style: normal;
   font-size: 1rem;
   @media (max-width: 650px){
     font-size: 0.7rem;
   }
 }
+span{
+  font-family: "hayanbaram", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
 
 textarea , button{
   font-family: "abacaxi-devanagari", sans-serif;
-  font-weight: 100;
   font-style: normal;
   font-size: 1rem;
+  //font-family: "aw-conqueror-didot", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 

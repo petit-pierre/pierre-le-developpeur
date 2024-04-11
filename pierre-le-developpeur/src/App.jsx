@@ -26,6 +26,7 @@ import Landing from "./pages/Landing";
 import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
+import Header from "./components/Header";
 //import { Socket } from "socket.io-client";
 
 function App() {
@@ -71,10 +72,11 @@ function App() {
 
   return (
     <Router>
+      <Header></Header>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/OldLanding" element={<Landing />} />
         <Route path="/UpdateInfo" element={<UpdateInfo />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/PostSliders" element={<PostSliders />} />

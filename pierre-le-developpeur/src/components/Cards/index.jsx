@@ -4,6 +4,7 @@ import LikeButton from "../LikeButton";
 import Slider from "../Slider";
 import "./cards.css";
 import React, { useState } from "react";
+import { HashLink } from "react-router-hash-link";
 
 function Cards({ project }) {
   const language = useSelector((state) => state.data.language);
@@ -12,7 +13,7 @@ function Cards({ project }) {
     setOPen(!open);
   };
   return (
-    <Link to={"/Project/" + project.french_title}>
+    <HashLink to={"/Project/" + project.french_title + "#project"}>
       <div className="cardField">
         <div className="like miniLike likeSlide">
           <LikeButton id={project.slider_likes_id}></LikeButton>
@@ -36,7 +37,7 @@ function Cards({ project }) {
           </div>
         </div>
       </div>
-    </Link>
+    </HashLink>
   );
 }
 

@@ -63,6 +63,10 @@
 .contactField .inputMail {
   width: 300px;
 }
+.contactField .inputMail textarea {
+  text-align: center;
+  padding-top: 34px;
+}
 @media (max-width: 650px) {
   .contactField .inputMail {
     width: 80%;

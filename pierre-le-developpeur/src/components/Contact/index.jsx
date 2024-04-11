@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import "./contact.css";
 import { useRef, useState } from "react";
-import LikeButton from "../LikeButton";
 import TextArea from "../TextArea";
 
 //import "./smtp";
@@ -28,7 +27,6 @@ function Contact({ props }) {
   const formMailError = (e) => {
     e.preventDefault();
     setInputMailValue(e.target.value);
-    console.log(e.target.value, mail);
     const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
     if (emailRegExp.test(e.target.value)) {
       setErrorMail(false);
@@ -87,38 +85,6 @@ function Contact({ props }) {
 
   return (
     <div className="contactField">
-      <TextArea
-        props={{
-          french: translations.french.recommendation,
-          english: translations.english.recommendation,
-          likes: likes[4]._id,
-          links: null,
-          edit: false,
-          style: "empty",
-        }}
-      ></TextArea>
-
-      <div className="buttonAndBackground elements">
-        {language === "FR" ? (
-          <a
-            href={contact.french.cv}
-            download="CV-aubree-pierre.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="button visible">Téléchargez mon C.V</button>
-          </a>
-        ) : (
-          <a
-            href={contact.english.cv}
-            download="CV-aubree-pierre.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="button visible">Download my C.V</button>
-          </a>
-        )}
-      </div>
       <div className="cvAndMail">
         <div
           className="inputMail elements mail"
@@ -133,6 +99,7 @@ function Contact({ props }) {
               links: null,
               edit: true,
               style: "windows",
+              id: "contact00",
             }}
           ></TextArea>
         </div>
@@ -147,6 +114,8 @@ function Contact({ props }) {
               links: null,
               edit: true,
               style: "windows",
+              cofee: true,
+              id: "contact01",
             }}
           ></TextArea>
         </div>

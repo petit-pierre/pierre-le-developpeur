@@ -76,7 +76,6 @@ function DeleteProject() {
   }
   return (
     <div>
-      <Header />
       <h1>Oh non !!!!!!</h1>
       <p>Confirmez vous la suppression de ce projet : {project.title} ?</p>
       <button onClick={deleteProject}>OUI</button>

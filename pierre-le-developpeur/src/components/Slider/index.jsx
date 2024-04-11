@@ -30,7 +30,7 @@ function Slider({ sliders, mini, likeId }) {
       }
     }
   }
-  /*function useInterval(callback, delay) {
+  function useInterval(callback, delay) {
     const savedCallback = useRef();
 
     // Remember the latest callback.
@@ -49,10 +49,12 @@ function Slider({ sliders, mini, likeId }) {
       }
     }, [delay]);
   }
+
   useInterval(() => {
-    // Your custom logic here
-    nextPicture();
-  }, 6000);*/
+    if (mini === true) {
+      nextPicture();
+    }
+  }, 6000);
 
   //changement d'index//
 
@@ -72,9 +74,9 @@ function Slider({ sliders, mini, likeId }) {
   return (
     <div
       className="sliderField sliderContainer"
-      onTouchStart={(e) => handleTouchStart(e)}
-      onTouchMove={(e) => handleTouchMove(e)}
-      onTouchEnd={(e) => handleTouchEnd(e)}
+      onTouchStart={mini === false ? (e) => handleTouchStart(e) : null}
+      onTouchMove={mini === false ? (e) => handleTouchMove(e) : null}
+      onTouchEnd={mini === false ? (e) => handleTouchEnd(e) : null}
     >
       <div className="like">
         <LikeButton id={likeId}></LikeButton>

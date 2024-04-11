@@ -1,14 +1,87 @@
+.withe {
+  position: relative;
+}
+.withe .background {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.withe .reco:hover .like {
+  right: -15px;
+  transition: 1000ms;
+}
+.withe .reco {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100dvw;
+  overflow: hidden;
+  /*.buttonAndBackground{
+      margin-bottom: 150px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+  }*/
+}
+@media (max-width: 650px) {
+  .withe .reco {
+    flex-direction: column-reverse;
+  }
+  .withe .reco .recoTxt {
+    width: 100%;
+  }
+  .withe .reco .buttonAndBackground {
+    margin-bottom: 20px;
+  }
+}
+.withe .reco .recoTxt {
+  width: 70%;
+}
+.withe .reco .like {
+  /*.pocContain{
+      filter: invert(1);
+  }*/
+  color: black;
+  background-color: white;
+  transition: 1000ms;
+  position: absolute;
+  top: 100px;
+  opacity: 0.6;
+  z-index: 6;
+  right: -350px;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+@media (max-width: 650px) {
+  .withe .reco .like {
+    right: -15px;
+  }
+}
+.withe .reco .buttonAndBackground {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.withe .reco .like {
+  background-color: black;
+  color: white;
+}
+.withe .reco .like img {
+  filter: invert(1);
+}
 .withe .intro {
   padding: 100px 50px 100px 250px;
 }
+.withe .intro textarea {
+  font-family: "hayanbaram", sans-serif;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
 @media (max-width: 650px) {
   .withe .intro {
-    padding: 100px 50px 100px 50px;
+    padding: 50px 0px 0px 0px;
   }
-}
-.withe .competences {
-  background-image: url("../../assets/background.png");
-  background-repeat: no-repeat;
 }
 .withe .slider {
   width: 100%;
@@ -45,6 +118,19 @@
   padding-right: 10px;
   margin-top: 15px;
 }
+.withe .competences {
+  width: 100%;
+  margin-top: 35dvh;
+}
+.withe .competences .contentSkills {
+  width: 90%;
+  margin: auto;
+}
+@media (max-width: 650px) {
+  .withe .competences {
+    width: 100%;
+  }
+}
 .withe .skills {
   margin: auto;
 }
@@ -66,7 +152,7 @@
 }
 
 .projets {
-  margin-top: 12dvh;
+  margin-top: 45dvh;
   margin-bottom: 12dvh;
   display: flex;
   flex-direction: row;
@@ -76,27 +162,25 @@
 
 .contact {
   position: relative;
+  margin-top: 150px;
 }
 
 #contact {
   position: absolute;
-  top: -17dvh;
+  top: -150px;
 }
 
 .competences {
   position: relative;
 }
-
-#competences {
+.competences #competences {
   position: absolute;
   top: -27dvh;
 }
-
-.projets {
+.competences .projets {
   position: relative;
 }
-
-#projets {
+.competences #projets {
   position: absolute;
   top: -27dvh;
 }/*# sourceMappingURL=home.css.map */

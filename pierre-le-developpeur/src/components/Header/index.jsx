@@ -1,11 +1,9 @@
-import { NavLink } from "react-router-dom";
 import "./header.css";
 import { useState } from "react";
 import burgerIcon from "../../assets/burger.svg";
 import { userSlice } from "../../Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-//import { HashLink } from "react-router-hash-link";
-import { HashLink, HashLink as Link } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
@@ -55,22 +53,25 @@ function Header() {
                   ></img>
                 </a>
               </div>
-              <HashLink onClick={burgerOff} to="/Home#contact">
+              <HashLink onClick={burgerOff} to="/#accueil">
+                <div className="li links">Accueil</div>
+              </HashLink>
+              <HashLink onClick={burgerOff} to="/#contact">
                 <div className="li links">Contact</div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/Home#competences">
+              <HashLink onClick={burgerOff} to="/#competences">
                 <div className="li links">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
                 </div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/Home#projets">
+              <HashLink onClick={burgerOff} to="/#projets">
                 <div className="li links">
                   {language === "FR" ? "Projets" : "Projects"}
                 </div>
               </HashLink>
               <div className="li language links">
-                <a> {language} </a>
+                {language}
 
                 <input
                   type="checkbox"
@@ -86,7 +87,7 @@ function Header() {
             </div>
           </nav>
           <div className="headerLogos">
-            <HashLink onClick={burgerOff} to="/Home#accueil">
+            <HashLink onClick={burgerOff} to="/#accueil">
               <img
                 src="http://pierre-le-developpeur.com/assets/pierre.png"
                 className="maGanache"

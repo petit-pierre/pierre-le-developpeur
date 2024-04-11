@@ -76,6 +76,10 @@
         //height: 35px; 
         width: 300px;
         //width: 100%
+        textarea{
+            text-align: center;
+            padding-top: 34px;
+        }
         @media (max-width: 650px) {
             width: 80%;
           }
@@ -123,12 +127,15 @@
         background-color: white;
         color: black;
         transition: all 1s;
+
+
     }
     .elements{
         margin-top: 25px;
     }
-
 }
+
+
 
 
 

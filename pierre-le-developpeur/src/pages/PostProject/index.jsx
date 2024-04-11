@@ -223,7 +223,6 @@ function PostProject() {
 
   return (
     <div>
-      <Header />
       <fieldset>
         <form>
           <h1>Post new project</h1>

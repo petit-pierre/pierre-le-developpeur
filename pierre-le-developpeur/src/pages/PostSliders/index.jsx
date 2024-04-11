@@ -68,7 +68,6 @@ function PostSliders() {
   }
   return (
     <div>
-      <Header />
       <p>french content :</p>
       <textarea ref={french_content} />
       <p>english content :</p>

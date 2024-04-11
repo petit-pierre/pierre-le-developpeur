@@ -47,7 +47,8 @@ function Project() {
     }
     return project != undefined ? (
       <div className="projectPage">
-        <Header />
+        <span id="project"></span>
+
         <div className="slider">
           <Slider
             sliders={project.sliders}
@@ -64,6 +65,8 @@ function Project() {
               links: project.links,
               edit: false,
               style: "windows",
+              cofee: true,
+              id: "project00",
             }}
           ></TextArea>
         </div>

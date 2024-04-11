@@ -83,7 +83,6 @@ function PostTools() {
   }
   return (
     <div>
-      <Header />
       <p>title :</p>
       <input type="text" ref={Title}></input>
       <p>categorie :</p>

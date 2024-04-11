@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
 import "./textArea.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import LikeButton from "../LikeButton";
+import Cofee from "../Cofee/coffe";
 
-function TextArea({ props }) {
+function TextArea({ props, content }) {
   const language = useSelector((state) => state.data.language);
   let textPlace = useRef();
+  const [cofee, setCofee] = useState(false);
 
   //window.addEventListener("resize", console.log("coucou"));
 
@@ -23,8 +25,8 @@ function TextArea({ props }) {
   }
 
   function handleResize() {
-    var oForm = document.forms[props.french + "myForm"],
-      aoTextArea = oForm.getElementsByClassName(props.french);
+    var oForm = document.forms[props.id + "myForm"],
+      aoTextArea = oForm.getElementsByClassName(props.id);
     //console.log(oForm);
     for (let oTextArea of aoTextArea) {
       /* vous pouver aussi utiliser l'event keyup */
@@ -51,6 +53,7 @@ function TextArea({ props }) {
   useEffect(() => {
     if (language === "FR" && textPlace.current.value === props.english) {
       textPlace.current.value = props.french;
+      handleResize();
     }
     if (language === "ENG" && textPlace.current.value === props.french) {
       textPlace.current.value = props.english;
@@ -60,6 +63,7 @@ function TextArea({ props }) {
   }, [language]);
 
   function clearText(evt) {
+    setCofee(true);
     if (props.edit === true) {
       if (
         evt.target.value === props.french ||
@@ -75,6 +79,7 @@ function TextArea({ props }) {
       : (evt.target.value = props.french);*/
   }
   function textBack(evt) {
+    setCofee(false);
     if (
       evt.target.value != "" &&
       evt.target.value != " " &&
@@ -91,54 +96,66 @@ function TextArea({ props }) {
       handleResize();
     }
   }
-  //console.log(props.edit);
-  let classi = props.french + " wdgAutoSize edit";
-  let classedit = props.french + " wdgAutoSize";
-  console.log(props.style);
+
+  let classi = props.id + " wdgAutoSize edit";
+  let classedit = props.id + " wdgAutoSize";
   return (
-    <form
-      id={props.french + "myForm"}
-      className={
-        props.style === "windows"
-          ? "mise-en-page textArea windows"
-          : "mise-en-page textArea empty"
-      }
-    >
-      <textarea
-        id="champText"
-        className={props.edit === true ? classi : classedit}
-        spellCheck={false}
-        readOnly={!props.edit}
-        ref={textPlace}
-        defaultValue={language === "FR" ? props.french : props.english}
-        onSelect={(evt) => clearText(evt)}
-        onBlur={(evt) => textBack(evt)}
-      ></textarea>
-      {props.links != null ? (
-        <div className="textareaLinks">
-          {" "}
-          <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
-          {props.links.map((link) => (
-            <div key={link._id}>
-              <a href={link.url} target="_blank" className="projectLink">
-                {link.url}
-              </a>
-              <br />
-              <br />
-            </div>
-          ))}
-        </div>
-      ) : (
-        ""
-      )}
-      {props.likes != null ? (
-        <div className="like">
-          <LikeButton id={props.likes} className="like"></LikeButton>
-        </div>
-      ) : (
-        ""
-      )}
-    </form>
+    <div className={props.style}>
+      <div className="title">
+        <span>{props.title}</span>
+      </div>
+      <form id={props.id + "myForm"} className="mise-en-page textArea">
+        <textarea
+          id="champText"
+          className={props.edit === true ? classi : classedit}
+          spellCheck={false}
+          readOnly={!props.edit}
+          ref={textPlace}
+          defaultValue={language === "FR" ? props.french : props.english}
+          onSelect={(evt) => clearText(evt)}
+          onBlur={(evt) => textBack(evt)}
+        ></textarea>
+        {props.links != null ? (
+          <div className="textareaLinks">
+            {" "}
+            <h1> {language === "FR" ? "Liens :" : "Links :"} </h1>
+            {props.links.map((link) => (
+              <div key={link._id}>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  className="projectLink"
+                  rel="noopener noreferrer"
+                >
+                  {link.url}
+                </a>
+                <br />
+                <br />
+              </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+        {props.likes != null ? (
+          <div className="like">
+            <LikeButton id={props.likes} className="like"></LikeButton>
+          </div>
+        ) : (
+          ""
+        )}
+        {props.cofee === true ? (
+          <div
+            className={cofee === true ? "cofeeComponentEdit" : "cofeeComponent"}
+          >
+            <Cofee></Cofee>
+          </div>
+        ) : (
+          ""
+        )}
+        <div className="softSkills">{content}</div>
+      </form>
+    </div>
   );
 }
 

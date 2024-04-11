@@ -31,7 +31,7 @@
   z-index: 10;
 }
 .headerfield nav {
-  background-color: #c996b7;
+  background-color: #99477a;
   transition: 1s;
 }
 @media (max-width: 650px) {
@@ -96,12 +96,7 @@
   display: flex;
   flex-direction: row;
   color: white;
-}
-.header .language a {
   cursor: default;
-}
-.header .language a:hover {
-  color: white;
 }
 .header input[type=checkbox].demo5 {
   display: none;
@@ -225,7 +220,7 @@
   }
   .header nav .li {
     padding: 3px 0;
-    height: 15dvh;
+    height: 12dvh;
   }
   .header nav .li:hover {
     background: #6d477a;

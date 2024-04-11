@@ -1,17 +1,19 @@
-import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer";
 import "./home.css";
 import io from "socket.io-client";
 import LikeButton from "../../components/LikeButton";
-import Slider from "../../components/Slider";
 import Contact from "../../components/Contact";
 import { useEffect } from "react";
 import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
+import Button from "../../components/Button";
+import engIntro from "../../data/englishIntro.json";
+import frIntro from "../../data/frenchIntro.json";
+import engSkills from "../../data/englishSkills.json";
+import frSkills from "../../data/frenchSkills.json";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -25,9 +27,6 @@ function Home() {
   const socket = io.connect("http://api.petitpierre.net");
 
   const dispatch = useDispatch();
-
-  const intro =
-    "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour /n comme Aldus PageMaker.";
 
   useEffect(() => {
     const getLikes = async () => {
@@ -81,20 +80,70 @@ function Home() {
 
     return (
       <div id="accueil">
-        <Header></Header>
-
         <div className="withe">
           <div className="intro">
             <TextArea
               props={{
-                french: intro,
-                english: intro,
+                french: translations.french.placeholder_content,
+                english: translations.english.placeholder_content,
                 likes: null,
                 links: null,
                 edit: false,
                 style: "empty",
+                id: "home01",
               }}
             ></TextArea>
+          </div>
+          <div className="reco">
+            <div className="recoTxt">
+              <TextArea
+                props={{
+                  french: translations.french.recommendation,
+                  english: translations.english.recommendation,
+                  likes: null,
+                  links: null,
+                  edit: false,
+                  style: "empty",
+                  id: "home02",
+                }}
+              ></TextArea>
+            </div>
+            <div className="buttonAndBackground elements">
+              {language === "FR" ? (
+                <a
+                  href={translations.french.cv}
+                  download="CV-aubree-pierre.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    props={{
+                      style: "purpleAndWitheTextarea",
+                      active: "send",
+                      title: "Telechargez mon C.V",
+                    }}
+                  ></Button>
+                </a>
+              ) : (
+                <a
+                  href={translations.english.cv}
+                  download="CV-aubree-pierre.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    props={{
+                      style: "purpleAndWitheTextarea",
+                      active: "send",
+                      title: "Download my C.V",
+                    }}
+                  ></Button>
+                </a>
+              )}
+            </div>
+            <div className="like">
+              <LikeButton id={likes[4]._id} className="like"></LikeButton>
+            </div>
           </div>
 
           <div className="contact">
@@ -104,6 +153,41 @@ function Home() {
             ></Contact>
           </div>
           <div className="competences">
+            <img
+              src="http://pierre-le-developpeur.com/assets/background.png"
+              className="background"
+              alt="cerisier du japon (background)"
+            ></img>
+            <div className="contentSkills">
+              <TextArea
+                props={{
+                  french: frSkills.skills,
+                  english: engSkills.skills,
+                  likes: null,
+                  links: null,
+                  edit: false,
+                  style: "purpleAndWitheTextarea",
+                  title: "Competences",
+                  id: "home03",
+                }}
+                content={skills.map((skill) => (
+                  <div key={skill._id} className="collapseContent">
+                    <div className="logoAndTitle">
+                      <img
+                        src={skill.picture_url}
+                        alt="logo"
+                        className="logo"
+                      ></img>
+                      <p className="toolTitle">
+                        {language === "FR"
+                          ? skill.french_title
+                          : skill.english_title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              ></TextArea>
+            </div>
             <span id="competences"></span>
             <div className="tools">
               <div className="collapse">
@@ -179,46 +263,19 @@ function Home() {
                 ></Collapse>
               </div>
             </div>
-            <div className="collapse skills">
-              <Collapse
-                name={"Soft skills"}
-                content={skills.map((skill) => (
-                  <div key={skill._id} className="collapseContent">
-                    <div className="logoAndTitle">
-                      <img
-                        src={skill.picture_url}
-                        alt="logo"
-                        className="logo"
-                      ></img>
-                      <p className="toolTitle">
-                        {language === "FR"
-                          ? skill.french_title
-                          : skill.english_title}
-                      </p>
-                    </div>
-                    <div className="like">
-                      <LikeButton id={skill.likes_id}></LikeButton>
-                    </div>
-                  </div>
-                ))}
-              ></Collapse>
-            </div>
-            <div></div>
-            <div className="projets">
-              <span id="projets"></span>
-              {projects.map((project) => (
-                <Cards project={project} key={project._id}></Cards>
-              ))}
-            </div>
-
-            <div className="footerPlace"></div>
+          </div>
+          <span id="projets"></span>
+          <div className="projets">
+            {projects.map((project) => (
+              <Cards project={project} key={project._id}></Cards>
+            ))}
           </div>
         </div>
       </div>
     );
   } else {
     setTimeout(() => {
-      navigate("/Home");
+      navigate("/");
     }, 500);
   }
 }
