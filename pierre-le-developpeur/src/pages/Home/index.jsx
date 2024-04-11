@@ -79,7 +79,8 @@ function Home() {
     });
 
     return (
-      <div id="accueil">
+      <div className="accueil">
+        <span id="accueil"></span>
         <div className="withe">
           <div className="intro">
             <TextArea

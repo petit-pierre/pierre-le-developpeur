@@ -2,7 +2,7 @@
     width: 100%;
     height: 59px;
     @media (max-width: 650px) {
-        height: 23dvh;
+        height: 180px;
     }
 }
 .shape{
@@ -15,7 +15,7 @@
     position: fixed;
     transition: 5s;
     @media (max-width: 650px) {
-        height: 35dvh;
+        height: 250px;
     }
 }
 .headerfield{
@@ -33,7 +33,7 @@
         //opacity: 0.8;
         transition: 1s;
         @media (max-width: 650px) {
-            height: 21dvh;
+            height: 130px;
             background-color: #99477a;
         }
     }
@@ -176,15 +176,13 @@
     @media (max-width: 650px) {
         .logos{
             margin: auto;
-                    width: 100%;
-        //height: 100%;
-        margin: auto;
+            width: 100%;
+            margin: auto;
         }
 
         .maGanache{
-            width: 100px;
-
-            top: 5dvh;
+            width: 130px;
+            top: 3dvw;
             left: 5dvw;
         }
         .language{
@@ -201,7 +199,7 @@
           display: block;
           position: fixed;
           right: 5dvw;
-          top: 7dvh;
+          top: 7dvw;
           .icons{
             width: 80px;
           }
@@ -210,7 +208,7 @@
             position: fixed;
             width: 100%;
             background-color: #99477a;
-            height: 20dvh;
+            height: 200px;
             z-index: -1;
             top: 0;
         }

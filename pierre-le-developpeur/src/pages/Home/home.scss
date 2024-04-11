@@ -173,7 +173,15 @@
     //margin-top: 150px;
 }
 
-
+.accueil{
+    position: relative;
+}
+#accueil{
+    position: absolute;
+    @media (max-width: 650px){
+        top: -130px;
+    }
+}
 .contact{
     position: relative;
     margin-top: 150px;

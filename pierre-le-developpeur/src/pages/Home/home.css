@@ -161,6 +161,19 @@
   flex-wrap: wrap;
 }
 
+.accueil {
+  position: relative;
+}
+
+#accueil {
+  position: absolute;
+}
+@media (max-width: 650px) {
+  #accueil {
+    top: -130px;
+  }
+}
+
 .contact {
   position: relative;
   margin-top: 150px;

@@ -4,7 +4,7 @@
 }
 @media (max-width: 650px) {
   .placeforheader {
-    height: 23dvh;
+    height: 180px;
   }
 }
 
@@ -19,7 +19,7 @@
 }
 @media (max-width: 650px) {
   .shape {
-    height: 35dvh;
+    height: 250px;
   }
 }
 
@@ -36,7 +36,7 @@
 }
 @media (max-width: 650px) {
   .headerfield nav {
-    height: 21dvh;
+    height: 130px;
     background-color: #99477a;
   }
 }
@@ -176,8 +176,8 @@
     margin: auto;
   }
   .header .maGanache {
-    width: 100px;
-    top: 5dvh;
+    width: 130px;
+    top: 3dvw;
     left: 5dvw;
   }
   .header .language {
@@ -193,7 +193,7 @@
     display: block;
     position: fixed;
     right: 5dvw;
-    top: 7dvh;
+    top: 7dvw;
   }
   .header #icons .icons {
     width: 80px;
@@ -202,7 +202,7 @@
     position: fixed;
     width: 100%;
     background-color: #99477a;
-    height: 20dvh;
+    height: 200px;
     z-index: -1;
     top: 0;
   }
