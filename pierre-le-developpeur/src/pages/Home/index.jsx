@@ -79,9 +79,9 @@ function Home() {
     });
 
     return (
-      <div className="accueil">
+      <div className="withe">
         <span id="accueil"></span>
-        <div className="withe">
+        <div className="accueil">
           <div className="intro">
             <TextArea
               props={{
@@ -147,12 +147,13 @@ function Home() {
             </div>
           </div>
 
+          <span id="contact"></span>
           <div className="contact">
-            <span id="contact"></span>
             <Contact
               props={{ likeId: likes[0]._id, recoId: likes[4]._id }}
             ></Contact>
           </div>
+          <span id="competences"></span>
           <div className="competences">
             <div className="contentSkills">
               <TextArea
@@ -191,7 +192,7 @@ function Home() {
                 alt="cerisier du japon (background)"
               ></img>
             </div>
-            <span id="competences"></span>
+
             <div className="tools">
               <div className="collapse">
                 <Collapse

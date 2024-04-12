@@ -16,6 +16,7 @@ code {
 body {
   margin: 0;
   background-color: white;
+  overflow-anchor: none;
 }
 
 a {

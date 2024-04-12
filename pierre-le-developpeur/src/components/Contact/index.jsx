@@ -136,28 +136,32 @@ function Contact({ props }) {
           ></TextArea>
         </div>
       </div>
-      {errorContent === false && errorMail === false ? (
-        <div className="buttonAndBackground send elements">
-          <button
-            className="button"
-            onClick={(e) => sendMail(content, mail, e)}
-          >
-            {language === "FR" ? contact.french.button : contact.english.button}
-          </button>
-        </div>
-      ) : (
-        <div className="buttonAndBackground cantSend elements">
-          <button className="button ">
-            {language === "FR"
-              ? errorMail === true
-                ? contact.french.error_mail
-                : contact.french.error_content
-              : errorMail === true
-              ? contact.english.error_mail
-              : contact.english.error_content}
-          </button>
-        </div>
-      )}
+      <div>
+        {errorContent === false && errorMail === false ? (
+          <div className="buttonAndBackground send elements">
+            <button
+              className="button"
+              onClick={(e) => sendMail(content, mail, e)}
+            >
+              {language === "FR"
+                ? contact.french.button
+                : contact.english.button}
+            </button>
+          </div>
+        ) : (
+          <div className="buttonAndBackground cantSend elements">
+            <button className="button ">
+              {language === "FR"
+                ? errorMail === true
+                  ? contact.french.error_mail
+                  : contact.french.error_content
+                : errorMail === true
+                ? contact.english.error_mail
+                : contact.english.error_content}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

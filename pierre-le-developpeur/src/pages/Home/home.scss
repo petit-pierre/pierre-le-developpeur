@@ -165,7 +165,7 @@
 }
 .projets{
     //margin-left: 0px;
-    margin-top: 45dvh;
+    margin-top: 200px;
     margin-bottom: 12dvh;
     display: flex;
     flex-direction: row;
@@ -179,29 +179,33 @@
 }
 #accueil{
     position: absolute;
+    top: -60px;
     @media (max-width: 650px){
         top: -130px;
+        //margin-top: 130px;
     }
 }
 .contact{
-    position: relative;
+    //position: relative;
     margin-top: 150px;
 }
-#contact{
+/*#contact{
     position: absolute;
-    top: -150px;
-}
+    //top: -150px;
+}*/
 .competences{
     position: relative;
-    //width: 100%;}
+    //width: 100%;
+}/*
 #competences{
     position: absolute;
-    top: -27dvh;
+    //top: -27dvh;
+    //top: -100px;
 }
 .projets{position: relative;}
 #projets{
     position: absolute;
-    top: -27dvh;
+    //top: -180px;
 }
 
-}
+}*/
