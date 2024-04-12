@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./contact.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TextArea from "../TextArea";
 
 //import "./smtp";
@@ -36,20 +36,29 @@ function Contact({ props }) {
     }
   };
 
+  /*useEffect(() => {
+    console.log("coucou");
+  }, [content.current.children[0].children[1][0].value]);*/
+
   const formContentError = (e) => {
     e.preventDefault();
     //console.log(content.current.children[0][0].value);
     //console.log(e.target.value.length);
     setInputContentValue(e.target.value);
 
-    if (e.target.value.length > 6) {
+    if (
+      e.target.value.length > 6 &&
+      e.target.value !== translations.english.succes &&
+      e.target.value !== translations.french.succes &&
+      e.target.value !== translations.english.content &&
+      e.target.value !== translations.french.content
+    ) {
       setErrorContent(false);
     } else {
       setErrorContent(true);
       //setSendingError(false);
     }
   };
-
   const sendMail = (content, mail, e) => {
     e.preventDefault();
     const elastic = {
@@ -59,9 +68,9 @@ function Contact({ props }) {
       Subject: "Site pierre le developpeur",
       Body:
         "email : " +
-        mail.current.children[0][0].value +
+        mail.current.children[0].children[1][0].value +
         " message : " +
-        content.current.children[0][0].value,
+        content.current.children[0].children[1][0].value,
     };
     //const elastic = structuredClone(elasti);
     //console.log(document.querySelector(".contentForMail").value);
@@ -69,15 +78,18 @@ function Contact({ props }) {
       if (message === "OK") {
         setSending(true);
         setSendingError("");
+        setErrorContent(true);
         language === "FR"
-          ? (content.current.children[0][0].value = contact.french.succes)
-          : (content.current.children[0][0].value = contact.english.succes);
+          ? (content.current.children[0].children[1][0].value =
+              contact.french.succes)
+          : (content.current.children[0].children[1][0].value =
+              contact.english.succes);
       } else {
         setSending(false);
         setSendingError(message);
         window.open(
-          "mailto:contact@pierre-le-developpeur.com?subject=Contact pierre le developpeur&body=Body" +
-            mail.current.value
+          "mailto:contact@pierre-le-developpeur.com?subject=Contact pierre le développeur&body=" +
+            content.current.children[0].children[1][0].value
         );
       }
     });
@@ -105,7 +117,11 @@ function Contact({ props }) {
         </div>
       </div>
       <div className="message">
-        <div className="elements" ref={content} onChange={formContentError}>
+        <div
+          className="elements messagePlace"
+          ref={content}
+          onChange={formContentError}
+        >
           <TextArea
             props={{
               french: contact.french.content,

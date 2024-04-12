@@ -2,8 +2,15 @@
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 650px) {
+  .contactField .messagePlace .textArea textarea {
+    min-height: 200px;
+  }
+}
 .contactField .send {
   opacity: 1;
+}
+.contactField .send .button {
   cursor: pointer;
 }
 .contactField .cantSend {

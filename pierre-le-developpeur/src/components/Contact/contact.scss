@@ -1,11 +1,23 @@
 .contactField{
     display: flex;
     flex-direction: column;
+    @media (max-width: 650px) {
+        .messagePlace{
+            .textArea{
+                textarea{
+                    min-height: 200px;
+                }
+            }
+        }
+      }
 
     .send{
         //margin: auto;
         opacity: 1;
-        cursor: pointer;
+        //cursor: pointer;
+        .button{
+            cursor: pointer;
+        }
 
     }
     .cantSend{

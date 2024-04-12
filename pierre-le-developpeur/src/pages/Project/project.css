@@ -48,7 +48,12 @@
 }
 .projectPage .slider {
   margin-top: 0px;
-  height: 90dvh;
+  height: calc(100dvh - 60px);
+}
+@media (max-width: 650px) {
+  .projectPage .slider {
+    height: calc(100dvh - 130px);
+  }
 }
 .projectPage .textAndLinks {
   width: 80dvw;

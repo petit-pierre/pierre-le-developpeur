@@ -5,6 +5,7 @@ import LikeButton from "../LikeButton";
 import Cofee from "../Cofee/coffe";
 
 function TextArea({ props, content }) {
+  const translations = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
   let textPlace = useRef();
   const [cofee, setCofee] = useState(false);
@@ -67,7 +68,9 @@ function TextArea({ props, content }) {
     if (props.edit === true) {
       if (
         evt.target.value === props.french ||
-        evt.target.value === props.english
+        evt.target.value === props.english ||
+        evt.target.value === translations.english.succes ||
+        evt.target.value === translations.french.succes
       ) {
         evt.target.value = "";
         handleResize();

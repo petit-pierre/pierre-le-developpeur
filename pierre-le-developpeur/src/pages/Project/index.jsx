@@ -74,7 +74,7 @@ function Project() {
         <div className="tools">
           <div className="collapse">
             <Collapse
-              name={language === "FR" ? "Compétences" : "Skills"}
+              name={language === "FR" ? "Competences" : "Skills"}
               content={tadaTools.map((tool) => (
                 <div key={tool._id} className="collapseContent">
                   <div className="logoAndTitle">
