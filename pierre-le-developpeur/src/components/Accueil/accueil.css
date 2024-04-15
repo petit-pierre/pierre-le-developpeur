@@ -1,0 +1,39 @@
+.accueilField p {
+  font-family: "hayanbaram", sans-serif;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+.accueilField .firstPartAccueil {
+  padding: 100px 50px 0px 250px;
+  min-height: 200px;
+}
+@media (max-width: 650px) {
+  .accueilField .firstPartAccueil {
+    padding: 50px 0px 0px 30px;
+    min-height: 230px;
+  }
+}
+.accueilField .secondPartAccueil {
+  padding: 0px 0px 100px 30px;
+  display: flex;
+  flex-direction: row;
+  min-height: 200px;
+}
+@media (max-width: 650px) {
+  .accueilField .secondPartAccueil {
+    flex-direction: column;
+    min-height: 230px;
+  }
+}
+.accueilField .secondPartAccueil .introFinalText {
+  width: 70%;
+}
+@media (max-width: 650px) {
+  .accueilField .secondPartAccueil .introFinalText {
+    width: 100%;
+  }
+}
+.accueilField .secondPartAccueil .elements {
+  margin: auto;
+}/*# sourceMappingURL=accueil.css.map */

@@ -70,20 +70,21 @@
         .visible{
             cursor: pointer;
         }
-        .send{
-            //margin: auto;
-            opacity: 1;
-            cursor: pointer;
-    
-        }
-        .cantSend{
-            opacity: 0.6;
-            cursor: none;
-            .button:active{
-                background-color: transparent;
-                color: white;
-                transition: all 0s;
-            }
+
+    }
+
+}
+.send{
+    opacity: 1;
+    cursor: pointer;
+}
+.cantSend{
+    opacity: 0.6;
+    .elements{
+        .button:active{
+            background-color: transparent;
+            color: white;
+            transition: all 0s;
         }
     }
 }   

@@ -3,8 +3,12 @@ import "./button.css";
 function Button({ props }) {
   return (
     <div className="buttonDiv">
-      <div className={props.style + " buttonAndBackground send elements"}>
-        <button className="button visible">{props.title}</button>
+      <div className={props.send === true ? "send" : "cantSend"}>
+        <div className={props.style + " buttonAndBackground elements"}>
+          <button className={props.send === true ? "button visible" : "button"}>
+            {props.title}
+          </button>
+        </div>
       </div>
     </div>
   );

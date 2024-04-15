@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "./contact.css";
 import { useEffect, useRef, useState } from "react";
 import TextArea from "../TextArea";
+import Button from "../Button";
 
 //import "./smtp";
 
@@ -72,7 +73,6 @@ function Contact({ props }) {
         " message : " +
         content.current.children[0].children[1][0].value,
     };
-    //const elastic = structuredClone(elasti);
     //console.log(document.querySelector(".contentForMail").value);
     window.Email.send(elastic).then((message) => {
       if (message === "OK") {
@@ -138,27 +138,74 @@ function Contact({ props }) {
       </div>
       <div>
         {errorContent === false && errorMail === false ? (
-          <div className="buttonAndBackground send elements">
-            <button
-              className="button"
+          language === "FR" ? (
+            <div
+              className="elements"
               onClick={(e) => sendMail(content, mail, e)}
             >
-              {language === "FR"
-                ? contact.french.button
-                : contact.english.button}
-            </button>
+              <Button
+                props={{
+                  style: "windows",
+                  send: true,
+                  title: contact.french.button,
+                }}
+              ></Button>
+            </div>
+          ) : (
+            <div
+              className="elements"
+              onClick={(e) => sendMail(content, mail, e)}
+            >
+              <Button
+                props={{
+                  style: "windows",
+                  send: true,
+                  title: contact.english.button,
+                }}
+              ></Button>
+            </div>
+          )
+        ) : errorMail === true ? (
+          language === "FR" ? (
+            <div className="elements">
+              <Button
+                props={{
+                  style: "windows",
+                  send: false,
+                  title: contact.french.error_mail,
+                }}
+              ></Button>
+            </div>
+          ) : (
+            <div className="elements">
+              <Button
+                props={{
+                  style: "windows",
+                  send: false,
+                  title: contact.english.error_mail,
+                }}
+              ></Button>
+            </div>
+          )
+        ) : language === "FR" ? (
+          <div className="elements">
+            <Button
+              props={{
+                style: "windows",
+                send: false,
+                title: contact.french.error_content,
+              }}
+            ></Button>
           </div>
         ) : (
-          <div className="buttonAndBackground cantSend elements">
-            <button className="button ">
-              {language === "FR"
-                ? errorMail === true
-                  ? contact.french.error_mail
-                  : contact.french.error_content
-                : errorMail === true
-                ? contact.english.error_mail
-                : contact.english.error_content}
-            </button>
+          <div className="elements">
+            <Button
+              props={{
+                style: "windows",
+                send: false,
+                title: contact.english.error_content,
+              }}
+            ></Button>
           </div>
         )}
       </div>

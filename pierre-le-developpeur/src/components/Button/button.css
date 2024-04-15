@@ -61,15 +61,16 @@
 .buttonDiv .windows .visible {
   cursor: pointer;
 }
-.buttonDiv .windows .send {
+
+.send {
   opacity: 1;
   cursor: pointer;
 }
-.buttonDiv .windows .cantSend {
+
+.cantSend {
   opacity: 0.6;
-  cursor: none;
 }
-.buttonDiv .windows .cantSend .button:active {
+.cantSend .elements .button:active {
   background-color: transparent;
   color: white;
   transition: all 0s;

@@ -1,6 +1,4 @@
 .withe {
-    //background-image: url("http://localhost:3001/static/media/background.e8a9dc6eb04046b78043.png");
-    //background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     .background{
@@ -30,76 +28,27 @@
             }
           }
         .recoTxt{
-            width: 70%;
+            width: 90%;
+            margin: auto;
         }
         .like{
-            /*.pocContain{
-                filter: invert(1);
-            }*/
-            color: black;
-            background-color: white;
-            //bottom: 20px;
             transition: 1000ms;
             position: absolute;
-            //top: 100px;
             bottom: 20px;
-            //filter: invert(1);
             opacity: 0.6;
             z-index: 6;
             right: -350px;
-            //background-color: white;
             border-radius: 20px;
             padding-left: 20px;
-            //left: 200px;
-            //border: solid white;
-            @media (max-width: 650px) {
-                right: -15px;
-              }
-        }
-        .buttonAndBackground{
-            //margin-top: auto;
-            //margin-bottom: auto;
-            margin-top: 10px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        /*.buttonAndBackground{
-            margin-bottom: 150px;
-            width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }*/
-        .like{
-            //right: -120px;
             background-color: black;
             color: white;
             img{
                 filter: invert(1);
             }
+            @media (max-width: 650px) {
+                right: -15px;
+              }
         }
-    }
-    .intro{
-        padding: 100px 50px 100px 250px;
-        textarea{
-            font-family: "hayanbaram", sans-serif;
-            font-weight: lighter;
-            //text-decoration: none;
-            //font-style: thin;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            //text-shadow: 2px 1px 2px #b674cc;
-        }
-
-        @media (max-width: 650px){
-            padding: 50px 0px 0px 0px;
-        }
-    }
-    .slider{
-        width: 100%;
-        margin: auto;
-        height: 79dvh;
-        min-height: 200px;
-        overflow: hidden;
     }
     .tools{
         display: flex;
@@ -128,19 +77,13 @@
     }
     .competences{
         width: 100dvw;
-        //padding-left: 1dvw;
-        //overflow: hidden;
-        //background-image: url("http://pierre-le-developpeur.com/assets/background.png");
-
         margin-top: 35dvh;
-        //object-fit: cover;
         .contentSkills{
             width: 90%;
             margin: auto;
         }
         @media (max-width: 650px){
             width: 100%;
-            //margin: auto;
         }
     }
     .skills{
@@ -149,63 +92,45 @@
     .logoAndTitle{
         display: flex;
         flex-direction: row;
+        //margin: auto;
+        .logo{
+            align-items: center;
+        }
     }
     .collapseContent{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
         .toolTitle{
-            padding-right: 30px;
+            //padding-right: 30px;
+            //margin: auto;
+            //text-align: center;
         }
     }
-    .footerPlace {
-        width: 100%;
-        height: 8dvh;
+    .projets{
+        //margin-left: 0px;
+        margin-top: 200px;
+        margin-bottom: 12dvh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .accueil{
+        position: relative;
+    }
+    #accueil{
+        position: absolute;
+        top: -60px;
+        @media (max-width: 650px){
+            top: -130px;
+        }
+    }
+    .contact{
+        margin-top: 150px;
+    }
+    .competences{
+        position: relative;
     }
 }
-.projets{
-    //margin-left: 0px;
-    margin-top: 200px;
-    margin-bottom: 12dvh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    //margin-top: 150px;
-}
-
-.accueil{
-    position: relative;
-}
-#accueil{
-    position: absolute;
-    top: -60px;
-    @media (max-width: 650px){
-        top: -130px;
-        //margin-top: 130px;
-    }
-}
-.contact{
-    //position: relative;
-    margin-top: 150px;
-}
-/*#contact{
-    position: absolute;
-    //top: -150px;
-}*/
-.competences{
-    position: relative;
-    //width: 100%;
-}/*
-#competences{
-    position: absolute;
-    //top: -27dvh;
-    //top: -100px;
-}
-.projets{position: relative;}
-#projets{
-    position: absolute;
-    //top: -180px;
-}
-
-}*/

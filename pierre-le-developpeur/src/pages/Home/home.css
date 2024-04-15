@@ -17,12 +17,6 @@
   flex-direction: row;
   width: 100dvw;
   overflow: hidden;
-  /*.buttonAndBackground{
-      margin-bottom: 150px;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-  }*/
 }
 @media (max-width: 650px) {
   .withe .reco {
@@ -36,14 +30,10 @@
   }
 }
 .withe .reco .recoTxt {
-  width: 70%;
+  width: 90%;
+  margin: auto;
 }
 .withe .reco .like {
-  /*.pocContain{
-      filter: invert(1);
-  }*/
-  color: black;
-  background-color: white;
   transition: 1000ms;
   position: absolute;
   bottom: 20px;
@@ -52,44 +42,16 @@
   right: -350px;
   border-radius: 20px;
   padding-left: 20px;
-}
-@media (max-width: 650px) {
-  .withe .reco .like {
-    right: -15px;
-  }
-}
-.withe .reco .buttonAndBackground {
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.withe .reco .like {
   background-color: black;
   color: white;
 }
 .withe .reco .like img {
   filter: invert(1);
 }
-.withe .intro {
-  padding: 100px 50px 100px 250px;
-}
-.withe .intro textarea {
-  font-family: "hayanbaram", sans-serif;
-  font-weight: lighter;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
 @media (max-width: 650px) {
-  .withe .intro {
-    padding: 50px 0px 0px 0px;
+  .withe .reco .like {
+    right: -15px;
   }
-}
-.withe .slider {
-  width: 100%;
-  margin: auto;
-  height: 79dvh;
-  min-height: 200px;
-  overflow: hidden;
 }
 .withe .tools {
   display: flex;
@@ -139,20 +101,15 @@
   display: flex;
   flex-direction: row;
 }
+.withe .logoAndTitle .logo {
+  align-items: center;
+}
 .withe .collapseContent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.withe .collapseContent .toolTitle {
-  padding-right: 30px;
-}
-.withe .footerPlace {
-  width: 100%;
-  height: 8dvh;
-}
-
-.projets {
+.withe .projets {
   margin-top: 200px;
   margin-bottom: 12dvh;
   display: flex;
@@ -160,41 +117,21 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
-.accueil {
+.withe .accueil {
   position: relative;
 }
-
-#accueil {
+.withe #accueil {
   position: absolute;
   top: -60px;
 }
 @media (max-width: 650px) {
-  #accueil {
+  .withe #accueil {
     top: -130px;
   }
 }
-
-.contact {
+.withe .contact {
   margin-top: 150px;
 }
-
-/*#contact{
-    position: absolute;
-    //top: -150px;
-}*/
-.competences {
+.withe .competences {
   position: relative;
-} /*
-#competences{
-    position: absolute;
-    //top: -27dvh;
-    //top: -100px;
-}
-.projets{position: relative;}
-#projets{
-    position: absolute;
-    //top: -180px;
-}
-
-}*//*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */

@@ -14,6 +14,7 @@ import engIntro from "../../data/englishIntro.json";
 import frIntro from "../../data/frenchIntro.json";
 import engSkills from "../../data/englishSkills.json";
 import frSkills from "../../data/frenchSkills.json";
+import Accueil from "../../components/Accueil";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -81,20 +82,8 @@ function Home() {
     return (
       <div className="withe">
         <span id="accueil"></span>
+        <Accueil></Accueil>
         <div className="accueil">
-          <div className="intro">
-            <TextArea
-              props={{
-                french: translations.french.placeholder_content,
-                english: translations.english.placeholder_content,
-                likes: null,
-                links: null,
-                edit: false,
-                style: "empty",
-                id: "home01",
-              }}
-            ></TextArea>
-          </div>
           <div className="reco">
             <div className="recoTxt">
               <TextArea
@@ -108,39 +97,6 @@ function Home() {
                   id: "home02",
                 }}
               ></TextArea>
-            </div>
-            <div className="buttonAndBackground elements">
-              {language === "FR" ? (
-                <a
-                  href={translations.french.cv}
-                  download="CV-aubree-pierre.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    props={{
-                      style: "purpleAndWitheTextarea",
-                      active: "send",
-                      title: "Telechargez mon C.V",
-                    }}
-                  ></Button>
-                </a>
-              ) : (
-                <a
-                  href={translations.english.cv}
-                  download="CV-aubree-pierre.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    props={{
-                      style: "purpleAndWitheTextarea",
-                      active: "send",
-                      title: "Download my C.V",
-                    }}
-                  ></Button>
-                </a>
-              )}
             </div>
             <div className="like">
               <LikeButton id={likes[4]._id} className="like"></LikeButton>
@@ -158,8 +114,8 @@ function Home() {
             <div className="contentSkills">
               <TextArea
                 props={{
-                  french: frSkills.skills,
-                  english: engSkills.skills,
+                  french: translations.french.placeholder_content,
+                  english: translations.english.placeholder_content,
                   likes: null,
                   links: null,
                   edit: false,

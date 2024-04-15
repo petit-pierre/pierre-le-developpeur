@@ -10,37 +10,15 @@
             }
         }
       }
-
-    .send{
-        //margin: auto;
-        opacity: 1;
-        //cursor: pointer;
-        .button{
-            cursor: pointer;
-        }
-
-    }
-    .cantSend{
-        opacity: 0.6;
-        cursor: none;
-        .button:active{
-            background-color: transparent;
-            color: white;
-            transition: all 0s;
-        }
-    }
     .cvAndMail{
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
     }
-    .button:active{
+    /*.button:active{
         background-color: white;
         color: black;
         transition: all 0s;
-    }
-    .visible{
-        cursor: pointer;
     }
     .button{
 
@@ -65,7 +43,7 @@
         width: 300px;
         border: solid #6d477a ;
         margin: auto;
-    }
+    }*/
 
     .like{
         .like{
