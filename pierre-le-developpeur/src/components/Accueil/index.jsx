@@ -9,7 +9,7 @@ function Accueil() {
   return language === "FR" ? (
     <div className="accueilField">
       <div className="firstPartAccueil">
-        <p>Bienvenue sur mon portfolio !</p>
+        <h2>Bienvenue sur mon portfolio !</h2>
         <p>Je suis un developpeur Web specialise en front-end.</p>
         <p>
           Permettez-moi de profiter de votre visite ici pour vous presenter mes
@@ -51,7 +51,7 @@ function Accueil() {
   ) : (
     <div className="accueilField">
       <div className="firstPartAccueil">
-        <p>Welcome to my portfolio!</p>
+        <h2>Welcome to my portfolio!</h2>
         <p>I am a front-end web developer. </p>
         <p>
           Allow me to take advantage of your visit here to present my skills and

@@ -16,7 +16,12 @@ function Cards({ project }) {
     <HashLink to={"/Project/" + project.french_title + "#project"}>
       <div className="cardField">
         <div className="like miniLike likeSlide">
-          <LikeButton id={project.slider_likes_id}></LikeButton>
+          <LikeButton
+            propsLike={{
+              id: project.slider_likes_id,
+              color: "black",
+            }}
+          ></LikeButton>
         </div>
         <div className="cardSlide">
           <Slider
@@ -33,7 +38,9 @@ function Cards({ project }) {
           )}
 
           <div className="like">
-            <LikeButton id={project.content_likes_id}></LikeButton>
+            <LikeButton
+              propsLike={{ id: project.content_likes_id, color: "black" }}
+            ></LikeButton>
           </div>
         </div>
       </div>

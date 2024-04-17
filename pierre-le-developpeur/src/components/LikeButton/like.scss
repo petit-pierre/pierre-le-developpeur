@@ -2,61 +2,72 @@
     display: flex;
     flex-direction: row;
     min-width: 100px;
+    transition: 1000ms;
+    position: absolute;
+    right: -350px;
+    opacity: 0.8;
+    z-index: 6;
+    //background-color: black;
+    border-radius: 20px;
+    padding-left: 20px;
+    //color: white;
+    /*img{
+        filter: invert(1);
+    }*/
+    @media (max-width: 650px) {
+        right: -10px;
+    }
     .poc{
         position: absolute;
         display: none;
         margin-top: -5px;
-        //margin-left: 45px;
-        //margin-right: 0;
-        //z-index: 18;
-        //display: inline-block;
     }
     .pocContain{
         position: relative;
     }
     .poc1{
         left: 0px;
-        top: -10px;
+        top: -4px;
     }
     .poc2{
         left: 3px;
-        top: -15px;
+        top: -9px;
     }
     .poc3{
         left: 10px;
-        top: -17px;
+        top: -11px;
     }
     .poc4{
         left: 17px;
-        top: -15px;
+        top: -9px;
     }
     .poc5{
         left: 20px;
-        top: -10px;
+        top: -4px;
     }
     .checked{
             animation-name: like;
             animation-duration: 2000ms;
             .poc{
-                transform: translateY(-2px);
+                //transform: translateY(-2px);
                 display: block;
                 animation-name: poc;
                 animation-duration: 2000ms;
-                pointer-events: none;
+                //pointer-events: none;
             }
             img{
-                pointer-events: none;
-                cursor: none;
+                //pointer-events: none;
+                //cursor: none;
             }
         }
     .buttonLike{
         background: none;
-	    color: inherit;
+
 	    border: none;
         .logoLike{
             width: 20px;
             cursor: pointer;
-            margin-top: 0px;
+            //margin-top: 0px;
         }
     }
 }
@@ -65,30 +76,33 @@
         //transform: rotate(0deg);
         transform: translateX(-1px);
     }
-    12% {
+    6% {
         //transform: rotate(0deg);
         transform: translateX(1px);
     }
-    25% {
+    12% {
         //transform: rotate(-20deg);
-        transform: translateX(-2px);
+        transform: translateX(-1px);
     }  
-    37% {
+    18% {
         //transform: rotate(0deg);
         transform: translateX(1px);
     }  
-    50% {
-        //transform: rotate(0deg);
-        transform: translateX(0px);
-    }  
-    90% {
+    24% {
         //transform: rotate(0deg);
         transform: translateX(-1px);
     }  
-    100% {
+    32% {
+        //transform: rotate(0deg);
+        transform: translateX(1px);
+    }  
+    40% {
         //transform: rotate(0deg);
         transform: translateX(0px);
     }  
+    100%{
+        transform: translateX(0px);
+    }
   }
   @keyframes poc{
     0% {
@@ -96,17 +110,17 @@
         //transform: translateX(-1px);
         opacity: 0;
     }
-    25% {
+    35% {
         //transform: rotate(0deg);
         //transform: translateX(-1px);
         opacity: 0;
     }
 
-    30% {
+    37% {
         //transform: rotate(-20deg);
         opacity: 1;
     }  
-    90% {
+    70% {
         //transform: rotate(0deg);
         //transform: translateX(0px);
         opacity: 1;
@@ -118,20 +132,31 @@
     }  
   }
 
-.like{
-    transition: 1000ms;
-    position: absolute;
-    right: -350px;
-    //top: 140px;
-    //bottom: 20px;
-    opacity: 0.8;
-    z-index: 6;
+.likeColorwithe{
+    background-color: white;
+    .buttonLike{
+        color: black;
+    }
+    p{
+        color: black;
+    }
+    color: black;
+    img{
+        filter: invert(0);
+    }
+
+}
+.likeColorblack{
     background-color: black;
-    border-radius: 20px;
-    padding-left: 20px;
-    //z-index: 18;
-    color: white;
-    @media (max-width: 650px) {
-        right: -10px;
-      }
+    .buttonLike{
+        color: inherit;
+    }
+    p{
+        color: white;
+    }
+    //color: black;
+    img{
+        filter: invert(1);
+    }
+
 }

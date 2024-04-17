@@ -2,59 +2,70 @@ import io from "socket.io-client";
 import "./like.css";
 import { useSelector } from "react-redux";
 
-function LikeButton(id, color) {
+function LikeButton({ propsLike }) {
   const likes = useSelector((state) => state.data.likes);
 
-  const sendLike = (evt, id) => {
+  const sendLike = (evt, propsLike) => {
     evt.preventDefault();
     const socket = io.connect("http://api.petitpierre.net");
-    //const socket = io.connect("http://localhost:3000");
-    document.querySelector(".button" + id.id).classList.add("checked");
-    setTimeout(() => {
-      document.querySelector(".button" + id.id).classList.remove("checked");
-    }, 1000);
-
-    let message = id.id;
+    let message = propsLike.id;
     socket.emit("send_message", { message });
+    getOldLikes(propsLike);
+    //const socket = io.connect("http://localhost:3000");
+    let target = evt.currentTarget;
+    target.classList.add("checked");
+    //document.querySelector(".button" + propsLike.id).classList.add("checked");
+    //checked = true;
+    setTimeout(() => {
+      //console.log(target);
+      target.classList.remove("checked");
+      //console.log(target);
+      /*document
+        .querySelector(".button" + propsLike.id)
+        .classList.remove("checked");*/
+      //checked = false;
+    }, 1200);
+    //checked = true;
     document.querySelector(".maGanache").src =
       "http://pierre-le-developpeur.com/assets/thanks.png";
     setTimeout(() => {
       document.querySelector(".maGanache").src =
         "http://pierre-le-developpeur.com/assets/pierre.png";
     }, 1000);
-
-    getOldLikes(id);
   };
 
-  async function getOldLikes(id) {
+  async function getOldLikes(propsLike) {
     const get = await fetch("http://api.petitpierre.net/api/likes", {
       method: "GET",
     });
     const newlikes = await get.json();
-    const found = newlikes.find((like) => like._id === id.id);
+    const found = newlikes.find((like) => like._id === propsLike.id);
     const newValue = found.likes + 1;
     const like = {
       likes: newValue,
     };
 
-    async function putOldLikes(id, like) {
-      const put = await fetch("http://api.petitpierre.net/api/likes/" + id.id, {
-        method: "PUT",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(like),
-      });
+    async function putOldLikes(propsLike, like) {
+      const put = await fetch(
+        "http://api.petitpierre.net/api/likes/" + propsLike.id,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(like),
+        }
+      );
     }
-    putOldLikes(id, like);
+    putOldLikes(propsLike, like);
   }
 
-  const found = likes.find((like) => like._id === id.id);
+  const found = likes.find((like) => like._id === propsLike.id);
 
   return (
-    <div className="like">
-      <p id={id.id}>
+    <div className={"like likeColor" + propsLike.color}>
+      <p id={propsLike.id}>
         {" "}
         {Intl.NumberFormat("en-US", {
           notation: "compact",
@@ -62,12 +73,12 @@ function LikeButton(id, color) {
         }).format(found.likes)}{" "}
       </p>
       <button
-        name={id.id}
-        onClick={(evt) => sendLike(evt, id)}
+        name={propsLike.id}
+        onClick={(evt) => sendLike(evt, propsLike)}
         className={
-          color === "withe"
-            ? "buttonLike button withLike" + id.id
-            : "buttonLike button" + id.id
+          propsLike.color === "withe"
+            ? "buttonLike button withLike " + propsLike.id
+            : "buttonLike button " + propsLike.id
         }
       >
         <div className="pocContain">

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./contact.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import TextArea from "../TextArea";
 import Button from "../Button";
 
@@ -43,8 +43,6 @@ function Contact({ props }) {
 
   const formContentError = (e) => {
     e.preventDefault();
-    //console.log(content.current.children[0][0].value);
-    //console.log(e.target.value.length);
     setInputContentValue(e.target.value);
 
     if (
@@ -73,7 +71,6 @@ function Contact({ props }) {
         " message : " +
         content.current.children[0].children[1][0].value,
     };
-    //console.log(document.querySelector(".contentForMail").value);
     window.Email.send(elastic).then((message) => {
       if (message === "OK") {
         setSending(true);

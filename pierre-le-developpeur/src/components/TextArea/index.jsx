@@ -28,7 +28,6 @@ function TextArea({ props, content }) {
   function handleResize() {
     var oForm = document.forms[props.id + "myForm"],
       aoTextArea = oForm.getElementsByClassName(props.id);
-    //console.log(oForm);
     for (let oTextArea of aoTextArea) {
       /* vous pouver aussi utiliser l'event keyup */
       oTextArea.addEventListener("input", setTailleHeight);
@@ -141,8 +140,14 @@ function TextArea({ props, content }) {
           ""
         )}
         {props.likes != null ? (
-          <div className="like">
-            <LikeButton id={props.likes} className="like"></LikeButton>
+          <div className="likePlace">
+            <LikeButton
+              propsLike={
+                props.style === "windows" && props.edit === false
+                  ? { id: props.likes, color: "withe" }
+                  : { id: props.likes, color: "black" }
+              }
+            ></LikeButton>
           </div>
         ) : (
           ""

@@ -13,6 +13,10 @@ code {
 /** {
     outline: 1px solid red;
 }*/
+* {
+  overflow-anchor: none;
+}
+
 body {
   margin: 0;
   background-color: white;

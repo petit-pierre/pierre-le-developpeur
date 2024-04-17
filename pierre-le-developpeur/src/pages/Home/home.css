@@ -42,11 +42,11 @@
   right: -350px;
   border-radius: 20px;
   padding-left: 20px;
-  background-color: black;
+  /*background-color: black;
   color: white;
-}
-.withe .reco .like img {
-  filter: invert(1);
+  img{
+      filter: invert(1);
+  }*/
 }
 @media (max-width: 650px) {
   .withe .reco .like {

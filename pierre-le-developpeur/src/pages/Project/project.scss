@@ -7,7 +7,6 @@
     width: 80%;
     margin: auto;
     margin-top: 12dvh;
-
     .projectContent{
         position: absolute;
         //top: 0;
@@ -22,16 +21,11 @@
         border: solid  #6d477a;
         width: 100%;
         height: 100%;
-        
-            font-size: 1rem;
-        
+        font-size: 1rem;
         @media (max-width: 650px) {
-
               font-size: 0.8rem;
-            
           }
     }
-
 }
 .projectPage{
     position: relative;

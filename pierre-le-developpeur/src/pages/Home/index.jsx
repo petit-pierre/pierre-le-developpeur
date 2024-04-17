@@ -9,16 +9,11 @@ import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
-import Button from "../../components/Button";
-import engIntro from "../../data/englishIntro.json";
-import frIntro from "../../data/frenchIntro.json";
-import engSkills from "../../data/englishSkills.json";
-import frSkills from "../../data/frenchSkills.json";
 import Accueil from "../../components/Accueil";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
-  const sliders = useSelector((state) => state.data.sliders);
+  //const sliders = useSelector((state) => state.data.sliders);
   const skills = useSelector((state) => state.data.skills);
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
@@ -99,7 +94,10 @@ function Home() {
               ></TextArea>
             </div>
             <div className="like">
-              <LikeButton id={likes[4]._id} className="like"></LikeButton>
+              <LikeButton
+                propsLike={{ id: likes[4]._id, color: "black" }}
+                className="like"
+              ></LikeButton>
             </div>
           </div>
 
@@ -165,7 +163,12 @@ function Home() {
                           <p className="toolTitle">{tool.title} </p>
                         </div>
                         <div className="like">
-                          <LikeButton id={tool.likes_id}></LikeButton>
+                          <LikeButton
+                            propsLike={{
+                              id: tool.likes_id,
+                              color: "black",
+                            }}
+                          ></LikeButton>
                         </div>
                       </div>
                     ) : (
@@ -189,7 +192,9 @@ function Home() {
                           <p className="toolTitle">{tool.title}</p>
                         </div>
                         <div className="like">
-                          <LikeButton id={tool.likes_id}></LikeButton>
+                          <LikeButton
+                            propsLike={{ id: tool.likes_id, color: "black" }}
+                          ></LikeButton>
                         </div>
                       </div>
                     ) : (
@@ -213,7 +218,9 @@ function Home() {
                           <p className="toolTitle">{tool.title}</p>
                         </div>
                         <div className="like">
-                          <LikeButton id={tool.likes_id}></LikeButton>
+                          <LikeButton
+                            propsLike={{ id: tool.likes_id, color: "black" }}
+                          ></LikeButton>
                         </div>
                       </div>
                     ) : (

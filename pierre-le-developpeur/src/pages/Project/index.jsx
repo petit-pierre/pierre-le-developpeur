@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../../components/Header";
 import "./project.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Slider from "../../components/Slider";
 import LikeButton from "../../components/LikeButton";
 import Collapse from "../../components/Collapse";
-import Footer from "../../components/Footer";
 import { useEffect } from "react";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
@@ -45,7 +43,7 @@ function Project() {
         }
       }
     }
-    return project != undefined ? (
+    return project !== undefined ? (
       <div className="projectPage">
         <span id="project"></span>
 
@@ -85,7 +83,9 @@ function Project() {
                     ></img>
                     <p className="toolTitle">{tool.title} </p>
                   </div>
-                  <LikeButton id={tool.likes_id}></LikeButton>
+                  <LikeButton
+                    propsLike={{ id: tool.likes_id, color: "black" }}
+                  ></LikeButton>
                 </div>
               ))}
             ></Collapse>
@@ -107,7 +107,9 @@ function Project() {
                         : skill.english_title}{" "}
                     </p>
                   </div>
-                  <LikeButton id={skill.likes_id}></LikeButton>
+                  <LikeButton
+                    propsLike={{ id: skill.likes_id, color: "black" }}
+                  ></LikeButton>
                 </div>
               ))}
             ></Collapse>

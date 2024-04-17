@@ -42,8 +42,14 @@
 }*/
 .textArea {
   position: relative;
-  overflow: hidden;
   background-size: 100%;
+  overflow: hidden;
+}
+@media (max-width: 649px) {
+  .textArea .like {
+    right: -35px;
+    transition: 1000ms;
+  }
 }
 .textArea .softSkills {
   display: flex;
@@ -74,8 +80,8 @@
   /*.pocContain{
       filter: invert(1);
   }*/
-  color: black;
-  background-color: white;
+  /*color: black;
+  background-color: white;*/
   bottom: 20px;
   transition: 1000ms;
   position: absolute;
@@ -106,24 +112,8 @@
 }
 
 .textArea:hover .like {
-  right: -15px;
+  right: -35px;
   transition: 1000ms;
-}
-
-textarea {
-  overflow: hidden;
-}
-
-.textArea:hover .like {
-  right: -10px;
-  transition: 1000ms;
-}
-
-@media (max-width: 649px) {
-  .textArea .like {
-    right: -10px;
-    transition: 1000ms;
-  }
 }
 
 .edit:focus {

@@ -52,11 +52,17 @@
 .textArea{
     //height: 500px;
     position: relative;
-    overflow: hidden;
-
+    //overflow: hidden;
     background-size: 100%;
-
     //min-height: 130px;
+    overflow: hidden;
+    @media  (max-width: 649px){
+        .like{
+            right: -35px;
+            transition: 1000ms;
+            //bottom: 10px;
+        }
+    }
     .softSkills{
         display: flex;
         flex-direction: row;
@@ -91,8 +97,9 @@
         /*.pocContain{
             filter: invert(1);
         }*/
-        color: black;
-        background-color: white;
+        /*color: black;
+        background-color: white;*/
+        //color: white;
         bottom: 20px;
         transition: 1000ms;
         position: absolute;
@@ -112,7 +119,6 @@
     }
     textarea{
         resize: none;
-
         border: none;
         padding: 20px;
         text-decoration:none;
@@ -133,38 +139,12 @@
         outline: none;
     }
 }
-
-.textArea:hover {
+.textArea:hover{
     .like{
-        right: -15px;
+        right: -35px;
         transition: 1000ms;
     }
 }
-textarea{
-    overflow: hidden;
-}
-
-.textArea:hover{
-
-
-        .like{
-            right: -10px;
-            transition: 1000ms;
-            //bottom: 10px;
-        }
-    
-
-}
-.textArea{
-    @media  (max-width: 649px){
-        .like{
-            right: -10px;
-            transition: 1000ms;
-            //bottom: 10px;
-        }
-    }
-}
-
 .edit:focus{
     outline: none;
     background-image: 0.5;

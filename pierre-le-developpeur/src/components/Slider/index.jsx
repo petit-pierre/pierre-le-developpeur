@@ -79,7 +79,12 @@ function Slider({ sliders, mini, likeId }) {
       onTouchEnd={mini === false ? (e) => handleTouchEnd(e) : null}
     >
       <div className="like">
-        <LikeButton id={likeId}></LikeButton>
+        <LikeButton
+          propsLike={{
+            id: likeId,
+            color: "black",
+          }}
+        ></LikeButton>
       </div>
       <div
         className="inner"
