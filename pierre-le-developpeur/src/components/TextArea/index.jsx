@@ -124,6 +124,7 @@ function TextArea({ props, content }) {
           onSelect={(evt) => clearText(evt)}
           onBlur={(evt) => textBack(evt)}
         ></textarea>
+
         {props.links != null ? (
           <div className="textareaLinks">
             {" "}
@@ -171,6 +172,18 @@ function TextArea({ props, content }) {
         <div className="softSkills">{content}</div>
         {props.cofee === true && props.edit === false ? (
           <div className="spacedTextArea"></div>
+        ) : (
+          ""
+        )}
+        {props.sign === true ? (
+          <a
+            href="https://www.linkedin.com/in/stephane-fassetta-748aa8129/"
+            target="blank"
+          >
+            <p className={language === "FR" ? "sign" : "sign"}>
+              Fassetta Stéphane.
+            </p>
+          </a>
         ) : (
           ""
         )}

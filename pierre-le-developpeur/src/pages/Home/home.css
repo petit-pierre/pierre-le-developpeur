@@ -14,7 +14,7 @@
 .withe .reco {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100dvw;
   overflow: hidden;
 }

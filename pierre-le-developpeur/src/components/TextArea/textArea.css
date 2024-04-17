@@ -63,6 +63,22 @@
     transition: 1000ms;
   }
 }
+.textArea .sign {
+  padding-left: 20px;
+  font-family: "abacaxi-devanagari", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  transition: 1s;
+  margin-bottom: 4px;
+}
+.textArea .sign:hover {
+  transition: 1s;
+  text-shadow: 5px 5px 5px;
+  padding-left: 16px;
+  padding-top: -2px;
+}
 .textArea .softSkills {
   display: flex;
   flex-direction: row;
@@ -122,6 +138,7 @@
   border-radius: 20px;
   box-sizing: border-box;
   width: 100%;
+  overflow: hidden;
 }
 .textArea textarea:focus {
   outline: none;

@@ -53,11 +53,8 @@
 }*/
 
 .textArea{
-    //height: 500px;
     position: relative;
-    //overflow: hidden;
     background-size: 100%;
-    //min-height: 130px;
     overflow: hidden;
     @media  (max-width: 649px){
         .like{
@@ -65,6 +62,24 @@
             transition: 1000ms;
             //bottom: 10px;
         }
+    }
+    .sign{
+        padding-left: 20px;
+        font-family: "abacaxi-devanagari", sans-serif;
+        font-style: normal;
+        font-size: 1rem;
+        font-weight: 400;
+        font-style: normal;
+        transition: 1s;
+        //color: #99477a;
+        margin-bottom: 4px;
+    }
+    .sign:hover{
+        //color: black;
+        transition: 1s;
+        text-shadow: 5px 5px 5px;
+        padding-left: 16px;
+        padding-top: -2px;
     }
     .softSkills{
         display: flex;
@@ -138,6 +153,7 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;	
         width: 100%;
+        overflow: hidden;
     }
     textarea:focus{
         outline: none;

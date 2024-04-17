@@ -1,3 +1,6 @@
+.accueilField {
+  min-height: 610px;
+}
 .accueilField p {
   font-family: "hayanbaram", sans-serif;
   font-weight: lighter;

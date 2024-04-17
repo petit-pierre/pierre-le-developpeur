@@ -90,6 +90,7 @@ function Home() {
                   edit: false,
                   style: "empty",
                   id: "home02",
+                  sign: true,
                 }}
               ></TextArea>
             </div>
