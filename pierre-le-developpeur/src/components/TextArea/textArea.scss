@@ -3,24 +3,26 @@
     border: solid 3px  #6d477a;
     border-radius: 20px;
     overflow: hidden;
-    form{
-
-    }
     textarea{
         color: white;
     }
+    .like{
+        bottom: 60px;
+    }
+    .padding{
+        padding-right: 100px;
+    }
 }
-
 .empty{
     border-radius: 20px;
-    //border: solid 1px  black;
+    .like{
+        bottom: 20px;
+    }
 }
-
 .purpleAndWitheTextarea{
     //background-color: white;
     border-radius: 20px;
     overflow: hidden;
-
     .title{
         //height: 25px;
         width: 100%;
@@ -29,8 +31,6 @@
         text-align: center;
         padding-top: 8px;
         padding-bottom: 8px;
-
-
     }
     .mise-en-page{
         background-color: white;
@@ -40,6 +40,9 @@
     .mise-en-page:hover{
         opacity: 1;
         transition: 1s;
+    }
+    .like{
+        bottom: 20px;
     }
 }
 /*.purpleAndWitheTextarea:hover{
@@ -93,6 +96,11 @@
         color: white;
         text-align: center;
     }
+    .spacedTextArea{
+        @media  (max-width: 649px){
+            height: 60px;
+        }
+    }
     .like{
         /*.pocContain{
             filter: invert(1);
@@ -100,7 +108,6 @@
         /*color: black;
         background-color: white;*/
         //color: white;
-        bottom: 20px;
         transition: 1000ms;
         position: absolute;
         //top: 100px;
@@ -131,9 +138,6 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;	
         width: 100%;
-
-
-        //text-align: center;
     }
     textarea:focus{
         outline: none;

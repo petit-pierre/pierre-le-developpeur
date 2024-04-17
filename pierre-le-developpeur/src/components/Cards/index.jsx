@@ -19,7 +19,7 @@ function Cards({ project }) {
           <LikeButton
             propsLike={{
               id: project.slider_likes_id,
-              color: "black",
+              color: "withe",
             }}
           ></LikeButton>
         </div>

@@ -16,42 +16,16 @@
     width: 80%;
   }
 }
-.cardField .like p {
-  color: white;
-}
-.cardField .like .logoLike {
-  filter: invert(1);
-}
-
-/*.likeSliderProjet{
-    transition: 1000ms;
-    position: absolute;
-    top: 100px;
-    //filter: invert(1);
-    opacity: 0.6;
-    z-index: 6;
-    right: -350px;
-    background-color: white;
-    border-radius: 20px;
-    padding-left: 20px;
-    //left: 200px;
-    //border: solid white;
-    @media (max-width: 650px) {
-        right: -35px;
-      }
-}*/
-.likeSlide {
+.cardField .likeSlide {
   top: 100px;
 }
-
-.cardSlide {
+.cardField .cardSlide {
   opacity: 1;
   position: absolute;
   height: 162px;
   z-index: 5;
 }
-
-.cardResum {
+.cardField .cardResum {
   position: absolute;
   top: 150px;
   color: white;
@@ -62,7 +36,7 @@
   z-index: 1;
   height: 100%;
 }
-.cardResum .like {
+.cardField .cardResum .like {
   top: 70px;
 }
 

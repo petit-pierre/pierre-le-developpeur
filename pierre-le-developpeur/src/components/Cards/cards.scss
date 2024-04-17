@@ -1,5 +1,4 @@
 .cardField{
-
     width: 20%;
     min-width: 250px;
     height: 350px;
@@ -15,58 +14,30 @@
     }
     border: solid white;
     text-align: center;
-    .like{
-        p{
-            color: white;
-        }
-        .logoLike{
-            filter: invert(1);
-        }
-
+    .likeSlide{
+        top: 100px;
     }
-}
-
-/*.likeSliderProjet{
-    transition: 1000ms;
-    position: absolute;
-    top: 100px;
-    //filter: invert(1);
-    opacity: 0.6;
-    z-index: 6;
-    right: -350px;
-    background-color: white;
-    border-radius: 20px;
-    padding-left: 20px;
-    //left: 200px;
-    //border: solid white;
-    @media (max-width: 650px) {
-        right: -35px;
-      }
-}*/
-.likeSlide{
-    top: 100px;
-}
-
-.cardSlide{
-    opacity: 1;
-    position: absolute;
-    //display: inline-block;
-    //top: -165px;
-    height: 162px;
-    z-index: 5;
-}
-.cardResum{
-    position: absolute;
-    top: 150px;
-    color: white;
-    padding: 8px;
-    background-color: #99477a ;
-    opacity: 0.8;
-    transition: all ease-in-out 4s; 
-    z-index: 1;
-    height: 100%;
-    .like{
-        top: 70px;
+    .cardSlide{
+        opacity: 1;
+        position: absolute;
+        //display: inline-block;
+        //top: -165px;
+        height: 162px;
+        z-index: 5;
+    }
+    .cardResum{
+        position: absolute;
+        top: 150px;
+        color: white;
+        padding: 8px;
+        background-color: #99477a ;
+        opacity: 0.8;
+        transition: all ease-in-out 4s; 
+        z-index: 1;
+        height: 100%;
+        .like{
+            top: 70px;
+        }
     }
 }
 .cardField:hover {

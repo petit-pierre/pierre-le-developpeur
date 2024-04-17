@@ -123,12 +123,10 @@
 
 .likeColorblack {
   background-color: black;
+  color: white;
 }
 .likeColorblack .buttonLike {
   color: inherit;
-}
-.likeColorblack p {
-  color: white;
 }
 .likeColorblack img {
   filter: invert(1);

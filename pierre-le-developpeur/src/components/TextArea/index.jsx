@@ -18,6 +18,8 @@ function TextArea({ props, content }) {
     //console.log(this);
     if (this.scrollHeight > 0) {
       iHeight = this.scrollHeight + "px";
+
+      console.log(iHeight);
       this.style.height = iHeight;
     }
     if (this.value === "") {
@@ -28,6 +30,7 @@ function TextArea({ props, content }) {
   function handleResize() {
     var oForm = document.forms[props.id + "myForm"],
       aoTextArea = oForm.getElementsByClassName(props.id);
+
     for (let oTextArea of aoTextArea) {
       /* vous pouver aussi utiliser l'event keyup */
       oTextArea.addEventListener("input", setTailleHeight);
@@ -99,8 +102,6 @@ function TextArea({ props, content }) {
     }
   }
 
-  let classi = props.id + " wdgAutoSize edit";
-  let classedit = props.id + " wdgAutoSize";
   return (
     <div className={props.style}>
       <div className="title">
@@ -109,7 +110,13 @@ function TextArea({ props, content }) {
       <form id={props.id + "myForm"} className="mise-en-page textArea">
         <textarea
           id="champText"
-          className={props.edit === true ? classi : classedit}
+          className={
+            props.edit === true
+              ? props.cofee === true
+                ? props.id + " wdgAutoSize edit padding"
+                : props.id + " wdgAutoSize edit"
+              : props.id + " wdgAutoSize"
+          }
           spellCheck={false}
           readOnly={!props.edit}
           ref={textPlace}
@@ -162,6 +169,11 @@ function TextArea({ props, content }) {
           ""
         )}
         <div className="softSkills">{content}</div>
+        {props.cofee === true && props.edit === false ? (
+          <div className="spacedTextArea"></div>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );

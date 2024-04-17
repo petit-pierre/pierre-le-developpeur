@@ -7,9 +7,18 @@
 .windows textarea {
   color: white;
 }
+.windows .like {
+  bottom: 60px;
+}
+.windows .padding {
+  padding-right: 100px;
+}
 
 .empty {
   border-radius: 20px;
+}
+.empty .like {
+  bottom: 20px;
 }
 
 .purpleAndWitheTextarea {
@@ -32,6 +41,9 @@
 .purpleAndWitheTextarea .mise-en-page:hover {
   opacity: 1;
   transition: 1s;
+}
+.purpleAndWitheTextarea .like {
+  bottom: 20px;
 }
 
 /*.purpleAndWitheTextarea:hover{
@@ -76,13 +88,17 @@
   color: white;
   text-align: center;
 }
+@media (max-width: 649px) {
+  .textArea .spacedTextArea {
+    height: 60px;
+  }
+}
 .textArea .like {
   /*.pocContain{
       filter: invert(1);
   }*/
   /*color: black;
   background-color: white;*/
-  bottom: 20px;
   transition: 1000ms;
   position: absolute;
   opacity: 0.6;

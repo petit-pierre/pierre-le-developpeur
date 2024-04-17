@@ -40,8 +40,8 @@
             right: -350px;
             border-radius: 20px;
             padding-left: 20px;
+            //color: white;
             /*background-color: black;
-            color: white;
             img{
                 filter: invert(1);
             }*/
@@ -63,7 +63,6 @@
     .collapse{
         width: 30%;
         padding-left: 1dvw;
-
         @media (max-width: 650px){
             width: 90%;
             margin: auto;
@@ -92,7 +91,6 @@
     .logoAndTitle{
         display: flex;
         flex-direction: row;
-        //margin: auto;
         .logo{
             align-items: center;
         }
@@ -101,15 +99,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
-        .toolTitle{
-            //padding-right: 30px;
-            //margin: auto;
-            //text-align: center;
-        }
     }
     .projets{
-        //margin-left: 0px;
         margin-top: 200px;
         margin-bottom: 12dvh;
         display: flex;
