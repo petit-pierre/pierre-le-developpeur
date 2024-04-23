@@ -133,11 +133,11 @@ function Contact({ props }) {
           ></TextArea>
         </div>
       </div>
-      <div>
+      <div className="divForButton">
         {errorContent === false && errorMail === false ? (
           language === "FR" ? (
-            <div
-              className="elements"
+            <button
+              className="elements buttonSend"
               onClick={(e) => sendMail(content, mail, e)}
             >
               <Button
@@ -147,10 +147,10 @@ function Contact({ props }) {
                   title: contact.french.button,
                 }}
               ></Button>
-            </div>
+            </button>
           ) : (
-            <div
-              className="elements"
+            <button
+              className="elements buttonSend"
               onClick={(e) => sendMail(content, mail, e)}
             >
               <Button
@@ -160,7 +160,7 @@ function Contact({ props }) {
                   title: contact.english.button,
                 }}
               ></Button>
-            </div>
+            </button>
           )
         ) : errorMail === true ? (
           language === "FR" ? (

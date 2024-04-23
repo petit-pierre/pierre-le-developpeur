@@ -103,4 +103,14 @@
 }
 .contactField .elements {
   margin-top: 25px;
+}
+.contactField .divForButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contactField .buttonSend {
+  width: 320px;
+  background-color: white;
+  border: 0px;
 }/*# sourceMappingURL=contact.css.map */

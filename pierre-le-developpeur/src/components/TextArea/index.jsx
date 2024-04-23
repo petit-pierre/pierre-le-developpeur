@@ -18,8 +18,6 @@ function TextArea({ props, content }) {
     //console.log(this);
     if (this.scrollHeight > 0) {
       iHeight = this.scrollHeight + "px";
-
-      console.log(iHeight);
       this.style.height = iHeight;
     }
     if (this.value === "") {
@@ -123,6 +121,7 @@ function TextArea({ props, content }) {
           defaultValue={language === "FR" ? props.french : props.english}
           onSelect={(evt) => clearText(evt)}
           onBlur={(evt) => textBack(evt)}
+          tabIndex={props.edit === false ? -1 : 0}
         ></textarea>
 
         {props.links != null ? (

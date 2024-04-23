@@ -9,7 +9,7 @@ function Collapse({ name, content }) {
   };
   return (
     <div className="collapseField">
-      <div
+      <button
         className={open ? "headerCollapse open" : "headerCollapse close"}
         onClick={toggle}
       >
@@ -24,7 +24,7 @@ function Collapse({ name, content }) {
           src={Arrow}
           alt="Arrow"
         />
-      </div>
+      </button>
 
       <div className={open ? "content-show" : "content-parent"}>
         <div className="content">{content}</div>

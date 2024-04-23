@@ -80,6 +80,7 @@ function LikeButton({ propsLike }) {
             ? "buttonLike button withLike " + propsLike.id
             : "buttonLike button " + propsLike.id
         }
+        tabIndex={-1}
       >
         <div className="pocContain">
           <div className="poc poc1">.</div>

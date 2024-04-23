@@ -123,6 +123,22 @@
     .elements{
         margin-top: 25px;
     }
+    .divForButton{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .buttonSend{
+        //margin: auto;
+        width: 320px;
+        //margin-left: auto;
+        //margin-right: auto;
+        //margin: auto;
+        background-color: white;
+        border: 0px;
+        //color: #eee;
+        //outline:none
+    }
 }
 
 

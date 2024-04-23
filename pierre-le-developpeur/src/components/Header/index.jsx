@@ -15,7 +15,11 @@ function Header() {
   function changeBurger() {
     setBurger(!burger);
   }
-
+  function changeLanguageByKey(evt) {
+    if (evt.code === "Enter") {
+      changeLanguage();
+    }
+  }
   function changeLanguage() {
     language === "FR"
       ? dispatch(userSlice.actions.setLanguage("ENG"))
@@ -33,6 +37,7 @@ function Header() {
                   target="_blank"
                   className="logoLink "
                   rel="noopener noreferrer"
+                  tabIndex={2}
                 >
                   <img
                     src="http://pierre-le-developpeur.com/assets/logo github.png"
@@ -45,6 +50,7 @@ function Header() {
                   target="_blank"
                   className="logoLink"
                   rel="noopener noreferrer"
+                  tabIndex={3}
                 >
                   <img
                     src="http://pierre-le-developpeur.com/assets/logo linkedin.png"
@@ -53,19 +59,19 @@ function Header() {
                   ></img>
                 </a>
               </div>
-              <HashLink onClick={burgerOff} to="/#accueil">
+              <HashLink onClick={burgerOff} to="/#accueil" tabIndex={4}>
                 <div className="li links">Accueil</div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#contact">
+              <HashLink onClick={burgerOff} to="/#contact" tabIndex={5}>
                 <div className="li links">Contact</div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#competences">
+              <HashLink onClick={burgerOff} to="/#competences" tabIndex={6}>
                 <div className="li links">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
                 </div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#projets">
+              <HashLink onClick={burgerOff} to="/#projets" tabIndex={7}>
                 <div className="li links">
                   {language === "FR" ? "Projets" : "Projects"}
                 </div>
@@ -79,19 +85,29 @@ function Header() {
                   id="demo5"
                   onClick={changeLanguage}
                 />
-                <label htmlFor="demo5"></label>
+                <label
+                  htmlFor="demo5"
+                  tabIndex={8}
+                  onKeyDown={(evt) => changeLanguageByKey(evt)}
+                ></label>
               </div>
             </div>
-            <div id="icons" onClick={changeBurger}>
-              <img src={burgerIcon} alt="burger menu" className="icons"></img>
+            <div id="icons" onSubmit={changeBurger}>
+              <img
+                src={burgerIcon}
+                alt="burger menu"
+                className="icons"
+                tabIndex={-1}
+              ></img>
             </div>
           </nav>
           <div className="headerLogos">
-            <HashLink onClick={burgerOff} to="/#accueil">
+            <HashLink onClick={burgerOff} to="/#accueil" tabIndex={-1}>
               <img
                 src="http://pierre-le-developpeur.com/assets/pierre.png"
                 className="maGanache"
                 alt="thank you"
+                tabIndex={1}
               ></img>
             </HashLink>
           </div>

@@ -103,18 +103,29 @@ function Slider({ sliders, mini, likeId }) {
       </div>
       {sliders.length > 1 && mini === false ? (
         <div className="arrowAndCounter">
-          <img
-            className="arrowLeft"
-            src="http://pierre-le-developpeur.com/assets/arrow_left.png"
-            alt="fleche vers la gauche"
+          <button
+            tabIndex={0}
+            className="buttonArrow arrowLeft"
             onClick={previousPicture}
-          ></img>
-          <img
-            className="arrowRight"
-            src="http://pierre-le-developpeur.com/assets/arrow_right.png"
-            alt="fleche vers la droite"
+          >
+            <img
+              className="
+              "
+              src="http://pierre-le-developpeur.com/assets/arrow_left.png"
+              alt="fleche vers la gauche"
+            ></img>
+          </button>
+          <button
+            tabIndex={0}
+            className="buttonArrow arrowRight"
             onClick={nextPicture}
-          ></img>
+          >
+            <img
+              className=""
+              src="http://pierre-le-developpeur.com/assets/arrow_right.png"
+              alt="fleche vers la droite"
+            ></img>
+          </button>
           <p className="counter">
             {currentIndex + 1}/{sliders.length}
           </p>

@@ -46,12 +46,6 @@
   bottom: 20px;
 }
 
-/*.purpleAndWitheTextarea:hover{
-    .textArea{
-        opacity: 1;
-        transition: 1s;
-    }
-}*/
 .textArea {
   position: relative;
   background-size: 100%;
@@ -66,11 +60,11 @@
 .textArea .sign {
   padding-left: 20px;
   font-family: "abacaxi-devanagari", sans-serif;
-  font-style: normal;
   font-size: 1rem;
   font-weight: 400;
   font-style: normal;
   transition: 1s;
+  color: #99477a;
   margin-bottom: 4px;
 }
 .textArea .sign:hover {

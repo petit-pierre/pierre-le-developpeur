@@ -131,4 +131,9 @@
 }
 .sliderField .like .logoLike {
   filter: invert(1);
+}
+
+.buttonArrow {
+  border: 0px;
+  background: none;
 }/*# sourceMappingURL=slider.css.map */

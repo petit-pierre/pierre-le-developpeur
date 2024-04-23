@@ -36,6 +36,7 @@ function Accueil() {
             download="CV-aubree-pierre.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            tabIndex={language === "FR" ? 9 : -1}
           >
             <Button
               props={{
@@ -77,6 +78,7 @@ function Accueil() {
             download="CV-aubree-pierre.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            tabIndex={language === "FR" ? -1 : 10}
           >
             <Button
               props={{
