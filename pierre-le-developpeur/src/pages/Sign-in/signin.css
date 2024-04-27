@@ -1,6 +1,43 @@
 .signin {
+  /*background-image: url("../../../public/assets/door.png");
+  //background-size: 80%;
+  background-size: contain;
+  background-repeat: no-repeat;*/
   display: flex;
   flex-direction: column;
   margin-left: 25dvw;
   margin-top: 12dvh;
+  /*.snow{
+      width: 200px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+  }*/
+}
+.signin .username {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.signin .username label {
+  width: 100px;
+}
+.signin .password {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.signin .password label {
+  width: 100px;
+}
+
+.signPage {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.6));
+}
+.signPage img {
+  width: 30%;
+  margin: auto;
+  margin-top: 100px;
 }/*# sourceMappingURL=signin.css.map */

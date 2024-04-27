@@ -4,11 +4,20 @@ import burgerIcon from "../../assets/burger.svg";
 import { userSlice } from "../../Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
+  const token = useSelector((state) => state.data.token);
   const [burger, setBurger] = useState(false);
   const dispatch = useDispatch();
+
+  const signOut = () => {
+    localStorage.clear();
+    dispatch(userSlice.actions.setToken(null));
+    burgerOff();
+  };
+
   function burgerOff() {
     setBurger(false);
   }
@@ -91,8 +100,34 @@ function Header() {
                   onKeyDown={(evt) => changeLanguageByKey(evt)}
                 ></label>
               </div>
+              {token === null ? (
+                <Link to="/Sign-in" onClick={burgerOff} className="logPlace">
+                  <img
+                    src="../assets/LogIn.png"
+                    alt="log in logo"
+                    className="logIn"
+                  ></img>
+                </Link>
+              ) : (
+                <div className="logPlace">
+                  <Link to="/User" onClick={burgerOff}>
+                    <img
+                      src="../assets/LogIn.png"
+                      alt="log in logo"
+                      className="logIn"
+                    ></img>
+                  </Link>
+                  <Link to="/" onClick={signOut}>
+                    <img
+                      src="../assets/LogOut.png"
+                      alt="log out logo"
+                      className="logIn "
+                    ></img>
+                  </Link>
+                </div>
+              )}
             </div>
-            <div id="icons" onSubmit={changeBurger}>
+            <div id="icons" onClick={changeBurger}>
               <img
                 src={burgerIcon}
                 alt="burger menu"

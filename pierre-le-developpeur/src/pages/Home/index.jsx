@@ -10,6 +10,7 @@ import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
 import Accueil from "../../components/Accueil";
+import Snow from "../../components/Snow";
 
 function Home() {
   const language = useSelector((state) => state.data.language);
@@ -76,6 +77,7 @@ function Home() {
 
     return (
       <div className="withe">
+        <Snow></Snow>
         <span id="accueil"></span>
         <Accueil></Accueil>
         <div className="accueil">
@@ -238,6 +240,7 @@ function Home() {
               <Cards project={project} key={project._id}></Cards>
             ))}
           </div>
+          <div className="foot"></div>
         </div>
       </div>
     );

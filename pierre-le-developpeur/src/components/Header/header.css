@@ -30,6 +30,12 @@
   top: 0px;
   z-index: 10;
 }
+.headerfield .logIn {
+  filter: invert(1);
+  height: 35px;
+  width: 35px;
+  padding-left: 15px;
+}
 .headerfield nav {
   background-color: #99477a;
   transition: 1s;
@@ -171,10 +177,17 @@
   display: none;
 }
 @media (max-width: 650px) {
+  .header .logPlace:hover {
+    background-color: #6d477a;
+    transition: 0s;
+  }
   .header .logos {
     margin: auto;
     width: 100%;
-    margin: auto;
+    margin-top: 0;
+  }
+  .header .logoLink {
+    margin-top: 15px;
   }
   .header .maGanache {
     width: 130px;

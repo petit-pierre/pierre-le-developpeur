@@ -27,7 +27,12 @@
     position: fixed;
     top: 0px;
     z-index: 10;
-
+    .logIn{
+        filter: invert(1);
+        height: 35px;
+        width: 35px;
+        padding-left: 15px;
+    }
     nav{
         //background-color: #c996b7;
         background-color: #99477a;
@@ -177,12 +182,18 @@
         display: none;
     }
     @media (max-width: 650px) {
+        .logPlace:hover{
+            background-color: #6d477a;
+            transition: 0s;
+        }
         .logos{
             margin: auto;
             width: 100%;
-            margin: auto;
+            margin-top: 0;
         }
-
+        .logoLink{
+            margin-top: 15px;
+        }
         .maGanache{
             width: 130px;
             top: 3dvw;

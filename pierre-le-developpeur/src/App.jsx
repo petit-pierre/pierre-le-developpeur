@@ -22,7 +22,6 @@ import PostSkills from "./pages/PostSkills";
 import DeleteSkill from "./pages/DeleteSkill";
 import PostTools from "./pages/PostTools";
 import DeleteTool from "./pages/DeleteTool";
-import Landing from "./pages/Landing";
 import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
@@ -74,7 +73,6 @@ function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route path="/OldLanding" element={<Landing />} />
         <Route path="/UpdateInfo" element={<UpdateInfo />} />
         <Route path="/" element={<Home />} />
         <Route path="/PostProject" element={<PostProject />} />

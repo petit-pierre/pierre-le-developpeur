@@ -1,6 +1,8 @@
 .contactField {
+  background: linear-gradient(rgb(255, 255, 255), rgba(157, 59, 143, 0));
   display: flex;
   flex-direction: column;
+  padding-top: 150px;
   /*.button:active{
       background-color: white;
       color: black;
