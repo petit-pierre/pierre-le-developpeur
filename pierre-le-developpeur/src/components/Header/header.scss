@@ -187,12 +187,19 @@
             transition: 0s;
         }
         .logos{
-            margin: auto;
+            //margin: auto;
             width: 100%;
-            margin-top: 0;
+            //margin-top: 0;
+            //height: 9dvh;
+        }
+        .logos:hover{
+            background-color: #6d477a;
         }
         .logoLink{
-            margin-top: 15px;
+            padding-top: 2dvh;
+            padding-bottom: 2dvh;
+            //margin-top: 15px;
+            //height: 7dvh;
         }
         .maGanache{
             width: 130px;
@@ -201,7 +208,15 @@
         }
         .language{
             justify-content: center;
-
+            padding-top: 3dvh;
+            padding-bottom: 3dvh;
+        }
+        .logIn{
+            padding-left: 0;
+            padding-top: 2dvh;
+        }
+        .language:hover{
+            background-color: #6d477a;
         }
         input[type="checkbox"].demo5 + label {
             background-color: #99477a;
@@ -226,12 +241,17 @@
             z-index: -1;
             top: 0;
         }
+        .txtLinks{
+            //padding-top: 50px;
+            padding-top: 4dvh;
+            //height: 6dvh;
+        }
         nav .ul {
           position: fixed;
           left: -550dvh;
-          top: 20dvh;
+          top: 150px;
           z-index: -1;
-          height: 80dvh;
+          height: calc(100dvh - 150px);
           flex-direction: column;
           background:#b674cc ;
           width: 100%;
@@ -239,8 +259,10 @@
           transition: 0.25s ease;
         }
         nav .li {
-          padding: 3px 0;
-          height: 12dvh ;
+          //padding: 3px 0px 3px 0px;
+          //padding-left: 3px;
+          height: 8dvh ;
+          margin-top: 0;
         }
         nav .li:hover {
           background: #6d477a;

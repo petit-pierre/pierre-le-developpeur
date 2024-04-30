@@ -7,24 +7,24 @@ function Snow({}) {
         <div class="md">
           <blockquote>
             <p>
-              <a href="#snow"></a>
+              <a href="#snow" tabIndex={-1}></a>
             </p>
             <p>
-              <a href="#snow"></a>
+              <a href="#snow" tabIndex={-1}></a>
             </p>
             <p>
-              <a href="#ana"></a>
+              <a href="#ana" tabIndex={-1}></a>
             </p>
             <p>
-              <a href="#snow"></a>
-              <a href="#snow"></a>
-              <a href="#snow"></a>
+              <a href="#snow" tabIndex={-1}></a>
+              <a href="#snow" tabIndex={-1}></a>
+              <a href="#snow" tabIndex={-1}></a>
             </p>
             <p>
-              <a href="#hanzo"></a>
+              <a href="#hanzo" tabIndex={-1}></a>
             </p>
             <p>
-              <a href="#snow"></a>
+              <a href="#snow" tabIndex={-1}></a>
             </p>
           </blockquote>
         </div>

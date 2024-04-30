@@ -40,7 +40,7 @@ function Header() {
         <div className="header ">
           <nav id="nav" className={burger === true ? "active" : ""}>
             <div className="ul">
-              <div className="logos li">
+              <div className="logos ">
                 <a
                   href="https://github.com/petit-pierre"
                   target="_blank"
@@ -69,23 +69,23 @@ function Header() {
                 </a>
               </div>
               <HashLink onClick={burgerOff} to="/#accueil" tabIndex={4}>
-                <div className="li links">Accueil</div>
+                <div className="li links txtLinks">Accueil</div>
               </HashLink>
               <HashLink onClick={burgerOff} to="/#contact" tabIndex={5}>
-                <div className="li links">Contact</div>
+                <div className="li links txtLinks">Contact</div>
               </HashLink>
               <HashLink onClick={burgerOff} to="/#competences" tabIndex={6}>
-                <div className="li links">
+                <div className="li links txtLinks">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
                 </div>
               </HashLink>
               <HashLink onClick={burgerOff} to="/#projets" tabIndex={7}>
-                <div className="li links">
+                <div className="li links txtLinks">
                   {language === "FR" ? "Projets" : "Projects"}
                 </div>
               </HashLink>
-              <div className="li language links">
+              <div className=" language links">
                 {language}
 
                 <input
