@@ -198,12 +198,15 @@
   }
   .header .language {
     justify-content: center;
-    padding-top: 3dvh;
-    padding-bottom: 3dvh;
+    padding-top: 2dvh;
+    padding-bottom: 2dvh;
   }
   .header .logIn {
     padding-left: 0;
     padding-top: 2dvh;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
   .header .language:hover {
     background-color: #6d477a;
@@ -247,7 +250,7 @@
     transition: 0.25s ease;
   }
   .header nav .li {
-    height: 8dvh;
+    height: 6dvh;
     margin-top: 0;
   }
   .header nav .li:hover {

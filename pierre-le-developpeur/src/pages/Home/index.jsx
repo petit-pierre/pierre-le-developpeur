@@ -74,10 +74,13 @@ function Home() {
         getOldLikes(response);
       }, 150);
     });
+    const Lscreen = window.innerWidth;
+    console.log(Lscreen);
 
     return (
       <div className="withe">
-        <Snow></Snow>
+        {Lscreen > 650 ? <Snow></Snow> : ""}
+
         <span id="accueil"></span>
         <Accueil></Accueil>
         <div className="accueil">

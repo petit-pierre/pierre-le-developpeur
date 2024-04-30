@@ -103,7 +103,7 @@ function Header() {
               {token === null ? (
                 <Link to="/Sign-in" onClick={burgerOff} className="logPlace">
                   <img
-                    src="../assets/LogIn.png"
+                    src="http://www.pierre-le-developpeur.com/assets/login.png"
                     alt="log in logo"
                     className="logIn"
                   ></img>
@@ -112,16 +112,16 @@ function Header() {
                 <div className="logPlace">
                   <Link to="/User" onClick={burgerOff}>
                     <img
-                      src="../assets/LogIn.png"
+                      src="http://www.pierre-le-developpeur.com/assets/login.png"
                       alt="log in logo"
                       className="logIn"
                     ></img>
                   </Link>
                   <Link to="/" onClick={signOut}>
                     <img
-                      src="../assets/LogOut.png"
+                      src="http://www.pierre-le-developpeur.com/assets/logout.png"
                       alt="log out logo"
-                      className="logIn "
+                      className="logIn"
                     ></img>
                   </Link>
                 </div>
