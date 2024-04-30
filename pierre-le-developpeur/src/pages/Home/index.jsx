@@ -240,7 +240,6 @@ function Home() {
               <Cards project={project} key={project._id}></Cards>
             ))}
           </div>
-          <div className="foot"></div>
         </div>
       </div>
     );

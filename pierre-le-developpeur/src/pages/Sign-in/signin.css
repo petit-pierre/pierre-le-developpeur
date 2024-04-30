@@ -1,18 +1,106 @@
 .signin {
-  /*background-image: url("../../../public/assets/door.png");
-  //background-size: 80%;
-  background-size: contain;
-  background-repeat: no-repeat;*/
   display: flex;
   flex-direction: column;
   margin-left: 25dvw;
   margin-top: 12dvh;
-  /*.snow{
-      width: 200px;
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-  }*/
+  width: 25%;
+}
+@media (max-width: 650px) {
+  .signin {
+    margin: 2dvw;
+    width: 96dvw;
+  }
+  .signin p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 650px) {
+  .signin form {
+    margin: auto;
+  }
+}
+.signin .backOfficeTxt {
+  min-height: 200px;
+}
+@media (max-width: 650px) {
+  .signin .backOfficeTxt {
+    min-height: 140px;
+  }
+}
+.signin .remember {
+  margin-left: 10px;
+}
+.signin input:-webkit-autofill {
+  -webkit-text-fill-color: green;
+  -webkit-transition: all 5000s ease-in-out 0s;
+  transition: all 5000s ease-in-out 0s;
+}
+.signin #username {
+  background: transparent;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.signin #password {
+  background: transparent;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.signin input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+.signin input[type=checkbox] {
+  border-radius: 5px;
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  border: 2px solid black;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+.signin .connectMe {
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-left: 100px;
+  color: white;
+  height: 35px;
+  transition: 1s;
+}
+.signin .connectMe img {
+  margin: auto;
+  margin-top: 2px;
+  width: 80px;
+  filter: invert(1);
+}
+.signin .connectMe:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 6px black;
+  transition: 2s;
+}
+.signin input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.signin input[type=checkbox]:checked {
+  position: relative;
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+.signin input[type=checkbox]:checked:before {
+  background-color: black;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15px;
+  width: 15px;
 }
 .signin .username {
   display: flex;
@@ -26,6 +114,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-top: 5px;
 }
 .signin .password label {
   width: 100px;
@@ -36,8 +125,19 @@
   flex-direction: row;
   background: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.6));
 }
+@media (max-width: 650px) {
+  .signPage {
+    flex-direction: column-reverse;
+  }
+}
 .signPage img {
   width: 30%;
   margin: auto;
   margin-top: 100px;
+}
+@media (max-width: 650px) {
+  .signPage img {
+    margin-top: 20px;
+    width: 60%;
+  }
 }/*# sourceMappingURL=signin.css.map */
