@@ -16,22 +16,14 @@ function User() {
 
   const dispatch = useDispatch();
 
-  const signOut = () => {
-    localStorage.clear();
-    dispatch(userSlice.actions.setToken(null));
-    navigate("/");
-  };
-
   if (token === null) {
     return <Navigate to="../404/" replace={true} />;
   }
 
   return (
-    <main>
+    <main className="mainDashboard">
       <h1 className="dashboard">Dashboard</h1>
-      <fieldset>
-        <button onClick={signOut}>sign out</button>
-      </fieldset>
+
       <fieldset>
         <Link to="/PostProject">Post new project</Link>
       </fieldset>

@@ -26,7 +26,7 @@
         margin-left: 10px;
     }
     input:-webkit-autofill {
-        -webkit-text-fill-color: green;
+        //-webkit-text-fill-color: green;
         transition: all 5000s ease-in-out 0s;
     }
     #username{
@@ -58,6 +58,7 @@
         margin: auto;
         margin-top: 5px;
         margin-left: 100px;
+        transition: 0.5s;
     }
     .connectMe{
         background-color: white;
@@ -87,14 +88,15 @@
         margin: auto;
         margin-top: 5px;
         margin-left: 100px;
-        &:before {
+        transition: all 1s;
         background-color: black;
-        content: '';
-        display: block;
-        //font-size: 13px;
-        position: absolute;
-        height: 15px;
-        width: 15px;
+        &:before {
+            background-color: black;
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15px;
+            width: 15px;
         }
     }
     .username{
