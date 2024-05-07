@@ -1,17 +1,42 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setLikeThunk,
   setProjectPictureThunk,
   setProjectThunk,
 } from "../../thunkActionsCreator";
-import { Navigate, useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 function PostProject() {
   let sliders = [];
-  let links = [];
-  let Sliders = [];
+  //let links = [];
+
+  const [links, setLinks] = useState([]);
+  const [truc, setTruc] = useState(0);
+  //let Sliders = [];
+
+  /*useEffect(() => {
+    console.log("coucou");
+  }, [links]);*/
+
+  let { projectId } = useParams();
+  //console.log(projectId);
+  const projects = useSelector((state) => state.data.projects);
+  let project = null;
+  if (projectId !== "newOne") {
+    project = projects.find((projects) => projects._id === projectId);
+  }
+
+  //console.log(project);
+  useEffect(() => {
+    if (projectId !== "newOne") {
+      setLinks(links.concat(project.links));
+      for (let pro of project.links) {
+        //links.push(pro);
+        //setLinks(pro);
+      }
+    }
+  }, []);
 
   const linkList = [
     { id: 1, name: "web" },
@@ -193,6 +218,10 @@ function PostProject() {
       alert("champs incomplets");
     }
   }
+  function set(evt) {
+    evt.preventDefault();
+    setTruc(truc + 1);
+  }
   function ProjectLinksUpdate(evt) {
     evt.preventDefault();
     const projectLinks = document.querySelectorAll(".Link");
@@ -209,16 +238,35 @@ function PostProject() {
       };
 
       links.push(linkContent);
-      alert("lien ajouté : " + linkContent.url);
+      setLinks(links);
+      //console.log(links);
+      //alert("lien ajouté : " + linkContent.url);
 
       linkUrl.current.value = "";
+      //return links.map((li) => <p>{li.url}</p>);
+      //<p>coucou</p>;
     } else {
       alert("champs incomplets");
     }
+    set(evt);
+  }
+
+  function ProjectLinksDellete(evt, prlink) {
+    evt.preventDefault();
+    const found = links.find((li) => li === prlink);
+    const index = links.findIndex((la) => la === found);
+    links.splice(index, 1);
+    setLinks(links);
+    //console.log(links);
+    set(evt);
   }
 
   function cancelProject() {
     navigate("/User");
+  }
+
+  if (project === undefined) {
+    project = null;
   }
 
   return (
@@ -228,35 +276,100 @@ function PostProject() {
           <h1>Post new project</h1>
           <div>
             <p>title in french : </p>
-            <textarea ref={frenchProjectTitle} type="text" />
+            <textarea
+              ref={frenchProjectTitle}
+              type="text"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.french_title
+              }
+            />
           </div>
           <div>
             <p>title in english : </p>
-            <textarea ref={englishProjectTitle} type="text" />
+            <textarea
+              ref={englishProjectTitle}
+              type="text"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.english_title
+              }
+            />
           </div>
           <div>
             <p>date : </p>
-            <input ref={date} type="date" />
+            <input
+              ref={date}
+              type="date"
+              placeholder={
+                project === null || project === undefined ? null : project.date
+              }
+            />
           </div>
 
           <div>
             <p>description in french : </p>
-            <textarea ref={frenchDescription} type="textarea" />
+            <textarea
+              ref={frenchDescription}
+              type="textarea"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.french_description
+              }
+            />
           </div>
           <div>
             <p>description in english : </p>
-            <textarea ref={englishDescription} type="textarea" />
+            <textarea
+              ref={englishDescription}
+              type="textarea"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.english_description
+              }
+            />
           </div>
           <div>
             <p>resum in french : </p>
-            <textarea ref={frenchResum} type="textarea" />
+            <textarea
+              ref={frenchResum}
+              type="textarea"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.french_resum
+              }
+            />
           </div>
           <div>
             <p>resum in english : </p>
-            <textarea ref={englishResum} type="textarea" />
+            <textarea
+              ref={englishResum}
+              type="textarea"
+              placeholder={
+                project === null || project === undefined
+                  ? null
+                  : project.english_resum
+              }
+            />
           </div>
           <fieldset>
             <legend>Links :</legend>
+            {links.map((prlink) => (
+              <fieldset>
+                <p>link url : {prlink.url}</p>
+
+                <p>category : {prlink.category}</p>
+                <button onClick={(evt) => ProjectLinksDellete(evt, prlink)}>
+                  remove this link :
+                </button>
+              </fieldset>
+            ))}
+
             <div>
               <p>link url : </p>
               <input ref={linkUrl} type="text" />
@@ -271,14 +384,13 @@ function PostProject() {
                   id={link.id}
                   value={link.name}
                 />
-                <label htmlFor="React">{link.name}</label>
+                <label htmlFor="Link">{link.name}</label>
               </div>
             ))}
+            <button onClick={(evt) => ProjectLinksUpdate(evt)}>
+              add this link :
+            </button>
           </fieldset>
-          <button onClick={(evt) => ProjectLinksUpdate(evt)}>
-            {" "}
-            add this link :{" "}
-          </button>
           <fieldset>
             <legend>Slider :</legend>
             <div>
@@ -320,6 +432,13 @@ function PostProject() {
                     name="category"
                     id={categorie.id}
                     value={categorie.name}
+                    defaultChecked={
+                      project === null || project === undefined
+                        ? null
+                        : categorie.name === project.category
+                        ? "true"
+                        : null
+                    }
                   />
                   <label htmlFor="category">{categorie.name}</label>
                 </div>
@@ -332,13 +451,37 @@ function PostProject() {
               <legend>skills :</legend>
               {Skills.map((skill) => (
                 <div>
-                  <input
-                    className="Skills"
-                    type="checkbox"
-                    name={skill.french_title}
-                    id={skill._id}
-                    value={skill._id}
-                  />
+                  {project === null ||
+                  project.skills === null ||
+                  project === undefined ? (
+                    <input
+                      className="Skills"
+                      type="checkbox"
+                      name={skill.french_title}
+                      id={skill._id}
+                      value={skill._id}
+                    />
+                  ) : project.skills.find(
+                      (sk) => sk.name === skill.french_title
+                    ) !== undefined ? (
+                    <input
+                      className="Skills"
+                      type="checkbox"
+                      name={skill.french_title}
+                      id={skill._id}
+                      value={skill._id}
+                      defaultChecked
+                    />
+                  ) : (
+                    <input
+                      className="Skills"
+                      type="checkbox"
+                      name={skill.french_title}
+                      id={skill._id}
+                      value={skill._id}
+                    />
+                  )}
+
                   <label htmlFor={skill.french_title}>
                     {skill.french_title}
                   </label>
@@ -352,13 +495,36 @@ function PostProject() {
               <legend>Design tools :</legend>
               {designTools.map((tool) => (
                 <div>
-                  <input
-                    className="Tools"
-                    type="checkbox"
-                    name={tool.title}
-                    id={tool._id}
-                    value={tool.id}
-                  />
+                  {project === null ||
+                  project.tools === null ||
+                  project === undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  ) : project.tools.find((prt) => prt.name === tool.title) !==
+                    undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                      defaultChecked
+                    />
+                  ) : (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  )}
+
                   <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}
@@ -367,13 +533,36 @@ function PostProject() {
               <legend>Front-end tools :</legend>
               {frontTools.map((tool) => (
                 <div>
-                  <input
-                    className="Tools"
-                    type="checkbox"
-                    name={tool.title}
-                    id={tool._id}
-                    value={tool.id}
-                  />
+                  {project === null ||
+                  project.tools === null ||
+                  project === undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  ) : project.tools.find((prt) => prt.name === tool.title) !==
+                    undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                      defaultChecked
+                    />
+                  ) : (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  )}
+
                   <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}
@@ -382,13 +571,35 @@ function PostProject() {
               <legend>Back-end tools :</legend>
               {backTools.map((tool) => (
                 <div>
-                  <input
-                    className="Tools"
-                    type="checkbox"
-                    name={tool.title}
-                    id={tool._id}
-                    value={tool.id}
-                  />
+                  {project === null ||
+                  project.tools === null ||
+                  project === undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  ) : project.tools.find((prt) => prt.name === tool.title) !==
+                    undefined ? (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                      defaultChecked
+                    />
+                  ) : (
+                    <input
+                      className="Tools"
+                      type="checkbox"
+                      name={tool.title}
+                      id={tool._id}
+                      value={tool.id}
+                    />
+                  )}
                   <label htmlFor={tool.title}>{tool.title}</label>
                 </div>
               ))}

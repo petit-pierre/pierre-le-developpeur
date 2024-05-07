@@ -16,7 +16,7 @@ function DeleteProject() {
       ) : (
         <div>
           <button className="edit-button" onClick={projectChange}>
-            Delete project
+            Modifie project
           </button>
         </div>
       )}
@@ -25,9 +25,20 @@ function DeleteProject() {
         <div className="projects">
           {projects.map((project) => (
             <div>
-              <Link to={"Project/" + project._id} key={`${project.id}`}>
-                "Supprimez moi : {project.french_title}
-              </Link>
+              <p>{project.french_title}</p>
+              <button>
+                <Link to={"Project/" + project._id} key={`${project.id}`}>
+                  "Supprimez moi :
+                </Link>
+              </button>
+              <button>
+                <Link
+                  to={"../PostProject/" + project._id}
+                  key={`project${project.id}`}
+                >
+                  "Modifiez moi :
+                </Link>
+              </button>
               <p> </p>
             </div>
           ))}

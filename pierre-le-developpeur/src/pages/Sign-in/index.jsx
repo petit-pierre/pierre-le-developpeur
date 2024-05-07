@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setTokenThunk } from "../../thunkActionsCreator";
-import Header from "../../components/Header";
 import "./signin.css";
 import Snow from "../../components/Snow";
 

@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./user.css";
-import { userSlice } from "../../Slices/userSlice";
-import Header from "../../components/Header";
 import DeleteProject from "../../components/DeleteProject";
 import DeleteSkill from "../../components/DeleteSkill";
 import DeleteTool from "../../components/DeleteTool";
@@ -25,9 +23,10 @@ function User() {
       <h1 className="dashboard">Dashboard</h1>
 
       <fieldset>
-        <Link to="/PostProject">Post new project</Link>
-      </fieldset>
-      <fieldset>
+        <h3>Projects</h3>
+        <button>
+          <Link to="/PostProject/newOne">Post new project</Link>
+        </button>
         <DeleteProject />
       </fieldset>
       <fieldset>

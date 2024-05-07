@@ -75,7 +75,7 @@ function App() {
       <Routes>
         <Route path="/UpdateInfo" element={<UpdateInfo />} />
         <Route path="/" element={<Home />} />
-        <Route path="/PostProject" element={<PostProject />} />
+        <Route path="/PostProject/:projectId" element={<PostProject />} />
         <Route path="/PostSkills" element={<PostSkills />} />
         <Route path="/PostSliders" element={<PostSliders />} />
         <Route path="/PostTools" element={<PostTools />} />

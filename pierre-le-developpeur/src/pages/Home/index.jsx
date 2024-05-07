@@ -75,7 +75,6 @@ function Home() {
       }, 150);
     });
     const Lscreen = window.innerWidth;
-    console.log(Lscreen);
 
     return (
       <div className="withe">

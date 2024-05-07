@@ -11,12 +11,10 @@ function DeleteProject() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log("id : " + id);
   const projectId = id;
   const projects = useSelector((state) => state.data.projects);
   const project = projects.find((projects) => projects._id === projectId);
   const token = useSelector((state) => state.data.token);
-  console.log(project);
 
   const translationId = project.translation;
 
