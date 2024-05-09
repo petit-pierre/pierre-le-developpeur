@@ -7,7 +7,7 @@ router.post("/", auth, projectsCtrl.createProject);
 
 router.get("/:id", projectsCtrl.getProject);
 
-//router.put("/:id", auth, projectsCtrl.putProject);
+router.put("/:id", auth, projectsCtrl.putProject);
 
 router.delete("/:id", auth, projectsCtrl.deleteProject);
 

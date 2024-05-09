@@ -17,6 +17,11 @@ exports.getProject = (req, res, next) => {
     .catch((error) => res.status(404).json({ error }));
 };
 
+exports.putProject = (req, res, next) => {
+  Projects.updateOne({ _id: req.params.id }, { ...req.body })
+    .then(() => res.status(200).json({ message: "projet modifié !" }))
+    .catch((error) => res.status(400).json({ error }));
+};
 /*exports.putProject = (req, res, next) => {
   const projectObject = req.file
     ? {

@@ -116,6 +116,33 @@ export const deleteProjectThunk =
     return false;
   };
 
+export const putProjectThunk =
+  (newProject, token, id) => async (dispatch, getstate) => {
+    const response = await fetch(
+      "http://localhost:3000/api/projects/" + id,
+      //"http://api.petitpierre.net/api/projects/" + id,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + token,
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(newProject),
+      }
+    );
+
+    let result = await response.json();
+    const getProjects = async () => {
+      const getProjectResult = await dispatch(getProjectsThunk());
+    };
+    getProjects();
+    if (response.ok) {
+      return result;
+    }
+    return false;
+  };
+
 export const setTranslationThunk =
   (projectTranslation, token) => async (dispatch, getstate) => {
     const response = await fetch(

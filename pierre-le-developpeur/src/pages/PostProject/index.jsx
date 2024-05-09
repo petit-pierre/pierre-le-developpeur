@@ -1,18 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deletePictureThunk,
+  putProjectThunk,
   setLikeThunk,
   setProjectPictureThunk,
   setProjectThunk,
 } from "../../thunkActionsCreator";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import "./postProject.css";
 
 function PostProject() {
-  let sliders = [];
+  //let sliders = [];
   //let links = [];
-
+  const [sliders, setSliders] = useState([]);
   const [links, setLinks] = useState([]);
   const [truc, setTruc] = useState(0);
+  //let slideToDellette = [];
+  const [slideToDellette, setSlideToDellette] = useState([]);
   //let Sliders = [];
 
   /*useEffect(() => {
@@ -22,7 +27,7 @@ function PostProject() {
   let { projectId } = useParams();
   //console.log(projectId);
   const projects = useSelector((state) => state.data.projects);
-  let project = null;
+  let project = "newOne";
   if (projectId !== "newOne") {
     project = projects.find((projects) => projects._id === projectId);
   }
@@ -31,10 +36,7 @@ function PostProject() {
   useEffect(() => {
     if (projectId !== "newOne") {
       setLinks(links.concat(project.links));
-      for (let pro of project.links) {
-        //links.push(pro);
-        //setLinks(pro);
-      }
+      setSliders(sliders.concat(project.sliders));
     }
   }, []);
 
@@ -161,25 +163,48 @@ function PostProject() {
 
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();
-        formData.append("imageUrl", "");
-        formData.append("image", sliders[i].picture);
+        if (newProject.sliders[i].newPicture === true) {
+          formData.append("imageUrl", "");
+          formData.append("image", sliders[i].picture);
+        } //else{}
 
         const sliderSubmit = async () => {
-          const setProjectPictureResult = await dispatch(
-            setProjectPictureThunk(formData, token)
-          );
-          newProject.sliders[i].picture =
-            await setProjectPictureResult.imageUrl;
-          newProject.sliders[i].picture_id = await setProjectPictureResult._id;
-
+          if (newProject.sliders[i].newPicture === true) {
+            const setProjectPictureResult = await dispatch(
+              setProjectPictureThunk(formData, token)
+            );
+            newProject.sliders[i].picture =
+              await setProjectPictureResult.imageUrl;
+            newProject.sliders[i].picture_id =
+              await setProjectPictureResult._id;
+            delete newProject.sliders[i].temporaryUrl;
+            delete newProject.sliders[i].newPicture;
+          }
           const finalSubmit = async () => {
             await setTimeout(() => {
-              const setProjectResult = dispatch(
-                setProjectThunk(newProject, token)
-              );
+              if (project === "newOne") {
+                const setProjectResult = dispatch(
+                  setProjectThunk(newProject, token)
+                );
+              } else {
+                const id = projectId;
+                const putProjectResult = dispatch(
+                  putProjectThunk(newProject, token, id)
+                );
+              }
             }, 500);
           };
           if (i === links.length - 1) {
+            for (let picToD of slideToDellette) {
+              const id = picToD;
+              const deletePicture = async () => {
+                const deletePictureResult = await dispatch(
+                  deletePictureThunk(id, token)
+                );
+              };
+              deletePicture();
+            }
+
             await finalSubmit();
           }
         };
@@ -190,6 +215,20 @@ function PostProject() {
         navigate("/User");
       }
     }
+  }
+  function RemoveSlide(evt, projectSlide) {
+    evt.preventDefault();
+    if (projectSlide.newPicture === true) {
+      slideToDellette.push(projectSlide.picture_id);
+      setSlideToDellette(slideToDellette);
+    }
+
+    const found = sliders.find((sli) => sli === projectSlide);
+    const index = sliders.findIndex((slideIndex) => slideIndex === found);
+    sliders.splice(index, 1);
+    setSliders(sliders);
+    //console.log(links);
+    set(evt);
   }
   function ProjectSliderUpdate(evt) {
     evt.preventDefault();
@@ -202,14 +241,21 @@ function PostProject() {
     ) {
       let slider = {
         picture: photo.files[0],
+        temporaryUrl: URL.createObjectURL(photo.files[0]),
+        newPicture: true,
         alt: sliderAlt.current.value,
         french_content: frenchSliderContent.current.value,
         english_content: englishSliderContent.current.value,
       };
 
       sliders.push(slider);
+      setSliders(sliders);
+      console.log(sliders);
       alert("slide ajouté : " + photo.files[0].name);
-
+      set(evt);
+      //const objectURL = URL.createObjectURL(photo.files[0])
+      //delete slider.temporaryUrl;
+      console.log(sliders);
       sliderAlt.current.value = "";
       frenchSliderContent.current.value = "";
       englishSliderContent.current.value = "";
@@ -270,7 +316,7 @@ function PostProject() {
   }
 
   return (
-    <div>
+    <div className="postProject">
       <fieldset>
         <form>
           <h1>Post new project</h1>
@@ -279,8 +325,10 @@ function PostProject() {
             <textarea
               ref={frenchProjectTitle}
               type="text"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.french_title
               }
@@ -291,8 +339,10 @@ function PostProject() {
             <textarea
               ref={englishProjectTitle}
               type="text"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.english_title
               }
@@ -303,8 +353,14 @@ function PostProject() {
             <input
               ref={date}
               type="date"
-              placeholder={
-                project === null || project === undefined ? null : project.date
+              //onfocus={(date.type = "date")}
+              //onblur="(this.type='text')"
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
+                  ? null
+                  : project.date
               }
             />
           </div>
@@ -314,8 +370,10 @@ function PostProject() {
             <textarea
               ref={frenchDescription}
               type="textarea"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.french_description
               }
@@ -326,8 +384,10 @@ function PostProject() {
             <textarea
               ref={englishDescription}
               type="textarea"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.english_description
               }
@@ -338,8 +398,10 @@ function PostProject() {
             <textarea
               ref={frenchResum}
               type="textarea"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.french_resum
               }
@@ -350,8 +412,10 @@ function PostProject() {
             <textarea
               ref={englishResum}
               type="textarea"
-              placeholder={
-                project === null || project === undefined
+              defaultValue={
+                project === null ||
+                project === undefined ||
+                project === "newOne"
                   ? null
                   : project.english_resum
               }
@@ -391,36 +455,55 @@ function PostProject() {
               add this link :
             </button>
           </fieldset>
-          <fieldset>
+          <fieldset className="sliderField">
             <legend>Slider :</legend>
-            <div>
-              <p>slider picture : </p>
-              <input
-                type="file"
-                className="sliderPicture"
-                name="sliderPicture"
-                accept="image/png, image/jpeg,image/webp"
-              />
-            </div>
-            <div>
-              <p>slider alt : </p>
-              <textarea ref={sliderAlt} type="text" />
-            </div>
-            <div>
-              <p>slider content in french : </p>
-              <textarea ref={frenchSliderContent} type="text" />
-            </div>
-            <div>
-              <p>slider content in english : </p>
-              <textarea ref={englishSliderContent} type="text" />
+            {sliders.map((projectSlide) => (
+              <fieldset className="sliderContainer">
+                <img
+                  src={
+                    projectSlide.newPicture === true
+                      ? projectSlide.temporaryUrl
+                      : projectSlide.picture
+                  }
+                  alt={projectSlide.alt}
+                  className="sliderPictureShow"
+                ></img>
+                <p>{projectSlide.french_content} </p>
+                <p>{projectSlide.english_content} </p>
+                <button onClick={(evt) => RemoveSlide(evt, projectSlide)}>
+                  remove this slide :
+                </button>
+              </fieldset>
+            ))}
+            <div className="sliderAdd">
+              <div>
+                <p>slider picture : </p>
+                <input
+                  type="file"
+                  className="sliderPicture"
+                  name="sliderPicture"
+                  accept="image/png, image/jpeg,image/webp"
+                />
+              </div>
+              <div>
+                <p>slider alt : </p>
+                <textarea ref={sliderAlt} type="text" />
+              </div>
+              <div>
+                <p>slider content in french : </p>
+                <textarea ref={frenchSliderContent} type="text" />
+              </div>
+              <div>
+                <p>slider content in english : </p>
+                <textarea ref={englishSliderContent} type="text" />
+              </div>
+              <button onClick={(evt) => ProjectSliderUpdate(evt)}>
+                {" "}
+                add this slide :{" "}
+              </button>
             </div>
           </fieldset>
-          <div>
-            <button onClick={(evt) => ProjectSliderUpdate(evt)}>
-              {" "}
-              add this slide :{" "}
-            </button>
-          </div>
+
           <div>
             <fieldset>
               <legend>category :</legend>
@@ -433,7 +516,9 @@ function PostProject() {
                     id={categorie.id}
                     value={categorie.name}
                     defaultChecked={
-                      project === null || project === undefined
+                      project === null ||
+                      project === undefined ||
+                      project === "newOne"
                         ? null
                         : categorie.name === project.category
                         ? "true"
@@ -453,7 +538,8 @@ function PostProject() {
                 <div>
                   {project === null ||
                   project.skills === null ||
-                  project === undefined ? (
+                  project === undefined ||
+                  project === "newOne" ? (
                     <input
                       className="Skills"
                       type="checkbox"
@@ -497,7 +583,8 @@ function PostProject() {
                 <div>
                   {project === null ||
                   project.tools === null ||
-                  project === undefined ? (
+                  project === undefined ||
+                  project === "newOne" ? (
                     <input
                       className="Tools"
                       type="checkbox"
@@ -535,7 +622,8 @@ function PostProject() {
                 <div>
                   {project === null ||
                   project.tools === null ||
-                  project === undefined ? (
+                  project === undefined ||
+                  project === "newOne" ? (
                     <input
                       className="Tools"
                       type="checkbox"
@@ -573,7 +661,8 @@ function PostProject() {
                 <div>
                   {project === null ||
                   project.tools === null ||
-                  project === undefined ? (
+                  project === undefined ||
+                  project === "newOne" ? (
                     <input
                       className="Tools"
                       type="checkbox"
