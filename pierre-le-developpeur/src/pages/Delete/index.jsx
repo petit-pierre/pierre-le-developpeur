@@ -1,5 +1,4 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteLikesThunk,

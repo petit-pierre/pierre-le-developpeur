@@ -11,6 +11,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./postProject.css";
 
 function PostProject() {
+  const previousLikes = useSelector((state) => state.data.likes);
   //let sliders = [];
   //let links = [];
   const [sliders, setSliders] = useState([]);
@@ -31,7 +32,7 @@ function PostProject() {
   if (projectId !== "newOne") {
     project = projects.find((projects) => projects._id === projectId);
   }
-
+  console.log(project);
   //console.log(project);
   useEffect(() => {
     if (projectId !== "newOne") {
@@ -134,23 +135,33 @@ function PostProject() {
       };
 
       const likeSubmit = async () => {
-        const likes = {
+        let likes = {
           title: newProject.french_title,
           likes: 0,
         };
         const setLikesResult = await dispatch(setLikeThunk(likes, token));
         newProject.likes_id = setLikesResult._id;
       };
-      likeSubmit();
+      if (projectId !== "newOne") {
+        newProject.likes_id = project.likes_id;
+      } else {
+        likeSubmit();
+      }
+
       const likeSliderSubmit = async () => {
-        const likes = {
+        let likes = {
           title: "slider" + newProject.french_title,
           likes: 0,
         };
         const setLikesResult = await dispatch(setLikeThunk(likes, token));
         newProject.slider_likes_id = setLikesResult._id;
       };
-      likeSliderSubmit();
+      if (projectId !== "newOne") {
+        newProject.slider_likes_id = project.slider_likes_id;
+      } else {
+        likeSliderSubmit();
+      }
+
       const likeContentSubmit = async () => {
         const likes = {
           title: "content" + newProject.french_title,
@@ -159,7 +170,11 @@ function PostProject() {
         const setLikesResult = await dispatch(setLikeThunk(likes, token));
         newProject.content_likes_id = setLikesResult._id;
       };
-      likeContentSubmit();
+      if (projectId !== "newOne") {
+        newProject.content_likes_id = project.content_likes_id;
+      } else {
+        likeContentSubmit();
+      }
 
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();
@@ -250,12 +265,12 @@ function PostProject() {
 
       sliders.push(slider);
       setSliders(sliders);
-      console.log(sliders);
+      //console.log(sliders);
       alert("slide ajouté : " + photo.files[0].name);
       set(evt);
       //const objectURL = URL.createObjectURL(photo.files[0])
       //delete slider.temporaryUrl;
-      console.log(sliders);
+      //console.log(sliders);
       sliderAlt.current.value = "";
       frenchSliderContent.current.value = "";
       englishSliderContent.current.value = "";

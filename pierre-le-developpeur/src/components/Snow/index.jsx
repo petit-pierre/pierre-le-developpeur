@@ -3,8 +3,8 @@ import "./snow.css";
 function Snow({}) {
   return (
     <div className="snowFall">
-      <div class="side">
-        <div class="md">
+      <div className="side">
+        <div className="md">
           <blockquote>
             <p>
               <a href="#snow" tabIndex={-1}></a>

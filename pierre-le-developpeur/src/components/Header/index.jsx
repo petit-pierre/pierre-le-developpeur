@@ -49,7 +49,7 @@ function Header() {
                   tabIndex={2}
                 >
                   <img
-                    src="http://pierre-le-developpeur.com/assets/logo github.png"
+                    src="https://pierre-le-developpeur.com/assets/logo github.png"
                     alt="logo github"
                     className="logo"
                   ></img>
@@ -62,7 +62,7 @@ function Header() {
                   tabIndex={3}
                 >
                   <img
-                    src="http://pierre-le-developpeur.com/assets/logo linkedin.png"
+                    src="https://pierre-le-developpeur.com/assets/logo linkedin.png"
                     alt="logo linkedin"
                     className="logo"
                   ></img>
@@ -103,7 +103,7 @@ function Header() {
               {token === null ? (
                 <Link to="/Sign-in" onClick={burgerOff} className="logPlace">
                   <img
-                    src="http://www.pierre-le-developpeur.com/assets/login.png"
+                    src="https://www.pierre-le-developpeur.com/assets/login.png"
                     alt="log in logo"
                     className="logIn"
                   ></img>
@@ -112,14 +112,14 @@ function Header() {
                 <div className="logPlace">
                   <Link to="/User" onClick={burgerOff}>
                     <img
-                      src="http://www.pierre-le-developpeur.com/assets/login.png"
+                      src="https://www.pierre-le-developpeur.com/assets/login.png"
                       alt="log in logo"
                       className="logIn"
                     ></img>
                   </Link>
                   <Link to="/" onClick={signOut}>
                     <img
-                      src="http://www.pierre-le-developpeur.com/assets/logout.png"
+                      src="https://www.pierre-le-developpeur.com/assets/logout.png"
                       alt="log out logo"
                       className="logIn"
                     ></img>
@@ -139,7 +139,7 @@ function Header() {
           <div className="headerLogos">
             <HashLink onClick={burgerOff} to="/#accueil" tabIndex={-1}>
               <img
-                src="http://pierre-le-developpeur.com/assets/pierre.png"
+                src="https://pierre-le-developpeur.com/assets/pierre.png"
                 className="maGanache"
                 alt="thank you"
                 tabIndex={1}

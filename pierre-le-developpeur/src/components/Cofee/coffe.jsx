@@ -4,7 +4,7 @@ function Cofee() {
   return (
     <div className="cofeeContainer">
       <img
-        src="http://pierre-le-developpeur.com/assets/cofee.png"
+        src="https://pierre-le-developpeur.com/assets/cofee.png"
         className="cofee"
         alt="cofee"
       ></img>

@@ -26,7 +26,6 @@ import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
 import Header from "./components/Header";
-//import { Socket } from "socket.io-client";
 
 function App() {
   const dispatch = useDispatch();

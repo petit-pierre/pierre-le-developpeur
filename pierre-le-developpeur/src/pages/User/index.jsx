@@ -6,7 +6,6 @@ import DeleteProject from "../../components/DeleteProject";
 import DeleteSkill from "../../components/DeleteSkill";
 import DeleteTool from "../../components/DeleteTool";
 import DeleteSlide from "../../components/DeleteSlide";
-//import UpdateInfo from "../UpdateTranslation";
 
 function User() {
   const token = useSelector((state) => state.data.token);

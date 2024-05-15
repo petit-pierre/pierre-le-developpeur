@@ -43,7 +43,9 @@ function DeleteSlide() {
   return (
     <div>
       <h1>Oh non !!!!!!</h1>
-      <p>Confirmez vous la suppression de ce tool : {slide.french_content} ?</p>
+      <p>
+        Confirmez vous la suppression de ce slide : {slide.french_content} ?
+      </p>
       <button onClick={deleteSlide}>OUI</button>
       <button onClick={goBack}>NON</button>
     </div>

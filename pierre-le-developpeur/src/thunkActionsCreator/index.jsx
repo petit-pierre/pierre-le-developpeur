@@ -3,14 +3,17 @@ import { setStorage } from "../utils/localStorage";
 
 export const setTokenThunk =
   (email, password, rememberChecked) => async (dispatch, getState) => {
-    const response = await fetch("http://api.petitpierre.net/api/user/log_in", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://api.petitpierre.net/api/user/log_in",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     if (response.ok) {
       const result = await response.json();
@@ -25,7 +28,8 @@ export const setTokenThunk =
 
 export const setProjectPictureThunk =
   (formData, token) => async (dispatch, getstate) => {
-    const response = await fetch("http://api.petitpierre.net/api/pictures", {
+    //const response = await fetch("https://localhost:3000/api/projects/", {
+    const response = await fetch("https://api.petitpierre.net/api/pictures", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,
@@ -41,7 +45,7 @@ export const setProjectPictureThunk =
 
 export const deletePictureThunk = (id, token) => async (dispatch, getstate) => {
   const response = await fetch(
-    "http://api.petitpierre.net/api/pictures/" + id,
+    "https://api.petitpierre.net/api/pictures/" + id,
     {
       method: "DELETE",
 
@@ -59,7 +63,7 @@ export const deletePictureThunk = (id, token) => async (dispatch, getstate) => {
 
 export const setProjectThunk =
   (newProject, token) => async (dispatch, getstate) => {
-    const response = await fetch("http://api.petitpierre.net/api/projects", {
+    const response = await fetch("https://api.petitpierre.net/api/projects", {
       method: "POST",
 
       headers: {
@@ -82,7 +86,7 @@ export const setProjectThunk =
 
 export const getProjectsThunk =
   (newProject, token) => async (dispatch, getstate) => {
-    const response = await fetch("http://api.petitpierre.net/api/projects", {
+    const response = await fetch("https://api.petitpierre.net/api/projects", {
       method: "GET",
     });
     let result = await response.json();
@@ -96,7 +100,7 @@ export const getProjectsThunk =
 export const deleteProjectThunk =
   (projectId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/projects/" + projectId,
+      "https://api.petitpierre.net/api/projects/" + projectId,
       {
         method: "DELETE",
 
@@ -120,7 +124,7 @@ export const putProjectThunk =
   (newProject, token, id) => async (dispatch, getstate) => {
     const response = await fetch(
       "http://localhost:3000/api/projects/" + id,
-      //"http://api.petitpierre.net/api/projects/" + id,
+      //"https://api.petitpierre.net/api/projects/" + id,
       {
         method: "PUT",
         headers: {
@@ -146,7 +150,7 @@ export const putProjectThunk =
 export const setTranslationThunk =
   (projectTranslation, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/translations",
+      "https://api.petitpierre.net/api/translations",
       {
         method: "POST",
 
@@ -175,7 +179,7 @@ export const setTranslationThunk =
 export const deleteTranslationThunk =
   (translationId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/translations/" + translationId,
+      "https://api.petitpierre.net/api/translations/" + translationId,
       {
         method: "DELETE",
 
@@ -198,7 +202,7 @@ export const deleteTranslationThunk =
   };
 
 export const getTranslationsThunk = () => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/translations", {
+  const response = await fetch("https://api.petitpierre.net/api/translations", {
     method: "GET",
   });
 
@@ -212,7 +216,7 @@ export const getTranslationsThunk = () => async (dispatch, getstate) => {
 
 export const getTranslationThunk = () => async (dispatch, getstate) => {
   const response = await fetch(
-    "http://api.petitpierre.net/api/translations/65d740360e76aef74b084e09",
+    "https://api.petitpierre.net/api/translations/65d740360e76aef74b084e09",
     {
       method: "GET",
     }
@@ -229,7 +233,7 @@ export const getTranslationThunk = () => async (dispatch, getstate) => {
 export const putTranslationThunk =
   (translation, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/translations/65d740360e76aef74b084e09",
+      "https://api.petitpierre.net/api/translations/65d740360e76aef74b084e09",
       {
         method: "PUT",
         headers: {
@@ -253,7 +257,7 @@ export const putTranslationThunk =
   };
 
 export const setSkillThunk = (skill, token) => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/skills", {
+  const response = await fetch("https://api.petitpierre.net/api/skills", {
     method: "POST",
 
     headers: {
@@ -278,7 +282,7 @@ export const setSkillThunk = (skill, token) => async (dispatch, getstate) => {
 export const deleteSkillThunk =
   (skillId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/skills/" + skillId,
+      "https://api.petitpierre.net/api/skills/" + skillId,
       {
         method: "DELETE",
 
@@ -299,7 +303,7 @@ export const deleteSkillThunk =
   };
 
 export const getSkillsThunk = () => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/skills", {
+  const response = await fetch("https://api.petitpierre.net/api/skills", {
     method: "GET",
   });
 
@@ -312,7 +316,7 @@ export const getSkillsThunk = () => async (dispatch, getstate) => {
 };
 
 export const setToolThunk = (tool, token) => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/tools", {
+  const response = await fetch("https://api.petitpierre.net/api/tools", {
     method: "POST",
 
     headers: {
@@ -337,7 +341,7 @@ export const setToolThunk = (tool, token) => async (dispatch, getstate) => {
 export const deleteToolThunk =
   (toolId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/tools/" + toolId,
+      "https://api.petitpierre.net/api/tools/" + toolId,
       {
         method: "DELETE",
 
@@ -358,7 +362,7 @@ export const deleteToolThunk =
   };
 
 export const getToolsThunk = () => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/tools", {
+  const response = await fetch("https://api.petitpierre.net/api/tools", {
     method: "GET",
   });
 
@@ -371,7 +375,7 @@ export const getToolsThunk = () => async (dispatch, getstate) => {
 };
 
 export const setSlideThunk = (slide, token) => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/sliders", {
+  const response = await fetch("https://api.petitpierre.net/api/sliders", {
     method: "POST",
 
     headers: {
@@ -396,7 +400,7 @@ export const setSlideThunk = (slide, token) => async (dispatch, getstate) => {
 export const deleteSlideThunk =
   (slideId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/sliders/" + slideId,
+      "https://api.petitpierre.net/api/sliders/" + slideId,
       {
         method: "DELETE",
 
@@ -417,7 +421,7 @@ export const deleteSlideThunk =
   };
 
 export const getSlidersThunk = () => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/sliders", {
+  const response = await fetch("https://api.petitpierre.net/api/sliders", {
     method: "GET",
   });
 
@@ -430,7 +434,7 @@ export const getSlidersThunk = () => async (dispatch, getstate) => {
 };
 
 export const setLikeThunk = (likes, token) => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/likes", {
+  const response = await fetch("https://api.petitpierre.net/api/likes", {
     method: "POST",
 
     headers: {
@@ -455,7 +459,7 @@ export const setLikeThunk = (likes, token) => async (dispatch, getstate) => {
 export const deleteLikesThunk =
   (likeId, token) => async (dispatch, getstate) => {
     const response = await fetch(
-      "http://api.petitpierre.net/api/likes/" + likeId,
+      "https://api.petitpierre.net/api/likes/" + likeId,
       {
         method: "DELETE",
 
@@ -476,7 +480,7 @@ export const deleteLikesThunk =
   };
 
 export const getLikesThunk = () => async (dispatch, getstate) => {
-  const response = await fetch("http://api.petitpierre.net/api/likes", {
+  const response = await fetch("https://api.petitpierre.net/api/likes", {
     method: "GET",
   });
 
@@ -490,7 +494,7 @@ export const getLikesThunk = () => async (dispatch, getstate) => {
 
 export const putLikeThunk = (like, token) => async (dispatch, getstate) => {
   const response = await fetch(
-    "http://api.petitpierre.net/api/likes/" + like._id,
+    "https://api.petitpierre.net/api/likes/" + like._id,
     {
       method: "PUT",
       headers: {
@@ -503,11 +507,6 @@ export const putLikeThunk = (like, token) => async (dispatch, getstate) => {
   );
 
   let result = await response.json();
-  //dispatch(userSlice.actions.setLikes(result));
-  /*const getLikes = async () => {
-    const getLikesResult = await dispatch(getLikesThunk());
-  };
-  getLikes();*/
   if (response.ok) {
     return result;
   }

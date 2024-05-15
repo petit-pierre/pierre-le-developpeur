@@ -21,7 +21,7 @@ function Home() {
   const translations = useSelector((state) => state.data.translations);
   const projects = useSelector((state) => state.data.projects);
 
-  const socket = io.connect("http://api.petitpierre.net");
+  const socket = io.connect("https://api.petitpierre.net");
 
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ function Home() {
     projects != null
   ) {
     async function getOldLikes(response) {
-      const get = await fetch("http://api.petitpierre.net/api/likes", {
+      const get = await fetch("https://api.petitpierre.net/api/likes", {
         method: "GET",
       });
       const newlikes = await get.json();
@@ -146,7 +146,7 @@ function Home() {
             </div>
             <div className="pictureJap">
               <img
-                src="http://pierre-le-developpeur.com/assets/background.png"
+                src="https://pierre-le-developpeur.com/assets/background.png"
                 className="background"
                 alt="cerisier du japon (background)"
               ></img>
