@@ -57,6 +57,7 @@ function SignIn() {
       }
     }
   };
+  const Lscreen = window.innerWidth;
 
   return (
     <main className="signPage">
@@ -140,9 +141,7 @@ function SignIn() {
         <img src="../assets/door.png" alt="door"></img>
       )}
 
-      <div className="snow">
-        <Snow></Snow>
-      </div>
+      <div className="snow">{Lscreen > 650 ? <Snow></Snow> : ""}</div>
     </main>
   );
 }

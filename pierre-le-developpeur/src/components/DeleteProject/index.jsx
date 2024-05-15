@@ -24,7 +24,7 @@ function DeleteProject() {
       {edit === true ? (
         <div className="projects">
           {projects.map((project) => (
-            <div>
+            <div key={`projectId${project._id}`}>
               <p>{project.french_title}</p>
               <button>
                 <Link to={"Project/" + project._id} key={`${project.id}`}>

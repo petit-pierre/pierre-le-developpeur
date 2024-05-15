@@ -38,6 +38,8 @@ export const setProjectPictureThunk =
     });
     let result = await response.json();
     if (response.ok) {
+      let httpsResult = result.imageUrl.replace("http", "https");
+      result.imageUrl = httpsResult;
       return result;
     }
     return false;

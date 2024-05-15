@@ -11,6 +11,14 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./postProject.css";
 
 function PostProject() {
+  let project = "newOne";
+  let { projectId } = useParams();
+  //console.log(projectId);
+  const projects = useSelector((state) => state.data.projects);
+
+  if (projectId !== "newOne") {
+    project = projects.find((projects) => projects._id === projectId);
+  }
   const previousLikes = useSelector((state) => state.data.likes);
   //let sliders = [];
   //let links = [];
@@ -25,14 +33,6 @@ function PostProject() {
     console.log("coucou");
   }, [links]);*/
 
-  let { projectId } = useParams();
-  //console.log(projectId);
-  const projects = useSelector((state) => state.data.projects);
-  let project = "newOne";
-  if (projectId !== "newOne") {
-    project = projects.find((projects) => projects._id === projectId);
-  }
-  console.log(project);
   //console.log(project);
   useEffect(() => {
     if (projectId !== "newOne") {
@@ -50,7 +50,7 @@ function PostProject() {
     { id: 1, name: "Front-end" },
     { id: 2, name: "Design" },
     { id: 3, name: "Full stack" },
-    { id: 3, name: "C.M.S" },
+    { id: 4, name: "C.M.S" },
   ];
   const Skills = useSelector((state) => state.data.skills);
   const Tools = useSelector((state) => state.data.tools);
@@ -439,7 +439,7 @@ function PostProject() {
           <fieldset>
             <legend>Links :</legend>
             {links.map((prlink) => (
-              <fieldset>
+              <fieldset key={prlink._id}>
                 <p>link url : {prlink.url}</p>
 
                 <p>category : {prlink.category}</p>
@@ -455,7 +455,7 @@ function PostProject() {
             </div>
             <legend>category :</legend>
             {linkList.map((link) => (
-              <div>
+              <div key={link._id}>
                 <input
                   className="Link"
                   type="radio"
@@ -473,7 +473,7 @@ function PostProject() {
           <fieldset className="sliderField">
             <legend>Slider :</legend>
             {sliders.map((projectSlide) => (
-              <fieldset className="sliderContainer">
+              <fieldset className="sliderContainer" key={projectSlide._id}>
                 <img
                   src={
                     projectSlide.newPicture === true
@@ -523,7 +523,7 @@ function PostProject() {
             <fieldset>
               <legend>category :</legend>
               {Category.map((categorie) => (
-                <div>
+                <div key={categorie.id}>
                   <input
                     className="Categories"
                     type="radio"
@@ -550,7 +550,7 @@ function PostProject() {
             <fieldset>
               <legend>skills :</legend>
               {Skills.map((skill) => (
-                <div>
+                <div key={skill._id}>
                   {project === null ||
                   project.skills === null ||
                   project === undefined ||
@@ -595,7 +595,7 @@ function PostProject() {
             <fieldset>
               <legend>Design tools :</legend>
               {designTools.map((tool) => (
-                <div>
+                <div key={tool._id}>
                   {project === null ||
                   project.tools === null ||
                   project === undefined ||
@@ -634,7 +634,7 @@ function PostProject() {
             <fieldset>
               <legend>Front-end tools :</legend>
               {frontTools.map((tool) => (
-                <div>
+                <div key={tool._id}>
                   {project === null ||
                   project.tools === null ||
                   project === undefined ||
@@ -673,7 +673,7 @@ function PostProject() {
             <fieldset>
               <legend>Back-end tools :</legend>
               {backTools.map((tool) => (
-                <div>
+                <div key={tool._id}>
                   {project === null ||
                   project.tools === null ||
                   project === undefined ||
