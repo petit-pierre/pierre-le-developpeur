@@ -10,12 +10,10 @@ const pictureRoutes = require("./routes/pictures");
 const likesRoutes = require("./routes/likes");
 const app = express();
 const path = require("path");
+const code = require("./code.json");
 
 mongoose
-  .connect(
-    "mongodb+srv://aubree-pierre:jqdsm67hcdfsjmiU7@cluster0.6mhsrgi.mongodb.net/?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(code.code, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 

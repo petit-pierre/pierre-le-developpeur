@@ -3,6 +3,7 @@ import "./contact.css";
 import { useRef, useState } from "react";
 import TextArea from "../TextArea";
 import Button from "../Button";
+let mailToken = require(`../../code.json`);
 
 //import "./smtp";
 
@@ -61,7 +62,7 @@ function Contact({ props }) {
   const sendMail = (content, mail, e) => {
     e.preventDefault();
     const elastic = {
-      SecureToken: "7bef508f-44aa-4566-ad18-bbbf44636155",
+      SecureToken: mailToken.code,
       To: "contact@pierre-le-developpeur.com",
       From: "contact@pierre-le-developpeur.com",
       Subject: "Site pierre le developpeur",
