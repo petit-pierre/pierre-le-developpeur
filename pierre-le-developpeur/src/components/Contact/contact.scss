@@ -1,9 +1,123 @@
 .contactField{
     background: linear-gradient(rgb(255, 255, 255), rgba(157, 59, 143, 0.0));
-    //background-color: white;
     display: flex;
     flex-direction: column;
     padding-top: 150px;
+    .bd{
+        background-color: white;
+
+        height: 40px;
+        position: fixed;
+        border: 2px solid black;
+        top: 130px;
+        left: 25px;
+        z-index: 12;
+        border-radius: 10px;
+        display: flex;
+        transition: 1s;
+        //opacity: 0.3;
+        overflow: hidden;
+        .p{
+            margin: auto;
+        }
+    }
+    .textareaForContact{
+        margin: auto;
+        width: 95%;
+        height: 40dvh;
+        resize: none;
+        border: none;
+        outline: none;
+    }
+    .witheBack{
+        width: 100%;
+        height: 100dvh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 8;
+        background-color: white;
+        transition: 1s;
+    }
+    .noBack{
+        width: 100%;
+        height: 100dvh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: 4s;
+        background-color: none;
+        //display: none;
+    }
+    .reponse{
+        width: calc(100% - 50px);
+        height: calc(100dvh - 210px);
+        background-color: white;
+        position: fixed;
+        z-index: 13;
+        left: 25px;
+        border: 2px solid black;
+        border-radius: 10px;
+        display: flex;
+    }
+    .triangleResponse {
+        z-index: 13;
+        position: absolute;
+        bottom: -15px;
+        transform: rotate(180deg);
+        right: 80px;
+        width: 22px;
+      }
+    .visibleResponse{
+        top: 180px;
+        transition: 1s;
+    }
+    .hiddenResponse{
+        top: 200dvh;
+        transition: 1s;
+    }
+    .noDiscuss{
+        width: 85px;
+        cursor: pointer;
+    }
+    .noDiscuss:hover{
+        width: 140px;
+        transition: 1s;
+    }
+    .discuss{
+        width: calc(100% - 50px);
+        //position: relative;
+    }  
+    .triangle {
+        z-index: 13;
+        position: fixed;
+        top: 117px;
+        left: 80px;
+        width: 22px;
+      }
+    .cross{
+        width: 20px;
+        position: absolute;
+        right: 5px;
+        //top: 133px;
+        top: 5px;
+        cursor: pointer;
+    }
+    .hello{
+        //padding: 12px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .helloContainer{
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+    .bdContent{
+        display: flex;
+        width: 100%;
+    }
     @media (max-width: 650px) {
         .messagePlace{
             .textArea{

@@ -33,6 +33,115 @@
       margin: auto;
   }*/
 }
+.contactField .bd {
+  background-color: white;
+  height: 40px;
+  position: fixed;
+  border: 2px solid black;
+  top: 130px;
+  left: 25px;
+  z-index: 12;
+  border-radius: 10px;
+  display: flex;
+  transition: 1s;
+  overflow: hidden;
+}
+.contactField .bd .p {
+  margin: auto;
+}
+.contactField .textareaForContact {
+  margin: auto;
+  width: 95%;
+  height: 40dvh;
+  resize: none;
+  border: none;
+  outline: none;
+}
+.contactField .witheBack {
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  background-color: white;
+  transition: 1s;
+}
+.contactField .noBack {
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 4s;
+  background-color: none;
+}
+.contactField .reponse {
+  width: calc(100% - 50px);
+  height: calc(100dvh - 210px);
+  background-color: white;
+  position: fixed;
+  z-index: 13;
+  left: 25px;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+}
+.contactField .triangleResponse {
+  z-index: 13;
+  position: absolute;
+  bottom: -15px;
+  transform: rotate(180deg);
+  right: 80px;
+  width: 22px;
+}
+.contactField .visibleResponse {
+  top: 180px;
+  transition: 1s;
+}
+.contactField .hiddenResponse {
+  top: 200dvh;
+  transition: 1s;
+}
+.contactField .noDiscuss {
+  width: 85px;
+  cursor: pointer;
+}
+.contactField .noDiscuss:hover {
+  width: 140px;
+  transition: 1s;
+}
+.contactField .discuss {
+  width: calc(100% - 50px);
+}
+.contactField .triangle {
+  z-index: 13;
+  position: fixed;
+  top: 117px;
+  left: 80px;
+  width: 22px;
+}
+.contactField .cross {
+  width: 20px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+.contactField .hello {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.contactField .helloContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+.contactField .bdContent {
+  display: flex;
+  width: 100%;
+}
 @media (max-width: 650px) {
   .contactField .messagePlace .textArea textarea {
     min-height: 200px;

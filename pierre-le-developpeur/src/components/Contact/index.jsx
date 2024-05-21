@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import "./contact.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TextArea from "../TextArea";
+import Typewrite from "../Typewrite";
 import Button from "../Button";
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
 let mailToken = require(`../../code.json`);
 
 //import "./smtp";
@@ -15,6 +17,7 @@ function Contact({ props }) {
 
   const [errorMail, setErrorMail] = useState(true);
   const [errorContent, setErrorContent] = useState(true);
+  const [discuss, setDiscuss] = useState(false);
 
   const [error, setError] = useState(false);
   const [sendingError, setSendingError] = useState("");
@@ -37,10 +40,15 @@ function Contact({ props }) {
       //setSendingError(false);
     }
   };
+  //let Typewrite = "Bonjour ...";
 
   /*useEffect(() => {
     console.log("coucou");
   }, [content.current.children[0].children[1][0].value]);*/
+  //let text;
+  /*useEffect(() => {
+    language === "FR" ? (Typewrite = "Bonjour ...") : (Typewrite = "Hello ...");
+  }, [language]);*/
 
   const formContentError = (e) => {
     e.preventDefault();
@@ -93,8 +101,69 @@ function Contact({ props }) {
     });
   };
 
+  const dial = (evt) => {
+    evt.preventDefault();
+    setDiscuss(true);
+    document.querySelector(".contact00").focus();
+  };
+  const closeDial = (evt) => {
+    evt.preventDefault();
+    setDiscuss(false);
+    console.log(discuss);
+  };
+  /*const hello = document.querySelector(".autoText");
+  const autoText = (evt, text) => {
+    evt.preventDefault();
+    //let text = "Bonjour ...";
+    hello.innerHTML = text.slice(0, 3);
+  };*/
+
   return (
     <div className="contactField">
+      <div className={discuss === true ? "witheBack" : "noBack"}></div>
+      <img src="./assets/bd.png" className="triangle" alt="BD"></img>
+      <div className={discuss === true ? "bd discuss" : "bd noDiscuss"}>
+        {discuss === true ? (
+          <div className="helloContainer">
+            {language === "FR" ? (
+              <div className="p">
+                <Typewrite props={{ text: contact.french.content }}></Typewrite>
+              </div>
+            ) : (
+              <div className="p">
+                <Typewriter words={[contact.english.content]}></Typewriter>
+              </div>
+            )}
+            <img
+              src="./assets/cross.png"
+              className="cross"
+              alt="close cross"
+              onClick={(evt) => closeDial(evt)}
+            ></img>{" "}
+          </div>
+        ) : (
+          <div className="bdContent" onClick={(evt) => dial(evt)}>
+            {" "}
+            {language === "FR" ? (
+              <Typewrite props={{ text: "Bonjour ..." }}></Typewrite>
+            ) : (
+              <div className="p">
+                <Typewriter words={["Hello ..."]}></Typewriter>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+      <div
+        className={
+          discuss === true
+            ? "reponse visibleResponse"
+            : "reponse hiddenResponse"
+        }
+      >
+        <textarea className="textareaForContact contact00"></textarea>
+        <img src="./assets/bd.png" className="triangleResponse" alt="BD"></img>
+      </div>
       <div className="cvAndMail">
         <div
           className="inputMail elements mail"
