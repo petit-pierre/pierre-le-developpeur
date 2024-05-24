@@ -9,15 +9,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /*.cvAndMail{
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-  }*/
 }
 .contactField .like {
-  top: 30dvh;
   right: -10px;
+  bottom: 2dvh;
 }
 .contactField .messageAndButton {
   position: relative;
@@ -56,11 +51,12 @@
 .contactField .textareaForContact {
   margin: auto;
   width: 95%;
-  height: 40dvh;
+  height: 80%;
   resize: none;
   border: none;
   box-shadow: 0px 2px 5px black;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 .contactField .textareaForContact:focus {
   outline: 2px solid #99477a;
@@ -69,12 +65,21 @@
   margin: auto;
   text-align: center;
   width: 250px;
-  height: 4dvh;
+  height: 20px;
+  min-height: 20px;
+  margin-top: 20px;
+  margin-bottom: 22px;
   resize: none;
   border: none;
   box-shadow: 0px 2px 5px black;
   border-radius: 5px;
   display: flex;
+}
+@media (max-width: 649px) {
+  .contactField .textareaForMail {
+    margin-left: 10px;
+    width: 50%;
+  }
 }
 .contactField .textareaForMail:focus {
   outline: 2px solid #99477a;
@@ -177,9 +182,49 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  z-index: 12;
 }
 .contactField .buttonSend {
-  width: 320px;
-  background-color: white;
   border: 0px;
+  background-color: transparent;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  animation-name: clignote;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  display: flex;
+  flex-direction: row;
+}
+.contactField .buttonSend span {
+  padding-top: 19px;
+  padding-right: 5px;
+}
+@media (max-width: 460px) {
+  .contactField .buttonSend span {
+    display: none;
+  }
+}
+@keyframes clignote {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.contactField .buttonSend .purpleAndWitheTextarea {
+  height: 40px;
+  width: 40px;
+}
+.contactField .buttonSend .purpleAndWitheTextarea:hover {
+  box-shadow: none;
+  height: 40px;
+  width: 40px;
+}
+.contactField .buttonSend .send .purpleAndWitheTextarea:hover {
+  box-shadow: 0px 5px 5px black;
 }/*# sourceMappingURL=contact.css.map */

@@ -255,78 +255,23 @@ function Contact({ props }) {
 
           <div className="divForButton">
             {errorContent === false && errorMail === false ? (
-              language === "FR" ? (
-                <button
-                  className="elements buttonSend"
-                  onClick={(e) => sendMail(content, mail, e)}
-                  tabIndex={discuss === true ? 11 : -1}
-                >
-                  <Button
-                    props={{
-                      style: "windows",
-                      send: true,
-                      title: contact.french.button,
-                    }}
-                  ></Button>
-                </button>
-              ) : (
-                <button
-                  className="elements buttonSend"
-                  onClick={(e) => sendMail(content, mail, e)}
-                  tabIndex={discuss === true ? 11 : -1}
-                >
-                  <Button
-                    props={{
-                      style: "windows",
-                      send: true,
-                      title: contact.english.button,
-                    }}
-                  ></Button>
-                </button>
-              )
-            ) : errorContent === true ? (
-              language === "FR" ? (
-                <div className="elements">
-                  <Button
-                    props={{
-                      style: "windows",
-                      send: false,
-                      title: contact.french.button,
-                    }}
-                  ></Button>
-                </div>
-              ) : (
-                <div className="elements">
-                  <Button
-                    props={{
-                      style: "windows",
-                      send: false,
-                      title: contact.english.button,
-                    }}
-                  ></Button>
-                </div>
-              )
-            ) : language === "FR" ? (
-              <div className="elements">
-                <div></div>
+              <button
+                className="elements buttonSend"
+                onClick={(e) => sendMail(content, mail, e)}
+                tabIndex={discuss === true ? 11 : -1}
+              >
+                <span>{language === "FR" ? "Envoyer :" : "Send :"} </span>
                 <Button
                   props={{
-                    style: "windows",
-                    send: false,
-                    title: contact.french.button,
+                    style: "purpleAndWitheTextarea",
+                    send: true,
+                    title: "./assets/send_mail.png",
+                    picture: true,
                   }}
                 ></Button>
-              </div>
+              </button>
             ) : (
-              <div className="elements">
-                <Button
-                  props={{
-                    style: "windows",
-                    send: false,
-                    title: contact.english.button,
-                  }}
-                ></Button>
-              </div>
+              ""
             )}
           </div>
         </div>

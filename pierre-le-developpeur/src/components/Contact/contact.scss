@@ -16,9 +16,10 @@
     //padding-top: 150px;
 
     .like{
-        top: 30dvh;
+        //top: 30dvh;
         right: -10px;
         //z-index: 12;
+        bottom: 2dvh;
     }
     .messageAndButton{
         position: relative;
@@ -62,11 +63,14 @@
     .textareaForContact{
         margin: auto;
         width: 95%;
-        height: 40dvh;
+        //height: 40dvh;
+        //height: max-content;
+        height: 80%;
         resize: none;
         border: none;
         box-shadow: 0px 2px 5px black;
         border-radius: 5px;
+        margin-bottom: 10px;
     }
     .textareaForContact:focus{
         outline:2px solid #99477a;
@@ -75,7 +79,10 @@
         margin: auto;
         text-align: center;
         width: 250px;
-        height: 4dvh;
+        height: 20px;
+        min-height: 20px;
+        margin-top: 20px;
+        margin-bottom: 22px;
         resize: none;
         border: none;
         //outline: none;
@@ -84,6 +91,10 @@
         //margin-bottom: 10px;
         border-radius: 5px;
         display: flex;
+        @media  (max-width: 649px){
+            margin-left: 10px;
+            width: 50%;
+        }
     }
     .textareaForMail:focus{
         outline:2px solid #99477a;
@@ -192,28 +203,58 @@
             }
         }
       }
-    /*.cvAndMail{
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-    }*/
     .divForButton{
         width: 100%;
         display: flex;
         justify-content: center;
-        //margin-bottom: 10px;
         margin: auto;
+        z-index: 12;
     }
     .buttonSend{
-        //margin: auto;
-        width: 320px;
-        //margin-left: auto;
-        //margin-right: auto;
-        //margin: auto;
-        background-color: white;
         border: 0px;
-        //color: #eee;
-        //outline:none
+        background-color: transparent;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        animation-name: clignote;
+        animation-duration: 1000ms;
+        animation-iteration-count: infinite;
+        display: flex;
+        flex-direction: row;
+        span{
+            padding-top: 19px;
+            padding-right: 5px;
+            @media  (max-width: 460px){
+                display: none;
+            }
+        }
+        @keyframes clignote{
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+              opacity: 1 ;
+
+            }  
+          }
+        .purpleAndWitheTextarea{
+            height: 40px ;
+            width: 40px;
+
+        }
+        .purpleAndWitheTextarea:hover{
+            box-shadow: none;
+            height: 40px ;
+            width: 40px;
+        } 
+        .send{
+            .purpleAndWitheTextarea:hover{
+                box-shadow: 0px 5px 5px black;
+            } 
+        }
     }
 }
 

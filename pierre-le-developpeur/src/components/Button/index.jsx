@@ -9,7 +9,11 @@ function Button({ props }) {
             className={props.send === true ? "button visible" : "button"}
             tabIndex={-1}
           >
-            {props.title}
+            {props.picture === true ? (
+              <img src={props.title}></img>
+            ) : (
+              props.title
+            )}
           </button>
         </div>
       </div>

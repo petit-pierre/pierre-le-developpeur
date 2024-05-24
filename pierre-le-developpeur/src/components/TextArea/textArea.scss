@@ -1,175 +1,179 @@
-.windows{
-    background-image:   url("../../../public/assets/snow.gif");
-    border: solid 3px  #6d477a;
-    border-radius: 20px;
-    overflow: hidden;
-    textarea{
-        color: white;
+.textareafield{
+    .windows{
+        background-image:   url("../../../public/assets/snow.gif");
+        border: solid 3px  #6d477a;
+        border-radius: 20px;
+        overflow: hidden;
+        textarea{
+            color: white;
+        }
+        .like{
+            bottom: 60px;
+        }
+        .padding{
+            padding-right: 100px;
+            //padding-left: 0;
+        }
     }
-    .like{
-        bottom: 60px;
+    .empty{
+        border-radius: 20px;
+        .like{
+            bottom: 20px;
+        }
     }
-    .padding{
-        padding-right: 100px;
-        //padding-left: 0;
+    .purpleAndWitheTextarea{
+        //background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        .title{
+            //height: 25px;
+            width: 100%;
+            background-color: #99477a;
+            color: white;
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        .mise-en-page{
+            background-color: white;
+            opacity: 0.8;
+            transition: 1s;
+        }
+        .mise-en-page:hover{
+            opacity: 1;
+            transition: 1s;
+        }
+        .like{
+            bottom: 20px;
+        }
     }
-}
-.empty{
-    border-radius: 20px;
-    .like{
-        bottom: 20px;
+    .textArea{
+        position: relative;
+        background-size: 100%;
+        overflow: hidden;
+        @media  (max-width: 649px){
+            .like{
+                right: -35px;
+                transition: 1000ms;
+                //bottom: 10px;
+            }
+        }
+        .sign{
+            padding-left: 20px;
+            font-family: "abacaxi-devanagari", sans-serif;
+            //font-style: normal;
+            font-size: 1rem;
+            font-weight: 400;
+            font-style: normal;
+            transition: 1s;
+            color: #99477a;
+            margin-bottom: 4px;
+        }
+        .sign:hover{
+            //color: black;
+            transition: 1s;
+            text-shadow: 5px 5px 5px;
+            padding-left: 16px;
+            padding-top: -2px;
+        }
+        .softSkills{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            .logoAndTitle{
+                display: flex;
+                flex-direction: column;
+                //margin: auto;
+                //text-align: center;
+                p{
+                    //display: inline;
+                    margin: auto;
+                    //padding: auto;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    //text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+                .logo{
+                    width: 25px;
+                    margin: auto;
+                }
+            }
+        }
+        .textareaLinks{
+            color: white;
+            text-align: center;
+        }
+        .spacedTextArea{
+            @media  (max-width: 649px){
+                height: 60px;
+            }
+        }
+        .like{
+            /*.pocContain{
+                filter: invert(1);
+            }*/
+            /*color: black;
+            background-color: white;*/
+            //color: white;
+            transition: 1000ms;
+            position: absolute;
+            //top: 100px;
+            //filter: invert(1);
+            opacity: 0.6;
+            z-index: 6;
+            right: -350px;
+            //background-color: white;
+            border-radius: 20px;
+            padding-left: 20px;
+            //left: 200px;
+            //border: solid white;
+            @media (max-width: 650px) {
+                right: -35px;
+              }
+        }
+        textarea{
+            resize: none;
+            border: none;
+            padding: 20px;
+            text-decoration:none;
+            background-color: rgba(0, 0, 255, 0.0);
+            transition: all 1s;
+            //background: no-repeat url("../../../public/assets/snow.gif");
+            border-radius: 20px;
+            //box-shadow: 0px 15px 25px black;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;	
+            width: 100%;
+            overflow: hidden;
+        }
+        textarea:focus{
+            outline: none;
+        }
     }
-}
-.purpleAndWitheTextarea{
-    //background-color: white;
-    border-radius: 20px;
-    overflow: hidden;
-    .title{
-        //height: 25px;
-        width: 100%;
-        background-color: #99477a;
-        color: white;
-        text-align: center;
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
-    .mise-en-page{
-        background-color: white;
-        opacity: 0.8;
-        transition: 1s;
-    }
-    .mise-en-page:hover{
-        opacity: 1;
-        transition: 1s;
-    }
-    .like{
-        bottom: 20px;
-    }
-}
-.textArea{
-    position: relative;
-    background-size: 100%;
-    overflow: hidden;
-    @media  (max-width: 649px){
+    .textArea:hover{
         .like{
             right: -35px;
             transition: 1000ms;
-            //bottom: 10px;
         }
     }
-    .sign{
-        padding-left: 20px;
-        font-family: "abacaxi-devanagari", sans-serif;
-        //font-style: normal;
-        font-size: 1rem;
-        font-weight: 400;
-        font-style: normal;
-        transition: 1s;
-        color: #99477a;
-        margin-bottom: 4px;
-    }
-    .sign:hover{
-        //color: black;
-        transition: 1s;
-        text-shadow: 5px 5px 5px;
-        padding-left: 16px;
-        padding-top: -2px;
-    }
-    .softSkills{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        .logoAndTitle{
-            display: flex;
-            flex-direction: column;
-            //margin: auto;
-            //text-align: center;
-            p{
-                //display: inline;
-                margin: auto;
-                //padding: auto;
-                padding-left: 10px;
-                padding-right: 10px;
-                //text-align: center;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            .logo{
-                width: 25px;
-                margin: auto;
-            }
-        }
-    }
-    .textareaLinks{
-        color: white;
-        text-align: center;
-    }
-    .spacedTextArea{
-        @media  (max-width: 649px){
-            height: 60px;
-        }
-    }
-    .like{
-        /*.pocContain{
-            filter: invert(1);
-        }*/
-        /*color: black;
-        background-color: white;*/
-        //color: white;
-        transition: 1000ms;
-        position: absolute;
-        //top: 100px;
-        //filter: invert(1);
-        opacity: 0.6;
-        z-index: 6;
-        right: -350px;
-        //background-color: white;
-        border-radius: 20px;
-        padding-left: 20px;
-        //left: 200px;
-        //border: solid white;
-        @media (max-width: 650px) {
-            right: -35px;
-          }
-    }
-    textarea{
-        resize: none;
-        border: none;
-        padding: 20px;
-        text-decoration:none;
-        background-color: rgba(0, 0, 255, 0.0);
-        transition: all 1s;
-        //background: no-repeat url("../../../public/assets/snow.gif");
-        border-radius: 20px;
-        //box-shadow: 0px 15px 25px black;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;	
-        width: 100%;
-        overflow: hidden;
-    }
-    textarea:focus{
+    .edit:focus{
         outline: none;
+        background-image: 0.5;
+        background-color: white;
+        color: black;
+        transition: all 1s;
+    }
+    .cofeeComponentEdit{
+        .cofeeContainer{
+            filter: invert(1); 
+            transition: 1s;
+        }
     }
 }
-.textArea:hover{
-    .like{
-        right: -35px;
-        transition: 1000ms;
-    }
-}
-.edit:focus{
-    outline: none;
-    background-image: 0.5;
-    background-color: white;
-    color: black;
-    transition: all 1s;
-}
-.cofeeComponentEdit{
-    .cofeeContainer{
-        filter: invert(1); 
-        transition: 1s;
-    }
-}
+
+
 
