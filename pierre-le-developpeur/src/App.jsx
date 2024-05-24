@@ -26,6 +26,7 @@ import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
 import Header from "./components/Header";
+import Contact from "./components/Contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,7 @@ function App() {
   return (
     <Router>
       <Header></Header>
+
       <Routes>
         <Route path="/UpdateInfo" element={<UpdateInfo />} />
         <Route path="/" element={<Home />} />
@@ -86,6 +88,7 @@ function App() {
         <Route path="/Project/:title" element={<Project />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/404" element={<Error404 />} />
       </Routes>
     </Router>
   );

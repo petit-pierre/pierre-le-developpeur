@@ -18,6 +18,7 @@
   justify-content: center;
   position: absolute;
   bottom: 0;
+  z-index: 5;
 }
 .error404 .travoltaContainer .travolta {
   height: calc(60dvh - 60px);

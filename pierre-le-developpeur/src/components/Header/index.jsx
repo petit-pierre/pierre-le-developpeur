@@ -1,16 +1,33 @@
 import "./header.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import burgerIcon from "../../assets/burger.svg";
 import { userSlice } from "../../Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import Contact from "../Contact";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
+  const likes = useSelector((state) => state.data.likes);
   const token = useSelector((state) => state.data.token);
+  const discuss = useSelector((state) => state.data.contactMenu);
   const [burger, setBurger] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (burger === true) {
+      if (document.querySelector(".contactField") != null) {
+        document.querySelector(".contactField").classList.add("contactHidden");
+      }
+    } else {
+      if (document.querySelector(".contactField") != null) {
+        document
+          .querySelector(".contactField")
+          .classList.remove("contactHidden");
+      }
+    }
+  }, [burger]);
 
   const signOut = () => {
     localStorage.clear();
@@ -21,8 +38,24 @@ function Header() {
   function burgerOff() {
     setBurger(false);
   }
+
+  function openDialByKey(evt) {
+    if (evt.code === "Enter") {
+      openDial();
+    }
+  }
+
+  function openDial() {
+    dispatch(userSlice.actions.setContactMenu(!discuss));
+    burgerOff();
+  }
+  function closeDial() {
+    dispatch(userSlice.actions.setContactMenu(false));
+    burgerOff();
+  }
   function changeBurger() {
     setBurger(!burger);
+    dispatch(userSlice.actions.setContactMenu(false));
   }
   function changeLanguageByKey(evt) {
     if (evt.code === "Enter") {
@@ -68,19 +101,23 @@ function Header() {
                   ></img>
                 </a>
               </div>
-              <HashLink onClick={burgerOff} to="/#accueil" tabIndex={4}>
-                <div className="li links txtLinks">Accueil</div>
+              <HashLink onClick={closeDial} to="/#accueil" tabIndex={4}>
+                <div className="li links txtLinks">
+                  {language === "FR" ? "Accueil" : "Welcome"}
+                </div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#contact" tabIndex={5}>
-                <div className="li links txtLinks">Contact</div>
+              <HashLink onClick={closeDial} to="/#reco" tabIndex={5}>
+                <div className="li links txtLinks">
+                  {language === "FR" ? "Recommandation" : "Advice"}
+                </div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#competences" tabIndex={6}>
+              <HashLink onClick={closeDial} to="/#competences" tabIndex={6}>
                 <div className="li links txtLinks">
                   {" "}
                   {language === "FR" ? "Compétences" : "Skills"}
                 </div>
               </HashLink>
-              <HashLink onClick={burgerOff} to="/#projets" tabIndex={7}>
+              <HashLink onClick={closeDial} to="/#projets" tabIndex={7}>
                 <div className="li links txtLinks">
                   {language === "FR" ? "Projets" : "Projects"}
                 </div>
@@ -101,7 +138,12 @@ function Header() {
                 ></label>
               </div>
               {token === null ? (
-                <Link to="/Sign-in" onClick={burgerOff} className="logPlace">
+                <Link
+                  to="/Sign-in"
+                  onClick={closeDial}
+                  className="logPlace"
+                  tabIndex={9}
+                >
                   <img
                     src="https://www.pierre-le-developpeur.com/assets/login.png"
                     alt="log in logo"
@@ -110,14 +152,18 @@ function Header() {
                 </Link>
               ) : (
                 <div className="logPlace">
-                  <Link to="/User" onClick={burgerOff}>
+                  <Link to="/User" onClick={closeDial} tabIndex={9}>
                     <img
                       src="https://www.pierre-le-developpeur.com/assets/login.png"
                       alt="log in logo"
                       className="logIn"
                     ></img>
                   </Link>
-                  <Link to="/" onClick={signOut}>
+                  <Link
+                    to="/"
+                    onClick={signOut}
+                    tabIndex={token !== null ? 9 : -1}
+                  >
                     <img
                       src="https://www.pierre-le-developpeur.com/assets/logout.png"
                       alt="log out logo"
@@ -137,17 +183,18 @@ function Header() {
             </div>
           </nav>
           <div className="headerLogos">
-            <HashLink onClick={burgerOff} to="/#accueil" tabIndex={-1}>
-              <img
-                src="https://pierre-le-developpeur.com/assets/pierre.png"
-                className="maGanache"
-                alt="thank you"
-                tabIndex={1}
-              ></img>
-            </HashLink>
+            <img
+              src="https://pierre-le-developpeur.com/assets/pierre.png"
+              className="maGanache"
+              alt="thank you"
+              tabIndex={1}
+              onClick={openDial}
+              onKeyDown={(evt) => openDialByKey(evt)}
+            ></img>
           </div>
         </div>
       </div>
+
       <div className="shape"></div>
       <div className="placeforheader"></div>
     </div>

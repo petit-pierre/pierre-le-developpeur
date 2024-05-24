@@ -52,5 +52,10 @@ export const userSlice = createSlice({
       const language = { ...currentState, language: action.payload };
       return language;
     },
+
+    setContactMenu: (currentState, action) => {
+      const contactMenu = { ...currentState, contactMenu: action.payload };
+      return contactMenu;
+    },
   },
 });

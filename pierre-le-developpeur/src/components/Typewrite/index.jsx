@@ -34,7 +34,7 @@ function Typewrite({ props }) {
   handleGenerate();
   return (
     <div className="autoTyper">
-      <p>{text}</p>
+      <span>{text}</span>
     </div>
   );
 }

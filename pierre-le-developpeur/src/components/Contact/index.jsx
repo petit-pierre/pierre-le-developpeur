@@ -1,25 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./contact.css";
 import { useEffect, useRef, useState } from "react";
 import TextArea from "../TextArea";
 import Typewrite from "../Typewrite";
 import Button from "../Button";
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { userSlice } from "../../Slices/userSlice";
+import LikeButton from "../LikeButton";
 let mailToken = require(`../../code.json`);
 
-//import "./smtp";
-
 function Contact({ props }) {
+  const dispatch = useDispatch();
+
   const likes = useSelector((state) => state.data.likes);
   const contact = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
   const translations = useSelector((state) => state.data.translations);
+  const discuss = useSelector((state) => state.data.contactMenu);
 
   const [errorMail, setErrorMail] = useState(true);
   const [errorContent, setErrorContent] = useState(true);
-  const [discuss, setDiscuss] = useState(false);
+  //const [discuss, setDiscuss] = useState(false);
 
   const [error, setError] = useState(false);
+  const [wichError, setWichError] = useState("nothing");
   const [sendingError, setSendingError] = useState("");
   const [sending, setSending] = useState(false);
 
@@ -35,20 +39,16 @@ function Contact({ props }) {
     const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
     if (emailRegExp.test(e.target.value)) {
       setErrorMail(false);
+      if (errorContent === false) {
+        setWichError("nothing");
+      } else {
+        setWichError("content");
+      }
     } else {
       setErrorMail(true);
-      //setSendingError(false);
+      setWichError("mail");
     }
   };
-  //let Typewrite = "Bonjour ...";
-
-  /*useEffect(() => {
-    console.log("coucou");
-  }, [content.current.children[0].children[1][0].value]);*/
-  //let text;
-  /*useEffect(() => {
-    language === "FR" ? (Typewrite = "Bonjour ...") : (Typewrite = "Hello ...");
-  }, [language]);*/
 
   const formContentError = (e) => {
     e.preventDefault();
@@ -62,9 +62,14 @@ function Contact({ props }) {
       e.target.value !== translations.french.content
     ) {
       setErrorContent(false);
+      if (errorMail === false) {
+        setWichError("nothing");
+      } else {
+        setWichError("mail");
+      }
     } else {
       setErrorContent(true);
-      //setSendingError(false);
+      setWichError("content");
     }
   };
   const sendMail = (content, mail, e) => {
@@ -76,9 +81,11 @@ function Contact({ props }) {
       Subject: "Site pierre le developpeur",
       Body:
         "email : " +
-        mail.current.children[0].children[1][0].value +
+        mail.current.value +
+        //mail.current.children[0].children[1][0].value +
         " message : " +
-        content.current.children[0].children[1][0].value,
+        content.current.value,
+      //content.current.children[0].children[1][0].value,
     };
     window.Email.send(elastic).then((message) => {
       if (message === "OK") {
@@ -86,16 +93,14 @@ function Contact({ props }) {
         setSendingError("");
         setErrorContent(true);
         language === "FR"
-          ? (content.current.children[0].children[1][0].value =
-              contact.french.succes)
-          : (content.current.children[0].children[1][0].value =
-              contact.english.succes);
+          ? (content.current.value = contact.french.succes)
+          : (content.current.value = contact.english.succes);
       } else {
         setSending(false);
         setSendingError(message);
         window.open(
           "mailto:contact@pierre-le-developpeur.com?subject=Contact pierre le développeur&body=" +
-            content.current.children[0].children[1][0].value
+            content.current.value
         );
       }
     });
@@ -103,52 +108,117 @@ function Contact({ props }) {
 
   const dial = (evt) => {
     evt.preventDefault();
-    setDiscuss(true);
+    //setDiscuss(true);
     document.querySelector(".contact00").focus();
+    dispatch(userSlice.actions.setContactMenu(true));
   };
   const closeDial = (evt) => {
     evt.preventDefault();
-    setDiscuss(false);
-    console.log(discuss);
+    //setDiscuss(false);
+    //console.log(discuss);
+    dispatch(userSlice.actions.setContactMenu(false));
   };
-  /*const hello = document.querySelector(".autoText");
-  const autoText = (evt, text) => {
-    evt.preventDefault();
-    //let text = "Bonjour ...";
-    hello.innerHTML = text.slice(0, 3);
-  };*/
+  const closeDialByKey = (evt) => {
+    if (evt.code === "Enter") {
+      closeDial(evt);
+    }
+  };
 
   return (
     <div className="contactField">
       <div className={discuss === true ? "witheBack" : "noBack"}></div>
-      <img src="./assets/bd.png" className="triangle" alt="BD"></img>
+      <img
+        src="https://pierre-le-developpeur.com/assets/bd.png"
+        className="triangle"
+        alt="BD"
+      ></img>
       <div className={discuss === true ? "bd discuss" : "bd noDiscuss"}>
         {discuss === true ? (
           <div className="helloContainer">
-            {language === "FR" ? (
+            {wichError === "nothing" ? (
+              language === "FR" ? (
+                <div className="p">
+                  <Typewrite
+                    props={{ text: contact.french.content }}
+                  ></Typewrite>
+                </div>
+              ) : (
+                <div className="p">
+                  <Typewriter words={[contact.english.content]}></Typewriter>
+                </div>
+              )
+            ) : wichError === "mail" ? (
+              language === "FR" ? (
+                <div className="p">
+                  <div>
+                    <div>
+                      <Typewrite
+                        props={{ text: contact.french.error_mail }}
+                      ></Typewrite>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="p">
+                  <div>
+                    <div>
+                      <Typewriter
+                        words={[contact.english.error_mail]}
+                      ></Typewriter>
+                    </div>
+                  </div>
+                </div>
+              )
+            ) : language === "FR" ? (
               <div className="p">
-                <Typewrite props={{ text: contact.french.content }}></Typewrite>
+                <div>
+                  <Typewrite
+                    props={{ text: contact.french.error_content }}
+                  ></Typewrite>
+                </div>
               </div>
             ) : (
               <div className="p">
-                <Typewriter words={[contact.english.content]}></Typewriter>
+                <div>
+                  <Typewriter
+                    words={[contact.english.error_content]}
+                  ></Typewriter>
+                </div>
               </div>
             )}
             <img
-              src="./assets/cross.png"
+              src="https://pierre-le-developpeur.com/assets/cross.png"
               className="cross"
               alt="close cross"
               onClick={(evt) => closeDial(evt)}
+              onKeyDown={(evt) => closeDialByKey(evt)}
+              tabIndex={discuss === true ? 10 : -1}
             ></img>{" "}
           </div>
         ) : (
           <div className="bdContent" onClick={(evt) => dial(evt)}>
             {" "}
             {language === "FR" ? (
-              <Typewrite props={{ text: "Bonjour ..." }}></Typewrite>
+              <div className="bonjour one">
+                <Typewrite props={{ text: "Bonjour " }}></Typewrite>
+                <div className="dots">
+                  <Typewriter
+                    words={["..."]}
+                    loop={0}
+                    deleteSpeed={1}
+                    typeSpeed={200}
+                  ></Typewriter>
+                </div>
+              </div>
             ) : (
-              <div className="p">
-                <Typewriter words={["Hello ..."]}></Typewriter>
+              <div className="p bonjour">
+                <Typewriter words={["Hello "]}></Typewriter>
+                <Typewriter
+                  words={["..."]}
+                  loop={0}
+                  deleteSpeed={1}
+                  typeSpeed={280}
+                ></Typewriter>
               </div>
             )}
           </div>
@@ -161,120 +231,110 @@ function Contact({ props }) {
             : "reponse hiddenResponse"
         }
       >
-        <textarea className="textareaForContact contact00"></textarea>
-        <img src="./assets/bd.png" className="triangleResponse" alt="BD"></img>
-      </div>
-      <div className="cvAndMail">
-        <div
-          className="inputMail elements mail"
-          ref={mail}
-          onChange={formMailError}
-        >
-          <TextArea
-            props={{
-              french: contact.french.placeholder_mail,
-              english: contact.english.placeholder_mail,
-              likes: null,
-              links: null,
-              edit: true,
-              style: "windows",
-              id: "contact00",
-            }}
-          ></TextArea>
-        </div>
-      </div>
-      <div className="message">
-        <div
-          className="elements messagePlace"
-          ref={content}
-          onChange={formContentError}
-        >
-          <TextArea
-            props={{
-              french: contact.french.content,
-              english: contact.english.content,
-              likes: props.likeId,
-              links: null,
-              edit: true,
-              style: "windows",
-              cofee: true,
-              id: "contact01",
-            }}
-          ></TextArea>
-        </div>
-      </div>
-      <div className="divForButton">
-        {errorContent === false && errorMail === false ? (
-          language === "FR" ? (
-            <button
-              className="elements buttonSend"
-              onClick={(e) => sendMail(content, mail, e)}
-            >
-              <Button
-                props={{
-                  style: "windows",
-                  send: true,
-                  title: contact.french.button,
-                }}
-              ></Button>
-            </button>
-          ) : (
-            <button
-              className="elements buttonSend"
-              onClick={(e) => sendMail(content, mail, e)}
-            >
-              <Button
-                props={{
-                  style: "windows",
-                  send: true,
-                  title: contact.english.button,
-                }}
-              ></Button>
-            </button>
-          )
-        ) : errorMail === true ? (
-          language === "FR" ? (
-            <div className="elements">
-              <Button
-                props={{
-                  style: "windows",
-                  send: false,
-                  title: contact.french.error_mail,
-                }}
-              ></Button>
-            </div>
-          ) : (
-            <div className="elements">
-              <Button
-                props={{
-                  style: "windows",
-                  send: false,
-                  title: contact.english.error_mail,
-                }}
-              ></Button>
-            </div>
-          )
-        ) : language === "FR" ? (
-          <div className="elements">
-            <Button
-              props={{
-                style: "windows",
-                send: false,
-                title: contact.french.error_content,
-              }}
-            ></Button>
+        <div className="messageAndButton">
+          <input
+            type="mail"
+            className="textareaForMail contact00"
+            ref={mail}
+            onChange={formMailError}
+            placeholder={contact.french.placeholder_mail}
+            tabIndex={discuss === true ? 11 : -1}
+          ></input>
+          <textarea
+            className="textareaForContact contact01"
+            ref={content}
+            onChange={formContentError}
+            tabIndex={discuss === true ? 11 : -1}
+          ></textarea>
+          <div className="like">
+            <LikeButton
+              propsLike={{ id: "65dc9d6a700bae9e300a79aa", color: "black" }}
+              className="like"
+            ></LikeButton>
           </div>
-        ) : (
-          <div className="elements">
-            <Button
-              props={{
-                style: "windows",
-                send: false,
-                title: contact.english.error_content,
-              }}
-            ></Button>
+
+          <div className="divForButton">
+            {errorContent === false && errorMail === false ? (
+              language === "FR" ? (
+                <button
+                  className="elements buttonSend"
+                  onClick={(e) => sendMail(content, mail, e)}
+                  tabIndex={discuss === true ? 11 : -1}
+                >
+                  <Button
+                    props={{
+                      style: "windows",
+                      send: true,
+                      title: contact.french.button,
+                    }}
+                  ></Button>
+                </button>
+              ) : (
+                <button
+                  className="elements buttonSend"
+                  onClick={(e) => sendMail(content, mail, e)}
+                  tabIndex={discuss === true ? 11 : -1}
+                >
+                  <Button
+                    props={{
+                      style: "windows",
+                      send: true,
+                      title: contact.english.button,
+                    }}
+                  ></Button>
+                </button>
+              )
+            ) : errorContent === true ? (
+              language === "FR" ? (
+                <div className="elements">
+                  <Button
+                    props={{
+                      style: "windows",
+                      send: false,
+                      title: contact.french.button,
+                    }}
+                  ></Button>
+                </div>
+              ) : (
+                <div className="elements">
+                  <Button
+                    props={{
+                      style: "windows",
+                      send: false,
+                      title: contact.english.button,
+                    }}
+                  ></Button>
+                </div>
+              )
+            ) : language === "FR" ? (
+              <div className="elements">
+                <div></div>
+                <Button
+                  props={{
+                    style: "windows",
+                    send: false,
+                    title: contact.french.button,
+                  }}
+                ></Button>
+              </div>
+            ) : (
+              <div className="elements">
+                <Button
+                  props={{
+                    style: "windows",
+                    send: false,
+                    title: contact.english.button,
+                  }}
+                ></Button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
+        <img
+          src="https://pierre-le-developpeur.com/assets/bd.png"
+          className="triangleResponse"
+          alt="BD"
+        ></img>
       </div>
     </div>
   );

@@ -84,6 +84,7 @@ function Home() {
         <Accueil></Accueil>
         <div className="accueil">
           <div className="reco">
+            <span id="reco" className="recoAnchor"></span>
             <div className="recoTxt">
               <TextArea
                 props={{
@@ -106,14 +107,10 @@ function Home() {
             </div>
           </div>
 
-          <span id="contact"></span>
-          <div className="contact">
-            <Contact
-              props={{ likeId: likes[0]._id, recoId: likes[4]._id }}
-            ></Contact>
-          </div>
-          <span id="competences"></span>
+          <div className="contact"></div>
+          <div className="gradient"></div>
           <div className="competences">
+            <span id="competences"></span>
             <div className="contentSkills">
               <TextArea
                 props={{
@@ -243,6 +240,7 @@ function Home() {
             ))}
           </div>
         </div>
+        <Contact props={{ likeId: "65dc9d6a700bae9e300a79aa" }} />
       </div>
     );
   } else {

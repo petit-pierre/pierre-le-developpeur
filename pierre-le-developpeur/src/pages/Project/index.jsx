@@ -7,6 +7,7 @@ import Collapse from "../../components/Collapse";
 import { useEffect } from "react";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
+import Contact from "../../components/Contact";
 
 function Project() {
   const navigate = useNavigate();
@@ -115,6 +116,7 @@ function Project() {
             ></Collapse>
           </div>
         </div>
+        <Contact props={{ likeId: "65dc9d6a700bae9e300a79aa" }} />
       </div>
     ) : (
       setTimeout(() => {

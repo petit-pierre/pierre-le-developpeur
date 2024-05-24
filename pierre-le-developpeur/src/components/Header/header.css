@@ -29,6 +29,9 @@
   position: fixed;
   top: 0px;
   z-index: 10;
+  /**:not(.maGanache):focus{
+      outline:2px solid white;
+  }*/
 }
 .headerfield .logIn {
   filter: invert(1);
@@ -83,6 +86,9 @@
   z-index: 11;
   top: 0px;
   /**** NAVBAR ****/
+}
+.header .headerLogos img {
+  cursor: pointer;
 }
 .header .maGanache {
   width: 150px;
@@ -170,7 +176,7 @@
 .header nav .ul {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 75%;
 }
 .header #icons {
   cursor: pointer;

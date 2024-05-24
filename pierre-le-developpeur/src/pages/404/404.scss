@@ -5,6 +5,7 @@
       }
     position: relative;
     overflow: hidden;
+
     .errorRedirect{
         text-align: center;
         padding-top: 30dvh;
@@ -15,6 +16,7 @@
         justify-content: center;
         position: absolute;
         bottom: 0;
+        z-index: 5;
         .travolta{
             height: calc(60dvh - 60px);
             @media (max-width: 650px){

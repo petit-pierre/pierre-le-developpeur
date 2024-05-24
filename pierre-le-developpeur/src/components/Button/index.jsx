@@ -5,7 +5,10 @@ function Button({ props }) {
     <div className="buttonDiv">
       <div className={props.send === true ? "send" : "cantSend"}>
         <div className={props.style + " buttonAndBackground elements"}>
-          <button className={props.send === true ? "button visible" : "button"}>
+          <button
+            className={props.send === true ? "button visible" : "button"}
+            tabIndex={-1}
+          >
             {props.title}
           </button>
         </div>
