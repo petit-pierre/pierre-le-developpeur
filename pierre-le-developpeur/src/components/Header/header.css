@@ -2,7 +2,7 @@
   width: 100%;
   height: 59px;
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .placeforheader {
     height: 150px;
   }
@@ -17,7 +17,7 @@
   position: fixed;
   transition: 5s;
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .shape {
     height: 250px;
   }
@@ -44,7 +44,7 @@
   transition: 1s;
   box-shadow: 0px 5px 25px black;
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .headerfield nav {
     height: 130px;
     background-color: #99477a;
@@ -75,7 +75,7 @@
   height: 140px;
   transition: 5s;
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .allHeader:hover .shape {
     height: 40dvh;
   }
@@ -182,7 +182,7 @@
   cursor: pointer;
   display: none;
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .header .logPlace:hover {
     background-color: #6d477a;
     transition: 0s;

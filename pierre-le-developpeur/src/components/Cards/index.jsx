@@ -1,17 +1,12 @@
 import { useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
 import LikeButton from "../LikeButton";
 import Slider from "../Slider";
 import "./cards.css";
-import React, { useState } from "react";
+import React from "react";
 import { HashLink } from "react-router-hash-link";
 
 function Cards({ project }) {
   const language = useSelector((state) => state.data.language);
-  const [open, setOPen] = useState(false);
-  const toggle = () => {
-    setOPen(!open);
-  };
   return (
     <HashLink to={"/Project/" + project.french_title + "#project"}>
       <div className="cardField">

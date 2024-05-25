@@ -25,6 +25,7 @@ function PostProject() {
   const [sliders, setSliders] = useState([]);
   const [links, setLinks] = useState([]);
   const [truc, setTruc] = useState(0);
+  const [video, setVideo] = useState(false);
   //let slideToDellette = [];
   const [slideToDellette, setSlideToDellette] = useState([]);
   //let Sliders = [];
@@ -79,11 +80,11 @@ function PostProject() {
   const frenchDescription = useRef();
   const englishDescription = useRef();
   const linkUrl = useRef();
-  const sliderAlt = useRef();
   const frenchSliderContent = useRef();
   const englishSliderContent = useRef();
   const frenchResum = useRef();
   const englishResum = useRef();
+  const sliderVideo = useRef();
 
   const dispatch = useDispatch();
 
@@ -247,21 +248,39 @@ function PostProject() {
   }
   function ProjectSliderUpdate(evt) {
     evt.preventDefault();
+    let Slider = document.querySelector(".Slider");
+    let TextPicture = document.querySelector(".TextPicture");
+
+    let Video = document.querySelector(".Video");
+    let SliderType = null;
+    if (Slider.checked === true) {
+      SliderType = "Slider";
+    }
+    if (TextPicture.checked === true) {
+      SliderType = "TextPicture";
+    }
+    if (Video.checked === true) {
+      SliderType = "Video";
+    }
+
     let photo = document.querySelector(".sliderPicture");
     if (
       photo.files[0] &&
       frenchSliderContent.current.value &&
       englishSliderContent.current.value &&
-      sliderAlt.current.value !== ""
+      SliderType !== null
+      //sliderAlt.current.value !== ""
     ) {
       let slider = {
         picture: photo.files[0],
         temporaryUrl: URL.createObjectURL(photo.files[0]),
         newPicture: true,
-        alt: sliderAlt.current.value,
+        //alt: sliderAlt.current.value,
+        alt: SliderType,
         french_content: frenchSliderContent.current.value,
         english_content: englishSliderContent.current.value,
       };
+      console.log(slider);
 
       sliders.push(slider);
       setSliders(sliders);
@@ -271,7 +290,8 @@ function PostProject() {
       //const objectURL = URL.createObjectURL(photo.files[0])
       //delete slider.temporaryUrl;
       //console.log(sliders);
-      sliderAlt.current.value = "";
+      //sliderAlt.current.value = "";
+      SliderType = null;
       frenchSliderContent.current.value = "";
       englishSliderContent.current.value = "";
       photo.value = "";
@@ -328,6 +348,14 @@ function PostProject() {
 
   if (project === undefined) {
     project = null;
+  }
+
+  function SliderType(evt) {
+    if (evt.target.value === "Video") {
+      setVideo(true);
+    } else {
+      setVideo(false);
+    }
   }
 
   return (
@@ -492,18 +520,56 @@ function PostProject() {
             ))}
             <div className="sliderAdd">
               <div>
-                <p>slider picture : </p>
-                <input
-                  type="file"
-                  className="sliderPicture"
-                  name="sliderPicture"
-                  accept="image/png, image/jpeg,image/webp"
-                />
+                <p>slider or Content or Video : </p>
+                <form className="sliderType">
+                  <input
+                    type="radio"
+                    id="Slider"
+                    name="SliderType"
+                    value="Slider"
+                    className="Slider"
+                    defaultChecked
+                    onChange={(evt) => SliderType(evt)}
+                  ></input>
+                  <label for="Slider">Slider</label>
+                  <input
+                    type="radio"
+                    id="TextPicture"
+                    name="SliderType"
+                    value="TextPicture"
+                    className="TextPicture"
+                    onChange={(evt) => SliderType(evt)}
+                  ></input>
+                  <label for="TextPicture">Text&picture</label>
+
+                  <input
+                    type="radio"
+                    id="Video"
+                    name="SliderType"
+                    value="Video"
+                    className="Video"
+                    onChange={(evt) => SliderType(evt)}
+                  ></input>
+                  <label for="Video">Video</label>
+                </form>
               </div>
-              <div>
-                <p>slider alt : </p>
-                <textarea ref={sliderAlt} type="text" />
-              </div>
+              {video === true ? (
+                <div>
+                  <p>Video URL :</p>
+                  <textarea ref={sliderVideo}></textarea>
+                </div>
+              ) : (
+                <div>
+                  <p>slider picture : </p>
+                  <input
+                    type="file"
+                    className="sliderPicture"
+                    name="sliderPicture"
+                    accept="image/png, image/jpeg,image/webp"
+                  />
+                </div>
+              )}
+
               <div>
                 <p>slider content in french : </p>
                 <textarea ref={frenchSliderContent} type="text" />

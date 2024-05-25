@@ -26,6 +26,7 @@ function Contact({ props }) {
   const [wichError, setWichError] = useState("nothing");
   const [sendingError, setSendingError] = useState("");
   const [sending, setSending] = useState(false);
+  const [sended, setSended] = useState(false);
 
   const [inputMailValue, setInputMailValue] = useState("");
   const [inputContentValue, setInputContentValue] = useState("");
@@ -35,6 +36,7 @@ function Contact({ props }) {
 
   const formMailError = (e) => {
     e.preventDefault();
+    setSended(false);
     setInputMailValue(e.target.value);
     const emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
     if (emailRegExp.test(e.target.value)) {
@@ -53,6 +55,7 @@ function Contact({ props }) {
   const formContentError = (e) => {
     e.preventDefault();
     setInputContentValue(e.target.value);
+    setSended(false);
 
     if (
       e.target.value.length > 6 &&
@@ -92,9 +95,9 @@ function Contact({ props }) {
         setSending(true);
         setSendingError("");
         setErrorContent(true);
-        language === "FR"
-          ? (content.current.value = contact.french.succes)
-          : (content.current.value = contact.english.succes);
+
+        content.current.value = "";
+        setSended(true);
       } else {
         setSending(false);
         setSendingError(message);
@@ -116,6 +119,7 @@ function Contact({ props }) {
     evt.preventDefault();
     //setDiscuss(false);
     //console.log(discuss);
+    setSended(false);
     dispatch(userSlice.actions.setContactMenu(false));
   };
   const closeDialByKey = (evt) => {
@@ -132,10 +136,32 @@ function Contact({ props }) {
         className="triangle"
         alt="BD"
       ></img>
+      <img
+        src="https://pierre-le-developpeur.com/assets/bd.png"
+        className="triangleMini"
+        alt="BD"
+      ></img>
       <div className={discuss === true ? "bd discuss" : "bd noDiscuss"}>
         {discuss === true ? (
           <div className="helloContainer">
-            {wichError === "nothing" ? (
+            {sended === true ? (
+              language === "FR" ? (
+                <div className="p">
+                  {" "}
+                  <div className="p">
+                    <Typewrite
+                      props={{ text: contact.french.succes }}
+                    ></Typewrite>
+                  </div>
+                </div>
+              ) : (
+                <div className="p">
+                  <div className="p">
+                    <Typewriter words={[contact.english.succes]}></Typewriter>
+                  </div>
+                </div>
+              )
+            ) : wichError === "nothing" ? (
               language === "FR" ? (
                 <div className="p">
                   <Typewrite
@@ -186,6 +212,7 @@ function Contact({ props }) {
                 </div>
               </div>
             )}
+
             <img
               src="https://pierre-le-developpeur.com/assets/cross.png"
               className="cross"
@@ -193,7 +220,7 @@ function Contact({ props }) {
               onClick={(evt) => closeDial(evt)}
               onKeyDown={(evt) => closeDialByKey(evt)}
               tabIndex={discuss === true ? 10 : -1}
-            ></img>{" "}
+            ></img>
           </div>
         ) : (
           <div className="bdContent" onClick={(evt) => dial(evt)}>

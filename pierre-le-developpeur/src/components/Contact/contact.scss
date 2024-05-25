@@ -14,20 +14,26 @@
     display: flex;
     flex-direction: column;
     //padding-top: 150px;
-
     .like{
         //top: 30dvh;
         right: -10px;
         //z-index: 12;
         bottom: 2dvh;
+        @media (max-height: 270px) {
+            display: none;
+        }
+    }
+    .p{
+        //position: absolute;
+        padding-right: 5px;
     }
     .messageAndButton{
         position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+       justify-content: space-between;
+        overflow: hidden;
     }
     .dots{
         padding-top: 2px;
@@ -38,12 +44,9 @@
         display: flex;
         flex-direction: row;
         margin: auto;
-        //justify-content: start;
-        //align-items: center;
     }
     .bd{
         background-color: white;
-
         height: 40px;
         position: fixed;
         border: 2px solid black;
@@ -53,7 +56,6 @@
         border-radius: 10px;
         display: flex;
         transition: 1s;
-        //opacity: 0.3;
         overflow: hidden;
         .p{
             margin: auto;
@@ -131,6 +133,9 @@
         border-radius: 10px;
         display: flex;
         //overflow: hidden;
+        @media (max-width: 650px) {
+            height: calc(100dvh - 155px);
+        }
     }
     .triangleResponse {
         z-index: 13;
@@ -143,6 +148,9 @@
     .visibleResponse{
         top: 180px;
         transition: 1s;
+        @media (max-width: 650px) {
+            top: 140px;
+        }
     }
     .hiddenResponse{
         top: 200dvh;
@@ -151,6 +159,12 @@
     .noDiscuss{
         width: 100px;
         cursor: pointer;
+        @media (max-width: 650px) {
+            top: 90px;
+            left: 150px;
+            //width: calc(100% - 270px);
+            //height: 120px;
+        }
     }
     .noDiscuss:hover{
         width: 140px;
@@ -158,6 +172,19 @@
     }
     .discuss{
         width: calc(100% - 50px);
+        @media (max-width: 650px) {
+            top: 10px;
+            left: 150px;
+            width: calc(100% - 270px);
+            height: 120px;
+
+        }
+        @media (max-width: 450px) {
+            span{
+                font-size: 0.7rem;
+                line-height: 0.1rem;
+            }
+        }
         //position: relative;
     }  
     .triangle {
@@ -166,14 +193,45 @@
         top: 117px;
         left: 80px;
         width: 22px;
+        transition: 1s;
+        transition-delay: 1s;
+        opacity: 1;
+        @media (max-width: 650px) {
+            opacity: 0;
+            transition: 0s;
+            //transition-delay: 1s;
+        }
       }
+    .triangleMini{
+        z-index: 13;
+        position: fixed;
+        top: 100px;
+        transform: rotate(-90deg);
+        left: 134px;
+        width: 22px;
+        opacity: 0;
+        transition: 0s;
+        //transition-delay: 1s;
+        @media (max-width: 650px) {
+            opacity: 1;
+            transition: 1s;
+            transition-delay: 1s;
+        }
+    }
     .cross{
         width: 30px;
         position: absolute;
         right: 5px;
         //top: 133px;
         top: 5px;
+        width: 30px;
         cursor: pointer;
+        /*@media (max-width: 650px) {
+            position: fixed;
+            right: 120px;
+            top: 15px;
+            transition: 1s;
+        }*/
     }
     .hello{
         //padding: 12px;
