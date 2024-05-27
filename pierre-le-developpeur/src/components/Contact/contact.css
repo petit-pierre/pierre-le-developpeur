@@ -170,14 +170,16 @@
   .contactField .discuss {
     top: 10px;
     left: 150px;
-    width: calc(100% - 270px);
+    width: calc(100% - 245px);
     height: 120px;
   }
 }
 @media (max-width: 450px) {
+  .contactField .discuss {
+    line-height: 0.6rem;
+  }
   .contactField .discuss span {
-    font-size: 0.7rem;
-    line-height: 0.1rem;
+    font-size: 0.6rem;
   }
 }
 .contactField .triangle {
@@ -237,6 +239,11 @@
   display: flex;
   padding-left: 15px;
   padding-right: 30px;
+}
+@media (max-width: 450px) {
+  .contactField .helloContainer {
+    padding-left: 5px;
+  }
 }
 .contactField .bdContent {
   display: flex;
