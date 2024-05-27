@@ -179,13 +179,27 @@ function PostProject() {
 
       for (let i = 0; i < sliders.length; i++) {
         const formData = new FormData();
-        if (newProject.sliders[i].newPicture === true) {
+        if (
+          newProject.sliders[i].newPicture === true ||
+          newProject.sliders[i].alt !== "Video"
+        ) {
           formData.append("imageUrl", "");
           formData.append("image", sliders[i].picture);
         } //else{}
 
         const sliderSubmit = async () => {
-          if (newProject.sliders[i].newPicture === true) {
+          if (newProject.sliders[i].alt === "Video") {
+            //newProject.sliders[i].picture = sliderVideo.current.value;
+            delete newProject.sliders[i].temporaryUrl;
+            delete newProject.sliders[i].newPicture;
+            if (newProject.sliders[i].picture_id !== "none") {
+              newProject.sliders[i].picture_id = "none";
+            }
+          }
+          if (
+            newProject.sliders[i].newPicture === true &&
+            newProject.sliders[i].alt !== "Video"
+          ) {
             const setProjectPictureResult = await dispatch(
               setProjectPictureThunk(formData, token)
             );
@@ -248,6 +262,13 @@ function PostProject() {
   }
   function ProjectSliderUpdate(evt) {
     evt.preventDefault();
+    if (frenchSliderContent.current.value === "") {
+      frenchSliderContent.current.value = "nothing";
+    }
+    if (englishSliderContent.current.value === "") {
+      englishSliderContent.current.value = "nothing";
+    }
+    //console.log(frenchSliderContent.current.value);
     let Slider = document.querySelector(".Slider");
     let TextPicture = document.querySelector(".TextPicture");
 
@@ -259,44 +280,69 @@ function PostProject() {
     if (TextPicture.checked === true) {
       SliderType = "TextPicture";
     }
+    let photo = document.querySelector(".sliderPicture");
     if (Video.checked === true) {
       SliderType = "Video";
-    }
-
-    let photo = document.querySelector(".sliderPicture");
-    if (
-      photo.files[0] &&
-      frenchSliderContent.current.value &&
-      englishSliderContent.current.value &&
-      SliderType !== null
-      //sliderAlt.current.value !== ""
-    ) {
-      let slider = {
-        picture: photo.files[0],
-        temporaryUrl: URL.createObjectURL(photo.files[0]),
-        newPicture: true,
-        //alt: sliderAlt.current.value,
-        alt: SliderType,
-        french_content: frenchSliderContent.current.value,
-        english_content: englishSliderContent.current.value,
-      };
-      console.log(slider);
-
-      sliders.push(slider);
-      setSliders(sliders);
-      //console.log(sliders);
-      alert("slide ajouté : " + photo.files[0].name);
-      set(evt);
-      //const objectURL = URL.createObjectURL(photo.files[0])
-      //delete slider.temporaryUrl;
-      //console.log(sliders);
-      //sliderAlt.current.value = "";
-      SliderType = null;
-      frenchSliderContent.current.value = "";
-      englishSliderContent.current.value = "";
-      photo.value = "";
+      if (
+        sliderVideo.current.value &&
+        //frenchSliderContent.current.value &&
+        //englishSliderContent.current.value &&
+        SliderType !== null
+        //sliderAlt.current.value !== ""
+      ) {
+        const videoUrl = "https://www.youtube.com/embed/".concat(
+          sliderVideo.current.value.substring(32)
+        );
+        //const videoUrl = sliderVideo.current.value.substring(32);
+        let slider = {
+          picture: videoUrl,
+          temporaryUrl: videoUrl,
+          newPicture: false,
+          //alt: sliderAlt.current.value,
+          alt: SliderType,
+          french_content: frenchSliderContent.current.value,
+          english_content: englishSliderContent.current.value,
+        };
+        sliders.push(slider);
+        setSliders(sliders);
+        alert("slide ajouté : ");
+        set(evt);
+        SliderType = null;
+        frenchSliderContent.current.value = "";
+        englishSliderContent.current.value = "";
+        sliderVideo.current.value = "";
+      } else {
+        alert("champs incomplets");
+      }
     } else {
-      alert("champs incomplets");
+      if (
+        photo.files[0] &&
+        //frenchSliderContent.current.value &&
+        //englishSliderContent.current.value &&
+        SliderType !== null
+        //sliderAlt.current.value !== ""
+      ) {
+        let slider = {
+          picture: photo.files[0],
+          temporaryUrl: URL.createObjectURL(photo.files[0]),
+          newPicture: true,
+          //alt: sliderAlt.current.value,
+          alt: SliderType,
+          french_content: frenchSliderContent.current.value,
+
+          english_content: englishSliderContent.current.value,
+        };
+        sliders.push(slider);
+        setSliders(sliders);
+        alert("slide ajouté : " + photo.files[0].name);
+        set(evt);
+        SliderType = null;
+        frenchSliderContent.current.value = "";
+        englishSliderContent.current.value = "";
+        photo.value = "";
+      } else {
+        alert("champs incomplets");
+      }
     }
   }
   function set(evt) {
@@ -502,15 +548,29 @@ function PostProject() {
             <legend>Slider :</legend>
             {sliders.map((projectSlide) => (
               <fieldset className="sliderContainer" key={projectSlide._id}>
-                <img
-                  src={
-                    projectSlide.newPicture === true
-                      ? projectSlide.temporaryUrl
-                      : projectSlide.picture
-                  }
-                  alt={projectSlide.alt}
-                  className="sliderPictureShow"
-                ></img>
+                {projectSlide.alt === "Video" ? (
+                  <iframe
+                    class="video"
+                    width="560"
+                    height="315"
+                    src={projectSlide.picture}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                ) : (
+                  <img
+                    src={
+                      projectSlide.newPicture === true
+                        ? projectSlide.temporaryUrl
+                        : projectSlide.picture
+                    }
+                    alt={projectSlide.alt}
+                    className="sliderPictureShow"
+                  ></img>
+                )}
+                <h3>{projectSlide.alt} </h3>
                 <p>{projectSlide.french_content} </p>
                 <p>{projectSlide.english_content} </p>
                 <button onClick={(evt) => RemoveSlide(evt, projectSlide)}>

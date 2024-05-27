@@ -4,6 +4,15 @@ import { CarouselItem } from "./CarouselItem";
 import LikeButton from "../LikeButton";
 
 function Slider({ sliders, mini, likeId }) {
+  let sortedSlider = [];
+  for (let slide of sliders) {
+    console.log(slide);
+    if (slide.alt !== "Video" || slide.alt !== "TextPicture") {
+      sortedSlider.push(slide);
+    }
+  }
+  console.log(sortedSlider);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   //swipe tactile//
@@ -20,7 +29,7 @@ function Slider({ sliders, mini, likeId }) {
   }
 
   function handleTouchEnd() {
-    if (sliders.length > 1) {
+    if (sortedSlider.length > 1) {
       if (touchStart - touchEnd > 150) {
         nextPicture();
       }
@@ -61,13 +70,13 @@ function Slider({ sliders, mini, likeId }) {
   const previousPicture = () => {
     const index = currentIndex;
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? sliders.length - 1 : index - 1;
+    const newIndex = isFirstSlide ? sortedSlider.length - 1 : index - 1;
     setCurrentIndex(newIndex);
   };
 
   const nextPicture = () => {
     const index = currentIndex;
-    const isLastSlide = currentIndex === sliders.length - 1;
+    const isLastSlide = currentIndex === sortedSlider.length - 1;
     const newIndex = isLastSlide ? 0 : index + 1;
     setCurrentIndex(newIndex);
   };
@@ -90,7 +99,7 @@ function Slider({ sliders, mini, likeId }) {
         className="inner"
         style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
-        {sliders.map((slide) => {
+        {sortedSlider.map((slide) => {
           return (
             <CarouselItem
               key={`${slide._id}`}
@@ -101,7 +110,7 @@ function Slider({ sliders, mini, likeId }) {
           );
         })}
       </div>
-      {sliders.length > 1 && mini === false ? (
+      {sortedSlider.length > 1 && mini === false ? (
         <div className="arrowAndCounter">
           <button
             tabIndex={0}
@@ -127,7 +136,7 @@ function Slider({ sliders, mini, likeId }) {
             ></img>
           </button>
           <p className="counter">
-            {currentIndex + 1}/{sliders.length}
+            {currentIndex + 1}/{sortedSlider.length}
           </p>
         </div>
       ) : (

@@ -11,7 +11,7 @@ export const CarouselItem = ({ item, width, mini }) => {
         src={item.picture}
         alt="slider"
       />
-      {mini === false ? (
+      {mini === false && item.french_content !== "nothing" ? (
         language === "FR" ? (
           <div className="sliderTextDiv">
             <p className="sliderContent">{item.french_content}</p>
