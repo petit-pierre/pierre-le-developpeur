@@ -21,12 +21,14 @@ function SignIn() {
   const contact = useSelector((state) => state.data.translations);
   const translations = useSelector((state) => state.data.translations);
   const discuss = useSelector((state) => state.data.contactMenu);
+  const likes = useSelector((state) => state.data.likes);
 
   if (
     language !== null &&
     contact !== null &&
     discuss !== null &&
-    translations !== null
+    translations !== null &&
+    likes !== null
   ) {
     const formNameError = (e) => {
       setInputNameValue(e.target.value);

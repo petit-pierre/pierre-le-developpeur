@@ -9,6 +9,7 @@
     cursor: pointer;
     margin: auto;
     margin-bottom: 4dvh;
+    z-index: 5;
     @media (max-width: 650px) {
         width: 80%;
     }
@@ -19,11 +20,13 @@
     }
     .cardSlide{
         opacity: 1;
-        position: absolute;
+        //position: absolute;
+        //position: relative;
         //display: inline-block;
         //top: -165px;
         height: 162px;
-        z-index: 5;
+        //z-index: 5;
+        //top: 0;
     }
     .cardResum{
         position: absolute;

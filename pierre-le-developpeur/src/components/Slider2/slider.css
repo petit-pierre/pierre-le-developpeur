@@ -32,21 +32,6 @@
   overflow: hidden;
 }
 
-.sl {
-  transition: translate 2s;
-  position: absolute;
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.slMax {
-  min-width: 100dvw;
-}
-
 .carousel-img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -60,7 +45,6 @@
 @media (aspect-ratio < 0.935/1) {
   .carousel-img {
     height: 100%;
-    max-width: 100%;
   }
 }
 
@@ -68,7 +52,10 @@
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
-  width: 100%;
+  min-width: 100%;
+  height: 180px;
+  transform-origin: top left;
+  top: 0px;
 }
 
 .sliderContent {
@@ -89,8 +76,7 @@
 }
 
 .sliderTextDiv {
-  top: 10dvh;
-  z-index: 4;
+  top: auto;
   position: absolute;
   width: 50dvw;
 }
@@ -103,13 +89,12 @@
 .counter {
   position: absolute;
   z-index: 3;
-  bottom: 2dvh;
+  top: 60dvh;
   font-size: 18px;
   color: #FFF;
+  background-color: black;
   padding: 10px;
   border-radius: 20px;
-  display: flex;
-  flex-direction: row;
 }
 
 .arrowLeft {
@@ -128,50 +113,12 @@
   cursor: pointer;
 }
 
-.previous {
-  translate: -100%;
-}
-
-.selected {
-  translate: 0%;
-}
-
-.next {
-  translate: 100%;
-}
-
-.start {
-  translate: 100%;
-}
-
-.beforStart {
-  translate: -100%;
-}
-
-.dot {
-  background-color: white;
-  width: 12px;
-  height: 12px;
-  border-radius: 15px;
-  margin: 10px;
-  z-index: 5;
-  border: solid 3px black;
-  transition: 0.4s;
-}
-
-.dotSelected {
-  margin-top: 5px;
-  width: 20px;
-  height: 20px;
-  transition: 0.4s;
-}
-
 .inner {
-  display: flex;
-  flex-direction: row;
   white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .sliderField:hover .like {

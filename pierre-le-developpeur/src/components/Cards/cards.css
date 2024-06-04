@@ -8,6 +8,7 @@
   cursor: pointer;
   margin: auto;
   margin-bottom: 4dvh;
+  z-index: 5;
   border: solid white;
   text-align: center;
 }
@@ -21,9 +22,7 @@
 }
 .cardField .cardSlide {
   opacity: 1;
-  position: absolute;
   height: 162px;
-  z-index: 5;
 }
 .cardField .cardResum {
   position: absolute;

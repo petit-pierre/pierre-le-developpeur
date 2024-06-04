@@ -45,8 +45,11 @@
     }
     .slider{
         margin-top: 0px;
+        //padding-top: 0;
         //height: 90dvh;
         height: calc(100dvh - 60px);
+        //height: 100dvh;
+        //position: fixed;
         @media (max-width: 650px){
             height: calc(100dvh - 130px);
         }

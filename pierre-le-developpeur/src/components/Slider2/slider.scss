@@ -30,32 +30,11 @@
     background-color: white;
     overflow: hidden;
   }
-  .sl{
-    transition: translate 2s;
-    //transition: z-index 0.1s;
-    //transition: opacity 0.1s;
-    position: absolute;
-    object-fit: cover;
-    height: 100%;
-    //transform: translateX(0%);
-    //transform-origin: center;
-    top: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .slMax{
-    min-width: 100dvw;
-  }
 
   .carousel-img {
     object-fit: cover;
     position: relative;
     //height: 100%;
-    //min-width: 100%;
-    //transition: 1s;
-    //transform-origin: center;
-    //align-items: center;
     
     @media ( aspect-ratio> 0.935 / 1) {
         width: 100%;  
@@ -64,23 +43,20 @@
         //max-height: 71dvh;
         //width: 100%;
         height: 100%;
-        max-width: 100%;
     }
   }
   .carousel-img-mini {
     object-fit: cover;
     position: relative;
-    width: 100%;
-    //height: 162px;
-    //height: 180px;
+    min-width: 100%;
+    height: 180px;
     //height: 100%;
-    //transform-origin: top left;
+    transform-origin: top left;
     //left: -50%;
     //transform-origin: 50%;
     //left: -260px;
     //margin-left: -70%;
-    //top: 0px;
-    //z-index: 10;
+    top: 0px;
   }
   .sliderContent{
     color: white;
@@ -97,10 +73,8 @@
     }
   }
   .sliderTextDiv{
-    top: 10dvh;
-    z-index: 4;
+    top: auto;
     position:absolute;
-    //position: relative;
     width: 50dvw;
   }
 .arrowAndCounter{
@@ -110,17 +84,15 @@
 .counter {
     position: absolute;
     z-index: 3;
-    bottom: 2dvh;
+    top: 60dvh;
     //left: 43%;
     //justify-self: center;
     font-size: 18px;
     color: #FFF; 
-    //background-color: black;
+    background-color: black;
     //margin: 20px;
     padding: 10px;
     border-radius: 20px;
-    display: flex;
-    flex-direction: row;
 }
 
 .arrowLeft {
@@ -139,61 +111,12 @@
     cursor: pointer;
 }
 
-.previous{
-  //transform : translatex(-100%);
-  translate: -100%;
-  //opacity: 1;
-}
-.selected{
-  //transform : translatex(0%);
-  translate: 0%;
-  //opacity: 1;
-}
-.next{
-  //transform : translatex(100%);
-  translate: 100%;
-  //opacity: 1;
-}
-.start{
-  translate: 100%;
-}
-
-.beforStart{
-  translate: -100%;
-}
-.dot{
-  background-color: white;
-  width: 12px;
-  height: 12px;
-  //border: solid 2px white;
-  border-radius: 15px;
-  margin: 10px;
-  z-index: 5;
-  //border: none;
-  border: solid 3px black;
-  transition: 0.4s;
-}
-
-.dotSelected{
-   //border: solid 3px black;
-   margin-top: 5px;
-   width: 20px;
-   height: 20px;
-   transition: 0.4s;
-}
-
 .inner {
-    display: flex;
-    flex-direction: row;
     white-space: nowrap;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
     width: 100%;
-
-    overflow: hidden;
-    //width: 100%;
-    //transition: transform 0.3s;
-    //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    //height: 100%;
-    //width: 100%;
     //position: relative;
     //top: 0;
     //padding-top: 0;

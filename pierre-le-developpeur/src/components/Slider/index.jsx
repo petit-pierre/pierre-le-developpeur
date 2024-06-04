@@ -1,19 +1,35 @@
 import { useEffect, useState, useRef } from "react";
 import "./slider.css";
-import { CarouselItem } from "./CarouselItem";
 import LikeButton from "../LikeButton";
+import { useSelector } from "react-redux";
 
 function Slider({ sliders, mini, likeId }) {
+  const language = useSelector((state) => state.data.language);
   let sortedSlider = [];
   for (let slide of sliders) {
-    console.log(slide);
+    //console.log(slide);
     if (slide.alt !== "Video" || slide.alt !== "TextPicture") {
       sortedSlider.push(slide);
     }
   }
-  console.log(sortedSlider);
+  if (sortedSlider.length === 2) {
+    let hkj = structuredClone(sortedSlider);
+    sortedSlider = sortedSlider.concat(hkj);
+  }
+  let nw = structuredClone(sortedSlider);
+  for (let i = 0; i < nw.length; i++) {
+    nw[i].index = i;
+    //console.log(nw[i].index);
+    //console.log("coucou");
+  }
+  sortedSlider = nw;
+  //console.log(sortedSlider);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  let selected = 0;
+  let previous = sortedSlider.length - 1;
+  let next = 1;
+
+  //const [currentIndex, setCurrentIndex] = useState(0);
 
   //swipe tactile//
 
@@ -68,17 +84,116 @@ function Slider({ sliders, mini, likeId }) {
   //changement d'index//
 
   const previousPicture = () => {
-    const index = currentIndex;
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? sortedSlider.length - 1 : index - 1;
-    setCurrentIndex(newIndex);
+    //console.log(newIndex);
+    /*let selected = currentIndex + 1;
+    let previous = currentIndex;
+    let next = currentIndex + 2;*/
+    selected--;
+    previous--;
+    next--;
+    if (selected < 0) {
+      selected = sortedSlider.length - 1;
+    }
+    if (previous < 0) {
+      previous = sortedSlider.length - 1;
+    }
+    if (next < 0) {
+      next = sortedSlider.length - 1;
+    }
+    document.querySelector(".dotSelected").classList.remove("dotSelected");
+    if (sliders.length === 2) {
+      if (selected < 2) {
+        document.querySelector(".d" + selected).classList.add("dotSelected");
+      }
+      if (selected === 2) {
+        document.querySelector(".d0").classList.add("dotSelected");
+      }
+      if (selected === 3) {
+        document.querySelector(".d1").classList.add("dotSelected");
+      }
+    } else {
+      document.querySelector(".d" + selected).classList.add("dotSelected");
+    }
+
+    //document.querySelector(".b0").style.transform = "translatex(0%)";
+    //document.querySelector(".b0").style.zIndex = "1";
+    for (let i = 0; i < sortedSlider.length; i++) {
+      document.querySelector(".b" + i + likeId).style.zIndex = "0";
+      document.querySelector(".b" + i + likeId).style.opacity = "0";
+      document.querySelector(".b" + i + likeId).classList.remove("selected");
+      document.querySelector(".b" + i + likeId).classList.remove("next");
+      document.querySelector(".b" + i + likeId).classList.remove("previous");
+      document.querySelector(".b" + i + likeId).classList.remove("start");
+      document.querySelector(".b" + i + likeId).classList.remove("beforStart");
+    }
+    document.querySelector(".b" + next + likeId).classList.add("next");
+    document.querySelector(".b" + next + likeId).style.opacity = "1";
+    document.querySelector(".b" + next + likeId).style.zIndex = "2";
+    document.querySelector(".b" + previous + likeId).classList.add("previous");
+    document.querySelector(".b" + previous + likeId).style.opacity = "1";
+    document.querySelector(".b" + previous + likeId).style.zIndex = "0";
+    document.querySelector(".b" + selected + likeId).classList.add("selected");
+    document.querySelector(".b" + selected + likeId).style.zIndex = "2";
+    document.querySelector(".b" + selected + likeId).style.opacity = "1";
   };
 
   const nextPicture = () => {
-    const index = currentIndex;
+    /*const index = currentIndex;
     const isLastSlide = currentIndex === sortedSlider.length - 1;
     const newIndex = isLastSlide ? 0 : index + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex(newIndex);*/
+    selected++;
+    previous++;
+    next++;
+    if (selected > sortedSlider.length - 1) {
+      selected = 0;
+    }
+    if (previous > sortedSlider.length - 1) {
+      previous = 0;
+    }
+    if (next > sortedSlider.length - 1) {
+      next = 0;
+    }
+    //document.querySelector(".dot_selected").classList.remove("dot_selected");
+    //document.querySelector(".d" + selected).classList.add("dot_selected");
+    //document.querySelector(".b0").style.transform = "translatex(0%)";
+    //document.querySelector(".b0").style.zIndex = "1";
+    if (document.querySelector(".dotSelected") !== null) {
+      document.querySelector(".dotSelected").classList.remove("dotSelected");
+      if (sliders.length === 2) {
+        if (selected < 2) {
+          document.querySelector(".d" + selected).classList.add("dotSelected");
+        }
+        if (selected === 2) {
+          document.querySelector(".d0").classList.add("dotSelected");
+        }
+        if (selected === 3) {
+          document.querySelector(".d1").classList.add("dotSelected");
+        }
+      } else {
+        document.querySelector(".d" + selected).classList.add("dotSelected");
+      }
+    }
+
+    for (let i = 0; i < sortedSlider.length; i++) {
+      document.querySelector(".b" + i + likeId).style.zIndex = "0";
+      document.querySelector(".b" + i + likeId).style.opacity = "0";
+      document.querySelector(".b" + i + likeId).classList.remove("selected");
+      document.querySelector(".b" + i + likeId).classList.remove("next");
+      document.querySelector(".b" + i + likeId).classList.remove("previous");
+      document.querySelector(".b" + i + likeId).classList.remove("start");
+      document.querySelector(".b" + i + likeId).classList.remove("beforStart");
+    }
+
+    document.querySelector(".b" + previous + likeId).classList.add("previous");
+    document.querySelector(".b" + previous + likeId).style.opacity = "1";
+    document.querySelector(".b" + previous + likeId).style.zIndex = "2";
+    document.querySelector(".b" + next + likeId).classList.add("next");
+    document.querySelector(".b" + next + likeId).style.opacity = "1";
+    document.querySelector(".b" + next + likeId).style.zIndex = "0";
+    document.querySelector(".b" + selected + likeId).classList.add("selected");
+    document.querySelector(".b" + selected + likeId).style.zIndex = "2";
+    document.querySelector(".b" + selected + likeId).style.opacity = "1";
   };
   return (
     <div
@@ -87,26 +202,61 @@ function Slider({ sliders, mini, likeId }) {
       onTouchMove={mini === false ? (e) => handleTouchMove(e) : null}
       onTouchEnd={mini === false ? (e) => handleTouchEnd(e) : null}
     >
-      <div className="like">
-        <LikeButton
-          propsLike={{
-            id: likeId,
-            color: "black",
-          }}
-        ></LikeButton>
-      </div>
+      {mini === true ? (
+        ""
+      ) : (
+        <div className="like">
+          <LikeButton
+            propsLike={{
+              id: likeId,
+              color: "black",
+            }}
+          ></LikeButton>
+        </div>
+      )}
       <div
         className="inner"
-        style={{ transform: `translate(-${currentIndex * 100}%)` }}
+        //style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
         {sortedSlider.map((slide) => {
+          //console.log(slide);
           return (
-            <CarouselItem
-              key={`${slide._id}`}
-              item={slide}
-              mini={mini}
-              width={"100%"}
-            />
+            <div
+              className={
+                mini === true
+                  ? slide.index === 0
+                    ? "sl b" + slide.index + likeId
+                    : "sl start b" + slide.index + likeId
+                  : slide.index === 0
+                  ? "slMax sl b" + slide.index + likeId
+                  : slide.index === sortedSlider.length - 1
+                  ? "slMax beforStart sl b" + slide.index + likeId
+                  : "slMax start sl b" + slide.index + likeId
+              }
+              key={slide.index}
+            >
+              <img
+                className={mini === true ? "carousel-img-mini" : "carousel-img"}
+                src={slide.picture}
+                alt="slider"
+                style={{
+                  zIndex: 2,
+                }}
+              />
+              {mini === false && slide.french_content !== "nothing" ? (
+                language === "FR" ? (
+                  <div className="sliderTextDiv">
+                    <p className="sliderContent">{slide.french_content}</p>
+                  </div>
+                ) : (
+                  <div className="sliderTextDiv">
+                    <p className="sliderContent">{slide.english_content}</p>
+                  </div>
+                )
+              ) : (
+                ""
+              )}
+            </div>
           );
         })}
       </div>
@@ -135,12 +285,29 @@ function Slider({ sliders, mini, likeId }) {
               alt="fleche vers la droite"
             ></img>
           </button>
-          <p className="counter">
-            {currentIndex + 1}/{sortedSlider.length}
-          </p>
+          {sliders.length === 2 ? (
+            <div className="counter">
+              <div className="dot dotSelected d0"></div>
+              <div className="dot d1"></div>
+            </div>
+          ) : (
+            <div className="counter">
+              {sortedSlider.map((dot) => {
+                return (
+                  <div
+                    className={
+                      dot.index === 0
+                        ? "dot dotSelected d" + dot.index
+                        : "dot d" + dot.index
+                    }
+                  ></div>
+                );
+              })}
+            </div>
+          )}
         </div>
       ) : (
-        <p></p>
+        ""
       )}
     </div>
   );

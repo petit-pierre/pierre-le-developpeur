@@ -10,6 +10,7 @@ function Error404() {
   const contact = useSelector((state) => state.data.translations);
   const translations = useSelector((state) => state.data.translations);
   const discuss = useSelector((state) => state.data.contactMenu);
+  const likes = useSelector((state) => state.data.likes);
 
   const navigate = useNavigate();
 
@@ -17,7 +18,8 @@ function Error404() {
     language !== null &&
     contact !== null &&
     discuss !== null &&
-    translations !== null
+    translations !== null &&
+    likes !== null
   ) {
     return (
       <div className="error404">

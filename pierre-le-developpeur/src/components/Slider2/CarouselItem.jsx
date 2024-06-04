@@ -5,7 +5,6 @@ export const CarouselItem = ({ item, width, mini }) => {
   const language = useSelector((state) => state.data.language);
   return (
     <div className="carousel-item" style={{ width: width }}>
-      <div></div>
       <img
         className={mini === true ? "carousel-img-mini" : "carousel-img"}
         src={item.picture}
@@ -22,7 +21,7 @@ export const CarouselItem = ({ item, width, mini }) => {
           </div>
         )
       ) : (
-        <p></p>
+        ""
       )}
     </div>
   );

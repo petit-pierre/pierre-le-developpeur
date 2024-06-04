@@ -16,6 +16,7 @@ function Project() {
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
   const projects = useSelector((state) => state.data.projects);
+  const translations = useSelector((state) => state.data.translations);
   let { title } = useParams();
   const dispatch = useDispatch();
 
@@ -26,7 +27,14 @@ function Project() {
     getLikes();
   }, []);
   const project = projects.find((project) => project.french_title === title);
-  if (likes != null && skills != null && tools && projects && project != null) {
+  if (
+    likes != null &&
+    skills != null &&
+    tools &&
+    projects &&
+    project &&
+    translations != null
+  ) {
     const tadaTools = [];
     for (let oneOfTools of tools) {
       for (let projectTool of project.tools) {
