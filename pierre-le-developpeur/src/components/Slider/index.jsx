@@ -104,7 +104,7 @@ function Slider({ sliders, mini, likeId }) {
   }
 
   useInterval(() => {
-    if (mini === true) {
+    if (mini === true && sliders.length > 1) {
       nextPicture();
     }
   }, 6000);

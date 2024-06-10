@@ -19,7 +19,19 @@ function Home() {
   const likes = useSelector((state) => state.data.likes);
   const tools = useSelector((state) => state.data.tools);
   const translations = useSelector((state) => state.data.translations);
-  const projects = useSelector((state) => state.data.projects);
+  const prvprojects = useSelector((state) => state.data.projects);
+  let projects = structuredClone(prvprojects);
+  projects.sort(function (a, b) {
+    //console.log(a);
+    if (a.date > b.date) return -1;
+    if (a.date < b.date) return 1;
+    // a doit être égal à b
+    return 0;
+    //return a.date - b.date;
+  });
+
+  console.log(projects);
+
   /*const slide = structuredClone(projects);
   [slide[0], slide[1]] = [slide[1], slide[0]];
   console.log(slide);*/

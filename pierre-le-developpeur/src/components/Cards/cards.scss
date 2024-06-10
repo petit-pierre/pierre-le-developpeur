@@ -20,25 +20,22 @@
     }
     .cardSlide{
         opacity: 1;
-        //position: absolute;
-        //position: relative;
-        //display: inline-block;
-        //top: -165px;
         height: 162px;
-        //z-index: 5;
-        //top: 0;
     }
     .cardResum{
         position: absolute;
         top: 150px;
         color: white;
-        padding: 8px;
         background-color: #99477a ;
         opacity: 0.8;
         transition: all ease-in-out 4s; 
         z-index: 1;
         height: 100%;
         min-width: 230px;
+        width: 100%;
+        p{
+            padding: 10px;
+        }
         .like{
             top: 70px;
         }
@@ -52,7 +49,6 @@
     .like{
         right: -10px;
         transition: 1000ms;
-        //bottom: 5px;
     }
 }
 

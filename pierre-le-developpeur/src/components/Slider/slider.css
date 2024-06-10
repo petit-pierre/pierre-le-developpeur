@@ -55,7 +55,6 @@
 @media (aspect-ratio < 0.935/1) {
   .sliderContainer .carousel-img {
     height: 100%;
-    max-width: 100%;
   }
 }
 .sliderContainer .carousel-img-mini {
@@ -63,6 +62,7 @@
      object-fit: cover;
   position: relative;
   width: 100%;
+  max-width: 100%;
 }
 .sliderContainer .sliderContent {
   color: white;

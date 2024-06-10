@@ -47,13 +47,14 @@
       }
       @media ( aspect-ratio< 0.935 / 1) {
           height: 100%;
-          max-width: 100%;
+          //width: 100%;
       }
     }
     .carousel-img-mini {
       object-fit: cover;
       position: relative;
       width: 100%;
+      max-width: 100%;
     }
     .sliderContent{
       color: white;

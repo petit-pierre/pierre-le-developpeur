@@ -625,12 +625,20 @@ function PostProject() {
                   defaultValue={projectSlide.english_content}
                   className={"updateeng" + projectSlide._id}
                 ></textarea>
-                <button onClick={(evt) => toTheLeftSlide(evt, projectSlide)}>
-                  move left :
-                </button>
-                <button onClick={(evt) => toTheRightSlide(evt, projectSlide)}>
-                  move right :
-                </button>
+                {sliders.indexOf(projectSlide) > 0 ? (
+                  <button onClick={(evt) => toTheLeftSlide(evt, projectSlide)}>
+                    move left :
+                  </button>
+                ) : (
+                  ""
+                )}
+                {sliders.indexOf(projectSlide) < sliders.length - 1 ? (
+                  <button onClick={(evt) => toTheRightSlide(evt, projectSlide)}>
+                    move right :
+                  </button>
+                ) : (
+                  ""
+                )}
                 <button onClick={(evt) => UpdateSlide(evt, projectSlide)}>
                   update this slide :
                 </button>

@@ -28,13 +28,16 @@
   position: absolute;
   top: 150px;
   color: white;
-  padding: 8px;
   background-color: #99477a;
   opacity: 0.8;
   transition: all ease-in-out 4s;
   z-index: 1;
   height: 100%;
   min-width: 230px;
+  width: 100%;
+}
+.cardField .cardResum p {
+  padding: 10px;
 }
 .cardField .cardResum .like {
   top: 70px;
