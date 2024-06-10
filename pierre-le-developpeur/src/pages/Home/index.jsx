@@ -20,6 +20,9 @@ function Home() {
   const tools = useSelector((state) => state.data.tools);
   const translations = useSelector((state) => state.data.translations);
   const projects = useSelector((state) => state.data.projects);
+  /*const slide = structuredClone(projects);
+  [slide[0], slide[1]] = [slide[1], slide[0]];
+  console.log(slide);*/
 
   const socket = io.connect("https://api.petitpierre.net");
 

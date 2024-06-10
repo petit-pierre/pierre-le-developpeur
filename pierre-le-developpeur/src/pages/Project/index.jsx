@@ -4,10 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import Slider from "../../components/Slider";
 import LikeButton from "../../components/LikeButton";
 import Collapse from "../../components/Collapse";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
 import Contact from "../../components/Contact";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Project() {
   const navigate = useNavigate();
@@ -19,6 +21,11 @@ function Project() {
   const translations = useSelector((state) => state.data.translations);
   let { title } = useParams();
   const dispatch = useDispatch();
+  let divCounter = true;
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     const getLikes = async () => {
@@ -26,6 +33,7 @@ function Project() {
     };
     getLikes();
   }, []);
+
   const project = projects.find((project) => project.french_title === title);
   if (
     likes != null &&
@@ -63,7 +71,11 @@ function Project() {
             likeId={project.slider_likes_id}
           ></Slider>
         </div>
-        <div className="textAndLinks">
+        <div
+          className="textAndLinks"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <TextArea
             props={{
               french: project.french_description,
@@ -77,9 +89,51 @@ function Project() {
             }}
           ></TextArea>
         </div>
-
+        <div className="description">
+          {project.sliders.map((slide) =>
+            slide.alt === "TextPicture" ? (
+              <div
+                key={slide._id}
+                className={
+                  divCounter === true
+                    ? "descriptionUnit left"
+                    : "descriptionUnit right"
+                }
+              >
+                <div className="pics">
+                  <img
+                    src={slide.picture}
+                    alt="illustration projet"
+                    data-aos="flip-left"
+                    data-aos-duration="1000"
+                  ></img>
+                </div>
+                <div
+                  className="text"
+                  data-aos={divCounter === true ? "fade-left" : "fade-right"}
+                >
+                  <TextArea
+                    props={{
+                      french: slide.french_content,
+                      english: slide.english_content,
+                      edit: false,
+                      style: "empty",
+                      cofee: false,
+                      id: "project" + slide._id,
+                    }}
+                  >
+                    {" "}
+                  </TextArea>{" "}
+                  {(divCounter = !divCounter)}
+                </div>
+              </div>
+            ) : (
+              ""
+            )
+          )}
+        </div>
         <div className="tools">
-          <div className="collapse">
+          <div className="collapse" data-aos="fade-right">
             <Collapse
               name={language === "FR" ? "Competences" : "Skills"}
               content={tadaTools.map((tool) => (
@@ -99,7 +153,8 @@ function Project() {
               ))}
             ></Collapse>
           </div>
-          <div className="collapse">
+
+          <div className="collapse" data-aos="fade-left">
             <Collapse
               name="Soft skills"
               content={tadaSkills.map((skill) => (

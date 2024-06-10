@@ -1,6 +1,6 @@
 .textareafield .windows {
   background-image: url("../../../public/assets/snow.gif");
-  border: solid 3px #6d477a;
+  border: solid 3px black;
   border-radius: 20px;
   overflow: hidden;
 }

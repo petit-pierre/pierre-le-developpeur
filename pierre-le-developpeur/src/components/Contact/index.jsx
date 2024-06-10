@@ -292,7 +292,8 @@ function Contact({ props }) {
                   props={{
                     style: "purpleAndWitheTextarea",
                     send: true,
-                    title: "./assets/send_mail.png",
+                    title:
+                      "https://pierre-le-developpeur.com/assets/send_mail.png",
                     picture: true,
                   }}
                 ></Button>

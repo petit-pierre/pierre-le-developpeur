@@ -112,7 +112,44 @@
         color: #99477a;
         transition: 1s;
     }
-
+    .descriptionUnit{
+        width: 100%;
+        display: flex;
+        margin-top: 60px;
+        .pics{
+            width: 30dvw;
+            display: flex;
+            @media (max-width: 650px){
+                width: 100dvw;
+            }
+            img{
+                width: 80%;
+                margin: auto;
+                border-radius: 20px;
+                @media (max-width: 650px){
+                    width: 40%;
+                }
+            }
+        }
+        .text{
+            width: 60dvw;
+            @media (max-width: 650px){
+                width: 100dvw;
+            }
+        }
+    }
+    .left{
+        flex-direction: row;
+        @media (max-width: 650px){
+            flex-direction: column;
+        }
+    }
+    .right{
+        flex-direction: row-reverse;
+        @media (max-width: 650px){
+            flex-direction: column;
+        }
+    }
 }
 
 

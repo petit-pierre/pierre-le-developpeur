@@ -8,7 +8,7 @@ function Slider({ sliders, mini, likeId }) {
   let sortedSlider = [];
   for (let slide of sliders) {
     //console.log(slide);
-    if (slide.alt !== "Video" || slide.alt !== "TextPicture") {
+    if (slide.alt !== "Video" && slide.alt !== "TextPicture") {
       sortedSlider.push(slide);
     }
   }
@@ -357,6 +357,7 @@ function Slider({ sliders, mini, likeId }) {
               {sortedSlider.map((dot) => {
                 return (
                   <div
+                    key={dot.index}
                     className={
                       dot.index === 0
                         ? "dot dotSelected d" + dot.index

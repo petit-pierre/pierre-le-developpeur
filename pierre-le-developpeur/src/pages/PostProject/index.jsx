@@ -404,6 +404,52 @@ function PostProject() {
     }
   }
 
+  function UpdateSlide(evt, projectSlide) {
+    evt.preventDefault();
+    let mySlide = sliders.find((slide) => slide._id === projectSlide._id);
+    //console.log(sliders.indexOf(mySlide));
+    let slideCopy = structuredClone(mySlide);
+    slideCopy.french_content = document.querySelector(
+      ".updatefr" + projectSlide._id
+    ).value;
+    slideCopy.english_content = document.querySelector(
+      ".updateeng" + projectSlide._id
+    ).value;
+    sliders[sliders.indexOf(mySlide)] = slideCopy;
+    //set(evt);
+
+    alert("slide modifié");
+  }
+
+  function toTheLeftSlide(evt, projectSlide) {
+    evt.preventDefault();
+    //console.log(sliders);
+    let mySliders = structuredClone(sliders);
+    let mySlide = mySliders.find((slide) => slide._id === projectSlide._id);
+    let index = mySliders.indexOf(mySlide);
+    if (mySliders.indexOf(mySlide) > 0) {
+      [mySliders[index - 1], mySliders[index]] = [
+        mySliders[index],
+        mySliders[index - 1],
+      ];
+      setSliders(mySliders);
+    }
+  }
+
+  function toTheRightSlide(evt, projectSlide) {
+    evt.preventDefault();
+    let mySliders = structuredClone(sliders);
+    let mySlide = mySliders.find((slide) => slide._id === projectSlide._id);
+    let index = mySliders.indexOf(mySlide);
+    if (mySliders.indexOf(mySlide) < mySliders.length - 1) {
+      [mySliders[index], mySliders[index + 1]] = [
+        mySliders[index + 1],
+        mySliders[index],
+      ];
+      setSliders(mySliders);
+    }
+  }
+
   return (
     <div className="postProject">
       <fieldset>
@@ -571,8 +617,23 @@ function PostProject() {
                   ></img>
                 )}
                 <h3>{projectSlide.alt} </h3>
-                <p>{projectSlide.french_content} </p>
-                <p>{projectSlide.english_content} </p>
+                <textarea
+                  defaultValue={projectSlide.french_content}
+                  className={"updatefr" + projectSlide._id}
+                ></textarea>
+                <textarea
+                  defaultValue={projectSlide.english_content}
+                  className={"updateeng" + projectSlide._id}
+                ></textarea>
+                <button onClick={(evt) => toTheLeftSlide(evt, projectSlide)}>
+                  move left :
+                </button>
+                <button onClick={(evt) => toTheRightSlide(evt, projectSlide)}>
+                  move right :
+                </button>
+                <button onClick={(evt) => UpdateSlide(evt, projectSlide)}>
+                  update this slide :
+                </button>
                 <button onClick={(evt) => RemoveSlide(evt, projectSlide)}>
                   remove this slide :
                 </button>

@@ -114,4 +114,52 @@
 .projectPage .projectLink:hover {
   color: #99477a;
   transition: 1s;
+}
+.projectPage .descriptionUnit {
+  width: 100%;
+  display: flex;
+  margin-top: 60px;
+}
+.projectPage .descriptionUnit .pics {
+  width: 30dvw;
+  display: flex;
+}
+@media (max-width: 650px) {
+  .projectPage .descriptionUnit .pics {
+    width: 100dvw;
+  }
+}
+.projectPage .descriptionUnit .pics img {
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+}
+@media (max-width: 650px) {
+  .projectPage .descriptionUnit .pics img {
+    width: 40%;
+  }
+}
+.projectPage .descriptionUnit .text {
+  width: 60dvw;
+}
+@media (max-width: 650px) {
+  .projectPage .descriptionUnit .text {
+    width: 100dvw;
+  }
+}
+.projectPage .left {
+  flex-direction: row;
+}
+@media (max-width: 650px) {
+  .projectPage .left {
+    flex-direction: column;
+  }
+}
+.projectPage .right {
+  flex-direction: row-reverse;
+}
+@media (max-width: 650px) {
+  .projectPage .right {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=project.css.map */
