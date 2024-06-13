@@ -29,6 +29,19 @@
 }
 .projectPage{
     position: relative;
+    .transition{
+        background: linear-gradient(0deg, #FFFFFF, rgba(255,255,255, 0));
+        //background-color: white;
+        position: absolute;
+        //top: 0;
+        z-index: 5;
+        width: 100%;
+        //height: 10dvh;
+        opacity: 1;
+        //bottom: 0;
+        //top: 0;
+        //border: solid 1px red;
+    }
     #project{
         position: absolute;
         top: -100px;
@@ -44,12 +57,16 @@
         }
     }
     .slider{
+        position: relative;
         margin-top: 0px;
         //padding-top: 0;
         //height: 90dvh;
-        height: calc(100dvh - 60px);
+        height: calc(103dvh - 59px);
         //height: 100dvh;
         //position: fixed;
+        //box-shadow: 0px 15px 30px black;
+        
+        //box-shadow: inset 5em 1em gold;
         @media (max-width: 650px){
             height: calc(100dvh - 130px);
         }
@@ -58,6 +75,8 @@
         width: 80dvw;
         margin: auto;
         margin-top: 100px;
+        position: relative;
+        z-index: 7;
     }
     .tools{
         margin-top: 21dvh;

@@ -162,13 +162,14 @@
         @media (max-width: 650px) {
             top: 90px;
             left: 150px;
-            //width: calc(100% - 270px);
-            //height: 120px;
         }
     }
     .noDiscuss:hover{
         width: 140px;
         transition: 1s;
+        @media (max-width: 650px) {
+            width: 100px;
+        }
     }
     .discuss{
         width: calc(100% - 50px);

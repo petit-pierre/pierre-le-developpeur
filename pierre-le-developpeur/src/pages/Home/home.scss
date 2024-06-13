@@ -21,7 +21,7 @@
     }
     .reco:hover {
         .like{
-            right: -15px;
+            right: -5px;
             transition: 1000ms;
         }
     }
@@ -34,6 +34,7 @@
         top: -20dvh; 
     }
     .reco{
+
         position: relative;
         display: flex;
         flex-direction: column;
@@ -68,7 +69,7 @@
                 filter: invert(1);
             }*/
             @media (max-width: 650px) {
-                right: -15px;
+                right: -5px;
               }
         }
     }

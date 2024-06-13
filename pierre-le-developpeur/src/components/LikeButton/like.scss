@@ -7,13 +7,14 @@
     right: -350px;
     opacity: 0.8;
     z-index: 6;
-    //background-color: black;
     border-radius: 20px;
     padding-left: 20px;
-    //color: white;
-    /*img{
-        filter: invert(1);
-    }*/
+    height: 36px;
+    justify-content: flex-end;
+    text-align: right;
+    p{
+        margin: auto;
+    }
     @media (max-width: 650px) {
         right: -10px;
     }
@@ -24,6 +25,7 @@
     }
     .pocContain{
         position: relative;
+        margin-right: 35px;
     }
     .poc1{
         left: 0px;
@@ -49,15 +51,9 @@
             animation-name: like;
             animation-duration: 2000ms;
             .poc{
-                //transform: translateY(-2px);
                 display: block;
                 animation-name: poc;
                 animation-duration: 2000ms;
-                //pointer-events: none;
-            }
-            img{
-                //pointer-events: none;
-                //cursor: none;
             }
         }
     .buttonLike{
@@ -67,37 +63,29 @@
         .logoLike{
             width: 20px;
             cursor: pointer;
-            //margin-top: 0px;
         }
     }
 }
 @keyframes like{
     0% {
-        //transform: rotate(0deg);
         transform: translateX(-1px);
     }
     6% {
-        //transform: rotate(0deg);
         transform: translateX(1px);
     }
     12% {
-        //transform: rotate(-20deg);
         transform: translateX(-1px);
     }  
     18% {
-        //transform: rotate(0deg);
         transform: translateX(1px);
     }  
     24% {
-        //transform: rotate(0deg);
         transform: translateX(-1px);
     }  
     32% {
-        //transform: rotate(0deg);
         transform: translateX(1px);
     }  
     40% {
-        //transform: rotate(0deg);
         transform: translateX(0px);
     }  
     100%{
@@ -106,28 +94,19 @@
   }
   @keyframes poc{
     0% {
-        //transform: rotate(0deg);
-        //transform: translateX(-1px);
         opacity: 0;
     }
     35% {
-        //transform: rotate(0deg);
-        //transform: translateX(-1px);
         opacity: 0;
     }
 
     37% {
-        //transform: rotate(-20deg);
         opacity: 1;
     }  
     70% {
-        //transform: rotate(0deg);
-        //transform: translateX(0px);
         opacity: 1;
     }  
     100% {
-        //transform: rotate(0deg);
-        //transform: translateX(0px);
         opacity: 1;
     }  
   }
@@ -144,7 +123,6 @@
     img{
         filter: invert(0);
     }
-
 }
 .likeColorblack{
     background-color: black;
@@ -152,12 +130,7 @@
     .buttonLike{
         color: inherit;
     }
-    p{
-        //color: white;
-    }
-    //color: black;
     img{
         filter: invert(1);
     }
-
 }

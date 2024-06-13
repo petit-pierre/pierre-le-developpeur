@@ -55,7 +55,7 @@ function DeleteSkill() {
     navigate("/User");
   }
   return (
-    <div>
+    <div style={{ "margin-top": "20dvh", textAlign: "center" }}>
       <h1>Oh non !!!!!!</h1>
       <p>Confirmez vous la suppression de ce skill : {skill.french_title} ?</p>
       <button onClick={deleteSkill}>OUI</button>

@@ -79,7 +79,7 @@ function PostSkills() {
     navigate("/User");
   }
   return (
-    <div>
+    <div style={{ "margin-top": "20dvh" }}>
       <p>title in french :</p>
       <input type="text" ref={frenchTitle}></input>
       <p>title in english :</p>

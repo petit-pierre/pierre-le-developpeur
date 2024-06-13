@@ -45,7 +45,7 @@ function DeleteTool() {
     navigate("/User");
   }
   return (
-    <div>
+    <div style={{ "margin-top": "20dvh", textAlign: "center" }}>
       <h1>Oh non !!!!!!</h1>
       <p>Confirmez vous la suppression de ce tool : {tool.title} ?</p>
       <button onClick={deleteTool}>OUI</button>

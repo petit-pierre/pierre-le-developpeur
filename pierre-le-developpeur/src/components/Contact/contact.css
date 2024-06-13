@@ -163,6 +163,11 @@
   width: 140px;
   transition: 1s;
 }
+@media (max-width: 650px) {
+  .contactField .noDiscuss:hover {
+    width: 100px;
+  }
+}
 .contactField .discuss {
   width: calc(100% - 50px);
 }

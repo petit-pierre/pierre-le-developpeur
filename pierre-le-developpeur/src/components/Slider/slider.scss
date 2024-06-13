@@ -94,7 +94,7 @@
     }
     .arrowLeft {
       position: absolute;
-      z-index: 3;
+      z-index: 7;
       top: 30dvh;
       left: 0px;
       cursor: pointer;
@@ -103,7 +103,7 @@
     }
     .arrowRight {
       position: absolute;
-      z-index: 3;
+      z-index: 7;
       top: 30dvh;
       right: 0px;
       cursor: pointer;
@@ -152,6 +152,7 @@
       white-space: nowrap;
       width: 100%;
       overflow: hidden;
+      justify-content: center;
     }
     .buttonArrow{
       border: 0px;

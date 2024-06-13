@@ -22,7 +22,7 @@
   background: linear-gradient(rgb(255, 255, 255), rgba(157, 59, 143, 0));
 }
 .withe .reco:hover .like {
-  right: -15px;
+  right: -5px;
   transition: 1000ms;
 }
 .withe .recoAnchor {
@@ -72,7 +72,7 @@
 }
 @media (max-width: 650px) {
   .withe .reco .like {
-    right: -15px;
+    right: -5px;
   }
 }
 .withe .tools {

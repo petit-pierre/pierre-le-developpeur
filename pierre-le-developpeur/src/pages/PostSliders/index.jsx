@@ -67,7 +67,7 @@ function PostSliders() {
     navigate("/User");
   }
   return (
-    <div>
+    <div style={{ "margin-top": "20dvh" }}>
       <p>french content :</p>
       <textarea ref={french_content} />
       <p>english content :</p>

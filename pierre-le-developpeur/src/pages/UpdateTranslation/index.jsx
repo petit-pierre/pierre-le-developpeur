@@ -138,7 +138,7 @@ function UpdateInfo() {
   }
 
   return (
-    <main>
+    <main style={{ "margin-top": "20dvh" }}>
       <div>
         <h1>Info</h1>
         <fieldset>

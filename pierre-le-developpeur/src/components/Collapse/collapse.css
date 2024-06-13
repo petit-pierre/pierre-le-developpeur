@@ -98,14 +98,14 @@
 
 @media (min-width: 650px) {
   .collapseContent:hover .like {
-    right: -20px;
+    right: -10px;
     transition: 1000ms;
   }
 }
 
 @media (max-width: 649px) {
   .collapseContent .like {
-    right: -20px;
+    right: -10px;
     transition: 1000ms;
   }
 }/*# sourceMappingURL=collapse.css.map */

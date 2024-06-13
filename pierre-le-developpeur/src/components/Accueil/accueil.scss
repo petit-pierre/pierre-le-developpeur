@@ -2,6 +2,7 @@
     //padding: 100px 50px 100px 250px;
     min-height: 610px;
     background-color: white;
+    margin-top: -6dvh;
     p{
         font-family: "hayanbaram", sans-serif;
         font-weight: lighter;
@@ -12,8 +13,10 @@
         font-family: "hayanbaram", sans-serif;
         font-weight: lighter;
         font-size: 1.6rem;
+        margin-bottom: 6dvh;
         //text-align: center;
     }
+
     .firstPartAccueil{
         padding: 100px 50px 0px 250px;
         min-height: 200px;
@@ -25,6 +28,7 @@
 
     }
     .secondPartAccueil{
+        margin-top: -2dvh;
         padding: 0px 0px 100px 30px;
         display: flex;
         flex-direction: row;

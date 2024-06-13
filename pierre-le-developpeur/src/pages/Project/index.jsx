@@ -27,6 +27,20 @@ function Project() {
     AOS.init();
   }, []);
 
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  useEffect(() => {
+    const onScroll = (e) => {
+      setScrollTop(e.target.documentElement.scrollTop);
+      setScrolling(e.target.documentElement.scrollTop > scrollTop);
+    };
+    window.addEventListener("scroll", onScroll);
+    //console.log(scrollTop);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
+
   useEffect(() => {
     const getLikes = async () => {
       const getLikesResult = await dispatch(getLikesThunk());
@@ -64,7 +78,40 @@ function Project() {
       <div className="projectPage">
         <span id="project"></span>
 
-        <div className="slider">
+        <div
+          className="slider"
+          style={{
+            /*"box-shadow":
+              "rgba(240, 46, 170, 0.4) 0px " +
+              (500 - scrollTop) +
+              "px, rgba(240, 46, 170, 0.3) 0px " +
+              (525 - scrollTop) +
+              "px, rgba(240, 46, 170, 0.2) 0px " +
+              (550 - scrollTop) +
+              "px, rgba(240, 46, 170, 0.1) 0px " +
+              (575 - scrollTop) +
+              "px, rgba(240, 46, 170, 0.05) 0px " +
+              (600 - scrollTop) +
+              "px",
+              "0px " +
+              (150 - scrollTop) +
+              "px " +
+              (300 - scrollTop) +
+              "px black"*/
+            opacity: 1 - scrollTop / 350,
+          }}
+        >
+          <div
+            className="transition"
+            style={{
+              //opacity: 1,
+              //opacity: scrollTop ,
+              bottom: "0",
+              //height: scrollTop / 10 + "px",
+              height: scrollTop * 4,
+              //height: "calc (10dvh +" + scrollTop / 150 + "dvh)",
+            }}
+          ></div>
           <Slider
             sliders={project.sliders}
             mini={false}

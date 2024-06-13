@@ -16,7 +16,7 @@
     border: solid white;
     text-align: center;
     .likeSlide{
-        top: 100px;
+        top: 114px;
     }
     .cardSlide{
         opacity: 1;
@@ -30,14 +30,16 @@
         opacity: 0.8;
         transition: all ease-in-out 4s; 
         z-index: 1;
-        height: 100%;
+        height: calc( 100% - 150px);
         min-width: 230px;
-        width: 100%;
+        width: 100% ;
         p{
             padding: 10px;
         }
         .like{
-            top: 70px;
+            top: 50px;
+            //height: 55px;
+            //bottom: 30px;
         }
     }
 }

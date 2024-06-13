@@ -82,7 +82,7 @@ function PostTools() {
     navigate("/User");
   }
   return (
-    <div>
+    <div style={{ "margin-top": "20dvh" }}>
       <p>title :</p>
       <input type="text" ref={Title}></input>
       <p>categorie :</p>
