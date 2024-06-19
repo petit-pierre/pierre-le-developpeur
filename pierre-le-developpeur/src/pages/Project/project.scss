@@ -29,46 +29,43 @@
 }
 .projectPage{
     position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: calc(103dvh - 59px);
     .transition{
         background: linear-gradient(0deg, #FFFFFF, rgba(255,255,255, 0));
-        //background-color: white;
         position: absolute;
-        //top: 0;
         z-index: 5;
         width: 100%;
-        //height: 10dvh;
         opacity: 1;
-        //bottom: 0;
-        //top: 0;
-        //border: solid 1px red;
     }
     #project{
         position: absolute;
         top: -100px;
+        @media (max-width: 650px){
+            top: -250px;
+        }
     }
     .buttonLikeProjectContent{
         position: absolute;
         left: 92dvw;
-        //top: 0dvh;
         z-index: 6;
         @media (max-width: 650px){
-            //top: 28dvh;
             left: 70dvw;
         }
     }
     .slider{
         position: relative;
         margin-top: 0px;
-        //padding-top: 0;
-        //height: 90dvh;
         height: calc(103dvh - 59px);
-        //height: 100dvh;
-        //position: fixed;
-        //box-shadow: 0px 15px 30px black;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 100%;
         
-        //box-shadow: inset 5em 1em gold;
         @media (max-width: 650px){
             height: calc(100dvh - 130px);
+            top: 130px;
         }
     }
     .textAndLinks{
@@ -79,8 +76,8 @@
         z-index: 7;
     }
     .tools{
-        margin-top: 21dvh;
-        margin-bottom: 21dvh;
+        margin-top: 210px;
+        margin-bottom: 210px;
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -88,24 +85,20 @@
         @media (max-width: 650px){
             flex-direction: column;
         }
-        margin-top: 12dvh;
+        margin-top: 120px;
     }
     .collapse{
         width: 30%;
         padding-left: 1dvw;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 10px;
 
         @media (max-width: 650px){
             width: 90%;
             margin: auto;
         }
-        .logo{
-            width: 20px;
-            height: 20px;
-            padding-right: 10px;
-            margin-top: 15px;
-        }
+
     }
     .skills{
         margin: auto;
@@ -121,7 +114,6 @@
         .toolTitle{
             padding-right: 30px;
         }
-        //justify-content: space-around;
     }
     .projectLink{
         color: white;

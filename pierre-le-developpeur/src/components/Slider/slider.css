@@ -168,6 +168,9 @@
   border: 0px;
   background: none;
 }
+.sliderContainer .blinded {
+  opacity: 0;
+}
 
 .sliderField:hover .like {
   right: -10px;

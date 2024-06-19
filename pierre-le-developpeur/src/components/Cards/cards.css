@@ -7,7 +7,7 @@
   position: relative;
   cursor: pointer;
   margin: auto;
-  margin-bottom: 4dvh;
+  margin-bottom: 20px;
   z-index: 5;
   border: solid white;
   text-align: center;
@@ -35,9 +35,11 @@
   height: calc(100% - 150px);
   min-width: 230px;
   width: 100%;
+  display: flex;
 }
 .cardField .cardResum p {
   padding: 10px;
+  margin: auto;
 }
 .cardField .cardResum .like {
   top: 50px;

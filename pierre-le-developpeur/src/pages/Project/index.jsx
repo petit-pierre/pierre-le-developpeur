@@ -36,8 +36,19 @@ function Project() {
       setScrolling(e.target.documentElement.scrollTop > scrollTop);
     };
     window.addEventListener("scroll", onScroll);
-    //console.log(scrollTop);
-
+    console.log(scrollTop);
+    if (
+      document.querySelector(".arrowRight") !== null &&
+      document.querySelector(".arrowLeft") !== null
+    ) {
+      if (scrollTop > 100) {
+        document.querySelector(".arrowRight").classList.add("blinded");
+        document.querySelector(".arrowLeft").classList.add("blinded");
+      } else {
+        document.querySelector(".arrowRight").classList.remove("blinded");
+        document.querySelector(".arrowLeft").classList.remove("blinded");
+      }
+    }
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
 
@@ -112,6 +123,7 @@ function Project() {
               //height: "calc (10dvh +" + scrollTop / 150 + "dvh)",
             }}
           ></div>
+
           <Slider
             sliders={project.sliders}
             mini={false}

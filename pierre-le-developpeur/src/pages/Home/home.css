@@ -1,11 +1,6 @@
 .withe {
   position: relative;
   overflow: hidden;
-  /*.foot{
-      height: 100dvh;
-      max-height: 100dvh;
-      background: linear-gradient(rgb(255, 255, 255,0.0), rgba(255, 255, 255, 1));
-  }*/
 }
 .withe .background {
   position: absolute;
@@ -65,10 +60,6 @@
   right: -350px;
   border-radius: 20px;
   padding-left: 20px;
-  /*background-color: black;
-  img{
-      filter: invert(1);
-  }*/
 }
 @media (max-width: 650px) {
   .withe .reco .like {
@@ -80,7 +71,9 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  margin-top: 12dvh;
+  margin-top: 80px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @media (max-width: 650px) {
   .withe .tools {
@@ -92,10 +85,6 @@
   padding-left: 1dvw;
   position: relative;
   z-index: 4;
-  /**:focus{
-      outline:2px solid black;
-      transition: 0s;
-  }*/
 }
 @media (max-width: 650px) {
   .withe .collapse {
@@ -103,15 +92,9 @@
     margin: auto;
   }
 }
-.withe .collapse .logo {
-  width: 20px;
-  height: 20px;
-  padding-right: 10px;
-  margin-top: 15px;
-}
 .withe .competences {
   width: 100dvw;
-  margin-top: 35dvh;
+  margin-top: 270px;
 }
 .withe .competences .contentSkills {
   width: 90%;
@@ -139,14 +122,6 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.withe .projets {
-  margin-top: 200px;
-  margin-bottom: 12dvh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
 .withe .accueil {
   position: relative;
   margin-bottom: 150px;
@@ -162,4 +137,21 @@
 }
 .withe .competences {
   position: relative;
+}
+.withe .projets {
+  margin-top: 200px;
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /*@media (max-width: 650px){
+      height: 800px;
+  }*/
+}
+@media (max-width: 650px) {
+  .withe .projets {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }/*# sourceMappingURL=home.css.map */

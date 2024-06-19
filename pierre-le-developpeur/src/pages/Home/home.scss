@@ -1,4 +1,5 @@
 .withe {
+    //scroll-snap-type: y mandatory;
     position: relative;
     overflow: hidden;
     //background: linear-gradient(rgb(255, 255, 255,0.0), rgba(255, 255, 255, 0.6));
@@ -26,6 +27,7 @@
         }
     }
     .recoAnchor{
+        //scroll-snap-align: start;
         position: absolute;
         top: -30dvh;
     }
@@ -34,7 +36,6 @@
         top: -20dvh; 
     }
     .reco{
-
         position: relative;
         display: flex;
         flex-direction: column;
@@ -63,11 +64,6 @@
             right: -350px;
             border-radius: 20px;
             padding-left: 20px;
-            //color: white;
-            /*background-color: black;
-            img{
-                filter: invert(1);
-            }*/
             @media (max-width: 650px) {
                 right: -5px;
               }
@@ -81,31 +77,23 @@
         @media (max-width: 650px){
             flex-direction: column;
         }
-        margin-top: 12dvh;
+        margin-top: 80px;
+        height: fit-content;
     }
     .collapse{
         width: 30%;
         padding-left: 1dvw;
         position: relative;
         z-index: 4;
-        /**:focus{
-            outline:2px solid black;
-            transition: 0s;
-        }*/
         @media (max-width: 650px){
             width: 90%;
             margin: auto;
         }
-        .logo{
-            width: 20px;
-            height: 20px;
-            padding-right: 10px;
-            margin-top: 15px;
-        }
+
     }
     .competences{
         width: 100dvw;
-        margin-top: 35dvh;
+        margin-top: 270px;
 
         .contentSkills{
             width: 90%;
@@ -132,15 +120,7 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    .projets{
-        margin-top: 200px;
-        margin-bottom: 12dvh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap;
 
-    }
     .accueil{
         position: relative;
         margin-bottom: 150px;
@@ -152,16 +132,24 @@
             top: -130px;
         }
     }
-    .contact{
-        //padding-top: 150px;
-    }
     .competences{
         position: relative;
     }
-
-    /*.foot{
-        height: 100dvh;
-        max-height: 100dvh;
-        background: linear-gradient(rgb(255, 255, 255,0.0), rgba(255, 255, 255, 1));
-    }*/
+    .projets{
+        margin-top: 200px;
+        margin-bottom: 150px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        @media (max-width: 650px){
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+        //height: fit-content;
+        /*@media (max-width: 650px){
+            height: 800px;
+        }*/
+    }
 }
+

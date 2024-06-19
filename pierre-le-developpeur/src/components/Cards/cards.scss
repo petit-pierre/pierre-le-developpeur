@@ -8,7 +8,8 @@
     position: relative;
     cursor: pointer;
     margin: auto;
-    margin-bottom: 4dvh;
+    //margin-bottom: 4dvh;
+    margin-bottom: 20px;
     z-index: 5;
     @media (max-width: 650px) {
         width: 80%;
@@ -33,8 +34,10 @@
         height: calc( 100% - 150px);
         min-width: 230px;
         width: 100% ;
+        display: flex;
         p{
             padding: 10px;
+            margin: auto;
         }
         .like{
             top: 50px;

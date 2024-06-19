@@ -4,9 +4,10 @@
 
 .content-parent {
     max-height: 0px;
+    //height: 0;
     overflow: hidden;
     transform: translateY(0px);
-    transition: all ease 0.9s;
+    transition: all ease 1.9s;
     //border-radius: 0 0 5px 5px;
     //background-color:#F6F6F6;
     margin: 0px 0px 0px 0px;
@@ -18,8 +19,13 @@
 .content-show {
     overflow: hidden;
     transform: translateY(0px);
-    transition: all ease 0.9s;
-    max-height: 2500px;
+    transition: all ease 1.9s;
+    transition-delay: 0.6s;
+    
+    max-height: 150dvh;
+    //max-height: max-content;
+    //height: fit-content;
+    //height: min-content;
     //background-color:#F6F6F6;
     margin: 0px 0px 0px 0px;
     z-index: -1;
@@ -33,12 +39,33 @@
     margin-top: 0;
     padding: 20px;
     //color: white;
+    //max-height: 2500px;
+    //height: fit-content;
     color: black;
     //background-color: #99477a;
     background-color: white;
     opacity: 0.8;
     transition: all ease-in-out 4s; 
     border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    .logoAndTitle{
+        margin-bottom: 15px;
+    }
+    p{
+        margin: auto;
+    }
+    .logo{
+        //position: relative;
+        margin: auto;
+        //margin-top: -20px;
+    }
+    .logo{
+        width: 20px;
+        height: 20px;
+        padding-right: 10px;
+        //margin-top: 15px;
+    }
     .like{
         color: white;
         img{
@@ -62,6 +89,7 @@
     z-index: 3;
     cursor: pointer;
     min-height: 30px;
+    //transition: 1s;
     //padding-top: 10px;
     @media (max-width: 650px) {
         height: 5dvh;
@@ -88,11 +116,12 @@
 .open{
     border-radius:  20px 20px 0px 0px;
     //transition: all 0.1s;
+    transition: 1s;
 }
 .close{
     border-radius:  20px 20px 20px 20px;
     transition: all 3s;
-    transition-delay: 0.8s;
+    transition-delay: 1.8s;
 }
 
 .openArrow {
