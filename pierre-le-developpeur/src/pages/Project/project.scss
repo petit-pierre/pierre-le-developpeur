@@ -36,6 +36,9 @@
         width: 100%;
         position: relative;
         margin-bottom: 150px;
+        p{
+            text-align: center;
+        }
     }
     .video{
         display: block;
@@ -45,6 +48,7 @@
         //margin-left: 100px;
         z-index: 8;
         position: relative;
+        border-radius: 20px;
     }
     .transition{
         background: linear-gradient(0deg, #FFFFFF, rgba(255,255,255, 0));
@@ -91,7 +95,7 @@
     }
     .tools{
         margin-top: 210px;
-        margin-bottom: 210px;
+        margin-bottom: 150px;
         display: flex;
         flex-direction: row;
         width: 100%;
