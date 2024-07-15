@@ -30,7 +30,7 @@ function Home() {
     //return a.date - b.date;
   });
 
-  console.log(projects);
+  //console.log(projects);
 
   /*const slide = structuredClone(projects);
   [slide[0], slide[1]] = [slide[1], slide[0]];

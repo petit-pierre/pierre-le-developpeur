@@ -32,6 +32,20 @@
     width: 100%;
     overflow: hidden;
     padding-top: calc(103dvh - 59px);
+    .videoField{
+        width: 100%;
+        position: relative;
+        margin-bottom: 150px;
+    }
+    .video{
+        display: block;
+        width: 80%;
+        //min-height: 100%;
+        margin: auto;
+        //margin-left: 100px;
+        z-index: 8;
+        position: relative;
+    }
     .transition{
         background: linear-gradient(0deg, #FFFFFF, rgba(255,255,255, 0));
         position: absolute;

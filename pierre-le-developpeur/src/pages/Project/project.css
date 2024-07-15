@@ -35,6 +35,18 @@
   overflow: hidden;
   padding-top: calc(103dvh - 59px);
 }
+.projectPage .videoField {
+  width: 100%;
+  position: relative;
+  margin-bottom: 150px;
+}
+.projectPage .video {
+  display: block;
+  width: 80%;
+  margin: auto;
+  z-index: 8;
+  position: relative;
+}
 .projectPage .transition {
   background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
   position: absolute;

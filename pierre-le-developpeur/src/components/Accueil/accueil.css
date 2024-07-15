@@ -1,7 +1,7 @@
 .accueilField {
   min-height: 610px;
   background-color: white;
-  margin-top: -6dvh;
+  margin-top: -30px;
 }
 .accueilField p {
   font-family: "hayanbaram", sans-serif;
@@ -13,7 +13,7 @@
   font-family: "hayanbaram", sans-serif;
   font-weight: lighter;
   font-size: 1.6rem;
-  margin-bottom: 6dvh;
+  margin-bottom: 30px;
 }
 .accueilField .firstPartAccueil {
   padding: 100px 50px 0px 250px;
@@ -26,7 +26,7 @@
   }
 }
 .accueilField .secondPartAccueil {
-  margin-top: -2dvh;
+  margin-top: -10px;
   padding: 0px 0px 100px 30px;
   display: flex;
   flex-direction: row;

@@ -5,7 +5,6 @@ import { userSlice } from "../../Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import Contact from "../Contact";
 
 function Header() {
   const language = useSelector((state) => state.data.language);
@@ -75,6 +74,19 @@ function Header() {
             <div className="ul">
               <div className="logos ">
                 <a
+                  href="https://www.malt.fr/profile/pierreaubree"
+                  target="_blank"
+                  className="logoLink "
+                  rel="noopener noreferrer"
+                  tabIndex={2}
+                >
+                  <img
+                    src="https://pierre-le-developpeur.com/assets/logo malt.png"
+                    alt="logo malt"
+                    className="logo"
+                  ></img>
+                </a>
+                <a
                   href="https://github.com/petit-pierre"
                   target="_blank"
                   className="logoLink "
@@ -101,6 +113,7 @@ function Header() {
                   ></img>
                 </a>
               </div>
+
               <HashLink onClick={closeDial} to="/#accueil" tabIndex={4}>
                 <div className="li links txtLinks">
                   {language === "FR" ? "Accueil" : "Welcome"}

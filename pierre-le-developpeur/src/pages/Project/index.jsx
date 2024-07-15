@@ -238,6 +238,25 @@ function Project() {
             ></Collapse>
           </div>
         </div>
+        <div className="videoField">
+          {project.sliders.map((slide) =>
+            slide.alt === "Video" ? (
+              <iframe
+                className="video"
+                //min-width="560"
+                //height="315"
+                height={window.innerWidth * 0.45}
+                src={slide.picture.concat("?rel=0")}
+                title="YouTube video player"
+                frameborder="0"
+                allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            ) : (
+              ""
+            )
+          )}
+        </div>
         <Contact props={{ likeId: "65dc9d6a700bae9e300a79aa" }} />
       </div>
     ) : (

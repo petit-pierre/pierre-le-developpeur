@@ -66,6 +66,11 @@
 .headerfield .links {
   padding-top: 8px;
 }
+@media (min-width: 900px) and (max-width: 2000px) {
+  .headerfield .links {
+    font-size: 1.4dvw;
+  }
+}
 
 .allHeader:hover nav {
   transition: 1s;
