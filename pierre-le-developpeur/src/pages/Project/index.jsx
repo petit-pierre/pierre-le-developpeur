@@ -60,6 +60,14 @@ function Project() {
   }, []);
 
   const project = projects.find((project) => project.french_title === title);
+  let sortedSlider = [];
+  let sliders = project.sliders;
+  for (let slide of sliders) {
+    //console.log(slide);
+    if (slide.alt !== "Video" && slide.alt !== "TextPicture") {
+      sortedSlider.push(slide);
+    }
+  }
   if (
     likes != null &&
     skills != null &&
@@ -125,7 +133,7 @@ function Project() {
           ></div>
 
           <Slider
-            sliders={project.sliders}
+            sliders={sortedSlider}
             mini={false}
             likeId={project.slider_likes_id}
           ></Slider>

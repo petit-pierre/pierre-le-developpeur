@@ -346,6 +346,7 @@ function Slider({ sliders, mini, likeId }) {
               src="http://pierre-le-developpeur.com/assets/arrow_right.png"
               alt="fleche vers la droite"
             ></img>
+            {console.log(sliders)}
           </button>
           {sliders.length === 2 ? (
             <div className="counter">
