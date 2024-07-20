@@ -222,7 +222,7 @@ function PostProject() {
                   putProjectThunk(newProject, token, id)
                 );
               }
-            }, 500);
+            }, 1000);
           };
           if (i === links.length - 1) {
             for (let picToD of slideToDellette) {
@@ -234,7 +234,7 @@ function PostProject() {
               };
               deletePicture();
             }
-
+            //console.log(newProject.sliders);
             await finalSubmit();
           }
         };

@@ -25,8 +25,8 @@ import DeleteTool from "./pages/DeleteTool";
 import UpdateInfo from "./pages/UpdateTranslation";
 import PostSliders from "./pages/PostSliders";
 import DeleteSlide from "./pages/DeleteSlide";
+import Flyers from "./pages/Flyers";
 import Header from "./components/Header";
-import Contact from "./components/Contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -87,6 +87,7 @@ function App() {
         <Route path="/User/Slide/:slideId" element={<DeleteSlide />} />
         <Route path="/Project/:title" element={<Project />} />
         <Route path="/Sign-in" element={<SignIn />} />
+        <Route path="/Flyers" element={<Flyers />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/404" element={<Error404 />} />
       </Routes>
