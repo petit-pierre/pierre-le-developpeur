@@ -133,7 +133,7 @@ function TextArea({ props, content }) {
                 <div key={link._id}>
                   <a
                     href={link.url}
-                    target="_blank"
+                    target={link.category === "pierre le dev" ? "" : "_blank"}
                     className="projectLink"
                     rel="noopener noreferrer"
                   >

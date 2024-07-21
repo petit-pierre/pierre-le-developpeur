@@ -2,6 +2,9 @@ import { useSelector } from "react-redux";
 import "./Flyers.css";
 import Contact from "../../components/Contact";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+//import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Masonry from "react-masonry-css";
 
 function Flyers() {
   //const navigate = useNavigate();
@@ -13,6 +16,42 @@ function Flyers() {
 
   const navigate = useNavigate();
 
+  const images = [
+    "https://pierre-le-developpeur.com/assets/flyers/fly00.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly01.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly02.gif",
+    "https://pierre-le-developpeur.com/assets/flyers/fly03.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly04.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly05.gif",
+    "https://pierre-le-developpeur.com/assets/flyers/fly06.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly07.gif",
+    "https://pierre-le-developpeur.com/assets/flyers/fly09.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly10.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly11.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly12.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly13.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly14.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly15.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly16.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly17.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly18.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly19.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly20.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly21.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly22.jpg",
+    "https://pierre-le-developpeur.com/assets/flyers/fly23.jpg",
+  ];
+  const [fly, setFly] = useState(
+    "https://pierre-le-developpeur.com/assets/flyers/fly01.jpg"
+  );
+
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
   if (
     language !== null &&
     contact !== null &&
@@ -20,9 +59,46 @@ function Flyers() {
     translations !== null &&
     likes !== null
   ) {
+    function startModal(image, evt) {
+      evt.preventDefault();
+      setFly(image);
+      document.querySelector(".modalContainer").classList.remove("hiddenModal");
+    }
+    function closeModal(evt) {
+      evt.preventDefault();
+      document.querySelector(".modalContainer").classList.add("hiddenModal");
+    }
     return (
       <div className="flyers">
-        <p>coucou</p>
+        <div className="modalContainer hiddenModal">
+          <div className="flyModal">
+            <img
+              src="https://pierre-le-developpeur.com/assets/cross.png"
+              alt="logo close"
+              className="cross"
+              onClick={(evt) => closeModal(evt)}
+            ></img>{" "}
+            <div className="flyContainer">
+              <img src={fly} alt="full screen flyer" className="fullPic"></img>
+            </div>
+          </div>
+        </div>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {images.map((image, i) => (
+            <img
+              key={i}
+              src={image}
+              className="flyer"
+              alt="flyer"
+              onClick={(evt) => startModal(image, evt)}
+            />
+          ))}
+        </Masonry>
+
         <Contact props={{ likeId: "65dc9d6a700bae9e300a79aa" }} />
       </div>
     );

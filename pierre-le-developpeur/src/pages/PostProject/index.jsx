@@ -45,6 +45,7 @@ function PostProject() {
   const linkList = [
     { id: 1, name: "web" },
     { id: 2, name: "github" },
+    { id: 3, name: "pierre le dev" },
   ];
 
   const Category = [
