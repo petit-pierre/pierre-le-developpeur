@@ -6,7 +6,7 @@ import LikeButton from "../../components/LikeButton";
 import Collapse from "../../components/Collapse";
 import { useEffect, useState } from "react";
 import { getLikesThunk } from "../../thunkActionsCreator";
-import TextArea from "../../components/TextArea";
+import AreaForText from "../../components/AreaForText";
 import Contact from "../../components/Contact";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -144,7 +144,7 @@ function Project() {
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          <TextArea
+          <AreaForText
             props={{
               french: project.french_description,
               english: project.english_description,
@@ -155,7 +155,7 @@ function Project() {
               cofee: true,
               id: "project00",
             }}
-          ></TextArea>
+          ></AreaForText>
         </div>
         <div className="description">
           {project.sliders.map((slide) =>
@@ -180,7 +180,7 @@ function Project() {
                   className="text"
                   data-aos={divCounter === true ? "fade-left" : "fade-right"}
                 >
-                  <TextArea
+                  <AreaForText
                     props={{
                       french: slide.french_content,
                       english: slide.english_content,
@@ -191,7 +191,7 @@ function Project() {
                     }}
                   >
                     {" "}
-                  </TextArea>{" "}
+                  </AreaForText>{" "}
                   {(divCounter = !divCounter)}
                 </div>
               </div>

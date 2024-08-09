@@ -9,6 +9,7 @@ import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
 import TextArea from "../../components/TextArea";
+import AreaForText from "../../components/AreaForText";
 import Accueil from "../../components/Accueil";
 import Snow from "../../components/Snow";
 
@@ -102,7 +103,7 @@ function Home() {
             <div className="reco">
               <span id="reco" className="recoAnchor"></span>
               <div className="recoTxt">
-                <TextArea
+                <AreaForText
                   props={{
                     french: translations.french.recommendation,
                     english: translations.english.recommendation,
@@ -113,7 +114,7 @@ function Home() {
                     id: "home02",
                     sign: true,
                   }}
-                ></TextArea>
+                ></AreaForText>
               </div>
               <div className="like">
                 <LikeButton
@@ -128,7 +129,7 @@ function Home() {
             <div className="competences">
               <span id="competences"></span>
               <div className="contentSkills">
-                <TextArea
+                <AreaForText
                   props={{
                     french: translations.french.placeholder_content,
                     english: translations.english.placeholder_content,
@@ -155,7 +156,7 @@ function Home() {
                       </div>
                     </div>
                   ))}
-                ></TextArea>
+                ></AreaForText>
               </div>
               <div className="pictureJap">
                 <img
