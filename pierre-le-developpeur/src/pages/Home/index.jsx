@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import Collapse from "../../components/Collapse";
 import Cards from "../../components/Cards";
 import { getLikesThunk } from "../../thunkActionsCreator";
-import TextArea from "../../components/TextArea";
 import AreaForText from "../../components/AreaForText";
 import Accueil from "../../components/Accueil";
 import Snow from "../../components/Snow";

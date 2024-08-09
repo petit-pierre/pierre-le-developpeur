@@ -31,7 +31,10 @@
   bottom: 20px;
 }
 .textareafield .empty .fullResum {
+  display: flex;
+  flex-direction: column;
   margin: 20px;
+  justify-content: space-around;
 }
 .textareafield .empty .fullResum p {
   font-family: "abacaxi-devanagari", sans-serif;

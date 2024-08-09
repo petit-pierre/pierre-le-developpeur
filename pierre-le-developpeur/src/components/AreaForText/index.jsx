@@ -7,10 +7,9 @@ import Cofee from "../Cofee/coffe";
 function AreaForText({ props, content }) {
   const translations = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
-  let textPlace = useRef();
   const [cofee, setCofee] = useState(false);
-  const french = props.french.split(`\n`);
-  const english = props.english.split(`\n`);
+  let french = props.french.split(`\n`);
+  let english = props.english.split(`\n`);
 
   return (
     <div className="textareafield">
@@ -21,12 +20,12 @@ function AreaForText({ props, content }) {
         <form id={props.id + "myForm"} className="mise-en-page textArea">
           <div className="fullResum">
             {language === "FR"
-              ? french.map((content) => (
-                  <div>
-                    <p>{content}</p>
-                  </div>
-                ))
-              : english.map((content) => <p>{content}</p>)}{" "}
+              ? french.map((content) =>
+                  content !== "" ? <p>{content}</p> : ""
+                )
+              : english.map((content) =>
+                  content !== "" ? <p>{content}</p> : ""
+                )}{" "}
           </div>
           <br></br>
 

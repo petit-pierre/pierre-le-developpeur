@@ -33,17 +33,16 @@
             bottom: 20px;
         }
         .fullResum{
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            //align-items: center;
+            justify-content: space-around;
             p{
                 font-family: "abacaxi-devanagari", sans-serif;
                 font-weight: 400;
                 font-style: normal;
-                
-
             }
-            //line-height:0.1rem;
-            margin: 20px;
-            //margin-top: 40px;
-
         }
     }
     .purpleAndWitheTextarea{

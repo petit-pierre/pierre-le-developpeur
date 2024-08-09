@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./contact.css";
-import { useEffect, useRef, useState } from "react";
-import TextArea from "../TextArea";
+import { useRef, useState } from "react";
 import Typewrite from "../Typewrite";
 import Button from "../Button";
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
