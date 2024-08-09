@@ -3,11 +3,9 @@ import "./Flyers.css";
 import Contact from "../../components/Contact";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-//import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Masonry from "react-masonry-css";
 
 function Flyers() {
-  //const navigate = useNavigate();
   const language = useSelector((state) => state.data.language);
   const contact = useSelector((state) => state.data.translations);
   const translations = useSelector((state) => state.data.translations);
@@ -90,7 +88,7 @@ function Flyers() {
         >
           {images.map((image, i) => (
             <img
-              key={i}
+              key={"fly" + i}
               src={image}
               className="flyer"
               alt="flyer"

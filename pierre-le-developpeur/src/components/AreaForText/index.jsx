@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 import "./textArea.css";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import LikeButton from "../LikeButton";
 import Cofee from "../Cofee/coffe";
 
 function AreaForText({ props, content }) {
-  const translations = useSelector((state) => state.data.translations);
   const language = useSelector((state) => state.data.language);
   const [cofee, setCofee] = useState(false);
   let french = props.french.split(`\n`);
@@ -20,11 +19,19 @@ function AreaForText({ props, content }) {
         <form id={props.id + "myForm"} className="mise-en-page textArea">
           <div className="fullResum">
             {language === "FR"
-              ? french.map((content) =>
-                  content !== "" ? <p>{content}</p> : ""
+              ? french.map((content, index) =>
+                  content !== "" ? (
+                    <p key={"french content" + index}>{content}</p>
+                  ) : (
+                    ""
+                  )
                 )
-              : english.map((content) =>
-                  content !== "" ? <p>{content}</p> : ""
+              : english.map((content, index) =>
+                  content !== "" ? (
+                    <p key={"english content" + index}>{content}</p>
+                  ) : (
+                    ""
+                  )
                 )}{" "}
           </div>
           <br></br>

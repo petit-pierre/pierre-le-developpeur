@@ -30,12 +30,6 @@ function Home() {
     //return a.date - b.date;
   });
 
-  //console.log(projects);
-
-  /*const slide = structuredClone(projects);
-  [slide[0], slide[1]] = [slide[1], slide[0]];
-  console.log(slide);*/
-
   const socket = io.connect("https://api.petitpierre.net");
 
   const dispatch = useDispatch();
@@ -253,8 +247,8 @@ function Home() {
           <span id="projets"></span>
           <div className="projets">
             {projects.map((project) => (
-              <div>
-                <Cards project={project} key={project._id}></Cards>
+              <div key={project._id}>
+                <Cards project={project}></Cards>
               </div>
             ))}
           </div>

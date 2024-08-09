@@ -36,7 +36,6 @@ function Project() {
       setScrolling(e.target.documentElement.scrollTop > scrollTop);
     };
     window.addEventListener("scroll", onScroll);
-    console.log(scrollTop);
     if (
       document.querySelector(".arrowRight") !== null &&
       document.querySelector(".arrowLeft") !== null
@@ -72,7 +71,6 @@ function Project() {
     let sortedSlider = [];
     let sliders = project.sliders;
     for (let slide of sliders) {
-      //console.log(slide);
       if (slide.alt !== "Video" && slide.alt !== "TextPicture") {
         sortedSlider.push(slide);
       }
@@ -101,35 +99,14 @@ function Project() {
         <div
           className="slider"
           style={{
-            /*"box-shadow":
-              "rgba(240, 46, 170, 0.4) 0px " +
-              (500 - scrollTop) +
-              "px, rgba(240, 46, 170, 0.3) 0px " +
-              (525 - scrollTop) +
-              "px, rgba(240, 46, 170, 0.2) 0px " +
-              (550 - scrollTop) +
-              "px, rgba(240, 46, 170, 0.1) 0px " +
-              (575 - scrollTop) +
-              "px, rgba(240, 46, 170, 0.05) 0px " +
-              (600 - scrollTop) +
-              "px",
-              "0px " +
-              (150 - scrollTop) +
-              "px " +
-              (300 - scrollTop) +
-              "px black"*/
             opacity: 1 - scrollTop / 350,
           }}
         >
           <div
             className="transition"
             style={{
-              //opacity: 1,
-              //opacity: scrollTop ,
               bottom: "0",
-              //height: scrollTop / 10 + "px",
               height: scrollTop * 4,
-              //height: "calc (10dvh +" + scrollTop / 150 + "dvh)",
             }}
           ></div>
 
@@ -250,7 +227,7 @@ function Project() {
         <div className="videoField" data-aos="zoom-in" data-aos-duration="2000">
           {project.sliders.map((slide) =>
             slide.alt === "Video" ? (
-              <div>
+              <div key={"video" + slide._id}>
                 {language === "FR" ? (
                   <p>{slide.french_content} </p>
                 ) : (
@@ -259,14 +236,12 @@ function Project() {
 
                 <iframe
                   className="video"
-                  //min-width="560"
-                  //height="315"
                   height={window.innerWidth * 0.45}
                   src={slide.picture.concat("?rel=0")}
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
             ) : (

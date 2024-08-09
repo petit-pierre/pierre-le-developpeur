@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./slider.css";
 import LikeButton from "../LikeButton";
 import { useSelector } from "react-redux";
@@ -7,7 +7,6 @@ function Slider({ sliders, mini, likeId }) {
   const language = useSelector((state) => state.data.language);
   let sortedSlider = [];
   for (let slide of sliders) {
-    //console.log(slide);
     if (slide.alt !== "Video" && slide.alt !== "TextPicture") {
       sortedSlider.push(slide);
     }
@@ -19,17 +18,13 @@ function Slider({ sliders, mini, likeId }) {
   let nw = structuredClone(sortedSlider);
   for (let i = 0; i < nw.length; i++) {
     nw[i].index = i;
-    //console.log(nw[i].index);
-    //console.log("coucou");
   }
   sortedSlider = nw;
-  //console.log(sortedSlider);
 
   let selected = 0;
   let previous = sortedSlider.length - 1;
   let next = 1;
   let cooldown = false;
-  //const [currentIndex, setCurrentIndex] = useState(0);
 
   //swipe tactile//
 
@@ -58,31 +53,6 @@ function Slider({ sliders, mini, likeId }) {
     }, 500);
   }
 
-  /*
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-
-
-
-  function handleTouchStart(e) {
-    setTouchStart(e.targetTouches[0].clientX);
-  }
-
-  function handleTouchMove(e) {
-    setTouchEnd(e.targetTouches[0].clientX);
-  }
-
-  function handleTouchEnd() {
-    if (sortedSlider.length > 1) {
-      if (touchStart - touchEnd > 150) {
-        nextPicture();
-      }
-
-      if (touchStart - touchEnd < -150) {
-        previousPicture();
-      }
-    }
-  }*/
   function useInterval(callback, delay) {
     const savedCallback = useRef();
 
@@ -116,10 +86,7 @@ function Slider({ sliders, mini, likeId }) {
       cooldown = true;
 
       document.querySelector(".arrowLeft").classList.add("cooldown");
-      //console.log(newIndex);
-      /*let selected = currentIndex + 1;
-    let previous = currentIndex;
-    let next = currentIndex + 2;*/
+
       selected--;
       previous--;
       next--;
@@ -147,8 +114,6 @@ function Slider({ sliders, mini, likeId }) {
         document.querySelector(".d" + selected).classList.add("dotSelected");
       }
 
-      //document.querySelector(".b0").style.transform = "translatex(0%)";
-      //document.querySelector(".b0").style.zIndex = "1";
       for (let i = 0; i < sortedSlider.length; i++) {
         document.querySelector(".b" + i + likeId).style.zIndex = "0";
         document.querySelector(".b" + i + likeId).style.opacity = "0";
@@ -186,10 +151,6 @@ function Slider({ sliders, mini, likeId }) {
       if (document.querySelector(".arrowRight") !== null) {
         document.querySelector(".arrowRight").classList.add("cooldown");
       }
-      /*const index = currentIndex;
-    const isLastSlide = currentIndex === sortedSlider.length - 1;
-    const newIndex = isLastSlide ? 0 : index + 1;
-    setCurrentIndex(newIndex);*/
       selected++;
       previous++;
       next++;
@@ -202,10 +163,6 @@ function Slider({ sliders, mini, likeId }) {
       if (next > sortedSlider.length - 1) {
         next = 0;
       }
-      //document.querySelector(".dot_selected").classList.remove("dot_selected");
-      //document.querySelector(".d" + selected).classList.add("dot_selected");
-      //document.querySelector(".b0").style.transform = "translatex(0%)";
-      //document.querySelector(".b0").style.zIndex = "1";
       if (document.querySelector(".dotSelected") !== null) {
         document.querySelector(".dotSelected").classList.remove("dotSelected");
         if (sliders.length === 2) {
@@ -259,12 +216,7 @@ function Slider({ sliders, mini, likeId }) {
     }
   };
   return (
-    <div
-      className="sliderField sliderContainer"
-      /*onTouchStart={mini === false ? (e) => handleTouchStart(e) : null}
-      onTouchMove={mini === false ? (e) => handleTouchMove(e) : null}
-      onTouchEnd={mini === false ? (e) => handleTouchEnd(e) : null}*/
-    >
+    <div className="sliderField sliderContainer">
       {mini === true ? (
         ""
       ) : (
@@ -277,12 +229,8 @@ function Slider({ sliders, mini, likeId }) {
           ></LikeButton>
         </div>
       )}
-      <div
-        className="inner"
-        //style={{ transform: `translate(-${currentIndex * 100}%)` }}
-      >
+      <div className="inner">
         {sortedSlider.map((slide) => {
-          //console.log(slide);
           return (
             <div
               className={
@@ -346,7 +294,6 @@ function Slider({ sliders, mini, likeId }) {
               src="http://pierre-le-developpeur.com/assets/arrow_right.png"
               alt="fleche vers la droite"
             ></img>
-            {console.log(sliders)}
           </button>
           {sliders.length === 2 ? (
             <div className="counter">
